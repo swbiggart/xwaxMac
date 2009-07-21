@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		8E967F12100FAC300074DEEE /* AudioDeviceList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E967F0A100FAC300074DEEE /* AudioDeviceList.cpp */; };
+		8E967F14100FAC300074DEEE /* CAPlayThrough.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */; };
+		8E967F15100FAC300074DEEE /* AudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E967F0F100FAC300074DEEE /* AudioDevice.cpp */; };
+		8E967F4B100FAD130074DEEE /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E967F49100FAD130074DEEE /* CAStreamBasicDescription.cpp */; };
+		8E968027100FBE5C0074DEEE /* coreaudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */; };
+		8EA3C5BC1016527400FAD50F /* track.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5A71016527400FAD50F /* track.c */; };
+		8EA3C5BD1016527400FAD50F /* xwax.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5A91016527400FAD50F /* xwax.c */; };
+		8EA3C5BE1016527400FAD50F /* timecoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5AB1016527400FAD50F /* timecoder.c */; };
+		8EA3C5BF1016527400FAD50F /* rig.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5AD1016527400FAD50F /* rig.c */; };
+		8EA3C5C01016527400FAD50F /* device.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5AF1016527400FAD50F /* device.c */; };
+		8EA3C5C11016527400FAD50F /* player.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B01016527400FAD50F /* player.c */; };
+		8EA3C5C21016527400FAD50F /* pitch.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B11016527400FAD50F /* pitch.c */; };
+		8EA3C5C31016527400FAD50F /* listing.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B51016527400FAD50F /* listing.c */; };
+		8EA3C5C41016527400FAD50F /* library.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B71016527400FAD50F /* library.c */; };
+		8EA3C5C51016527400FAD50F /* jack.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B91016527400FAD50F /* jack.c */; };
+		8EA3C5C61016527400FAD50F /* interface.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5BB1016527400FAD50F /* interface.c */; };
+		8EB5D0F1100282A400018849 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB5D0F0100282A400018849 /* CoreAudio.framework */; };
+		8EB5D111100282D200018849 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB5D10F100282D200018849 /* AudioToolbox.framework */; };
+		8EB5D112100282D200018849 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB5D110100282D200018849 /* AudioUnit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* xwaxMac_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xwaxMac_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* xwaxMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xwaxMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E967F09100FAC300074DEEE /* CAPlayThrough.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAPlayThrough.h; path = coreaudio/CAPlayThrough.h; sourceTree = "<group>"; };
+		8E967F0A100FAC300074DEEE /* AudioDeviceList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioDeviceList.cpp; path = coreaudio/AudioDeviceList.cpp; sourceTree = "<group>"; };
+		8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAPlayThrough.cpp; path = coreaudio/CAPlayThrough.cpp; sourceTree = "<group>"; };
+		8E967F0D100FAC300074DEEE /* CAPlayThroughController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAPlayThroughController.h; path = coreaudio/CAPlayThroughController.h; sourceTree = "<group>"; };
+		8E967F0E100FAC300074DEEE /* AudioDeviceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioDeviceList.h; path = coreaudio/AudioDeviceList.h; sourceTree = "<group>"; };
+		8E967F0F100FAC300074DEEE /* AudioDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioDevice.cpp; path = coreaudio/AudioDevice.cpp; sourceTree = "<group>"; };
+		8E967F10100FAC300074DEEE /* AudioDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioDevice.h; path = coreaudio/AudioDevice.h; sourceTree = "<group>"; };
+		8E967F48100FAD130074DEEE /* CABitOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CABitOperations.h; path = Examples/CoreAudio/PublicUtility/CABitOperations.h; sourceTree = DEVELOPER_DIR; };
+		8E967F49100FAD130074DEEE /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAStreamBasicDescription.cpp; path = Examples/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp; sourceTree = DEVELOPER_DIR; };
+		8E967F4A100FAD130074DEEE /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAStreamBasicDescription.h; path = Examples/CoreAudio/PublicUtility/CAStreamBasicDescription.h; sourceTree = DEVELOPER_DIR; };
+		8E968025100FBE5C0074DEEE /* coreaudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coreaudio.h; sourceTree = "<group>"; };
+		8E968026100FBE5C0074DEEE /* coreaudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coreaudio.cpp; sourceTree = "<group>"; };
+		8EA3C5A61016527400FAD50F /* xwax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xwax.h; path = "xwax-0.5/xwax.h"; sourceTree = "<group>"; };
+		8EA3C5A71016527400FAD50F /* track.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = track.c; path = "xwax-0.5/track.c"; sourceTree = "<group>"; };
+		8EA3C5A81016527400FAD50F /* track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = track.h; path = "xwax-0.5/track.h"; sourceTree = "<group>"; };
+		8EA3C5A91016527400FAD50F /* xwax.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = xwax.c; path = "xwax-0.5/xwax.c"; sourceTree = "<group>"; };
+		8EA3C5AA1016527400FAD50F /* timecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = timecoder.h; path = "xwax-0.5/timecoder.h"; sourceTree = "<group>"; };
+		8EA3C5AB1016527400FAD50F /* timecoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = timecoder.c; path = "xwax-0.5/timecoder.c"; sourceTree = "<group>"; };
+		8EA3C5AC1016527400FAD50F /* rig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rig.h; path = "xwax-0.5/rig.h"; sourceTree = "<group>"; };
+		8EA3C5AD1016527400FAD50F /* rig.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rig.c; path = "xwax-0.5/rig.c"; sourceTree = "<group>"; };
+		8EA3C5AE1016527400FAD50F /* player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = player.h; path = "xwax-0.5/player.h"; sourceTree = "<group>"; };
+		8EA3C5AF1016527400FAD50F /* device.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = device.c; path = "xwax-0.5/device.c"; sourceTree = "<group>"; };
+		8EA3C5B01016527400FAD50F /* player.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = player.c; path = "xwax-0.5/player.c"; sourceTree = "<group>"; };
+		8EA3C5B11016527400FAD50F /* pitch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pitch.c; path = "xwax-0.5/pitch.c"; sourceTree = "<group>"; };
+		8EA3C5B21016527400FAD50F /* pitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pitch.h; path = "xwax-0.5/pitch.h"; sourceTree = "<group>"; };
+		8EA3C5B31016527400FAD50F /* listing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = listing.h; path = "xwax-0.5/listing.h"; sourceTree = "<group>"; };
+		8EA3C5B41016527400FAD50F /* interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = interface.h; path = "xwax-0.5/interface.h"; sourceTree = "<group>"; };
+		8EA3C5B51016527400FAD50F /* listing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = listing.c; path = "xwax-0.5/listing.c"; sourceTree = "<group>"; };
+		8EA3C5B61016527400FAD50F /* library.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = library.h; path = "xwax-0.5/library.h"; sourceTree = "<group>"; };
+		8EA3C5B71016527400FAD50F /* library.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = library.c; path = "xwax-0.5/library.c"; sourceTree = "<group>"; };
+		8EA3C5B81016527400FAD50F /* jack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jack.h; path = "xwax-0.5/jack.h"; sourceTree = "<group>"; };
+		8EA3C5B91016527400FAD50F /* jack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jack.c; path = "xwax-0.5/jack.c"; sourceTree = "<group>"; };
+		8EA3C5BA1016527400FAD50F /* device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = device.h; path = "xwax-0.5/device.h"; sourceTree = "<group>"; };
+		8EA3C5BB1016527400FAD50F /* interface.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = interface.c; path = "xwax-0.5/interface.c"; sourceTree = "<group>"; };
+		8EB5D0F0100282A400018849 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
+		8EB5D10F100282D200018849 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
+		8EB5D110100282D200018849 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				8EB5D0F1100282A400018849 /* CoreAudio.framework in Frameworks */,
+				8EB5D111100282D200018849 /* AudioToolbox.framework in Frameworks */,
+				8EB5D112100282D200018849 /* AudioUnit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8E967F40100FACB50074DEEE /* PublicUtility */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EB5D10F100282D200018849 /* AudioToolbox.framework */,
+				8EB5D110100282D200018849 /* AudioUnit.framework */,
+				8EB5D0F0100282A400018849 /* CoreAudio.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* xwaxMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* xwaxMac */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = xwaxMac;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8E967F03100FAC1B0074DEEE /* coreaudio */,
+				8EB5CFC510027E9F00018849 /* xwax */,
+				32CA4F630368D1EE00C91783 /* xwaxMac_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E967F03100FAC1B0074DEEE /* coreaudio */ = {
+			isa = PBXGroup;
+			children = (
+				8E967F0A100FAC300074DEEE /* AudioDeviceList.cpp */,
+				8E967F09100FAC300074DEEE /* CAPlayThrough.h */,
+				8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */,
+				8E967F0D100FAC300074DEEE /* CAPlayThroughController.h */,
+				8E967F0E100FAC300074DEEE /* AudioDeviceList.h */,
+				8E967F0F100FAC300074DEEE /* AudioDevice.cpp */,
+				8E967F10100FAC300074DEEE /* AudioDevice.h */,
+			);
+			name = coreaudio;
+			sourceTree = "<group>";
+		};
+		8E967F40100FACB50074DEEE /* PublicUtility */ = {
+			isa = PBXGroup;
+			children = (
+				8E967F48100FAD130074DEEE /* CABitOperations.h */,
+				8E967F49100FAD130074DEEE /* CAStreamBasicDescription.cpp */,
+				8E967F4A100FAD130074DEEE /* CAStreamBasicDescription.h */,
+			);
+			name = PublicUtility;
+			sourceTree = "<group>";
+		};
+		8EB5CFC510027E9F00018849 /* xwax */ = {
+			isa = PBXGroup;
+			children = (
+				8E968026100FBE5C0074DEEE /* coreaudio.cpp */,
+				8E968025100FBE5C0074DEEE /* coreaudio.h */,
+				8EA3C5AF1016527400FAD50F /* device.c */,
+				8EA3C5BA1016527400FAD50F /* device.h */,
+				8EA3C5BB1016527400FAD50F /* interface.c */,
+				8EA3C5B41016527400FAD50F /* interface.h */,
+				8EA3C5B81016527400FAD50F /* jack.h */,
+				8EA3C5B91016527400FAD50F /* jack.c */,
+				8EA3C5B71016527400FAD50F /* library.c */,
+				8EA3C5B61016527400FAD50F /* library.h */,
+				8EA3C5B51016527400FAD50F /* listing.c */,
+				8EA3C5B31016527400FAD50F /* listing.h */,
+				8EA3C5B11016527400FAD50F /* pitch.c */,
+				8EA3C5B21016527400FAD50F /* pitch.h */,
+				8EA3C5B01016527400FAD50F /* player.c */,
+				8EA3C5AE1016527400FAD50F /* player.h */,
+				8EA3C5AD1016527400FAD50F /* rig.c */,
+				8EA3C5AC1016527400FAD50F /* rig.h */,
+				8EA3C5AB1016527400FAD50F /* timecoder.c */,
+				8EA3C5AA1016527400FAD50F /* timecoder.h */,
+				8EA3C5A71016527400FAD50F /* track.c */,
+				8EA3C5A81016527400FAD50F /* track.h */,
+				8EA3C5A91016527400FAD50F /* xwax.c */,
+				8EA3C5A61016527400FAD50F /* xwax.h */,
+			);
+			name = xwax;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* xwaxMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "xwaxMac" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = xwaxMac;
+			productInstallPath = "$(HOME)/Applications";
+			productName = xwaxMac;
+			productReference = 8D1107320486CEB800E47090 /* xwaxMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "xwaxMac" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* xwaxMac */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* xwaxMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E967F12100FAC300074DEEE /* AudioDeviceList.cpp in Sources */,
+				8E967F14100FAC300074DEEE /* CAPlayThrough.cpp in Sources */,
+				8E967F15100FAC300074DEEE /* AudioDevice.cpp in Sources */,
+				8E967F4B100FAD130074DEEE /* CAStreamBasicDescription.cpp in Sources */,
+				8E968027100FBE5C0074DEEE /* coreaudio.cpp in Sources */,
+				8EA3C5BC1016527400FAD50F /* track.c in Sources */,
+				8EA3C5BD1016527400FAD50F /* xwax.c in Sources */,
+				8EA3C5BE1016527400FAD50F /* timecoder.c in Sources */,
+				8EA3C5BF1016527400FAD50F /* rig.c in Sources */,
+				8EA3C5C01016527400FAD50F /* device.c in Sources */,
+				8EA3C5C11016527400FAD50F /* player.c in Sources */,
+				8EA3C5C21016527400FAD50F /* pitch.c in Sources */,
+				8EA3C5C31016527400FAD50F /* listing.c in Sources */,
+				8EA3C5C41016527400FAD50F /* library.c in Sources */,
+				8EA3C5C51016527400FAD50F /* jack.c in Sources */,
+				8EA3C5C61016527400FAD50F /* interface.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = xwaxMac_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = xwaxMac;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = xwaxMac_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = xwaxMac;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/usr/local/include/SDL_ttf,
+					/usr/local/include/SDL,
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ljack",
+					"-lSDLmain",
+					"-lSDL",
+					"-lSDL_ttf",
+				);
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/usr/local/include/SDL_ttf,
+					/usr/local/include/SDL,
+				);
+				OTHER_LDFLAGS = (
+					"-ljack",
+					"-lSDLmain",
+					"-lSDL",
+					"-lSDL_ttf",
+				);
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "xwaxMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "xwaxMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
