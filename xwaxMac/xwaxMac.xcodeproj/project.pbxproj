@@ -10,6 +10,7 @@
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		8E949BD910386C520050ECE6 /* CARingBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E949BD810386C520050ECE6 /* CARingBuffer.cpp */; };
 		8E967F12100FAC300074DEEE /* AudioDeviceList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E967F0A100FAC300074DEEE /* AudioDeviceList.cpp */; };
 		8E967F14100FAC300074DEEE /* CAPlayThrough.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */; };
 		8E967F15100FAC300074DEEE /* AudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E967F0F100FAC300074DEEE /* AudioDevice.cpp */; };
@@ -41,6 +42,8 @@
 		32CA4F630368D1EE00C91783 /* xwaxMac_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xwaxMac_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* xwaxMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xwaxMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E949BD710386C520050ECE6 /* CARingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CARingBuffer.h; path = Examples/CoreAudio/PublicUtility/CARingBuffer.h; sourceTree = DEVELOPER_DIR; };
+		8E949BD810386C520050ECE6 /* CARingBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CARingBuffer.cpp; path = Examples/CoreAudio/PublicUtility/CARingBuffer.cpp; sourceTree = DEVELOPER_DIR; };
 		8E967F09100FAC300074DEEE /* CAPlayThrough.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAPlayThrough.h; path = coreaudio/CAPlayThrough.h; sourceTree = "<group>"; };
 		8E967F0A100FAC300074DEEE /* AudioDeviceList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioDeviceList.cpp; path = coreaudio/AudioDeviceList.cpp; sourceTree = "<group>"; };
 		8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAPlayThrough.cpp; path = coreaudio/CAPlayThrough.cpp; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 				8E967F48100FAD130074DEEE /* CABitOperations.h */,
 				8E967F49100FAD130074DEEE /* CAStreamBasicDescription.cpp */,
 				8E967F4A100FAD130074DEEE /* CAStreamBasicDescription.h */,
+				8E949BD710386C520050ECE6 /* CARingBuffer.h */,
+				8E949BD810386C520050ECE6 /* CARingBuffer.cpp */,
 			);
 			name = PublicUtility;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				8EA3C5C41016527400FAD50F /* library.c in Sources */,
 				8EA3C5C51016527400FAD50F /* jack.c in Sources */,
 				8EA3C5C61016527400FAD50F /* interface.c in Sources */,
+				8E949BD910386C520050ECE6 /* CARingBuffer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

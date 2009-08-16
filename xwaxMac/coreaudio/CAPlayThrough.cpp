@@ -52,11 +52,16 @@ private:
 	AudioUnit mInputUnit;
 	AudioBufferList *mInputBuffer;
 	AudioDevice mInputDevice, mOutputDevice;
-	
+	CARingBuffer *mBuffer;
+
 	//AudioUnits and Graph
 	AUGraph mGraph;
 	//AUNode mVarispeedNode;
 	//AudioUnit mVarispeedUnit;
+
+	AUNode mEffectsNode;
+	AudioUnit mEffectsUnit;
+	
 	AUNode mOutputNode;
 	AudioUnit mOutputUnit;
 	
@@ -76,6 +81,7 @@ public:
 
 #pragma mark ---CAPlayThrough Methods---
 CAPlayThrough::CAPlayThrough(AudioDeviceID input, AudioDeviceID output, struct device_t *xwax_device):
+mBuffer(NULL),
 mFirstInputTime(-1),
 mFirstOutputTime(-1),
 mInToOutSampleOffset(0),
@@ -119,6 +125,12 @@ OSStatus CAPlayThrough::Init(AudioDeviceID input, AudioDeviceID output)
 	//err = AUGraphConnectNodeInput(mGraph, mVarispeedNode, 0, mOutputNode, 0);
 	//checkErr(err);
 	
+	// connect effect
+	
+	err= AUGraphConnectNodeInput (mGraph, mEffectsNode, 0, mOutputNode, 0);
+	checkErr(err);
+	
+	
 	err = AUGraphInitialize(mGraph); 
 	checkErr(err);
 	
@@ -132,7 +144,9 @@ void CAPlayThrough::Cleanup()
 {
 	//clean up
 	Stop();
-									
+			
+	delete mBuffer;
+	mBuffer = 0;
 	if(mInputBuffer){
 		for(UInt32 i = 0; i<mInputBuffer->mNumberBuffers; i++)
 			free(mInputBuffer->mBuffers[i].mData);
@@ -288,7 +302,9 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 	output.inputProc = OutputProc;
 	output.inputProcRefCon = this;
 	
-	err = AudioUnitSetProperty(mOutputUnit, 
+	// now that we are using an effect, the callback is on the effects unit and not the output unit
+	
+	err = AudioUnitSetProperty(mEffectsUnit, 
 							  kAudioUnitProperty_SetRenderCallback, 
 							  kAudioUnitScope_Input,
 							  0,
@@ -314,6 +330,19 @@ OSStatus CAPlayThrough::MakeGraph()
 	varispeedDesc.componentFlags = 0;        
 	varispeedDesc.componentFlagsMask = 0;     
   */
+	
+	ComponentDescription effectsDesc;
+	effectsDesc.componentType = kAudioUnitType_Effect;
+//	effectsDesc.componentSubType = kAudioUnitSubType_LowPassFilter;
+	effectsDesc.componentSubType = kAudioUnitSubType_Delay;
+	effectsDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
+	effectsDesc.componentFlags = 0;
+	effectsDesc.componentFlagsMask = 0;
+	err = AUGraphAddNode(mGraph, &effectsDesc, &mEffectsNode);
+	checkErr(err);
+	err = AUGraphNodeInfo(mGraph, mEffectsNode, NULL, &mEffectsUnit);   
+	checkErr(err);
+	
 	outDesc.componentType = kAudioUnitType_Output;
 	outDesc.componentSubType = kAudioUnitSubType_DefaultOutput;
 	outDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
@@ -526,6 +555,9 @@ OSStatus CAPlayThrough::SetupBuffers()
 		mInputBuffer->mBuffers[i].mData = malloc(bufferSizeBytes);
 	}
 	
+	mBuffer = new CARingBuffer();	
+	mBuffer->Allocate(asbd.mChannelsPerFrame, asbd.mBytesPerFrame, bufferSizeFrames * 20);
+
 	
     return err;
 }
@@ -600,7 +632,7 @@ static void uninterleave(AudioBufferList *cabuf, signed short *buf,
 		buf+=2;
     }
 }
-
+bool kPlayThru = false;//placeholder until we do playthru switching
 
 #pragma mark -
 #pragma mark -- IO Procs --
@@ -614,11 +646,11 @@ OSStatus CAPlayThrough::InputProc(void *inRefCon,
  	static UInt32 prevNumFrames = 0;
 	static signed short *pcmData = NULL;
     OSStatus err = noErr;
-	
+	bool playThru = kPlayThru;
 	CAPlayThrough *This = (CAPlayThrough *)inRefCon;
 	if (This->mFirstInputTime < 0.)
 		This->mFirstInputTime = inTimeStamp->mSampleTime;
-		
+	
 	//Get the new audio data
 	err = AudioUnitRender(This->mInputUnit,
 						 ioActionFlags,
@@ -627,8 +659,9 @@ OSStatus CAPlayThrough::InputProc(void *inRefCon,
 						 inNumberFrames, //# of frames requested
 						 This->mInputBuffer);// Audio Buffer List to hold data
 	checkErr(err);
-		
 	if(!err)
+	{
+	if (!playThru)
 	{		
 		if(This->xwax_device->timecoder)
 		{
@@ -640,6 +673,12 @@ OSStatus CAPlayThrough::InputProc(void *inRefCon,
 			interleave(pcmData, This->mInputBuffer, inNumberFrames);
             timecoder_submit(This->xwax_device->timecoder, pcmData, (size_t)inNumberFrames);
 		}
+	}
+	
+	else 
+	{
+		err = This->mBuffer->Store(This->mInputBuffer, Float64(inNumberFrames), SInt64(inTimeStamp->mSampleTime));
+	}
 	}
 	return err;
 }
@@ -659,9 +698,12 @@ OSStatus CAPlayThrough::OutputProc(void *inRefCon,
 {
 	static UInt32 prevNumFrames = 0;
 	static signed short *pcmData = NULL;
+	bool playThru = kPlayThru;
+	OSStatus err = noErr;
 
 	CAPlayThrough *This = (CAPlayThrough *)inRefCon;
-
+	if (!playThru)
+	{
 	if (prevNumFrames != inNumberFrames)
 	{
 		pcmData = (signed short*)realloc(pcmData, sizeof(signed short)*inNumberFrames*2); // stereo
@@ -670,7 +712,33 @@ OSStatus CAPlayThrough::OutputProc(void *inRefCon,
 
 	player_collect(This->xwax_device->player, pcmData, inNumberFrames, This->mSampleRate);//FIXME sample rate
 	uninterleave(ioData, pcmData, inNumberFrames);
-	
+	}
+	else
+	{
+		if (This->mFirstInputTime < 0.) {
+			// input hasn't run yet -> silence
+			MakeBufferSilent (ioData);
+			return noErr;
+		}
+		
+		//get Delta between the devices and add it to the offset
+		if (This->mFirstOutputTime < 0.) {
+			This->mFirstOutputTime = TimeStamp->mSampleTime;
+			Float64 delta = (This->mFirstInputTime - This->mFirstOutputTime);
+			This->ComputeThruOffset();   
+			//changed: 3865519 11/10/04
+			if (delta < 0.0)
+				This->mInToOutSampleOffset -= delta;
+			else
+				This->mInToOutSampleOffset = -delta + This->mInToOutSampleOffset;
+			
+			MakeBufferSilent (ioData);
+			return noErr;
+		}
+		
+		//copy the data from the buffers	
+		err = This->mBuffer->Fetch(ioData, inNumberFrames, SInt64(TimeStamp->mSampleTime - This->mInToOutSampleOffset), false);	
+	}
 	return noErr;
 }
 
