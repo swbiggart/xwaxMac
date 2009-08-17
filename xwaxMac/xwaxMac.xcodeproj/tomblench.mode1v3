@@ -202,24 +202,24 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>8E949CD9103891DC0050ECE6</string>
+				<string>8EA7340D1039BEF8004580FB</string>
 				<key>PBXProjectModuleLabel</key>
-				<string>CAPlayThrough.cpp</string>
+				<string>coreaudio.cpp</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
 				<dict>
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>8E949CDA103891DC0050ECE6</string>
+						<string>8EA7340E1039BEF8004580FB</string>
 						<key>PBXProjectModuleLabel</key>
-						<string>CAPlayThrough.cpp</string>
+						<string>coreaudio.cpp</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>8E6973C91038B2240032FFA7</string>
+						<string>8EA7340F1039BEF8004580FB</string>
 						<key>history</key>
 						<array>
-							<string>8E949D181038B1C50050ECE6</string>
+							<string>8EA734021039BEB6004580FB</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -231,11 +231,11 @@
 			<key>Geometry</key>
 			<dict>
 				<key>Frame</key>
-				<string>{{0, 20}, {909, 484}}</string>
+				<string>{{0, 20}, {750, 461}}</string>
 				<key>PBXModuleWindowStatusBarHidden2</key>
 				<false/>
 				<key>RubberWindowFrame</key>
-				<string>55 253 909 525 0 0 1280 778 </string>
+				<string>15 271 750 502 0 0 1280 778 </string>
 			</dict>
 		</dict>
 	</array>
@@ -322,6 +322,9 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>11</integer>
+									<integer>9</integer>
+									<integer>8</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -347,7 +350,7 @@
 							<real>253</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>-21 130 1280 648 0 0 1280 778 </string>
+						<string>-38 130 1280 648 0 0 1280 778 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -365,7 +368,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>CABitOperations.h</string>
+								<string>CAPlayThrough.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -373,11 +376,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>CABitOperations.h</string>
+										<string>CAPlayThrough.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>8E6973C81038B2240032FFA7</string>
+										<string>8EA7340A1039BEF8004580FB</string>
 										<key>history</key>
 										<array>
 											<string>8EB5D0E21002825A00018849</string>
@@ -408,20 +411,20 @@
 											<string>8E54BE8510165739002F1DD4</string>
 											<string>8E54BE8710165739002F1DD4</string>
 											<string>8E54BE8810165739002F1DD4</string>
-											<string>8E8DA89E103343D100C07ECE</string>
 											<string>8E8DA89F103343D100C07ECE</string>
 											<string>8E8DA8A1103343D100C07ECE</string>
 											<string>8E949C391038715A0050ECE6</string>
 											<string>8E949C3C1038715A0050ECE6</string>
 											<string>8E949C3D1038715A0050ECE6</string>
 											<string>8E949C79103875F90050ECE6</string>
-											<string>8E949CD2103891DC0050ECE6</string>
-											<string>8E949CD3103891DC0050ECE6</string>
 											<string>8E949CF7103895080050ECE6</string>
 											<string>8E949D08103895EF0050ECE6</string>
-											<string>8E949D09103895EF0050ECE6</string>
-											<string>8E6973B91038B1FF0032FFA7</string>
-											<string>8E6973BA1038B1FF0032FFA7</string>
+											<string>8EA733B81039B811004580FB</string>
+											<string>8EA733B91039B811004580FB</string>
+											<string>8EA733BA1039B811004580FB</string>
+											<string>8EA733BD1039B811004580FB</string>
+											<string>8EA734081039BEF8004580FB</string>
+											<string>8E949CD3103891DC0050ECE6</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -465,7 +468,8 @@
 											<string>8E949BE210386D100050ECE6</string>
 											<string>8E949BE310386D100050ECE6</string>
 											<string>8E949C431038715A0050ECE6</string>
-											<string>8E6973BB1038B1FF0032FFA7</string>
+											<string>8EA733C01039B811004580FB</string>
+											<string>8EA734091039BEF8004580FB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -479,7 +483,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {983, 512}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-21 130 1280 648 0 0 1280 778 </string>
+								<string>-38 130 1280 648 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -499,7 +503,7 @@
 								<key>Frame</key>
 								<string>{{0, 517}, {983, 90}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-21 130 1280 648 0 0 1280 778 </string>
+								<string>-38 130 1280 648 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -523,9 +527,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>8E6973BD1038B1FF0032FFA7</string>
+				<string>8EA7340B1039BEF8004580FB</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>8E6973BE1038B1FF0032FFA7</string>
+				<string>8EA7340C1039BEF8004580FB</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -660,11 +664,13 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>8E949CD9103891DC0050ECE6</string>
+		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>/Users/tomblench/code/xwaxMac/xwaxMac.xcodeproj</string>
+		<string>8EA7340D1039BEF8004580FB</string>
+		<string>8EB5D0CE100281EE00018849</string>
 	</array>
 	<key>WindowString</key>
-	<string>-21 130 1280 648 0 0 1280 778 </string>
+	<string>-38 130 1280 648 0 0 1280 778 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -685,7 +691,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>CAPlayThrough.cpp</string>
+								<string>coreaudio.cpp</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -743,7 +749,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>8EB5D0CE100281EE00018849</string>
-				<string>8E949C0310386EB50050ECE6</string>
+				<string>8EA733F31039B901004580FB</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -863,13 +869,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>8E6973C01038B1FF0032FFA7</string>
+				<string>8EA734101039BEF8004580FB</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>8E6973C11038B1FF0032FFA7</string>
-				<string>8E6973C21038B1FF0032FFA7</string>
-				<string>8E6973C31038B1FF0032FFA7</string>
-				<string>8E6973C41038B1FF0032FFA7</string>
-				<string>8E6973C51038B1FF0032FFA7</string>
+				<string>8EA734111039BEF8004580FB</string>
+				<string>8EA734121039BEF8004580FB</string>
+				<string>8EA734131039BEF8004580FB</string>
+				<string>8EA734141039BEF8004580FB</string>
+				<string>8EA734151039BEF8004580FB</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -901,7 +907,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>CAPlayThrough.h</string>
+										<string>CAPlayThrough.cpp</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -959,8 +965,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>8E9680E210109CD40074DEEE</string>
-				<string>8E9680E310109CD40074DEEE</string>
+				<string>8EA733ED1039B846004580FB</string>
+				<string>8EA733EE1039B846004580FB</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>

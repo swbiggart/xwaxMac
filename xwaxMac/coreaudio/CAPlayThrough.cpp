@@ -52,16 +52,18 @@ private:
 	AudioUnit mInputUnit;
 	AudioBufferList *mInputBuffer;
 	AudioDevice mInputDevice, mOutputDevice;
+	//Ringbuffer for piping samples from input to output for "thru" mode
 	CARingBuffer *mBuffer;
 
 	//AudioUnits and Graph
 	AUGraph mGraph;
-	//AUNode mVarispeedNode;
-	//AudioUnit mVarispeedUnit;
 
+	//Effect on output
+	//TODO effect switching and 0..4 effect slots like Logic
 	AUNode mEffectsNode;
 	AudioUnit mEffectsUnit;
 	
+	//Output unit for selected output device
 	AUNode mOutputNode;
 	AudioUnit mOutputUnit;
 	
@@ -75,11 +77,11 @@ public:
 
 };
 
-
 #pragma mark ---Public Methods---
 
-
 #pragma mark ---CAPlayThrough Methods---
+
+//Construct PlayThrough object associated with xwax device
 CAPlayThrough::CAPlayThrough(AudioDeviceID input, AudioDeviceID output, struct device_t *xwax_device):
 mBuffer(NULL),
 mFirstInputTime(-1),
@@ -104,32 +106,21 @@ CAPlayThrough::~CAPlayThrough()
 OSStatus CAPlayThrough::Init(AudioDeviceID input, AudioDeviceID output)
 {
     OSStatus err = noErr;
-	//Note: You can interface to input and output devices with "output" audio units.
-	//Please keep in mind that you are only allowed to have one output audio unit per graph (AUGraph).
-	//As you will see, this sample code splits up the two output units.  The "output" unit that will
-	//be used for device input will not be contained in a AUGraph, while the "output" unit that will 
-	//interface the default output device will be in a graph.
 	
 	//Setup AUHAL for an input device
 	err = SetupAUHAL(input);
 	checkErr(err);
 	
-	//Setup Graph containing Varispeed Unit & Default Output Unit
+	//Setup Graph containing Effect Unit(s) & Default Output Unit
 	err = SetupGraph(output);	
 	checkErr(err);
 	
 	err = SetupBuffers();
 	checkErr(err);
-	
-	// the varispeed unit should only be conected after the input and output formats have been set
-	//err = AUGraphConnectNodeInput(mGraph, mVarispeedNode, 0, mOutputNode, 0);
-	//checkErr(err);
-	
-	// connect effect
-	
+		
+	//Connect Effect Unit(s)
 	err= AUGraphConnectNodeInput (mGraph, mEffectsNode, 0, mOutputNode, 0);
-	checkErr(err);
-	
+	checkErr(err);	
 	
 	err = AUGraphInitialize(mGraph); 
 	checkErr(err);
@@ -217,15 +208,8 @@ Boolean CAPlayThrough::IsRunning()
 
 OSStatus CAPlayThrough::SetOutputDeviceAsCurrent(AudioDeviceID out)
 {
-    UInt32 size = sizeof(AudioDeviceID);;
     OSStatus err = noErr;
 	
-	if(out == kAudioDeviceUnknown) //Retrieve the default output device
-	{
-		err = AudioHardwareGetProperty(kAudioHardwarePropertyDefaultOutputDevice,
-									   &size,  
-									   &out);
-	}
 	mOutputDevice.Init(out, false);
 	checkErr(err);
 	
@@ -242,18 +226,10 @@ OSStatus CAPlayThrough::SetOutputDeviceAsCurrent(AudioDeviceID out)
 
 OSStatus CAPlayThrough::SetInputDeviceAsCurrent(AudioDeviceID in)
 {
-    UInt32 size = sizeof(AudioDeviceID);
     OSStatus err = noErr;
-	
-	if(in == kAudioDeviceUnknown) //get the default input device if device is unknown
-	{  
-		err = AudioHardwareGetProperty(kAudioHardwarePropertyDefaultInputDevice,
-									   &size,  
-									   &in);
-		checkErr(err);
-	}
-	
+		
 	mInputDevice.Init(in, true);
+	checkErr(err);
 	
 	//Set the Current Device to the AUHAL.
 	//this should be done only after IO has been enabled on the AUHAL.
@@ -263,7 +239,6 @@ OSStatus CAPlayThrough::SetInputDeviceAsCurrent(AudioDeviceID in)
 							  0, 
 							  &mInputDevice.mID, 
 							  sizeof(mInputDevice.mID));
-	checkErr(err);
 	return err;
 }
 
@@ -289,7 +264,7 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 	checkErr(err);
 	
 	//Tell the output unit not to reset timestamps 
-	//Otherwise sample rate changes will cause sync los
+	//Otherwise sample rate changes will cause sync loss
 	UInt32 startAtZero = 0;
 	err = AudioUnitSetProperty(mOutputUnit, 
 							  kAudioOutputUnitProperty_StartTimestampsAtZero, 
@@ -302,7 +277,7 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 	output.inputProc = OutputProc;
 	output.inputProcRefCon = this;
 	
-	// now that we are using an effect, the callback is on the effects unit and not the output unit
+	//Now that we are using (an) effect(s), the callback is on the effects unit and not the output unit
 	
 	err = AudioUnitSetProperty(mEffectsUnit, 
 							  kAudioUnitProperty_SetRenderCallback, 
@@ -318,20 +293,10 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 OSStatus CAPlayThrough::MakeGraph()
 {
 	OSStatus err = noErr;
-	ComponentDescription /*varispeedDesc,*/outDesc;
-	
-	//Q:Why do we need a varispeed unit?
-	//A:If the input device and the output device are running at different sample rates
-	//we will need to move the data coming to the graph slower/faster to avoid a pitch change.
-	/*
-	varispeedDesc.componentType = kAudioUnitType_FormatConverter;
-	varispeedDesc.componentSubType = kAudioUnitSubType_Varispeed;
-	varispeedDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
-	varispeedDesc.componentFlags = 0;        
-	varispeedDesc.componentFlagsMask = 0;     
-  */
-	
+	ComponentDescription outDesc;		
 	ComponentDescription effectsDesc;
+
+	//Setup Effect node and unit.  TODO dynamic Effect selection and display of Effect UI
 	effectsDesc.componentType = kAudioUnitType_Effect;
 //	effectsDesc.componentSubType = kAudioUnitSubType_LowPassFilter;
 	effectsDesc.componentSubType = kAudioUnitSubType_Delay;
@@ -343,24 +308,14 @@ OSStatus CAPlayThrough::MakeGraph()
 	err = AUGraphNodeInfo(mGraph, mEffectsNode, NULL, &mEffectsUnit);   
 	checkErr(err);
 	
+	//Setup Output node and unit
 	outDesc.componentType = kAudioUnitType_Output;
 	outDesc.componentSubType = kAudioUnitSubType_DefaultOutput;
 	outDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
 	outDesc.componentFlags = 0;
-	outDesc.componentFlagsMask = 0;
-	
-	//////////////////////////
-	///MAKE NODES
-	//This creates a node in the graph that is an AudioUnit, using
-	//the supplied ComponentDescription to find and open that unit	
-	//err = AUGraphAddNode(mGraph, &varispeedDesc, &mVarispeedNode);
-	//checkErr(err);
+	outDesc.componentFlagsMask = 0;	
 	err = AUGraphAddNode(mGraph, &outDesc, &mOutputNode);
-	checkErr(err);
-	
-	//Get Audio Units from AUGraph node
-	//err = AUGraphNodeInfo(mGraph, mVarispeedNode, NULL, &mVarispeedUnit);   
-	//checkErr(err);
+	checkErr(err);	
 	err = AUGraphNodeInfo(mGraph, mOutputNode, NULL, &mOutputUnit);   
 	checkErr(err);
 	
@@ -376,17 +331,8 @@ OSStatus CAPlayThrough::SetupAUHAL(AudioDeviceID in)
 	Component comp;
 	ComponentDescription desc;
 	
-	//There are several different types of Audio Units.
-	//Some audio units serve as Outputs, Mixers, or DSP
-	//units. See AUComponent.h for listing
-	desc.componentType = kAudioUnitType_Output;
-	
-	//Every Component has a subType, which will give a clearer picture
-	//of what this components function will be.
+	desc.componentType = kAudioUnitType_Output;	
 	desc.componentSubType = kAudioUnitSubType_HALOutput;
-	
-	//all Audio Units in AUComponent.h must use 
-	//"kAudioUnitManufacturer_Apple" as the Manufacturer
 	desc.componentManufacturer = kAudioUnitManufacturer_Apple;
 	desc.componentFlags = 0;
 	desc.componentFlagsMask = 0;
@@ -424,8 +370,6 @@ OSStatus CAPlayThrough::EnableIO()
 	OSStatus err = noErr;
 	UInt32 enableIO;
 	
-	///////////////
-	//ENABLE IO (INPUT)
 	//You must enable the Audio Unit (AUHAL) for input and disable output 
 	//BEFORE setting the AUHAL's current device.
 	
@@ -469,6 +413,9 @@ OSStatus CAPlayThrough::CallbackSetup()
 	return err;
 }
 
+//FIXME - some of this is redundant/needs to change:
+// - xwax doesn't support different sample rates on input/output (although we could do varispeed and fake it for xwax)
+// - matching of number of channels depends on whether you have more than 1 deck on a device ie channels 1..4
 //Allocate Audio Buffer List(s) to hold the data from input.
 OSStatus CAPlayThrough::SetupBuffers()
 {
@@ -486,30 +433,21 @@ OSStatus CAPlayThrough::SetupBuffers()
 	//Get the Stream Format (Output client side)
 	propertySize = sizeof(asbd_dev1_in);
 	err = AudioUnitGetProperty(mInputUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 1, &asbd_dev1_in, &propertySize);
-	printf("=====Input DEVICE stream format\n" );	
-	asbd_dev1_in.Print();
 	
 	//Get the Stream Format (client side)
 	propertySize = sizeof(asbd);
 	err = AudioUnitGetProperty(mInputUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 1, &asbd, &propertySize);		
-	printf("=====current Input (Client) stream format\n");	
-	asbd.Print();	
 
 	//Get the Stream Format (Output client side)
 	propertySize = sizeof(asbd_dev2_out);
 	err = AudioUnitGetProperty(mOutputUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &asbd_dev2_out, &propertySize);
-	printf("=====Output (Device) stream format\n");	
-	asbd_dev2_out.Print();
 	
-	//////////////////////////////////////
 	//Set the format of all the AUs to the input/output devices channel count
 	//For a simple case, you want to set this to the lower of count of the channels
 	//in the input device vs output device
-	//////////////////////////////////////
 	asbd.mChannelsPerFrame =((asbd_dev1_in.mChannelsPerFrame < asbd_dev2_out.mChannelsPerFrame) ?asbd_dev1_in.mChannelsPerFrame :asbd_dev2_out.mChannelsPerFrame) ;
 	printf("Info: Input Device channel count=%ld\t Input Device channel count=%ld\n",asbd_dev1_in.mChannelsPerFrame,asbd_dev2_out.mChannelsPerFrame);	
 	printf("Info: CAPlayThrough will use %ld channels\n",asbd.mChannelsPerFrame);	
-
 	
 	// We must get the sample rate of the input device and set it to the stream format of AUHAL
 	propertySize = sizeof(Float64);
@@ -520,6 +458,7 @@ OSStatus CAPlayThrough::SetupBuffers()
 	//Set the new formats to the AUs...
 	err = AudioUnitSetProperty(mInputUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 1, &asbd, propertySize);
 	checkErr(err);	
+	//FIXME - need to set the Effect stream format?
 	//err = AudioUnitSetProperty(mVarispeedUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &asbd, propertySize);
 	//checkErr(err);
 	
@@ -557,7 +496,6 @@ OSStatus CAPlayThrough::SetupBuffers()
 	
 	mBuffer = new CARingBuffer();	
 	mBuffer->Allocate(asbd.mChannelsPerFrame, asbd.mBytesPerFrame, bufferSizeFrames * 20);
-
 	
     return err;
 }
@@ -572,9 +510,10 @@ void	CAPlayThrough::ComputeThruOffset()
 /* Stereo interleave */
 #define SCALE 32768
 static void interleave(signed short *buf, AudioBufferList *cabuf,
-                       UInt32 nframes)
+                       register UInt32 nframes)
 {
-	AudioSampleType *l,*r;
+	register AudioSampleType *l,*r;
+	
 	if (cabuf->mNumberBuffers== 2)
 	{
 		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
@@ -582,13 +521,11 @@ static void interleave(signed short *buf, AudioBufferList *cabuf,
 	}
 	else if (cabuf->mNumberBuffers == 1)
 	{
-//		printf("input mono, faking 2nd channel\n");		
 		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
 		r = (AudioSampleType*)cabuf->mBuffers[0].mData;
 	}
 	else
 	{
-//		printf("input %d channels, ignoring extra after first two\n", cabuf->mNumberBuffers);				
 		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
 		r = (AudioSampleType*)cabuf->mBuffers[1].mData;
 	}
@@ -602,10 +539,11 @@ static void interleave(signed short *buf, AudioBufferList *cabuf,
 			r++;
     }
 }
+
 static void uninterleave(AudioBufferList *cabuf, signed short *buf, 
-                       UInt32 nframes)
+                       register UInt32 nframes)
 {
-	AudioSampleType *l,*r;
+	register AudioSampleType *l,*r;
 	if (cabuf->mNumberBuffers== 2)
 	{
 		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
@@ -613,13 +551,11 @@ static void uninterleave(AudioBufferList *cabuf, signed short *buf,
 	}
 	else if (cabuf->mNumberBuffers == 1)
 	{
-//		printf("input mono, faking 2nd channel\n");		
 		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
 		r = (AudioSampleType*)cabuf->mBuffers[0].mData;
 	}
 	else
 	{
-//		printf("input %d channels, ignoring extra after first two\n", cabuf->mNumberBuffers);				
 		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
 		r = (AudioSampleType*)cabuf->mBuffers[1].mData;
 	}
@@ -768,10 +704,6 @@ void CAPlayThroughHost::DeletePlayThrough()
 		delete mPlayThrough;
 		mPlayThrough = NULL;
 	}
-}
-bool CAPlayThroughHost::PlayThroughExists()
-{
-	return (mPlayThrough != NULL) ? true : false;
 }
 
 OSStatus	CAPlayThroughHost::Start()

@@ -35,15 +35,19 @@ static int start(struct device_t *dv)
 	
 	printf("coreaudio start\n");
 	pt->Start();
-	
+	return 0;
 }
+//FIXME
 static int stop(struct device_t *dv)
 {
 	printf("coreaudio stop\n");
+	return 0;
 }
+//FIXME
 static void clear(struct device_t *dv)
 {
 	printf("coreaudio clear");
+	return;
 }
 
 static struct device_type_t coreaudio_type = {

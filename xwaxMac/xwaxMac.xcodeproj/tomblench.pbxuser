@@ -9,11 +9,11 @@
 		);
 		breakpoints = (
 			8E968264101382280074DEEE /* coreaudio.cpp:24 */,
-			8E9683CE101624200074DEEE /* CAPlayThrough.cpp:607 */,
-			8E949C591038736A0050ECE6 /* CAPlayThrough.cpp:740 */,
-			8E949C5B103873980050ECE6 /* CAPlayThrough.cpp:680 */,
-			8E949C5E103874240050ECE6 /* CAPlayThrough.cpp:648 */,
-			8E949C85103876140050ECE6 /* CAPlayThrough.cpp:725 */,
+			8E9683CE101624200074DEEE /* CAPlayThrough.cpp:545 */,
+			8E949C591038736A0050ECE6 /* CAPlayThrough.cpp:676 */,
+			8E949C5B103873980050ECE6 /* CAPlayThrough.cpp:616 */,
+			8E949C5E103874240050ECE6 /* CAPlayThrough.cpp:584 */,
+			8E949C85103876140050ECE6 /* CAPlayThrough.cpp:661 */,
 			8E949CF5103895030050ECE6 /* track.c:41 */,
 		);
 		codeSenseManager = 8EB5CFC710027E9F00018849 /* Code sense */;
@@ -117,8 +117,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 272151128;
-			PBXWorkspaceStateSaveDate = 272151128;
+			PBXPerProjectTemplateStateSaveDate = 272218141;
+			PBXWorkspaceStateSaveDate = 272218141;
 		};
 		perUserProjectItems = {
 			8E54BE8410165739002F1DD4 = 8E54BE8410165739002F1DD4 /* PBXTextBookmark */;
@@ -127,12 +127,7 @@
 			8E54BE8810165739002F1DD4 = 8E54BE8810165739002F1DD4 /* PBXTextBookmark */;
 			8E54BE8C10165739002F1DD4 = 8E54BE8C10165739002F1DD4 /* PBXTextBookmark */;
 			8E54BE8F10165739002F1DD4 = 8E54BE8F10165739002F1DD4 /* PBXTextBookmark */;
-			8E6973B91038B1FF0032FFA7 = 8E6973B91038B1FF0032FFA7 /* PBXTextBookmark */;
-			8E6973BA1038B1FF0032FFA7 = 8E6973BA1038B1FF0032FFA7 /* PBXTextBookmark */;
-			8E6973BB1038B1FF0032FFA7 = 8E6973BB1038B1FF0032FFA7 /* PBXTextBookmark */;
-			8E6973C81038B2240032FFA7 = 8E6973C81038B2240032FFA7 /* PBXTextBookmark */;
 			8E6973C91038B2240032FFA7 = 8E6973C91038B2240032FFA7 /* PBXTextBookmark */;
-			8E8DA89E103343D100C07ECE = 8E8DA89E103343D100C07ECE /* PBXTextBookmark */;
 			8E8DA89F103343D100C07ECE = 8E8DA89F103343D100C07ECE /* PBXTextBookmark */;
 			8E8DA8A1103343D100C07ECE = 8E8DA8A1103343D100C07ECE /* PBXTextBookmark */;
 			8E949BE210386D100050ECE6 = 8E949BE210386D100050ECE6 /* PBXTextBookmark */;
@@ -142,12 +137,9 @@
 			8E949C3D1038715A0050ECE6 = 8E949C3D1038715A0050ECE6 /* PBXTextBookmark */;
 			8E949C431038715A0050ECE6 = 8E949C431038715A0050ECE6 /* PBXTextBookmark */;
 			8E949C79103875F90050ECE6 = 8E949C79103875F90050ECE6 /* PBXTextBookmark */;
-			8E949CD2103891DC0050ECE6 = 8E949CD2103891DC0050ECE6 /* PBXTextBookmark */;
 			8E949CD3103891DC0050ECE6 = 8E949CD3103891DC0050ECE6 /* PBXTextBookmark */;
 			8E949CF7103895080050ECE6 = 8E949CF7103895080050ECE6 /* PBXTextBookmark */;
 			8E949D08103895EF0050ECE6 = 8E949D08103895EF0050ECE6 /* PBXTextBookmark */;
-			8E949D09103895EF0050ECE6 = 8E949D09103895EF0050ECE6 /* PBXTextBookmark */;
-			8E949D181038B1C50050ECE6 = 8E949D181038B1C50050ECE6 /* PBXTextBookmark */;
 			8E94EEBB101655BF007D9753 = 8E94EEBB101655BF007D9753 /* PBXTextBookmark */;
 			8E94EEBC101655BF007D9753 = 8E94EEBC101655BF007D9753 /* PBXTextBookmark */;
 			8E94EEBF101655BF007D9753 = 8E94EEBF101655BF007D9753 /* PBXTextBookmark */;
@@ -201,6 +193,29 @@
 			8EA3C5F31016530700FAD50F = 8EA3C5F31016530700FAD50F /* PBXTextBookmark */;
 			8EA3C5F51016530700FAD50F = 8EA3C5F51016530700FAD50F /* PBXTextBookmark */;
 			8EA3C5F61016530700FAD50F = 8EA3C5F61016530700FAD50F /* PBXTextBookmark */;
+			8EA733B81039B811004580FB = 8EA733B81039B811004580FB /* PBXTextBookmark */;
+			8EA733B91039B811004580FB = 8EA733B91039B811004580FB /* PBXTextBookmark */;
+			8EA733BA1039B811004580FB = 8EA733BA1039B811004580FB /* PBXTextBookmark */;
+			8EA733BB1039B811004580FB = 8EA733BB1039B811004580FB /* PBXTextBookmark */;
+			8EA733BD1039B811004580FB = 8EA733BD1039B811004580FB /* PBXTextBookmark */;
+			8EA733BE1039B811004580FB = 8EA733BE1039B811004580FB /* PBXTextBookmark */;
+			8EA733C01039B811004580FB = 8EA733C01039B811004580FB /* PBXTextBookmark */;
+			8EA733C11039B811004580FB = 8EA733C11039B811004580FB /* PBXTextBookmark */;
+			8EA733C21039B811004580FB = 8EA733C21039B811004580FB /* PBXTextBookmark */;
+			8EA733C31039B811004580FB = 8EA733C31039B811004580FB /* PBXTextBookmark */;
+			8EA733C41039B811004580FB = 8EA733C41039B811004580FB /* PBXTextBookmark */;
+			8EA733C51039B811004580FB = 8EA733C51039B811004580FB /* PBXTextBookmark */;
+			8EA733C71039B811004580FB = 8EA733C71039B811004580FB /* PBXTextBookmark */;
+			8EA733C81039B811004580FB = 8EA733C81039B811004580FB /* PBXTextBookmark */;
+			8EA733C91039B811004580FB = 8EA733C91039B811004580FB /* PBXTextBookmark */;
+			8EA733CC1039B811004580FB = 8EA733CC1039B811004580FB /* PBXTextBookmark */;
+			8EA733F11039B8EE004580FB /* PBXTextBookmark */ = 8EA733F11039B8EE004580FB /* PBXTextBookmark */;
+			8EA733F41039B901004580FB /* PBXTextBookmark */ = 8EA733F41039B901004580FB /* PBXTextBookmark */;
+			8EA734021039BEB6004580FB /* PBXTextBookmark */ = 8EA734021039BEB6004580FB /* PBXTextBookmark */;
+			8EA734081039BEF8004580FB /* PBXTextBookmark */ = 8EA734081039BEF8004580FB /* PBXTextBookmark */;
+			8EA734091039BEF8004580FB /* PBXTextBookmark */ = 8EA734091039BEF8004580FB /* PBXTextBookmark */;
+			8EA7340A1039BEF8004580FB /* PBXTextBookmark */ = 8EA7340A1039BEF8004580FB /* PBXTextBookmark */;
+			8EA7340F1039BEF8004580FB /* PBXTextBookmark */ = 8EA7340F1039BEF8004580FB /* PBXTextBookmark */;
 			8EB5D0BF100281EE00018849 = 8EB5D0BF100281EE00018849 /* PBXTextBookmark */;
 			8EB5D0E21002825A00018849 = 8EB5D0E21002825A00018849 /* PBXTextBookmark */;
 			8EB5D0F8100282AF00018849 = 8EB5D0F8100282AF00018849 /* PBXTextBookmark */;
@@ -313,65 +328,15 @@
 		path = "/Users/tomblench/code/xwaxMac/build/xwaxMac.build/Debug/xwaxMac.build/Objects-normal/i386/AudioDevice.s";
 		sourceTree = "<absolute>";
 	};
-	8E6973B91038B1FF0032FFA7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */;
-		name = "CAPlayThrough.cpp: 323";
-		rLen = 0;
-		rLoc = 7803;
-		rType = 0;
-		vrLen = 1437;
-		vrLoc = 7692;
-	};
-	8E6973BA1038B1FF0032FFA7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8E967F48100FAD130074DEEE /* CABitOperations.h */;
-		name = "CABitOperations.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 2196;
-		vrLoc = 0;
-	};
-	8E6973BB1038B1FF0032FFA7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */;
-		name = "CAPlayThrough.cpp: 323";
-		rLen = 0;
-		rLoc = 7803;
-		rType = 0;
-		vrLen = 1437;
-		vrLoc = 7692;
-	};
-	8E6973C81038B2240032FFA7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8E967F48100FAD130074DEEE /* CABitOperations.h */;
-		name = "CABitOperations.h: 6";
-		rLen = 0;
-		rLoc = 324;
-		rType = 0;
-		vrLen = 2196;
-		vrLoc = 0;
-	};
 	8E6973C91038B2240032FFA7 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */;
 		name = "CAPlayThrough.cpp: 296";
 		rLen = 0;
-		rLoc = 7159;
+		rLoc = 6230;
 		rType = 0;
 		vrLen = 876;
 		vrLoc = 6928;
-	};
-	8E8DA89E103343D100C07ECE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8E967F0A100FAC300074DEEE /* AudioDeviceList.cpp */;
-		name = "AudioDeviceList.cpp: 77";
-		rLen = 0;
-		rLoc = 3238;
-		rType = 0;
-		vrLen = 738;
-		vrLoc = 2500;
 	};
 	8E8DA89F103343D100C07ECE /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -396,7 +361,7 @@
 	8E949BD710386C520050ECE6 /* CARingBuffer.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {922, 1666}}";
-			sepNavSelRange = "{2353, 0}";
+			sepNavSelRange = "{3212, 1}";
 			sepNavVisRange = "{1904, 1617}";
 		};
 	};
@@ -467,7 +432,7 @@
 		vrLen = 974;
 		vrLoc = 0;
 	};
-	8E949C591038736A0050ECE6 /* CAPlayThrough.cpp:740 */ = {
+	8E949C591038736A0050ECE6 /* CAPlayThrough.cpp:676 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -479,12 +444,12 @@
 		functionName = "CAPlayThrough::OutputProc(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *TimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList * ioData)";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 740;
+		lineNumber = 676;
 		location = xwaxMac;
 		modificationTime = 272149951.256691;
 		state = 2;
 	};
-	8E949C5B103873980050ECE6 /* CAPlayThrough.cpp:680 */ = {
+	8E949C5B103873980050ECE6 /* CAPlayThrough.cpp:616 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -496,12 +461,12 @@
 		functionName = "CAPlayThrough::InputProc(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList * ioData)";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 680;
+		lineNumber = 616;
 		location = xwaxMac;
 		modificationTime = 272149951.256853;
 		state = 2;
 	};
-	8E949C5E103874240050ECE6 /* CAPlayThrough.cpp:648 */ = {
+	8E949C5E103874240050ECE6 /* CAPlayThrough.cpp:584 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -513,7 +478,7 @@
 		functionName = "CAPlayThrough::InputProc(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList * ioData)";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 648;
+		lineNumber = 584;
 		location = xwaxMac;
 		modificationTime = 272149951.257015;
 		state = 2;
@@ -528,7 +493,7 @@
 		vrLen = 1076;
 		vrLoc = 4203;
 	};
-	8E949C85103876140050ECE6 /* CAPlayThrough.cpp:725 */ = {
+	8E949C85103876140050ECE6 /* CAPlayThrough.cpp:661 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -540,20 +505,10 @@
 		functionName = "CAPlayThrough::OutputProc(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *TimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList * ioData)";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 725;
+		lineNumber = 661;
 		location = xwaxMac;
 		modificationTime = 272149951.257173;
 		state = 2;
-	};
-	8E949CD2103891DC0050ECE6 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8E949BD710386C520050ECE6 /* CARingBuffer.h */;
-		name = "CARingBuffer.h: 38";
-		rLen = 0;
-		rLoc = 2353;
-		rType = 0;
-		vrLen = 1617;
-		vrLoc = 1904;
 	};
 	8E949CD3103891DC0050ECE6 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -601,26 +556,6 @@
 		vrLen = 721;
 		vrLoc = 1193;
 	};
-	8E949D09103895EF0050ECE6 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
-		name = "coreaudio.cpp: 122";
-		rLen = 0;
-		rLoc = 3010;
-		rType = 0;
-		vrLen = 923;
-		vrLoc = 2217;
-	};
-	8E949D181038B1C50050ECE6 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */;
-		name = "CAPlayThrough.cpp: 296";
-		rLen = 0;
-		rLoc = 7159;
-		rType = 0;
-		vrLen = 876;
-		vrLoc = 6928;
-	};
 	8E94EEBB101655BF007D9753 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 8EA3C5B91016527400FAD50F /* jack.c */;
@@ -654,24 +589,24 @@
 	8E967F09100FAC300074DEEE /* CAPlayThrough.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {922, 1344}}";
-			sepNavSelRange = "{2501, 0}";
-			sepNavVisRange = "{2761, 776}";
+			sepNavSelRange = "{3526, 0}";
+			sepNavVisRange = "{2893, 764}";
 			sepNavWindowFrame = "{{15, 215}, {750, 558}}";
 		};
 	};
 	8E967F0A100FAC300074DEEE /* AudioDeviceList.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {691, 1078}}";
-			sepNavSelRange = "{3238, 0}";
-			sepNavVisRange = "{1046, 1539}";
+			sepNavIntBoundsRect = "{{0, 0}, {922, 1078}}";
+			sepNavSelRange = "{2702, 1}";
+			sepNavVisRange = "{2475, 763}";
 			sepNavWindowFrame = "{{107, 131}, {750, 558}}";
 		};
 	};
 	8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {850, 11410}}";
+			sepNavIntBoundsRect = "{{0, 0}, {850, 11396}}";
 			sepNavSelRange = "{7159, 0}";
-			sepNavVisRange = "{6928, 876}";
+			sepNavVisRange = "{6910, 854}";
 			sepNavWindowFrame = "{{55, 197}, {909, 581}}";
 		};
 	};
@@ -709,7 +644,7 @@
 	8E967F48100FAD130074DEEE /* CABitOperations.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {922, 1862}}";
-			sepNavSelRange = "{324, 0}";
+			sepNavSelRange = "{387, 0}";
 			sepNavVisRange = "{0, 2196}";
 		};
 	};
@@ -802,9 +737,9 @@
 	};
 	8E968026100FBE5C0074DEEE /* coreaudio.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {922, 1876}}";
-			sepNavSelRange = "{3010, 0}";
-			sepNavVisRange = "{2380, 760}";
+			sepNavIntBoundsRect = "{{0, 0}, {768, 1904}}";
+			sepNavSelRange = "{613, 0}";
+			sepNavVisRange = "{383, 508}";
 			sepNavWindowFrame = "{{15, 215}, {750, 558}}";
 		};
 	};
@@ -918,7 +853,7 @@
 		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
 		name = "coreaudio.cpp: 66";
 		rLen = 6;
-		rLoc = 1509;
+		rLoc = 1554;
 		rType = 0;
 		vrLen = 910;
 		vrLoc = 937;
@@ -1040,7 +975,7 @@
 		path = /Developer/SDKs/MacOSX10.5.sdk/usr/include/i386/_types.h;
 		sourceTree = "<absolute>";
 	};
-	8E9683CE101624200074DEEE /* CAPlayThrough.cpp:607 */ = {
+	8E9683CE101624200074DEEE /* CAPlayThrough.cpp:545 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -1052,7 +987,7 @@
 		functionName = "uninterleave(AudioBufferList *cabuf, signed short *buf, UInt32 nframes)";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 607;
+		lineNumber = 545;
 		location = xwaxMac;
 		modificationTime = 272149951.256408;
 		state = 2;
@@ -1469,6 +1404,260 @@
 		rType = 0;
 		vrLen = 1024;
 		vrLoc = 0;
+	};
+	8EA733B81039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E967F48100FAD130074DEEE /* CABitOperations.h */;
+		name = "CABitOperations.h: 7";
+		rLen = 0;
+		rLoc = 387;
+		rType = 0;
+		vrLen = 2196;
+		vrLoc = 0;
+	};
+	8EA733B91039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E967F0A100FAC300074DEEE /* AudioDeviceList.cpp */;
+		name = "AudioDeviceList.cpp: 59";
+		rLen = 1;
+		rLoc = 2702;
+		rType = 0;
+		vrLen = 763;
+		vrLoc = 2475;
+	};
+	8EA733BA1039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 122";
+		rLen = 0;
+		rLoc = 3055;
+		rType = 0;
+		vrLen = 922;
+		vrLoc = 2217;
+	};
+	8EA733BB1039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BC1039B811004580FB /* Annotations for revision HEAD — CAPlayThrough.cpp */;
+		name = "Annotations for revision HEAD — CAPlayThrough.cpp: 8";
+		rLen = 0;
+		rLoc = 544;
+		rType = 0;
+		vrLen = 2326;
+		vrLoc = 0;
+	};
+	8EA733BC1039B811004580FB /* Annotations for revision HEAD — CAPlayThrough.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		path = "Annotations for revision HEAD — CAPlayThrough.cpp";
+		sourceTree = "<group>";
+	};
+	8EA733BD1039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E949BD710386C520050ECE6 /* CARingBuffer.h */;
+		name = "CARingBuffer.h: 60";
+		rLen = 1;
+		rLoc = 3212;
+		rType = 0;
+		vrLen = 1617;
+		vrLoc = 1904;
+	};
+	8EA733BE1039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.cpp */;
+		rLen = 9;
+		rLoc = 478;
+		rType = 0;
+	};
+	8EA733BF1039B811004580FB /* CAPlayThrough.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = CAPlayThrough.cpp;
+		path = /Users/tomblench/code/xwaxMac/coreaudio/CAPlayThrough.cpp;
+		sourceTree = "<absolute>";
+	};
+	8EA733C01039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E967F48100FAD130074DEEE /* CABitOperations.h */;
+		name = "CABitOperations.h: 7";
+		rLen = 0;
+		rLoc = 387;
+		rType = 0;
+		vrLen = 2196;
+		vrLoc = 0;
+	};
+	8EA733C11039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */;
+		name = "CAPlayThrough.cpp: 333";
+		rLen = 0;
+		rLoc = 6822;
+		rType = 0;
+		vrLen = 1437;
+		vrLoc = 7692;
+	};
+	8EA733C21039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E967F0A100FAC300074DEEE /* AudioDeviceList.cpp */;
+		name = "AudioDeviceList.cpp: 59";
+		rLen = 1;
+		rLoc = 2702;
+		rType = 0;
+		vrLen = 763;
+		vrLoc = 2475;
+	};
+	8EA733C31039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 122";
+		rLen = 0;
+		rLoc = 3055;
+		rType = 0;
+		vrLen = 922;
+		vrLoc = 2217;
+	};
+	8EA733C41039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */;
+		name = "CAPlayThrough.cpp: 333";
+		rLen = 0;
+		rLoc = 6822;
+		rType = 0;
+		vrLen = 1437;
+		vrLoc = 7692;
+	};
+	8EA733C51039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733C61039B811004580FB /* Annotations for revision HEAD — CAPlayThrough.cpp */;
+		name = "Annotations for revision HEAD — CAPlayThrough.cpp: 8";
+		rLen = 0;
+		rLoc = 544;
+		rType = 0;
+		vrLen = 2326;
+		vrLoc = 0;
+	};
+	8EA733C61039B811004580FB /* Annotations for revision HEAD — CAPlayThrough.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		path = "Annotations for revision HEAD — CAPlayThrough.cpp";
+		sourceTree = "<group>";
+	};
+	8EA733C71039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */;
+		name = "CAPlayThrough.cpp: 333";
+		rLen = 0;
+		rLoc = 6822;
+		rType = 0;
+		vrLen = 1437;
+		vrLoc = 7692;
+	};
+	8EA733C81039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E949BD710386C520050ECE6 /* CARingBuffer.h */;
+		name = "CARingBuffer.h: 60";
+		rLen = 1;
+		rLoc = 3212;
+		rType = 0;
+		vrLen = 1617;
+		vrLoc = 1904;
+	};
+	8EA733C91039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */;
+		name = "CAPlayThrough.cpp: 18";
+		rLen = 9;
+		rLoc = 478;
+		rType = 0;
+		vrLen = 926;
+		vrLoc = 0;
+	};
+	8EA733CC1039B811004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E967F0C100FAC300074DEEE /* CAPlayThrough.cpp */;
+		name = "CAPlayThrough.cpp: 296";
+		rLen = 0;
+		rLoc = 6230;
+		rType = 0;
+		vrLen = 854;
+		vrLoc = 6910;
+	};
+	8EA733F01039B8EE004580FB /* CAPlayThrough.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = CAPlayThrough.cpp;
+		path = /Users/tomblench/code/xwaxMac/coreaudio/CAPlayThrough.cpp;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {636, 10374}}";
+			sepNavSelRange = "{4722, 0}";
+			sepNavVisRange = "{4553, 342}";
+			sepNavWindowFrame = "{{55, 197}, {909, 581}}";
+		};
+	};
+	8EA733F11039B8EE004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733F01039B8EE004580FB /* CAPlayThrough.cpp */;
+		rLen = 23;
+		rLoc = 8671;
+		rType = 0;
+	};
+	8EA733F41039B901004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733F01039B8EE004580FB /* CAPlayThrough.cpp */;
+		name = "CAPlayThrough.cpp: 408";
+		rLen = 23;
+		rLoc = 8671;
+		rType = 0;
+		vrLen = 253;
+		vrLoc = 10591;
+	};
+	8EA734021039BEB6004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "warning: 'started' defined but not used";
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		rLen = 1;
+		rLoc = 23;
+		rType = 1;
+	};
+	8EA734081039BEF8004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733F01039B8EE004580FB /* CAPlayThrough.cpp */;
+		name = "CAPlayThrough.cpp: 16";
+		rLen = 0;
+		rLoc = 449;
+		rType = 0;
+		vrLen = 1357;
+		vrLoc = 12888;
+	};
+	8EA734091039BEF8004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733F01039B8EE004580FB /* CAPlayThrough.cpp */;
+		name = "CAPlayThrough.cpp: 16";
+		rLen = 0;
+		rLoc = 449;
+		rType = 0;
+		vrLen = 1357;
+		vrLoc = 12888;
+	};
+	8EA7340A1039BEF8004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E967F09100FAC300074DEEE /* CAPlayThrough.h */;
+		name = "CAPlayThrough.h: 87";
+		rLen = 0;
+		rLoc = 3526;
+		rType = 0;
+		vrLen = 764;
+		vrLoc = 2893;
+	};
+	8EA7340F1039BEF8004580FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 38";
+		rLen = 0;
+		rLoc = 613;
+		rType = 0;
+		vrLen = 508;
+		vrLoc = 383;
 	};
 	8EB5CFB810027E8D00018849 /* xwaxMac */ = {
 		isa = PBXExecutable;
