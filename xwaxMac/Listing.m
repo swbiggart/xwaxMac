@@ -7,7 +7,7 @@
 //
 
 #import "Listing.h"
-#import "EyeTunes/EyeTunes.h"
+#import "EyeTunes.h"
 #import <Foundation/NSPathUtilities.h>
 #include "library.h"
 
@@ -26,10 +26,10 @@ void test_get_tracks_by_search(struct library_t *li) {
 			NSURL *url = [NSURL URLWithString:[t location]];
 			NSString *str = [url path];
 			struct record_t record;
-			strcpy(record.pathname, [[url path] cString]);
-			strcpy(record.artist, [[t artist] cString]);
-			strcpy(record.name, [[t name] cString]);
-			strcpy(record.title, [[t name] cString]);
+			strcpy(record.pathname, [[url path] UTF8String]);
+			strcpy(record.artist, [[t artist] UTF8String]);
+			strcpy(record.name, [[t name] UTF8String]);
+			strcpy(record.title, [[t name] UTF8String]);
 			NSLog(@"> %@ %@", [t name], [t location]);
 			library_add(li, &record);
 		}
