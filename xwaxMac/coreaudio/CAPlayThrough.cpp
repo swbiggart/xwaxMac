@@ -285,6 +285,15 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 							  0,
 							  &output, 
 							  sizeof(output));
+	AudioUnitParameterInfo pi;
+	UInt32 dontcare = sizeof(pi);
+	int i;
+	for (i=0;;i++)
+	{
+		AudioUnitGetProperty(mEffectsUnit, kAudioUnitProperty_ParameterInfo, kAudioUnitScope_Global, i, &pi, &dontcare);
+		if (dontcare == 0) break;
+		printf("param is %s\n",pi.name);
+	}
 	checkErr(err);		
 	
 	return err;

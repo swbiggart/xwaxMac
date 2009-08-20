@@ -27,6 +27,7 @@
 
 #include "library.h"
 
+#include "Listing.h"
 #define BLOCK 256 /* number of library entries */
 
 #define MIN(a, b) (a<b?a:b)
@@ -144,6 +145,11 @@ int library_add(struct library_t *li, struct record_t *lr)
 
 
 int library_import(struct library_t *li, char *path)
+{
+	test_get_tracks_by_search(li);
+}
+
+int _library_import(struct library_t *li, char *path)
 {
     DIR *dir;
     struct dirent *de;
