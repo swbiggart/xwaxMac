@@ -27,6 +27,15 @@
 		8EA3C5C41016527400FAD50F /* library.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B71016527400FAD50F /* library.c */; };
 		8EA3C5C51016527400FAD50F /* jack.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B91016527400FAD50F /* jack.c */; };
 		8EA3C5C61016527400FAD50F /* interface.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5BB1016527400FAD50F /* interface.c */; };
+		8EA73509103C8AEB004580FB /* Listing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA73508103C8AEB004580FB /* Listing.m */; };
+		8EA73589103DBC20004580FB /* ETEyeTunes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7357A103DBC20004580FB /* ETEyeTunes.m */; };
+		8EA7358A103DBC20004580FB /* ETTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7357C103DBC20004580FB /* ETTrack.m */; };
+		8EA7358B103DBC20004580FB /* ETAppleEventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7357E103DBC20004580FB /* ETAppleEventObject.m */; };
+		8EA7358C103DBC20004580FB /* ETPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA73580103DBC20004580FB /* ETPlaylist.m */; };
+		8EA7358D103DBC20004580FB /* ETTrackEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA73582103DBC20004580FB /* ETTrackEnumerator.m */; };
+		8EA7358E103DBC20004580FB /* ETPlaylistEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA73584103DBC20004580FB /* ETPlaylistEnumerator.m */; };
+		8EA7358F103DBC20004580FB /* ETDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA73586103DBC20004580FB /* ETDebug.m */; };
+		8EA73590103DBC20004580FB /* NSString+LongLongValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA73588103DBC20004580FB /* NSString+LongLongValue.m */; };
 		8EB5D0F1100282A400018849 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB5D0F0100282A400018849 /* CoreAudio.framework */; };
 		8EB5D111100282D200018849 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB5D10F100282D200018849 /* AudioToolbox.framework */; };
 		8EB5D112100282D200018849 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB5D110100282D200018849 /* AudioUnit.framework */; };
@@ -78,6 +87,27 @@
 		8EA3C5B91016527400FAD50F /* jack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jack.c; path = "xwax-0.5/jack.c"; sourceTree = "<group>"; };
 		8EA3C5BA1016527400FAD50F /* device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = device.h; path = "xwax-0.5/device.h"; sourceTree = "<group>"; };
 		8EA3C5BB1016527400FAD50F /* interface.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = interface.c; path = "xwax-0.5/interface.c"; sourceTree = "<group>"; };
+		8EA73507103C8AEB004580FB /* Listing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Listing.h; sourceTree = "<group>"; };
+		8EA73508103C8AEB004580FB /* Listing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Listing.m; sourceTree = "<group>"; };
+		8EA73576103DBC20004580FB /* EyeTunesVersions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EyeTunesVersions.h; sourceTree = "<group>"; };
+		8EA73577103DBC20004580FB /* EyeTunesEventCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EyeTunesEventCodes.h; sourceTree = "<group>"; };
+		8EA73578103DBC20004580FB /* EyeTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EyeTunes.h; sourceTree = "<group>"; };
+		8EA73579103DBC20004580FB /* ETEyeTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETEyeTunes.h; sourceTree = "<group>"; };
+		8EA7357A103DBC20004580FB /* ETEyeTunes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETEyeTunes.m; sourceTree = "<group>"; };
+		8EA7357B103DBC20004580FB /* ETTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETTrack.h; sourceTree = "<group>"; };
+		8EA7357C103DBC20004580FB /* ETTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTrack.m; sourceTree = "<group>"; };
+		8EA7357D103DBC20004580FB /* ETAppleEventObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETAppleEventObject.h; sourceTree = "<group>"; };
+		8EA7357E103DBC20004580FB /* ETAppleEventObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETAppleEventObject.m; sourceTree = "<group>"; };
+		8EA7357F103DBC20004580FB /* ETPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETPlaylist.h; sourceTree = "<group>"; };
+		8EA73580103DBC20004580FB /* ETPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETPlaylist.m; sourceTree = "<group>"; };
+		8EA73581103DBC20004580FB /* ETTrackEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETTrackEnumerator.h; sourceTree = "<group>"; };
+		8EA73582103DBC20004580FB /* ETTrackEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTrackEnumerator.m; sourceTree = "<group>"; };
+		8EA73583103DBC20004580FB /* ETPlaylistEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETPlaylistEnumerator.h; sourceTree = "<group>"; };
+		8EA73584103DBC20004580FB /* ETPlaylistEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETPlaylistEnumerator.m; sourceTree = "<group>"; };
+		8EA73585103DBC20004580FB /* ETDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETDebug.h; sourceTree = "<group>"; };
+		8EA73586103DBC20004580FB /* ETDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETDebug.m; sourceTree = "<group>"; };
+		8EA73587103DBC20004580FB /* NSString+LongLongValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LongLongValue.h"; sourceTree = "<group>"; };
+		8EA73588103DBC20004580FB /* NSString+LongLongValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LongLongValue.m"; sourceTree = "<group>"; };
 		8EB5D0F0100282A400018849 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
 		8EB5D10F100282D200018849 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		8EB5D110100282D200018849 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
@@ -150,6 +180,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8EA73575103DBBEB004580FB /* EyeTunes */,
+				8EA73504103C8A87004580FB /* iTunesListing */,
 				8E967F03100FAC1B0074DEEE /* coreaudio */,
 				8EB5CFC510027E9F00018849 /* xwax */,
 				32CA4F630368D1EE00C91783 /* xwaxMac_Prefix.pch */,
@@ -200,6 +232,41 @@
 				8E949BD810386C520050ECE6 /* CARingBuffer.cpp */,
 			);
 			name = PublicUtility;
+			sourceTree = "<group>";
+		};
+		8EA73504103C8A87004580FB /* iTunesListing */ = {
+			isa = PBXGroup;
+			children = (
+				8EA73507103C8AEB004580FB /* Listing.h */,
+				8EA73508103C8AEB004580FB /* Listing.m */,
+			);
+			name = iTunesListing;
+			sourceTree = "<group>";
+		};
+		8EA73575103DBBEB004580FB /* EyeTunes */ = {
+			isa = PBXGroup;
+			children = (
+				8EA73576103DBC20004580FB /* EyeTunesVersions.h */,
+				8EA73577103DBC20004580FB /* EyeTunesEventCodes.h */,
+				8EA73578103DBC20004580FB /* EyeTunes.h */,
+				8EA73579103DBC20004580FB /* ETEyeTunes.h */,
+				8EA7357A103DBC20004580FB /* ETEyeTunes.m */,
+				8EA7357B103DBC20004580FB /* ETTrack.h */,
+				8EA7357C103DBC20004580FB /* ETTrack.m */,
+				8EA7357D103DBC20004580FB /* ETAppleEventObject.h */,
+				8EA7357E103DBC20004580FB /* ETAppleEventObject.m */,
+				8EA7357F103DBC20004580FB /* ETPlaylist.h */,
+				8EA73580103DBC20004580FB /* ETPlaylist.m */,
+				8EA73581103DBC20004580FB /* ETTrackEnumerator.h */,
+				8EA73582103DBC20004580FB /* ETTrackEnumerator.m */,
+				8EA73583103DBC20004580FB /* ETPlaylistEnumerator.h */,
+				8EA73584103DBC20004580FB /* ETPlaylistEnumerator.m */,
+				8EA73585103DBC20004580FB /* ETDebug.h */,
+				8EA73586103DBC20004580FB /* ETDebug.m */,
+				8EA73587103DBC20004580FB /* NSString+LongLongValue.h */,
+				8EA73588103DBC20004580FB /* NSString+LongLongValue.m */,
+			);
+			name = EyeTunes;
 			sourceTree = "<group>";
 		};
 		8EB5CFC510027E9F00018849 /* xwax */ = {
@@ -305,6 +372,15 @@
 				8EA3C5C51016527400FAD50F /* jack.c in Sources */,
 				8EA3C5C61016527400FAD50F /* interface.c in Sources */,
 				8E949BD910386C520050ECE6 /* CARingBuffer.cpp in Sources */,
+				8EA73509103C8AEB004580FB /* Listing.m in Sources */,
+				8EA73589103DBC20004580FB /* ETEyeTunes.m in Sources */,
+				8EA7358A103DBC20004580FB /* ETTrack.m in Sources */,
+				8EA7358B103DBC20004580FB /* ETAppleEventObject.m in Sources */,
+				8EA7358C103DBC20004580FB /* ETPlaylist.m in Sources */,
+				8EA7358D103DBC20004580FB /* ETTrackEnumerator.m in Sources */,
+				8EA7358E103DBC20004580FB /* ETPlaylistEnumerator.m in Sources */,
+				8EA7358F103DBC20004580FB /* ETDebug.m in Sources */,
+				8EA73590103DBC20004580FB /* NSString+LongLongValue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +411,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Downloads/EyeTunes-1.3.2/build/Debug\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -352,6 +432,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Downloads/EyeTunes-1.3.2/build/Debug\"",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = xwaxMac_Prefix.pch;
