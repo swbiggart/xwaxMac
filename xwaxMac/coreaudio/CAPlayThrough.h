@@ -49,7 +49,6 @@ if(err) {\
 			   __LINE__\
 			   );\
 				   fflush(stdout);\
-		return err; \
 exit(1); \
 }         
 
@@ -59,6 +58,7 @@ exit(1); \
 #include "CARingBuffer.h"
 #include "AudioDevice.h"
 #include "CAStreamBasicDescription.h"
+
 
 extern "C"
 {
@@ -85,6 +85,7 @@ public:
 	OSStatus	Stop();
 	Boolean		IsRunning();
 	Float64     GetSampleRate();
+	
 
 private:
 	CAPlayThrough* CAPlayThroughHost::GetPlayThrough() { return mPlayThrough; }

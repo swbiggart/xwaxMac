@@ -2,7 +2,11 @@
  * Based on CAPlayThrough.cpp sample code
  */
 #include "CAPlayThrough.h"
+#import "AUWindowController.h"
+#include "CAComponent.h"
 #pragma mark -- CAPlayThrough
+
+
 
 // we define the class here so that is is not accessible from any object aside from CAPlayThroughManager
 class CAPlayThrough 
@@ -71,6 +75,9 @@ private:
 	Float64 mFirstInputTime;
 	Float64 mFirstOutputTime;
 	Float64 mInToOutSampleOffset;
+	
+	AUWindowController *wc; // for the view
+		CAComponent *					mAUList;
 public:
 	Float64 mSampleRate; //only valid after setupbuffers()
 	struct device_t *xwax_device;
@@ -90,6 +97,7 @@ mInToOutSampleOffset(0),
 xwax_device(xwax_device),
 mSampleRate(-1)
 {
+	wc = loadNib();
 	OSStatus err = noErr;
 	err =Init(input,output);
     if(err) {
@@ -161,6 +169,12 @@ OSStatus CAPlayThrough::Start()
 		checkErr(err);
 		
 		err = AUGraphStart(mGraph);
+		
+		if (mEffectsUnit->data[0] == 0)
+		{
+			NSLog(@"Start Null");
+		}
+		
 		checkErr(err);
 		
 		//reset sample times
@@ -288,22 +302,59 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 	AudioUnitParameterInfo pi;
 	UInt32 dontcare = sizeof(pi);
 	int i;
+	
+	//This doesn't work - the sentinel is not size==0 - there must be a way of getting the no of params
+	
+	
+/*
 	for (i=0;;i++)
 	{
 		AudioUnitGetProperty(mEffectsUnit, kAudioUnitProperty_ParameterInfo, kAudioUnitScope_Global, i, &pi, &dontcare);
 		if (dontcare == 0) break;
 		printf("param is %s\n",pi.name);
 	}
+ */
 	checkErr(err);		
-	
+	//Show view 
+	if (mEffectsUnit->data[0] == 0)
+	{
+		NSLog(@"SetupGraph Null");
+	}
+
 	return err;
 }
-
+void getComponentsForAUType(OSType inAUType, CAComponent *ioCompBuffer, int count)
+{
+	CAComponentDescription desc = CAComponentDescription(inAUType);
+	CAComponent *last = NULL;
+	
+	for (int i = 0; i < count; ++i) {
+		ioCompBuffer[i] = CAComponent(desc, last);
+		last = &(ioCompBuffer[i]);
+	}
+}
+int componentCountForAUType(OSType inAUType)
+{
+	CAComponentDescription desc = CAComponentDescription(inAUType);
+	return desc.Count();
+}
 OSStatus CAPlayThrough::MakeGraph()
 {
 	OSStatus err = noErr;
 	ComponentDescription outDesc;		
 	ComponentDescription effectsDesc;
+
+	/*
+	int componentCount = componentCountForAUType(kAudioUnitType_Effect);
+	UInt32 dataByteSize = componentCount * sizeof(CAComponent);
+	mAUList = static_cast<CAComponent *>(malloc(dataByteSize));
+	memset (mAUList, 0, dataByteSize);
+	getComponentsForAUType(kAudioUnitType_Effect, mAUList, componentCount);
+	int index = 0;
+	effectsDesc = mAUList[index].Desc();
+	NSLog(@"Looking at effect %@",(NSString *)(mAUList[index].GetAUName()));
+	 
+	 */
 
 	//Setup Effect node and unit.  TODO dynamic Effect selection and display of Effect UI
 	effectsDesc.componentType = kAudioUnitType_Effect;
@@ -313,9 +364,23 @@ OSStatus CAPlayThrough::MakeGraph()
 	effectsDesc.componentFlags = 0;
 	effectsDesc.componentFlagsMask = 0;
 	err = AUGraphAddNode(mGraph, &effectsDesc, &mEffectsNode);
+ 
+	err = AUGraphAddNode(mGraph, &effectsDesc, &mEffectsNode);
 	checkErr(err);
 	err = AUGraphNodeInfo(mGraph, mEffectsNode, NULL, &mEffectsUnit);   
 	checkErr(err);
+	err = (AUGraphUpdate (mGraph, NULL));
+	checkErr(err);
+	
+
+	
+	
+	if (mEffectsUnit->data[0] == 0)
+	{
+		NSLog(@"MakeGraph Null");
+	}
+	[wc showCocoaViewForAU:mEffectsUnit];
+	
 	
 	//Setup Output node and unit
 	outDesc.componentType = kAudioUnitType_Output;

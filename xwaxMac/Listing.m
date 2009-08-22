@@ -30,7 +30,7 @@ void test_get_tracks_by_search(struct library_t *li) {
 			strcpy(record.artist, [[t artist] UTF8String]);
 			strcpy(record.name, [[t name] UTF8String]);
 			strcpy(record.title, [[t name] UTF8String]);
-			NSLog(@"> %@ %@", [t name], [t location]);
+//			NSLog(@"> %@ %@", [t name], [t location]);
 			library_add(li, &record);
 		}
 	}

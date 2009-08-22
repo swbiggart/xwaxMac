@@ -62,6 +62,7 @@ clear
 
 int coreaudio_init(struct device_t *dv, const char *inName, const char *outName)
 {
+
 	AudioDeviceList *inputs = new AudioDeviceList(true);
 	AudioDeviceList *outputs = new AudioDeviceList(false);
 	
