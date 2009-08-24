@@ -77,7 +77,7 @@ private:
 	Float64 mInToOutSampleOffset;
 	
 	AUWindowController *wc; // for the view
-		CAComponent *					mAUList;
+	CAComponent *					mAUList;
 public:
 	Float64 mSampleRate; //only valid after setupbuffers()
 	struct device_t *xwax_device;

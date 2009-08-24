@@ -75,7 +75,7 @@ int coreaudio_init(struct device_t *dv, const char *inName, const char *outName)
 	//but behind the scenes manage one instance of playthrough, 1st one processing channels 1,2 and 2nd 3,4
 	std::string inputsStr, outputsStr;
 	
-//	printf("Inputs:\n");
+	// Inputs
 	{
 		AudioDeviceList::DeviceList &thelist = inputs->GetList();
 		int index = 0;
@@ -83,14 +83,13 @@ int coreaudio_init(struct device_t *dv, const char *inName, const char *outName)
 			inputsStr += "\"";
 			inputsStr += (*i).mName;
 			inputsStr += "\", "; 
-//			printf ("%s %lu\n",(*i).mName, (*i).mID);
 			if (inId == -1 && !strcmp((*i).mName, inName))
 			{
 				inId = (*i).mID;
 			}
 		}
 	}
-//	printf("Outputs:\n");
+	// Outputs
 	{
 		AudioDeviceList::DeviceList &thelist = outputs->GetList();
 		int index = 0;
@@ -98,7 +97,6 @@ int coreaudio_init(struct device_t *dv, const char *inName, const char *outName)
 			outputsStr += "\"";
 			outputsStr += (*i).mName;
 			outputsStr += "\", "; 
-//			printf ("%s %lu\n",(*i).mName, (*i).mID);
 			if (outId == -1 && !strcmp((*i).mName, outName))
 			{
 				outId = (*i).mID;
@@ -122,14 +120,11 @@ int coreaudio_init(struct device_t *dv, const char *inName, const char *outName)
 		return -1;
 	}
 	
-	pt = new CAPlayThroughHost(inId, outId, dv);// b-i mic, b-i out
-//	pt = new CAPlayThroughHost(265, 267, dv);// b-i mic, b-i out
-//	pt = new CAPlayThroughHost(270, 267, dv);//jackrouter, b-i out
+	pt = new CAPlayThroughHost(inId, outId, dv);
 	dv->type = &coreaudio_type;
 	assert(decks < MAX_DECKS);
     device[decks] = dv;
     decks++;
 	
-	//sleep(600000000);
 	return 0;
 }
