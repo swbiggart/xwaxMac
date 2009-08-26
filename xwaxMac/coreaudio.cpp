@@ -17,7 +17,7 @@
 #define MAX_DECKS 4
 
 
-CAPlayThroughHost *pt;
+CAPlayThroughHost *pt[MAX_DECKS];
 struct device_t *device[MAX_DECKS];
 
 static int decks = 0,
@@ -27,14 +27,18 @@ started = 0;
 static unsigned int sample_rate(struct device_t *dv)
 {
 	printf("coreaudio sample_rate\n");
-	return pt->GetSampleRate(); // FIXME
+	return pt[0]->GetSampleRate(); // FIXME
 }
 
 static int start(struct device_t *dv)
 {
 	
 	printf("coreaudio start\n");
-	pt->Start();
+	int i;
+	for(i=0;i<decks;i++)
+	{
+	pt[i]->Start();
+	}
 	return 0;
 }
 //FIXME
@@ -68,6 +72,24 @@ int coreaudio_init(struct device_t *dv, const char *inName, const char *outName)
 	
 	int inId=-1, outId=-1;
 
+
+	// Split out the channel numbers from the name
+	int inChanL, inChanR;
+	char inDevice[512];
+	if (sscanf(inName,"%[^:]:%d:%d",inDevice, &inChanL, &inChanR) != 3)
+	{
+		fprintf(stderr, "Error starting up, couldn't parse input device name \"%s\"\n", inName);
+		return -1;
+	}
+
+	int outChanL, outChanR;
+	char outDevice[512];
+	if (sscanf(outName,"%[^:]:%d:%d",outDevice, &outChanL, &outChanR) != 3)
+	{
+		fprintf(stderr, "Error starting up, couldn't parse output device name \"%s\"\n", outName);
+		return -1;
+	}
+
 	
 	//TODO - take channel numbers in addition to device name and map them to decks - or maybe channel numbers are automatic???
 	//Manage a number of playthroughs depending on number of unique input/output combinations
@@ -83,7 +105,7 @@ int coreaudio_init(struct device_t *dv, const char *inName, const char *outName)
 			inputsStr += "\"";
 			inputsStr += (*i).mName;
 			inputsStr += "\", "; 
-			if (inId == -1 && !strcmp((*i).mName, inName))
+			if (inId == -1 && !strcmp((*i).mName, inDevice))
 			{
 				inId = (*i).mID;
 			}
@@ -97,7 +119,7 @@ int coreaudio_init(struct device_t *dv, const char *inName, const char *outName)
 			outputsStr += "\"";
 			outputsStr += (*i).mName;
 			outputsStr += "\", "; 
-			if (outId == -1 && !strcmp((*i).mName, outName))
+			if (outId == -1 && !strcmp((*i).mName, outDevice))
 			{
 				outId = (*i).mID;
 				break;
@@ -109,18 +131,18 @@ int coreaudio_init(struct device_t *dv, const char *inName, const char *outName)
 	{
 		if (inId == -1)
 		{
-			fprintf(stderr, "Error starting up, couldn't find input device \"%s\"\n", inName);
+			fprintf(stderr, "Error starting up, couldn't find input device \"%s\"\n", inDevice);
 			std::cerr << "Possible input devices: " << inputsStr << std::endl;
 		}
 		if (outId == -1)
 		{
-			fprintf(stderr, "Error starting up, couldn't find output device \"%s\"\n", outName);
+			fprintf(stderr, "Error starting up, couldn't find output device \"%s\"\n", outDevice);
 			std::cerr << "Possible output devices: " << outputsStr << std::endl;
 		}
 		return -1;
 	}
-	
-	pt = new CAPlayThroughHost(inId, outId, dv);
+	printf("Starting up a deck with devices %s %s ins %d %d outs %d %d\n", inDevice, outDevice, inChanL, inChanR, outChanL, outChanR);
+	pt[decks] = new CAPlayThroughHost(inId, outId, inChanL, inChanR, outChanL, outChanR, dv);
 	dv->type = &coreaudio_type;
 	assert(decks < MAX_DECKS);
     device[decks] = dv;

@@ -5,14 +5,14 @@
 #import "AUWindowController.h"
 #include "CAComponent.h"
 #pragma mark -- CAPlayThrough
-
+typedef Float32 AudioSampleType; 
 
 
 // we define the class here so that is is not accessible from any object aside from CAPlayThroughManager
 class CAPlayThrough 
 {
 public:
-	CAPlayThrough(AudioDeviceID input, AudioDeviceID output, struct device_t *xwax_device);
+	CAPlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device);
 	~CAPlayThrough();
 	
 	OSStatus	Init(AudioDeviceID input, AudioDeviceID output);
@@ -78,6 +78,8 @@ private:
 	
 	AUWindowController *wc; // for the view
 	CAComponent *					mAUList;
+	
+	int inChanL,  inChanR,  outChanL,  outChanR;//channel map on input and output devices
 public:
 	Float64 mSampleRate; //only valid after setupbuffers()
 	struct device_t *xwax_device;
@@ -89,13 +91,17 @@ public:
 #pragma mark ---CAPlayThrough Methods---
 
 //Construct PlayThrough object associated with xwax device
-CAPlayThrough::CAPlayThrough(AudioDeviceID input, AudioDeviceID output, struct device_t *xwax_device):
+CAPlayThrough::CAPlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device):
 mBuffer(NULL),
 mFirstInputTime(-1),
 mFirstOutputTime(-1),
 mInToOutSampleOffset(0),
 xwax_device(xwax_device),
-mSampleRate(-1)
+mSampleRate(-1),
+inChanL(inChanL),
+inChanR(inChanR),
+outChanL(outChanL),
+outChanR(outChanR)
 {
 	wc = loadNib();
 	OSStatus err = noErr;
@@ -127,8 +133,8 @@ OSStatus CAPlayThrough::Init(AudioDeviceID input, AudioDeviceID output)
 	checkErr(err);
 		
 	//Connect Effect Unit(s)
-	err= AUGraphConnectNodeInput (mGraph, mEffectsNode, 0, mOutputNode, 0);
-	checkErr(err);	
+//	err= AUGraphConnectNodeInput (mGraph, mEffectsNode, 0, mOutputNode, 0);
+//	checkErr(err);	
 	
 	err = AUGraphInitialize(mGraph); 
 	checkErr(err);
@@ -169,11 +175,6 @@ OSStatus CAPlayThrough::Start()
 		checkErr(err);
 		
 		err = AUGraphStart(mGraph);
-		
-		if (mEffectsUnit->data[0] == 0)
-		{
-			NSLog(@"Start Null");
-		}
 		
 		checkErr(err);
 		
@@ -293,7 +294,7 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 	
 	//Now that we are using (an) effect(s), the callback is on the effects unit and not the output unit
 	
-	err = AudioUnitSetProperty(mEffectsUnit, 
+	err = AudioUnitSetProperty(mOutputUnit, 
 							  kAudioUnitProperty_SetRenderCallback, 
 							  kAudioUnitScope_Input,
 							  0,
@@ -315,11 +316,6 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 	}
  */
 	checkErr(err);		
-	//Show view 
-	if (mEffectsUnit->data[0] == 0)
-	{
-		NSLog(@"SetupGraph Null");
-	}
 
 	return err;
 }
@@ -356,6 +352,12 @@ OSStatus CAPlayThrough::MakeGraph()
 	 
 	 */
 
+
+	UInt32 dontcare;void *dontcare2;
+
+// Switching off effects unit whilst looking into multichannel
+
+/*
 	//Setup Effect node and unit.  TODO dynamic Effect selection and display of Effect UI
 	effectsDesc.componentType = kAudioUnitType_Effect;
 //	effectsDesc.componentSubType = kAudioUnitSubType_LowPassFilter;
@@ -363,11 +365,11 @@ OSStatus CAPlayThrough::MakeGraph()
 	effectsDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
 	effectsDesc.componentFlags = 0;
 	effectsDesc.componentFlagsMask = 0;
-	err = AUGraphAddNode(mGraph, &effectsDesc, &mEffectsNode);
- 
-	err = AUGraphAddNode(mGraph, &effectsDesc, &mEffectsNode);
+//	err = AUGraphAddNode(mGraph, &effectsDesc, &mEffectsNode);
+	err = AUGraphNewNode(mGraph, &effectsDesc, 0, NULL, &mEffectsNode);
 	checkErr(err);
-	err = AUGraphNodeInfo(mGraph, mEffectsNode, NULL, &mEffectsUnit);   
+//	err = AUGraphNodeInfo(mGraph, mEffectsNode, NULL, &mEffectsUnit);   
+	err = AUGraphGetNodeInfo(mGraph, mEffectsNode, &effectsDesc, &dontcare, &dontcare2, &mEffectsUnit);
 	checkErr(err);
 	err = (AUGraphUpdate (mGraph, NULL));
 	checkErr(err);
@@ -380,7 +382,7 @@ OSStatus CAPlayThrough::MakeGraph()
 		NSLog(@"MakeGraph Null");
 	}
 	[wc showCocoaViewForAU:mEffectsUnit];
-	
+	*/
 	
 	//Setup Output node and unit
 	outDesc.componentType = kAudioUnitType_Output;
@@ -388,9 +390,11 @@ OSStatus CAPlayThrough::MakeGraph()
 	outDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
 	outDesc.componentFlags = 0;
 	outDesc.componentFlagsMask = 0;	
-	err = AUGraphAddNode(mGraph, &outDesc, &mOutputNode);
+//	err = AUGraphAddNode(mGraph, &outDesc, &mOutputNode);
+	err = AUGraphNewNode(mGraph, &outDesc, 0, NULL, &mOutputNode);
 	checkErr(err);	
-	err = AUGraphNodeInfo(mGraph, mOutputNode, NULL, &mOutputUnit);   
+//	err = AUGraphNodeInfo(mGraph, mOutputNode, NULL, &mOutputUnit);   
+	err = AUGraphGetNodeInfo(mGraph, mOutputNode, &outDesc, &dontcare, &dontcare2, &mOutputUnit);
 	checkErr(err);
 	
 	// don't connect nodes until the varispeed unit has input and output formats set
@@ -584,10 +588,10 @@ void	CAPlayThrough::ComputeThruOffset()
 /* Stereo interleave */
 #define SCALE 32768
 static void interleave(signed short *buf, AudioBufferList *cabuf,
-                       register UInt32 nframes)
+                       register UInt32 nframes, int inChanL, int inChanR)
 {
 	register AudioSampleType *l,*r;
-	
+	/*
 	if (cabuf->mNumberBuffers== 2)
 	{
 		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
@@ -603,7 +607,15 @@ static void interleave(signed short *buf, AudioBufferList *cabuf,
 		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
 		r = (AudioSampleType*)cabuf->mBuffers[1].mData;
 	}
-	
+	*/
+	if (inChanL >= cabuf->mNumberBuffers || inChanR >= cabuf->mNumberBuffers)
+	{
+		fprintf(stderr, "inBig problem %d %d %d\n", inChanL, inChanR, cabuf->mNumberBuffers);
+		abort();
+	}
+	l = (AudioSampleType*)cabuf->mBuffers[inChanL-1].mData;
+	r = (AudioSampleType*)cabuf->mBuffers[inChanR-1].mData;
+
 	while(nframes--) {
             *buf = (signed short)(*l * SCALE);
             buf++;
@@ -615,9 +627,11 @@ static void interleave(signed short *buf, AudioBufferList *cabuf,
 }
 
 static void uninterleave(AudioBufferList *cabuf, signed short *buf, 
-                       register UInt32 nframes)
+                       register UInt32 nframes, int outChanL, int outChanR)
 {
 	register AudioSampleType *l,*r;
+
+/*
 	if (cabuf->mNumberBuffers== 2)
 	{
 		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
@@ -633,6 +647,16 @@ static void uninterleave(AudioBufferList *cabuf, signed short *buf,
 		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
 		r = (AudioSampleType*)cabuf->mBuffers[1].mData;
 	}
+*/
+
+	if (outChanL >= cabuf->mNumberBuffers || outChanR >= cabuf->mNumberBuffers)
+	{
+		fprintf(stderr, "outBig problem %d %d %d\n", outChanL, outChanR, cabuf->mNumberBuffers);
+		abort();
+	}
+	l = (AudioSampleType*)cabuf->mBuffers[outChanL-1].mData;
+	r = (AudioSampleType*)cabuf->mBuffers[outChanR-1].mData;
+
 	
 	while(nframes--) {
 		*l = (AudioSampleType)(* buf   ) / SCALE;
@@ -680,7 +704,7 @@ OSStatus CAPlayThrough::InputProc(void *inRefCon,
 				pcmData = (signed short*)realloc(pcmData, sizeof(signed short)*inNumberFrames*2); // stereo
 			}
 			prevNumFrames = inNumberFrames;
-			interleave(pcmData, This->mInputBuffer, inNumberFrames);
+			interleave(pcmData, This->mInputBuffer, inNumberFrames, This->inChanL, This->inChanR);
             timecoder_submit(This->xwax_device->timecoder, pcmData, (size_t)inNumberFrames);
 		}
 	}
@@ -721,7 +745,7 @@ OSStatus CAPlayThrough::OutputProc(void *inRefCon,
 	prevNumFrames = inNumberFrames;
 
 	player_collect(This->xwax_device->player, pcmData, inNumberFrames, This->mSampleRate);//FIXME sample rate
-	uninterleave(ioData, pcmData, inNumberFrames);
+	uninterleave(ioData, pcmData, inNumberFrames, This->outChanL, This->outChanR);
 	}
 	else
 	{
@@ -754,10 +778,10 @@ OSStatus CAPlayThrough::OutputProc(void *inRefCon,
 
 #pragma mark -- CAPlayThroughHost Methods --
 
-CAPlayThroughHost::CAPlayThroughHost(AudioDeviceID input, AudioDeviceID output, struct device_t *xwax_device):
+CAPlayThroughHost::CAPlayThroughHost(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device):
 	mPlayThrough(NULL)
 {
-	CreatePlayThrough(input, output, xwax_device);
+	CreatePlayThrough(input, output,  inChanL,  inChanR,  outChanL,  outChanR, xwax_device);
 }
 
 CAPlayThroughHost::~CAPlayThroughHost()
@@ -765,9 +789,9 @@ CAPlayThroughHost::~CAPlayThroughHost()
 	DeletePlayThrough();
 }
 
-void CAPlayThroughHost::CreatePlayThrough(AudioDeviceID input, AudioDeviceID output, struct device_t *xwax_device)
+void CAPlayThroughHost::CreatePlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device)
 {
-	mPlayThrough = new CAPlayThrough(input, output, xwax_device);
+	mPlayThrough = new CAPlayThrough(input, output,  inChanL,  inChanR,  outChanL,  outChanR,xwax_device);
 }
 
 void CAPlayThroughHost::DeletePlayThrough()

@@ -139,14 +139,14 @@ int listing_match(struct listing_t *src, struct listing_t *dest, char *match)
 {
     int n;
     struct record_t *re;
-
+//
     fprintf(stderr, "Matching '%s'\n", match);
 
     for(n = 0; n < src->entries; n++) {
         re = src->record[n];
 
         if(strmatch(match, re->name)) {
-            fprintf(stderr, "%s matches\n", re->name);
+//            fprintf(stderr, "%s matches\n", re->name);
             if(listing_add(dest, re) == -1)
                 return -1;
         }
