@@ -523,7 +523,7 @@ OSStatus CAPlayThrough::SetupBuffers()
 	//Set the format of all the AUs to the input/output devices channel count
 	//For a simple case, you want to set this to the lower of count of the channels
 	//in the input device vs output device
-	asbd.mChannelsPerFrame =((asbd_dev1_in.mChannelsPerFrame < asbd_dev2_out.mChannelsPerFrame) ?asbd_dev1_in.mChannelsPerFrame :asbd_dev2_out.mChannelsPerFrame) ;
+	asbd.mChannelsPerFrame =2;
 	printf("Info: Input Device channel count=%ld\t Input Device channel count=%ld\n",asbd_dev1_in.mChannelsPerFrame,asbd_dev2_out.mChannelsPerFrame);	
 	printf("Info: CAPlayThrough will use %ld channels\n",asbd.mChannelsPerFrame);	
 	
@@ -557,6 +557,38 @@ OSStatus CAPlayThrough::SetupBuffers()
 		return -1;
 	}
 	mSampleRate = inRate;
+	
+	
+	{
+	// Setup input channel map
+	SInt32 *channelMap = NULL;
+	UInt32 size = sizeof(SInt32)*2;
+	channelMap = (SInt32*)malloc(size);
+	// Map desired input channels (0-based) from device channels (1-based)
+	channelMap[0] = inChanL-1;
+	channelMap[1] = outChanR-1;
+	err = AudioUnitSetProperty(mInputUnit, kAudioOutputUnitProperty_ChannelMap, kAudioUnitScope_Output, 1, channelMap, size);
+	checkErr(err);
+	free(channelMap);
+	}
+	
+	
+	{
+	// Setup output channel map
+	SInt32 *channelMap = NULL;
+	UInt32 size = sizeof(SInt32)*asbd_dev2_out.mChannelsPerFrame;
+	channelMap = (SInt32*)malloc(size);
+	for (UInt32 i=0;i<asbd_dev2_out.mChannelsPerFrame;i++)
+	{
+		channelMap[i]=-1;
+	}
+	// Map desired output device channels (1-based) to first and second output of graph (0-based)
+	channelMap[outChanL-1] = 0;
+	channelMap[outChanR-1] = 1;
+	err = AudioUnitSetProperty(mOutputUnit, kAudioOutputUnitProperty_ChannelMap, kAudioUnitScope_Output, 0, channelMap, size);
+	checkErr(err);
+	free(channelMap);
+	}
 	
 	//calculate number of buffers from channels
 	propsize = offsetof(AudioBufferList, mBuffers[0]) + (sizeof(AudioBuffer) *asbd.mChannelsPerFrame);
@@ -608,13 +640,13 @@ static void interleave(signed short *buf, AudioBufferList *cabuf,
 		r = (AudioSampleType*)cabuf->mBuffers[1].mData;
 	}
 	*/
-	if (inChanL >= cabuf->mNumberBuffers || inChanR >= cabuf->mNumberBuffers)
+	if (cabuf->mNumberBuffers != 2)
 	{
 		fprintf(stderr, "inBig problem %d %d %d\n", inChanL, inChanR, cabuf->mNumberBuffers);
 		abort();
 	}
-	l = (AudioSampleType*)cabuf->mBuffers[inChanL-1].mData;
-	r = (AudioSampleType*)cabuf->mBuffers[inChanR-1].mData;
+	l = (AudioSampleType*)cabuf->mBuffers[0].mData;
+	r = (AudioSampleType*)cabuf->mBuffers[1].mData;
 
 	while(nframes--) {
             *buf = (signed short)(*l * SCALE);
@@ -649,13 +681,13 @@ static void uninterleave(AudioBufferList *cabuf, signed short *buf,
 	}
 */
 
-	if (outChanL >= cabuf->mNumberBuffers || outChanR >= cabuf->mNumberBuffers)
+	if (cabuf->mNumberBuffers != 2)
 	{
 		fprintf(stderr, "outBig problem %d %d %d\n", outChanL, outChanR, cabuf->mNumberBuffers);
 		abort();
 	}
-	l = (AudioSampleType*)cabuf->mBuffers[outChanL-1].mData;
-	r = (AudioSampleType*)cabuf->mBuffers[outChanR-1].mData;
+	l = (AudioSampleType*)cabuf->mBuffers[0].mData;
+	r = (AudioSampleType*)cabuf->mBuffers[1].mData;
 
 	
 	while(nframes--) {
