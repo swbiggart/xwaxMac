@@ -132,9 +132,9 @@ OSStatus CAPlayThrough::Init(AudioDeviceID input, AudioDeviceID output)
 	err = SetupBuffers();
 	checkErr(err);
 		
-	//Connect Effect Unit(s)
-//	err= AUGraphConnectNodeInput (mGraph, mEffectsNode, 0, mOutputNode, 0);
-//	checkErr(err);	
+	//Connect Effect Unit(s) - if we're not using effects don't do this as we write the audio directly in the callback
+	err= AUGraphConnectNodeInput (mGraph, mEffectsNode, 0, mOutputNode, 0);
+	checkErr(err);	
 	
 	err = AUGraphInitialize(mGraph); 
 	checkErr(err);
@@ -294,7 +294,7 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 	
 	//Now that we are using (an) effect(s), the callback is on the effects unit and not the output unit
 	
-	err = AudioUnitSetProperty(mOutputUnit, 
+	err = AudioUnitSetProperty(mEffectsUnit, 
 							  kAudioUnitProperty_SetRenderCallback, 
 							  kAudioUnitScope_Input,
 							  0,
@@ -357,7 +357,7 @@ OSStatus CAPlayThrough::MakeGraph()
 
 // Switching off effects unit whilst looking into multichannel
 
-/*
+
 	//Setup Effect node and unit.  TODO dynamic Effect selection and display of Effect UI
 	effectsDesc.componentType = kAudioUnitType_Effect;
 //	effectsDesc.componentSubType = kAudioUnitSubType_LowPassFilter;
@@ -382,7 +382,7 @@ OSStatus CAPlayThrough::MakeGraph()
 		NSLog(@"MakeGraph Null");
 	}
 	[wc showCocoaViewForAU:mEffectsUnit];
-	*/
+	
 	
 	//Setup Output node and unit
 	outDesc.componentType = kAudioUnitType_Output;

@@ -8,15 +8,12 @@
 
 #import "AUWindowController.h"
 
-static id lastSelf = nil;
 
 @implementation AUWindowController
 
 - (id)init
 {
 	self = [super init];
-
-	lastSelf = self;
 	
 	return self;
 }
@@ -35,11 +32,7 @@ static id lastSelf = nil;
 
 - (void)awakeFromNib
 {
-	static int loaded=0;
-	loaded++;
     NSLog(@"awake %p", self );
-	if (loaded == 1)
-	{
     NSLog(@"LoadNib");
     // create scroll-view
     NSRect frameRect = [[uiAUViewContainer contentView] frame];
@@ -53,10 +46,8 @@ static id lastSelf = nil;
 
     
 	// make this the app. delegate
-	[NSApp setDelegate:self];
-	[[self window] setDelegate: self];
-		[[self window] firstResponder];
-	}
+//	[NSApp setDelegate:self];
+//	[[self window] setDelegate: self];
 }
 
 - (void)showCocoaViewForAU:(AudioUnit)inAU
@@ -199,8 +190,8 @@ AUWindowController* loadNib()
 		return 0;
 	} else {
 		NSLog(@"Loaded");
-		NSLog(@"Returning %p", lastSelf);
-		return lastSelf;
+		NSLog(@"Returning %p", wc);
+		return wc;
 	}
 
 }

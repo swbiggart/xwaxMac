@@ -516,6 +516,7 @@
 					/usr/local/include/SDL_ttf,
 					/usr/local/include/SDL,
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ljack",
 					"-lSDLmain",

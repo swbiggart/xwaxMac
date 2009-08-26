@@ -1,6 +1,7 @@
 // !$*UTF8*$!
 {
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeArchitecturePreference = i386;
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 8EB5CFB810027E8D00018849 /* xwaxMac */;
 		activeTarget = 8D1107260486CEB800E47090 /* xwaxMac */;
@@ -9,11 +10,11 @@
 		);
 		breakpoints = (
 			8E968264101382280074DEEE /* coreaudio.cpp:24 */,
-			8E9683CE101624200074DEEE /* CAPlayThrough.mm:619 */,
-			8E949C591038736A0050ECE6 /* CAPlayThrough.mm:750 */,
-			8E949C5B103873980050ECE6 /* CAPlayThrough.mm:690 */,
-			8E949C5E103874240050ECE6 /* CAPlayThrough.mm:658 */,
-			8E949C85103876140050ECE6 /* CAPlayThrough.mm:735 */,
+			8E9683CE101624200074DEEE /* CAPlayThrough.mm:612 */,
+			8E949C591038736A0050ECE6 /* CAPlayThrough.mm:743 */,
+			8E949C5B103873980050ECE6 /* CAPlayThrough.mm:683 */,
+			8E949C5E103874240050ECE6 /* CAPlayThrough.mm:651 */,
+			8E949C85103876140050ECE6 /* CAPlayThrough.mm:728 */,
 			8E949CF5103895030050ECE6 /* track.c:41 */,
 			8EA7341A1039C182004580FB /* CAPlayThrough.cpp:297 */,
 			8EA7343F1039D308004580FB /* CAPlayThrough.cpp:282 */,
@@ -24,23 +25,24 @@
 			8EA73516103C8D57004580FB /* library.c:149 */,
 			8EA73596103DC018004580FB /* Listing.m:19 */,
 			8ED0B373103DD10A002AF97C /* Listing.m:36 */,
-			8ED0B3E510401F99002AF97C /* AUWindowController.mm:37 */,
-			8ED0B40F1040371F002AF97C /* AUWindowController.mm:195 */,
-			8E8940FE10403D9E00D285B8 /* AUWindowController.mm:62 */,
-			8E8941ED104044E000D285B8 /* CAPlayThrough.mm:382 */,
+			8ED0B3E510401F99002AF97C /* AUWindowController.mm:34 */,
+			8ED0B40F1040371F002AF97C /* AUWindowController.mm:186 */,
+			8E8940FE10403D9E00D285B8 /* AUWindowController.mm:53 */,
+			8E8941ED104044E000D285B8 /* CAPlayThrough.mm:375 */,
 			8E894253104048F200D285B8 /* CAPlayThrough.mm:175 */,
 			8E894275104049A700D285B8 /* CAPlayThrough.mm:313 */,
-			8E89429A10404C8A00D285B8 /* CAPlayThrough.mm:370 */,
+			8E89429A10404C8A00D285B8 /* CAPlayThrough.mm:368 */,
 			8E8942EA1040506E00D285B8 /* MixerController.mm:357 */,
 			8E894344104055DE00D285B8 /* CAPlayThrough.mm:355 */,
-			8E8943851040589200D285B8 /* AUWindowController.mm:147 */,
-			8E8943C610405A8C00D285B8 /* AUWindowController.mm:167 */,
-			8E8943D710405B7300D285B8 /* AUWindowController.mm:33 */,
+			8E8943851040589200D285B8 /* AUWindowController.mm:138 */,
+			8E8943C610405A8C00D285B8 /* AUWindowController.mm:158 */,
+			8E8943D710405B7300D285B8 /* AUWindowController.mm:30 */,
 			8E8944561040704300D285B8 /* CAPlayThrough.mm:100 */,
-			8E894485104072B100D285B8 /* AUWindowController.mm:16 */,
-			8E8944F01040762200D285B8 /* AUWindowController.mm:202 */,
-			8E89455B1040A44900D285B8 /* AUWindowController.mm:58 */,
-			8E8945701041B70E00D285B8 /* AUWindowController.mm:197 */,
+			8E894485104072B100D285B8 /* AUWindowController.mm:15 */,
+			8E8944F01040762200D285B8 /* AUWindowController.mm:192 */,
+			8E89455B1040A44900D285B8 /* AUWindowController.mm:51 */,
+			8E8945701041B70E00D285B8 /* AUWindowController.mm:188 */,
+			8E8945961042F39D00D285B8 /* AUWindowController.mm:188 */,
 		);
 		codeSenseManager = 8EB5CFC710027E9F00018849 /* Code sense */;
 		executables = (
@@ -67,7 +69,7 @@
 				PBXFileTableDataSourceColumnWidthsKey = (
 					22,
 					300,
-					632,
+					846,
 				);
 				PBXFileTableDataSourceColumnsKey = (
 					PBXExecutablesDataSource_ActiveFlagID,
@@ -681,6 +683,121 @@
 			8E89458D1041B88900D285B8 /* PBXTextBookmark */ = 8E89458D1041B88900D285B8 /* PBXTextBookmark */;
 			8E89458E1041B88900D285B8 /* PBXTextBookmark */ = 8E89458E1041B88900D285B8 /* PBXTextBookmark */;
 			8E89458F1041B88900D285B8 /* PBXTextBookmark */ = 8E89458F1041B88900D285B8 /* PBXTextBookmark */;
+			8E8945981042F3AF00D285B8 /* PBXTextBookmark */ = 8E8945981042F3AF00D285B8 /* PBXTextBookmark */;
+			8E8945991042F3AF00D285B8 /* PBXTextBookmark */ = 8E8945991042F3AF00D285B8 /* PBXTextBookmark */;
+			8E89459B1042F3AF00D285B8 /* PBXTextBookmark */ = 8E89459B1042F3AF00D285B8 /* PBXTextBookmark */;
+			8E89459C1042F3AF00D285B8 /* PBXTextBookmark */ = 8E89459C1042F3AF00D285B8 /* PBXTextBookmark */;
+			8E89459E1042F3AF00D285B8 /* PBXTextBookmark */ = 8E89459E1042F3AF00D285B8 /* PBXTextBookmark */;
+			8E89459F1042F3AF00D285B8 /* PBXTextBookmark */ = 8E89459F1042F3AF00D285B8 /* PBXTextBookmark */;
+			8E8945A01042F3AF00D285B8 /* PBXTextBookmark */ = 8E8945A01042F3AF00D285B8 /* PBXTextBookmark */;
+			8E8945A11042F3AF00D285B8 /* PBXTextBookmark */ = 8E8945A11042F3AF00D285B8 /* PBXTextBookmark */;
+			8E8945A21042F3AF00D285B8 /* PBXTextBookmark */ = 8E8945A21042F3AF00D285B8 /* PBXTextBookmark */;
+			8E8945A41042F3AF00D285B8 /* PBXTextBookmark */ = 8E8945A41042F3AF00D285B8 /* PBXTextBookmark */;
+			8E8945A51042F3AF00D285B8 /* PBXTextBookmark */ = 8E8945A51042F3AF00D285B8 /* PBXTextBookmark */;
+			8E8945A71042F3AF00D285B8 /* PBXTextBookmark */ = 8E8945A71042F3AF00D285B8 /* PBXTextBookmark */;
+			8E8945AC1042F40100D285B8 /* PBXTextBookmark */ = 8E8945AC1042F40100D285B8 /* PBXTextBookmark */;
+			8E8945AD1042F40100D285B8 /* PBXTextBookmark */ = 8E8945AD1042F40100D285B8 /* PBXTextBookmark */;
+			8E8945AE1042F40100D285B8 /* PBXTextBookmark */ = 8E8945AE1042F40100D285B8 /* PBXTextBookmark */;
+			8E8945AF1042F40100D285B8 /* PBXTextBookmark */ = 8E8945AF1042F40100D285B8 /* PBXTextBookmark */;
+			8E8945B01042F40100D285B8 /* PBXTextBookmark */ = 8E8945B01042F40100D285B8 /* PBXTextBookmark */;
+			8E8945B11042F40100D285B8 /* PBXTextBookmark */ = 8E8945B11042F40100D285B8 /* PBXTextBookmark */;
+			8E8945B21042F40100D285B8 /* PBXTextBookmark */ = 8E8945B21042F40100D285B8 /* PBXTextBookmark */;
+			8E8945BA1042F49C00D285B8 /* PBXTextBookmark */ = 8E8945BA1042F49C00D285B8 /* PBXTextBookmark */;
+			8E8945BB1042F49C00D285B8 /* PBXTextBookmark */ = 8E8945BB1042F49C00D285B8 /* PBXTextBookmark */;
+			8E8945BC1042F49C00D285B8 /* PBXTextBookmark */ = 8E8945BC1042F49C00D285B8 /* PBXTextBookmark */;
+			8E8945BD1042F49C00D285B8 /* PBXTextBookmark */ = 8E8945BD1042F49C00D285B8 /* PBXTextBookmark */;
+			8E8945BE1042F49C00D285B8 /* PBXTextBookmark */ = 8E8945BE1042F49C00D285B8 /* PBXTextBookmark */;
+			8E8945C41042F74400D285B8 /* PBXTextBookmark */ = 8E8945C41042F74400D285B8 /* PBXTextBookmark */;
+			8E8945C51042F74400D285B8 /* PBXTextBookmark */ = 8E8945C51042F74400D285B8 /* PBXTextBookmark */;
+			8E8945C61042F74400D285B8 /* PBXTextBookmark */ = 8E8945C61042F74400D285B8 /* PBXTextBookmark */;
+			8E8945C71042F74400D285B8 /* PBXTextBookmark */ = 8E8945C71042F74400D285B8 /* PBXTextBookmark */;
+			8E8945C81042F74400D285B8 /* PBXTextBookmark */ = 8E8945C81042F74400D285B8 /* PBXTextBookmark */;
+			8E8945CD1042F93C00D285B8 /* PBXTextBookmark */ = 8E8945CD1042F93C00D285B8 /* PBXTextBookmark */;
+			8E8945CE1042F93C00D285B8 /* PBXTextBookmark */ = 8E8945CE1042F93C00D285B8 /* PBXTextBookmark */;
+			8E8945CF1042F93C00D285B8 /* PBXTextBookmark */ = 8E8945CF1042F93C00D285B8 /* PBXTextBookmark */;
+			8E8945D01042F93C00D285B8 /* PBXTextBookmark */ = 8E8945D01042F93C00D285B8 /* PBXTextBookmark */;
+			8E8945D11042F93C00D285B8 /* PBXTextBookmark */ = 8E8945D11042F93C00D285B8 /* PBXTextBookmark */;
+			8E8945D71042F99200D285B8 /* PBXTextBookmark */ = 8E8945D71042F99200D285B8 /* PBXTextBookmark */;
+			8E8945DE1042FF8B00D285B8 /* PBXTextBookmark */ = 8E8945DE1042FF8B00D285B8 /* PBXTextBookmark */;
+			8E8945E11042FFC900D285B8 /* PBXTextBookmark */ = 8E8945E11042FFC900D285B8 /* PBXTextBookmark */;
+			8E8945E21042FFC900D285B8 /* PBXTextBookmark */ = 8E8945E21042FFC900D285B8 /* PBXTextBookmark */;
+			8E8945E91043001E00D285B8 /* PBXTextBookmark */ = 8E8945E91043001E00D285B8 /* PBXTextBookmark */;
+			8E8945ED104301A200D285B8 /* PBXTextBookmark */ = 8E8945ED104301A200D285B8 /* PBXTextBookmark */;
+			8E8945EE104301A200D285B8 /* PBXTextBookmark */ = 8E8945EE104301A200D285B8 /* PBXTextBookmark */;
+			8E8945EF104301A200D285B8 /* PBXTextBookmark */ = 8E8945EF104301A200D285B8 /* PBXTextBookmark */;
+			8E8945F61043039700D285B8 /* PBXTextBookmark */ = 8E8945F61043039700D285B8 /* PBXTextBookmark */;
+			8E8945F71043039700D285B8 /* PBXTextBookmark */ = 8E8945F71043039700D285B8 /* PBXTextBookmark */;
+			8E8945F81043039700D285B8 /* PBXTextBookmark */ = 8E8945F81043039700D285B8 /* PBXTextBookmark */;
+			8E8945F91043039700D285B8 /* PBXTextBookmark */ = 8E8945F91043039700D285B8 /* PBXTextBookmark */;
+			8E8945FA1043039700D285B8 /* PBXTextBookmark */ = 8E8945FA1043039700D285B8 /* PBXTextBookmark */;
+			8E8945FB1043039700D285B8 /* PBXTextBookmark */ = 8E8945FB1043039700D285B8 /* PBXTextBookmark */;
+			8E8945FF1044645F00D285B8 /* PBXTextBookmark */ = 8E8945FF1044645F00D285B8 /* PBXTextBookmark */;
+			8E8946001044645F00D285B8 /* PBXTextBookmark */ = 8E8946001044645F00D285B8 /* PBXTextBookmark */;
+			8E8946011044645F00D285B8 /* PBXTextBookmark */ = 8E8946011044645F00D285B8 /* PBXTextBookmark */;
+			8E8946021044645F00D285B8 /* PBXTextBookmark */ = 8E8946021044645F00D285B8 /* PBXTextBookmark */;
+			8E8946031044645F00D285B8 /* PBXTextBookmark */ = 8E8946031044645F00D285B8 /* PBXTextBookmark */;
+			8E89460C1045C17E00D285B8 /* PBXTextBookmark */ = 8E89460C1045C17E00D285B8 /* PBXTextBookmark */;
+			8E89460D1045C17E00D285B8 /* PBXTextBookmark */ = 8E89460D1045C17E00D285B8 /* PBXTextBookmark */;
+			8E89460E1045C17E00D285B8 /* PBXTextBookmark */ = 8E89460E1045C17E00D285B8 /* PBXTextBookmark */;
+			8E89460F1045C17E00D285B8 /* PBXTextBookmark */ = 8E89460F1045C17E00D285B8 /* PBXTextBookmark */;
+			8E8946101045C17E00D285B8 /* PBXTextBookmark */ = 8E8946101045C17E00D285B8 /* PBXTextBookmark */;
+			8E8946111045C17E00D285B8 /* PBXTextBookmark */ = 8E8946111045C17E00D285B8 /* PBXTextBookmark */;
+			8E8946121045C17E00D285B8 /* PBXTextBookmark */ = 8E8946121045C17E00D285B8 /* PBXTextBookmark */;
+			8E8946131045C17E00D285B8 /* PBXTextBookmark */ = 8E8946131045C17E00D285B8 /* PBXTextBookmark */;
+			8E8946141045C17E00D285B8 /* PBXTextBookmark */ = 8E8946141045C17E00D285B8 /* PBXTextBookmark */;
+			8E8946151045C17E00D285B8 /* PBXTextBookmark */ = 8E8946151045C17E00D285B8 /* PBXTextBookmark */;
+			8E8946161045C17E00D285B8 /* PBXTextBookmark */ = 8E8946161045C17E00D285B8 /* PBXTextBookmark */;
+			8E8946171045C17E00D285B8 /* PBXTextBookmark */ = 8E8946171045C17E00D285B8 /* PBXTextBookmark */;
+			8E8946181045C17E00D285B8 /* PBXTextBookmark */ = 8E8946181045C17E00D285B8 /* PBXTextBookmark */;
+			8E8946191045C17E00D285B8 /* PBXTextBookmark */ = 8E8946191045C17E00D285B8 /* PBXTextBookmark */;
+			8E89461A1045C17E00D285B8 /* PBXTextBookmark */ = 8E89461A1045C17E00D285B8 /* PBXTextBookmark */;
+			8E89461B1045C17E00D285B8 /* PBXTextBookmark */ = 8E89461B1045C17E00D285B8 /* PBXTextBookmark */;
+			8E89461C1045C17E00D285B8 /* PBXTextBookmark */ = 8E89461C1045C17E00D285B8 /* PBXTextBookmark */;
+			8E89461D1045C17E00D285B8 /* PBXTextBookmark */ = 8E89461D1045C17E00D285B8 /* PBXTextBookmark */;
+			8E89461E1045C17E00D285B8 /* PBXTextBookmark */ = 8E89461E1045C17E00D285B8 /* PBXTextBookmark */;
+			8E89461F1045C17E00D285B8 /* PBXTextBookmark */ = 8E89461F1045C17E00D285B8 /* PBXTextBookmark */;
+			8E8946201045C17E00D285B8 /* PBXTextBookmark */ = 8E8946201045C17E00D285B8 /* PBXTextBookmark */;
+			8E8946211045C1E700D285B8 /* PBXTextBookmark */ = 8E8946211045C1E700D285B8 /* PBXTextBookmark */;
+			8E8946221045C1E700D285B8 /* PBXTextBookmark */ = 8E8946221045C1E700D285B8 /* PBXTextBookmark */;
+			8E8946231045C1E700D285B8 /* PBXTextBookmark */ = 8E8946231045C1E700D285B8 /* PBXTextBookmark */;
+			8E8946241045C1E700D285B8 /* PBXTextBookmark */ = 8E8946241045C1E700D285B8 /* PBXTextBookmark */;
+			8E8946251045C1E700D285B8 /* PBXTextBookmark */ = 8E8946251045C1E700D285B8 /* PBXTextBookmark */;
+			8E8946291045C27200D285B8 /* PBXTextBookmark */ = 8E8946291045C27200D285B8 /* PBXTextBookmark */;
+			8E89462A1045C27200D285B8 /* PBXTextBookmark */ = 8E89462A1045C27200D285B8 /* PBXTextBookmark */;
+			8E89462C1045C27200D285B8 /* PBXTextBookmark */ = 8E89462C1045C27200D285B8 /* PBXTextBookmark */;
+			8E89462E1045C27200D285B8 /* PBXTextBookmark */ = 8E89462E1045C27200D285B8 /* PBXTextBookmark */;
+			8E89462F1045C27200D285B8 /* PBXTextBookmark */ = 8E89462F1045C27200D285B8 /* PBXTextBookmark */;
+			8E8946301045C27200D285B8 /* PBXTextBookmark */ = 8E8946301045C27200D285B8 /* PBXTextBookmark */;
+			8E8946311045C27200D285B8 /* PBXTextBookmark */ = 8E8946311045C27200D285B8 /* PBXTextBookmark */;
+			8E8946331045C27200D285B8 /* PBXTextBookmark */ = 8E8946331045C27200D285B8 /* PBXTextBookmark */;
+			8E8946341045C27200D285B8 /* PBXTextBookmark */ = 8E8946341045C27200D285B8 /* PBXTextBookmark */;
+			8E8946361045C27200D285B8 /* PBXTextBookmark */ = 8E8946361045C27200D285B8 /* PBXTextBookmark */;
+			8E8946371045C27200D285B8 /* PBXTextBookmark */ = 8E8946371045C27200D285B8 /* PBXTextBookmark */;
+			8E89463F1045C3D700D285B8 /* PBXTextBookmark */ = 8E89463F1045C3D700D285B8 /* PBXTextBookmark */;
+			8E8946401045C3D700D285B8 /* PBXTextBookmark */ = 8E8946401045C3D700D285B8 /* PBXTextBookmark */;
+			8E8946421045C3D700D285B8 /* PBXTextBookmark */ = 8E8946421045C3D700D285B8 /* PBXTextBookmark */;
+			8E8946441045C3D700D285B8 /* PBXTextBookmark */ = 8E8946441045C3D700D285B8 /* PBXTextBookmark */;
+			8E8946451045C3D700D285B8 /* PBXTextBookmark */ = 8E8946451045C3D700D285B8 /* PBXTextBookmark */;
+			8E8946461045C3D700D285B8 /* PBXTextBookmark */ = 8E8946461045C3D700D285B8 /* PBXTextBookmark */;
+			8E8946481045C3D700D285B8 /* PBXTextBookmark */ = 8E8946481045C3D700D285B8 /* PBXTextBookmark */;
+			8E89464A1045C3D700D285B8 /* PBXTextBookmark */ = 8E89464A1045C3D700D285B8 /* PBXTextBookmark */;
+			8E89464B1045C3D700D285B8 /* PBXTextBookmark */ = 8E89464B1045C3D700D285B8 /* PBXTextBookmark */;
+			8E8946511045C44E00D285B8 /* PBXTextBookmark */ = 8E8946511045C44E00D285B8 /* PBXTextBookmark */;
+			8E8946531045C44E00D285B8 /* PBXTextBookmark */ = 8E8946531045C44E00D285B8 /* PBXTextBookmark */;
+			8E8946541045C44E00D285B8 /* PBXTextBookmark */ = 8E8946541045C44E00D285B8 /* PBXTextBookmark */;
+			8E8946551045C44E00D285B8 /* PBXTextBookmark */ = 8E8946551045C44E00D285B8 /* PBXTextBookmark */;
+			8E8946571045C44E00D285B8 /* PBXTextBookmark */ = 8E8946571045C44E00D285B8 /* PBXTextBookmark */;
+			8E89465D1045C55000D285B8 /* PBXTextBookmark */ = 8E89465D1045C55000D285B8 /* PBXTextBookmark */;
+			8E89465E1045C55000D285B8 /* PBXTextBookmark */ = 8E89465E1045C55000D285B8 /* PBXTextBookmark */;
+			8E89465F1045C55000D285B8 /* PBXTextBookmark */ = 8E89465F1045C55000D285B8 /* PBXTextBookmark */;
+			8E8946611045C55000D285B8 /* PBXTextBookmark */ = 8E8946611045C55000D285B8 /* PBXTextBookmark */;
+			8E8946621045C55000D285B8 /* PBXTextBookmark */ = 8E8946621045C55000D285B8 /* PBXTextBookmark */;
+			8E8946631045C55000D285B8 /* PBXTextBookmark */ = 8E8946631045C55000D285B8 /* PBXTextBookmark */;
+			8E8946641045C55000D285B8 /* PBXTextBookmark */ = 8E8946641045C55000D285B8 /* PBXTextBookmark */;
+			8E8946651045C55000D285B8 /* PBXTextBookmark */ = 8E8946651045C55000D285B8 /* PBXTextBookmark */;
+			8E8946661045C55000D285B8 /* PBXTextBookmark */ = 8E8946661045C55000D285B8 /* PBXTextBookmark */;
+			8E8946671045C55000D285B8 /* PBXTextBookmark */ = 8E8946671045C55000D285B8 /* PBXTextBookmark */;
+			8E8946691045C55000D285B8 /* PBXTextBookmark */ = 8E8946691045C55000D285B8 /* PBXTextBookmark */;
 			8E8DA89F103343D100C07ECE = 8E8DA89F103343D100C07ECE /* PBXTextBookmark */;
 			8E8DA8A1103343D100C07ECE = 8E8DA8A1103343D100C07ECE /* PBXTextBookmark */;
 			8E949BE210386D100050ECE6 = 8E949BE210386D100050ECE6 /* PBXTextBookmark */;
@@ -939,7 +1056,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1354;
 		vrLoc = 0;
@@ -949,7 +1066,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 328";
 		rLen = 0;
-		rLoc = 9201;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1727;
 		vrLoc = 6420;
@@ -959,7 +1076,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 328";
 		rLen = 0;
-		rLoc = 9201;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1727;
 		vrLoc = 6420;
@@ -969,7 +1086,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1354;
 		vrLoc = 0;
@@ -979,12 +1096,12 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 328";
 		rLen = 0;
-		rLoc = 9201;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1743;
 		vrLoc = 6420;
 	};
-	8E8940FE10403D9E00D285B8 /* AUWindowController.mm:62 */ = {
+	8E8940FE10403D9E00D285B8 /* AUWindowController.mm:53 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -996,9 +1113,9 @@
 		functionName = "-showCocoaViewForAU:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 62;
+		lineNumber = 53;
 		location = xwaxMac;
-		modificationTime = 272742531.93915;
+		modificationTime = 273007946.138355;
 		state = 1;
 	};
 	8E89410010403DA300D285B8 /* PBXTextBookmark */ = {
@@ -1026,7 +1143,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 287";
 		rLen = 0;
-		rLoc = 6731;
+		rLoc = 6817;
 		rType = 0;
 		vrLen = 1480;
 		vrLoc = 4873;
@@ -1046,7 +1163,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 3;
@@ -1056,7 +1173,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 328";
 		rLen = 0;
-		rLoc = 9201;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1743;
 		vrLoc = 6420;
@@ -1076,7 +1193,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 3;
@@ -1106,7 +1223,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 3;
@@ -1116,7 +1233,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 287";
 		rLen = 0;
-		rLoc = 6731;
+		rLoc = 6817;
 		rType = 0;
 		vrLen = 1480;
 		vrLoc = 4873;
@@ -1136,7 +1253,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1594;
 		vrLoc = 715;
@@ -1166,7 +1283,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 3;
@@ -1186,7 +1303,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1594;
 		vrLoc = 715;
@@ -1206,7 +1323,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 3;
@@ -1236,7 +1353,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 3;
@@ -1296,7 +1413,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 2034;
 		vrLoc = 2522;
@@ -1346,7 +1463,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 2045;
 		vrLoc = 2511;
@@ -1366,7 +1483,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 2034;
 		vrLoc = 2522;
@@ -1386,7 +1503,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 30";
 		rLen = 0;
-		rLoc = 1018;
+		rLoc = 919;
 		rType = 0;
 		vrLen = 1300;
 		vrLoc = 139;
@@ -1426,7 +1543,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1581;
 		vrLoc = 365;
@@ -1443,7 +1560,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 30";
 		rLen = 0;
-		rLoc = 1018;
+		rLoc = 919;
 		rType = 0;
 		vrLen = 1300;
 		vrLoc = 139;
@@ -1483,7 +1600,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 3;
@@ -1503,7 +1620,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1581;
 		vrLoc = 365;
@@ -1513,7 +1630,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1460;
 		vrLoc = 5666;
@@ -1553,7 +1670,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 28";
 		rLen = 0;
-		rLoc = 661;
+		rLoc = 562;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 3;
@@ -1563,7 +1680,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1460;
 		vrLoc = 5666;
@@ -1593,7 +1710,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 28";
 		rLen = 0;
-		rLoc = 661;
+		rLoc = 562;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 3;
@@ -1603,7 +1720,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1460;
 		vrLoc = 5666;
@@ -1653,7 +1770,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 28";
 		rLen = 0;
-		rLoc = 661;
+		rLoc = 562;
 		rType = 0;
 		vrLen = 1217;
 		vrLoc = 3;
@@ -1683,7 +1800,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1477;
 		vrLoc = 5651;
@@ -1693,7 +1810,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 19";
 		rLen = 0;
-		rLoc = 464;
+		rLoc = 419;
 		rType = 0;
 		vrLen = 1302;
 		vrLoc = 41;
@@ -1703,7 +1820,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 28";
 		rLen = 0;
-		rLoc = 661;
+		rLoc = 562;
 		rType = 0;
 		vrLen = 1217;
 		vrLoc = 3;
@@ -1733,7 +1850,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1272;
 		vrLoc = 29;
@@ -1743,7 +1860,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1460;
 		vrLoc = 5666;
@@ -1763,7 +1880,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1426;
 		vrLoc = 5700;
@@ -1773,7 +1890,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 19";
 		rLen = 0;
-		rLoc = 464;
+		rLoc = 419;
 		rType = 0;
 		vrLen = 1302;
 		vrLoc = 41;
@@ -1783,7 +1900,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1477;
 		vrLoc = 5651;
@@ -1793,7 +1910,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 151";
 		rLen = 0;
-		rLoc = 5017;
+		rLoc = 4885;
 		rType = 0;
 		vrLen = 1597;
 		vrLoc = 3430;
@@ -1813,7 +1930,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 171";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1272;
 		vrLoc = 29;
@@ -1823,7 +1940,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1460;
 		vrLoc = 5666;
@@ -1840,7 +1957,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 151";
 		rLen = 0;
-		rLoc = 5017;
+		rLoc = 4885;
 		rType = 0;
 		vrLen = 1597;
 		vrLoc = 3430;
@@ -1870,7 +1987,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 171";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1272;
 		vrLoc = 29;
@@ -1880,7 +1997,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1460;
 		vrLoc = 5666;
@@ -1920,7 +2037,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1361;
 		vrLoc = 4274;
@@ -1930,7 +2047,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 171";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1272;
 		vrLoc = 29;
@@ -1970,7 +2087,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 171";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1272;
 		vrLoc = 29;
@@ -1980,7 +2097,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1361;
 		vrLoc = 4274;
@@ -1990,7 +2107,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 179";
 		rLen = 0;
-		rLoc = 5640;
+		rLoc = 5496;
 		rType = 0;
 		vrLen = 1650;
 		vrLoc = 3542;
@@ -2010,7 +2127,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1399;
 		vrLoc = 4742;
@@ -2020,7 +2137,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 171";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1607;
 		vrLoc = 3585;
@@ -2030,7 +2147,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 179";
 		rLen = 0;
-		rLoc = 5640;
+		rLoc = 5496;
 		rType = 0;
 		vrLen = 1650;
 		vrLoc = 3542;
@@ -2060,7 +2177,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 171";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1607;
 		vrLoc = 3585;
@@ -2070,7 +2187,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1399;
 		vrLoc = 4742;
@@ -2080,7 +2197,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 43";
 		rLen = 0;
-		rLoc = 1090;
+		rLoc = 995;
 		rType = 0;
 		vrLen = 1170;
 		vrLoc = 0;
@@ -2100,7 +2217,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 171";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1276;
 		vrLoc = 29;
@@ -2117,7 +2234,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 43";
 		rLen = 0;
-		rLoc = 1090;
+		rLoc = 995;
 		rType = 0;
 		vrLen = 1170;
 		vrLoc = 0;
@@ -2147,7 +2264,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 171";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1276;
 		vrLoc = 29;
@@ -2157,7 +2274,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 280";
 		rLen = 0;
-		rLoc = 6525;
+		rLoc = 6611;
 		rType = 0;
 		vrLen = 1684;
 		vrLoc = 6854;
@@ -2167,7 +2284,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 214";
 		rLen = 0;
-		rLoc = 4866;
+		rLoc = 4952;
 		rType = 0;
 		vrLen = 1213;
 		vrLoc = 1895;
@@ -2177,7 +2294,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 214";
 		rLen = 0;
-		rLoc = 4866;
+		rLoc = 4952;
 		rType = 0;
 		vrLen = 1213;
 		vrLoc = 1895;
@@ -2187,7 +2304,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 28";
 		rLen = 0;
-		rLoc = 586;
+		rLoc = 509;
 		rType = 0;
 		vrLen = 1181;
 		vrLoc = 3;
@@ -2197,7 +2314,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 175";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 2014;
 		vrLoc = 1508;
@@ -2206,7 +2323,7 @@
 		isa = PBXTextBookmark;
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		rLen = 0;
-		rLoc = 381;
+		rLoc = 374;
 		rType = 1;
 	};
 	8E8941D81040437C00D285B8 /* PBXTextBookmark */ = {
@@ -2214,7 +2331,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 28";
 		rLen = 0;
-		rLoc = 586;
+		rLoc = 509;
 		rType = 0;
 		vrLen = 1181;
 		vrLoc = 3;
@@ -2234,7 +2351,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 175";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 2014;
 		vrLoc = 1508;
@@ -2244,7 +2361,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 328";
 		rLen = 0;
-		rLoc = 9201;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1664;
 		vrLoc = 6988;
@@ -2254,7 +2371,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 175";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1610;
 		vrLoc = 697;
@@ -2263,7 +2380,7 @@
 		isa = PBXTextBookmark;
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		rLen = 0;
-		rLoc = 381;
+		rLoc = 374;
 		rType = 1;
 	};
 	8E8941E31040441900D285B8 /* PBXTextBookmark */ = {
@@ -2271,7 +2388,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 328";
 		rLen = 0;
-		rLoc = 9201;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1236;
 		vrLoc = 1853;
@@ -2281,7 +2398,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 175";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1610;
 		vrLoc = 697;
@@ -2291,12 +2408,12 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 306";
 		rLen = 0;
-		rLoc = 7393;
+		rLoc = 7480;
 		rType = 0;
 		vrLen = 1783;
 		vrLoc = 6036;
 	};
-	8E8941ED104044E000D285B8 /* CAPlayThrough.mm:382 */ = {
+	8E8941ED104044E000D285B8 /* CAPlayThrough.mm:375 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -2308,9 +2425,9 @@
 		functionName = "CAPlayThrough::MakeGraph()";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 382;
+		lineNumber = 375;
 		location = xwaxMac;
-		modificationTime = 272742531.93919;
+		modificationTime = 273007946.138411;
 		state = 2;
 	};
 	8E8941FC104044ED00D285B8 /* PBXTextBookmark */ = {
@@ -2318,7 +2435,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 27";
 		rLen = 0;
-		rLoc = 575;
+		rLoc = 509;
 		rType = 0;
 		vrLen = 1272;
 		vrLoc = 85;
@@ -2328,7 +2445,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1450;
 		vrLoc = 5754;
@@ -2338,7 +2455,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 306";
 		rLen = 0;
-		rLoc = 7393;
+		rLoc = 7480;
 		rType = 0;
 		vrLen = 1236;
 		vrLoc = 1853;
@@ -2348,7 +2465,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 175";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1188;
 		vrLoc = 29;
@@ -2358,7 +2475,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1425;
 		vrLoc = 5756;
@@ -2368,7 +2485,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 27";
 		rLen = 0;
-		rLoc = 575;
+		rLoc = 509;
 		rType = 0;
 		vrLen = 1272;
 		vrLoc = 85;
@@ -2378,7 +2495,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 327";
 		rLen = 0;
-		rLoc = 9072;
+		rLoc = 9096;
 		rType = 0;
 		vrLen = 1744;
 		vrLoc = 6353;
@@ -2388,7 +2505,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 327";
 		rLen = 0;
-		rLoc = 9072;
+		rLoc = 9096;
 		rType = 0;
 		vrLen = 1620;
 		vrLoc = 6353;
@@ -2398,7 +2515,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 55";
 		rLen = 0;
-		rLoc = 1353;
+		rLoc = 1221;
 		rType = 0;
 		vrLen = 1191;
 		vrLoc = 85;
@@ -2415,7 +2532,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 327";
 		rLen = 0;
-		rLoc = 9072;
+		rLoc = 9096;
 		rType = 0;
 		vrLen = 1236;
 		vrLoc = 1853;
@@ -2425,7 +2542,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 175";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1188;
 		vrLoc = 29;
@@ -2435,7 +2552,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 329";
 		rLen = 0;
-		rLoc = 9163;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1688;
 		vrLoc = 7016;
@@ -2445,7 +2562,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 55";
 		rLen = 0;
-		rLoc = 1353;
+		rLoc = 1221;
 		rType = 0;
 		vrLen = 1191;
 		vrLoc = 85;
@@ -2455,7 +2572,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 329";
 		rLen = 0;
-		rLoc = 9187;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1690;
 		vrLoc = 6854;
@@ -2465,7 +2582,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 327";
 		rLen = 0;
-		rLoc = 9059;
+		rLoc = 9083;
 		rType = 0;
 		vrLen = 1660;
 		vrLoc = 6854;
@@ -2475,7 +2592,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 278";
 		rLen = 0;
-		rLoc = 6482;
+		rLoc = 6568;
 		rType = 0;
 		vrLen = 1410;
 		vrLoc = 5756;
@@ -2521,7 +2638,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 50";
 		rLen = 9;
-		rLoc = 1194;
+		rLoc = 1062;
 		rType = 0;
 		vrLen = 1534;
 		vrLoc = 365;
@@ -2531,7 +2648,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 327";
 		rLen = 0;
-		rLoc = 9059;
+		rLoc = 9083;
 		rType = 0;
 		vrLen = 1274;
 		vrLoc = 1746;
@@ -2541,7 +2658,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 175";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1188;
 		vrLoc = 29;
@@ -2551,7 +2668,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 329";
 		rLen = 0;
-		rLoc = 9163;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1688;
 		vrLoc = 7016;
@@ -2561,7 +2678,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 55";
 		rLen = 0;
-		rLoc = 1353;
+		rLoc = 1221;
 		rType = 0;
 		vrLen = 2072;
 		vrLoc = 2585;
@@ -2571,7 +2688,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 278";
 		rLen = 0;
-		rLoc = 6482;
+		rLoc = 6568;
 		rType = 0;
 		vrLen = 1410;
 		vrLoc = 5756;
@@ -2581,7 +2698,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 50";
 		rLen = 9;
-		rLoc = 1194;
+		rLoc = 1062;
 		rType = 0;
 		vrLen = 1534;
 		vrLoc = 365;
@@ -2623,7 +2740,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 50";
 		rLen = 9;
-		rLoc = 1194;
+		rLoc = 1062;
 		rType = 0;
 		vrLen = 1534;
 		vrLoc = 365;
@@ -2643,7 +2760,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 56";
 		rLen = 0;
-		rLoc = 1283;
+		rLoc = 1151;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 365;
@@ -2653,7 +2770,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1668;
 		vrLoc = 553;
@@ -2683,7 +2800,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 34";
 		rLen = 0;
-		rLoc = 1018;
+		rLoc = 919;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 365;
@@ -2703,7 +2820,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -2713,7 +2830,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 329";
 		rLen = 0;
-		rLoc = 9163;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1791;
 		vrLoc = 7089;
@@ -2723,7 +2840,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1668;
 		vrLoc = 553;
@@ -2733,7 +2850,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1410;
 		vrLoc = 5756;
@@ -2763,7 +2880,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 48;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 365;
@@ -2773,7 +2890,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 305";
 		rLen = 0;
-		rLoc = 7392;
+		rLoc = 7479;
 		rType = 0;
 		vrLen = 1669;
 		vrLoc = 6365;
@@ -2783,7 +2900,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 272";
 		rLen = 0;
-		rLoc = 6265;
+		rLoc = 6351;
 		rType = 0;
 		vrLen = 1236;
 		vrLoc = 1853;
@@ -2793,7 +2910,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -2803,7 +2920,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 305";
 		rLen = 0;
-		rLoc = 7392;
+		rLoc = 7479;
 		rType = 0;
 		vrLen = 1732;
 		vrLoc = 6365;
@@ -2813,7 +2930,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 48;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 365;
@@ -2823,7 +2940,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 332";
 		rLen = 0;
-		rLoc = 9113;
+		rLoc = 9137;
 		rType = 0;
 		vrLen = 1593;
 		vrLoc = 7054;
@@ -2842,7 +2959,7 @@
 		ignoreCount = 0;
 		lineNumber = 175;
 		location = xwaxMac;
-		modificationTime = 272742531.939307;
+		modificationTime = 273007946.138484;
 		state = 2;
 	};
 	8E894257104048F800D285B8 /* PBXTextBookmark */ = {
@@ -2850,7 +2967,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 85;
@@ -2867,7 +2984,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 332";
 		rLen = 0;
-		rLoc = 9113;
+		rLoc = 9137;
 		rType = 0;
 		vrLen = 1274;
 		vrLoc = 1746;
@@ -2877,7 +2994,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -2887,7 +3004,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 336";
 		rLen = 0;
-		rLoc = 9163;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1686;
 		vrLoc = 7151;
@@ -2897,7 +3014,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 85;
@@ -2907,7 +3024,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 173";
 		rLen = 0;
-		rLoc = 4043;
+		rLoc = 4129;
 		rType = 0;
 		vrLen = 985;
 		vrLoc = 3134;
@@ -2947,7 +3064,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1101;
 		vrLoc = 85;
@@ -2957,7 +3074,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 286";
 		rLen = 0;
-		rLoc = 6514;
+		rLoc = 6600;
 		rType = 0;
 		vrLen = 1239;
 		vrLoc = 19460;
@@ -2967,7 +3084,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 173";
 		rLen = 0;
-		rLoc = 4043;
+		rLoc = 4129;
 		rType = 0;
 		vrLen = 1236;
 		vrLoc = 1853;
@@ -2977,7 +3094,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -2987,7 +3104,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 342";
 		rLen = 0;
-		rLoc = 9163;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1841;
 		vrLoc = 7305;
@@ -2997,7 +3114,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 85;
@@ -3007,7 +3124,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 286";
 		rLen = 0;
-		rLoc = 6514;
+		rLoc = 6600;
 		rType = 0;
 		vrLen = 1239;
 		vrLoc = 19460;
@@ -3047,7 +3164,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1101;
 		vrLoc = 85;
@@ -3076,7 +3193,7 @@
 		ignoreCount = 0;
 		lineNumber = 313;
 		location = xwaxMac;
-		modificationTime = 272742531.939407;
+		modificationTime = 273007946.138557;
 		state = 1;
 	};
 	8E894279104049B200D285B8 /* PBXTextBookmark */ = {
@@ -3084,7 +3201,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 300";
 		rLen = 5;
-		rLoc = 6922;
+		rLoc = 7008;
 		rType = 0;
 		vrLen = 1567;
 		vrLoc = 6070;
@@ -3094,7 +3211,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 85;
@@ -3124,7 +3241,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 311";
 		rLen = 0;
-		rLoc = 7357;
+		rLoc = 7444;
 		rType = 0;
 		vrLen = 1236;
 		vrLoc = 1853;
@@ -3134,7 +3251,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -3144,7 +3261,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 342";
 		rLen = 0;
-		rLoc = 9163;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1686;
 		vrLoc = 7224;
@@ -3154,7 +3271,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 85;
@@ -3184,7 +3301,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 292";
 		rLen = 41;
-		rLoc = 6691;
+		rLoc = 6777;
 		rType = 0;
 		vrLen = 1567;
 		vrLoc = 6070;
@@ -3194,12 +3311,12 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 334";
 		rLen = 5;
-		rLoc = 8962;
+		rLoc = 8986;
 		rType = 0;
 		vrLen = 1617;
 		vrLoc = 7061;
 	};
-	8E89429A10404C8A00D285B8 /* CAPlayThrough.mm:370 */ = {
+	8E89429A10404C8A00D285B8 /* CAPlayThrough.mm:368 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -3211,9 +3328,9 @@
 		functionName = "CAPlayThrough::MakeGraph()";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 370;
+		lineNumber = 368;
 		location = xwaxMac;
-		modificationTime = 272742531.939515;
+		modificationTime = 273007946.138629;
 		state = 2;
 	};
 	8E89429E10404C9200D285B8 /* PBXTextBookmark */ = {
@@ -3241,7 +3358,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 333";
 		rLen = 8;
-		rLoc = 8933;
+		rLoc = 8957;
 		rType = 0;
 		vrLen = 1755;
 		vrLoc = 6946;
@@ -3251,7 +3368,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 333";
 		rLen = 8;
-		rLoc = 8933;
+		rLoc = 8957;
 		rType = 0;
 		vrLen = 1617;
 		vrLoc = 7061;
@@ -3281,7 +3398,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 328";
 		rLen = 0;
-		rLoc = 8653;
+		rLoc = 8740;
 		rType = 0;
 		vrLen = 1730;
 		vrLoc = 6946;
@@ -3291,7 +3408,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -3300,7 +3417,7 @@
 		isa = PBXTextBookmark;
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		rLen = 0;
-		rLoc = 369;
+		rLoc = 367;
 		rType = 1;
 	};
 	8E8942A910404D3000D285B8 /* PBXTextBookmark */ = {
@@ -3308,7 +3425,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 328";
 		rLen = 0;
-		rLoc = 8653;
+		rLoc = 8740;
 		rType = 0;
 		vrLen = 1274;
 		vrLoc = 1746;
@@ -3318,7 +3435,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -3328,7 +3445,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 334";
 		rLen = 0;
-		rLoc = 8948;
+		rLoc = 8972;
 		rType = 0;
 		vrLen = 1617;
 		vrLoc = 7061;
@@ -3364,7 +3481,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 332";
 		rLen = 14;
-		rLoc = 8817;
+		rLoc = 8902;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7061;
@@ -3374,7 +3491,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 330";
 		rLen = 14;
-		rLoc = 8753;
+		rLoc = 8838;
 		rType = 0;
 		vrLen = 1617;
 		vrLoc = 7061;
@@ -3394,7 +3511,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 330";
 		rLen = 14;
-		rLoc = 8753;
+		rLoc = 8838;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7061;
@@ -3414,7 +3531,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 332";
 		rLen = 14;
-		rLoc = 8817;
+		rLoc = 8902;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7061;
@@ -3440,7 +3557,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 320";
 		rLen = 1;
-		rLoc = 7875;
+		rLoc = 7962;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7061;
@@ -3465,7 +3582,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 357;
-		modificationTime = 272742533.113126;
+		modificationTime = 273007947.240059;
 		state = 0;
 	};
 	8E8942EE1040507900D285B8 /* PBXTextBookmark */ = {
@@ -3473,7 +3590,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 320";
 		rLen = 1;
-		rLoc = 7875;
+		rLoc = 7962;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7061;
@@ -3490,7 +3607,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 331";
 		rLen = 0;
-		rLoc = 8808;
+		rLoc = 8893;
 		rType = 0;
 		vrLen = 1691;
 		vrLoc = 6943;
@@ -3500,7 +3617,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 184";
 		rLen = 0;
-		rLoc = 5542;
+		rLoc = 5410;
 		rType = 0;
 		vrLen = 1542;
 		vrLoc = 3753;
@@ -3510,7 +3627,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 331";
 		rLen = 1;
-		rLoc = 8807;
+		rLoc = 8892;
 		rType = 0;
 		vrLen = 1236;
 		vrLoc = 1853;
@@ -3520,7 +3637,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 331";
 		rLen = 1;
-		rLoc = 8807;
+		rLoc = 8892;
 		rType = 0;
 		vrLen = 1236;
 		vrLoc = 1853;
@@ -3530,7 +3647,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 184";
 		rLen = 0;
-		rLoc = 5542;
+		rLoc = 5410;
 		rType = 0;
 		vrLen = 1542;
 		vrLoc = 3753;
@@ -3540,7 +3657,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 335";
 		rLen = 0;
-		rLoc = 9033;
+		rLoc = 9057;
 		rType = 0;
 		vrLen = 1705;
 		vrLoc = 6927;
@@ -3550,7 +3667,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 335";
 		rLen = 0;
-		rLoc = 9033;
+		rLoc = 9057;
 		rType = 0;
 		vrLen = 1705;
 		vrLoc = 6927;
@@ -3560,7 +3677,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 335";
 		rLen = 0;
-		rLoc = 9033;
+		rLoc = 9057;
 		rType = 0;
 		vrLen = 1705;
 		vrLoc = 6927;
@@ -3570,7 +3687,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 331";
 		rLen = 0;
-		rLoc = 8808;
+		rLoc = 8893;
 		rType = 0;
 		vrLen = 1705;
 		vrLoc = 6927;
@@ -3587,7 +3704,7 @@
 		comments = "error: 'componentCount' was not declared in this scope";
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		rLen = 0;
-		rLoc = 374;
+		rLoc = 368;
 		rType = 1;
 	};
 	8E894321104054EE00D285B8 /* PBXTextBookmark */ = {
@@ -3595,7 +3712,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 357";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9115;
 		rType = 0;
 		vrLen = 560;
 		vrLoc = 8061;
@@ -3605,7 +3722,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 85;
@@ -3625,7 +3742,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 331";
 		rLen = 0;
-		rLoc = 8808;
+		rLoc = 8893;
 		rType = 0;
 		vrLen = 1236;
 		vrLoc = 1853;
@@ -3635,7 +3752,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -3645,7 +3762,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 334";
 		rLen = 0;
-		rLoc = 8948;
+		rLoc = 8972;
 		rType = 0;
 		vrLen = 1629;
 		vrLoc = 7061;
@@ -3655,7 +3772,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 85;
@@ -3665,7 +3782,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 328";
 		rLen = 0;
-		rLoc = 7837;
+		rLoc = 7924;
 		rType = 0;
 		vrLen = 1554;
 		vrLoc = 7061;
@@ -3685,7 +3802,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 328";
 		rLen = 0;
-		rLoc = 7837;
+		rLoc = 7924;
 		rType = 0;
 		vrLen = 1484;
 		vrLoc = 5708;
@@ -3705,7 +3822,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 355";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9115;
 		rType = 0;
 		vrLen = 1591;
 		vrLoc = 7142;
@@ -3715,7 +3832,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 322";
 		rLen = 0;
-		rLoc = 7558;
+		rLoc = 7645;
 		rType = 0;
 		vrLen = 1587;
 		vrLoc = 7142;
@@ -3734,7 +3851,7 @@
 		ignoreCount = 0;
 		lineNumber = 355;
 		location = xwaxMac;
-		modificationTime = 272742531.939628;
+		modificationTime = 273007946.138871;
 		state = 2;
 	};
 	8E89434B104055E300D285B8 /* PBXTextBookmark */ = {
@@ -3749,7 +3866,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 344";
 		rLen = 0;
-		rLoc = 8272;
+		rLoc = 8359;
 		rType = 0;
 		vrLen = 1688;
 		vrLoc = 7446;
@@ -3769,7 +3886,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 19";
 		rLen = 0;
-		rLoc = 464;
+		rLoc = 419;
 		rType = 0;
 		vrLen = 1125;
 		vrLoc = 3;
@@ -3779,7 +3896,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 344";
 		rLen = 0;
-		rLoc = 8272;
+		rLoc = 8359;
 		rType = 0;
 		vrLen = 1281;
 		vrLoc = 1877;
@@ -3789,7 +3906,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 344";
 		rLen = 0;
-		rLoc = 8272;
+		rLoc = 8359;
 		rType = 0;
 		vrLen = 1263;
 		vrLoc = 1879;
@@ -3799,7 +3916,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -3819,7 +3936,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 19";
 		rLen = 0;
-		rLoc = 464;
+		rLoc = 419;
 		rType = 0;
 		vrLen = 1125;
 		vrLoc = 3;
@@ -3829,7 +3946,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 345";
 		rLen = 0;
-		rLoc = 8199;
+		rLoc = 8286;
 		rType = 0;
 		vrLen = 1794;
 		vrLoc = 7180;
@@ -3839,7 +3956,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 85;
@@ -3875,7 +3992,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 299";
 		rLen = 0;
-		rLoc = 6866;
+		rLoc = 6952;
 		rType = 0;
 		vrLen = 1487;
 		vrLoc = 5761;
@@ -3885,7 +4002,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 345";
 		rLen = 0;
-		rLoc = 8199;
+		rLoc = 8286;
 		rType = 0;
 		vrLen = 1263;
 		vrLoc = 1879;
@@ -3895,7 +4012,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -3905,7 +4022,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 349";
 		rLen = 0;
-		rLoc = 8327;
+		rLoc = 8414;
 		rType = 0;
 		vrLen = 1739;
 		vrLoc = 7379;
@@ -3915,7 +4032,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 85;
@@ -3925,7 +4042,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 282";
 		rLen = 0;
-		rLoc = 6320;
+		rLoc = 6406;
 		rType = 0;
 		vrLen = 1484;
 		vrLoc = 5696;
@@ -3961,7 +4078,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 347";
 		rLen = 0;
-		rLoc = 8287;
+		rLoc = 8374;
 		rType = 0;
 		vrLen = 1781;
 		vrLoc = 7446;
@@ -3971,7 +4088,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 85;
@@ -4001,7 +4118,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 312";
 		rLen = 20;
-		rLoc = 7128;
+		rLoc = 7215;
 		rType = 0;
 		vrLen = 1475;
 		vrLoc = 5937;
@@ -4011,7 +4128,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 347";
 		rLen = 0;
-		rLoc = 8287;
+		rLoc = 8374;
 		rType = 0;
 		vrLen = 1263;
 		vrLoc = 1879;
@@ -4021,7 +4138,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -4031,7 +4148,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 349";
 		rLen = 0;
-		rLoc = 8327;
+		rLoc = 8414;
 		rType = 0;
 		vrLen = 1739;
 		vrLoc = 7379;
@@ -4041,7 +4158,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 85;
@@ -4051,7 +4168,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 307";
 		rLen = 2;
-		rLoc = 7083;
+		rLoc = 7170;
 		rType = 0;
 		vrLen = 1507;
 		vrLoc = 5905;
@@ -4081,7 +4198,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 312";
 		rLen = 20;
-		rLoc = 7128;
+		rLoc = 7215;
 		rType = 0;
 		vrLen = 1475;
 		vrLoc = 5937;
@@ -4111,12 +4228,12 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 317";
 		rLen = 0;
-		rLoc = 7310;
+		rLoc = 7397;
 		rType = 0;
 		vrLen = 1352;
 		vrLoc = 6143;
 	};
-	8E8943851040589200D285B8 /* AUWindowController.mm:147 */ = {
+	8E8943851040589200D285B8 /* AUWindowController.mm:138 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -4128,9 +4245,9 @@
 		functionName = "-showCocoaViewForAU:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 147;
+		lineNumber = 138;
 		location = xwaxMac;
-		modificationTime = 272742531.939733;
+		modificationTime = 273007946.138942;
 		state = 1;
 	};
 	8E8943891040589800D285B8 /* PBXTextBookmark */ = {
@@ -4138,7 +4255,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 282";
 		rLen = 0;
-		rLoc = 6320;
+		rLoc = 6406;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 0;
@@ -4148,7 +4265,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 2072;
 		vrLoc = 2638;
@@ -4158,7 +4275,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 317";
 		rLen = 0;
-		rLoc = 7310;
+		rLoc = 7397;
 		rType = 0;
 		vrLen = 1271;
 		vrLoc = 1830;
@@ -4168,7 +4285,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -4178,7 +4295,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 355";
 		rLen = 0;
-		rLoc = 8327;
+		rLoc = 8414;
 		rType = 0;
 		vrLen = 1817;
 		vrLoc = 7587;
@@ -4188,7 +4305,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 2072;
 		vrLoc = 2638;
@@ -4198,7 +4315,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 282";
 		rLen = 0;
-		rLoc = 6320;
+		rLoc = 6406;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 0;
@@ -4208,7 +4325,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 135";
 		rLen = 0;
-		rLoc = 4009;
+		rLoc = 3877;
 		rType = 0;
 		vrLen = 2010;
 		vrLoc = 2360;
@@ -4218,7 +4335,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 355";
 		rLen = 0;
-		rLoc = 8327;
+		rLoc = 8414;
 		rType = 0;
 		vrLen = 1781;
 		vrLoc = 7560;
@@ -4227,7 +4344,7 @@
 		isa = PBXTextBookmark;
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		rLen = 0;
-		rLoc = 65;
+		rLoc = 56;
 		rType = 1;
 	};
 	8E894398104058EE00D285B8 /* PBXTextBookmark */ = {
@@ -4235,7 +4352,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 135";
 		rLen = 0;
-		rLoc = 4009;
+		rLoc = 3877;
 		rType = 0;
 		vrLen = 1962;
 		vrLoc = 2335;
@@ -4255,7 +4372,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 181";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -4265,7 +4382,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 355";
 		rLen = 0;
-		rLoc = 8327;
+		rLoc = 8414;
 		rType = 0;
 		vrLen = 1781;
 		vrLoc = 7560;
@@ -4275,7 +4392,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 136";
 		rLen = 90;
-		rLoc = 3920;
+		rLoc = 3788;
 		rType = 0;
 		vrLen = 2041;
 		vrLoc = 2715;
@@ -4343,7 +4460,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 136";
 		rLen = 0;
-		rLoc = 3965;
+		rLoc = 3833;
 		rType = 0;
 		vrLen = 2148;
 		vrLoc = 2649;
@@ -4353,7 +4470,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 136";
 		rLen = 90;
-		rLoc = 3920;
+		rLoc = 3788;
 		rType = 0;
 		vrLen = 2041;
 		vrLoc = 2715;
@@ -4373,7 +4490,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 182";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -4383,7 +4500,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 355";
 		rLen = 0;
-		rLoc = 8327;
+		rLoc = 8414;
 		rType = 0;
 		vrLen = 1781;
 		vrLoc = 7560;
@@ -4393,7 +4510,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 2041;
 		vrLoc = 2715;
@@ -4413,7 +4530,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 136";
 		rLen = 6;
-		rLoc = 3959;
+		rLoc = 3827;
 		rType = 0;
 		vrLen = 2109;
 		vrLoc = 2649;
@@ -4461,7 +4578,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 136";
 		rLen = 0;
-		rLoc = 3965;
+		rLoc = 3833;
 		rType = 0;
 		vrLen = 2148;
 		vrLoc = 2649;
@@ -4487,12 +4604,12 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 136";
 		rLen = 0;
-		rLoc = 4006;
+		rLoc = 3874;
 		rType = 0;
 		vrLen = 2151;
 		vrLoc = 2649;
 	};
-	8E8943C610405A8C00D285B8 /* AUWindowController.mm:167 */ = {
+	8E8943C610405A8C00D285B8 /* AUWindowController.mm:158 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -4504,9 +4621,9 @@
 		functionName = "-showCocoaViewForAU:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 167;
+		lineNumber = 158;
 		location = xwaxMac;
-		modificationTime = 272742531.939782;
+		modificationTime = 273007946.139016;
 		state = 1;
 	};
 	8E8943C710405AA600D285B8 /* PBXTextBookmark */ = {
@@ -4514,7 +4631,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 282";
 		rLen = 0;
-		rLoc = 6320;
+		rLoc = 6406;
 		rType = 0;
 		vrLen = 1387;
 		vrLoc = 5696;
@@ -4524,7 +4641,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 2087;
 		vrLoc = 2715;
@@ -4534,7 +4651,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 136";
 		rLen = 90;
-		rLoc = 3920;
+		rLoc = 3788;
 		rType = 0;
 		vrLen = 2151;
 		vrLoc = 2649;
@@ -4554,7 +4671,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 182";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -4564,7 +4681,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 355";
 		rLen = 0;
-		rLoc = 8327;
+		rLoc = 8414;
 		rType = 0;
 		vrLen = 1781;
 		vrLoc = 7560;
@@ -4574,7 +4691,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 2087;
 		vrLoc = 2715;
@@ -4584,7 +4701,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 282";
 		rLen = 0;
-		rLoc = 6320;
+		rLoc = 6406;
 		rType = 0;
 		vrLen = 1387;
 		vrLoc = 5696;
@@ -4594,12 +4711,12 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 154";
 		rLen = 0;
-		rLoc = 4627;
+		rLoc = 4495;
 		rType = 0;
 		vrLen = 1879;
 		vrLoc = 3220;
 	};
-	8E8943D710405B7300D285B8 /* AUWindowController.mm:33 */ = {
+	8E8943D710405B7300D285B8 /* AUWindowController.mm:30 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -4611,9 +4728,9 @@
 		functionName = "-drawRect:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 33;
+		lineNumber = 30;
 		location = xwaxMac;
-		modificationTime = 272742531.939824;
+		modificationTime = 273007946.139078;
 		state = 1;
 	};
 	8E8943DB10405B7800D285B8 /* PBXTextBookmark */ = {
@@ -4641,7 +4758,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 163";
 		rLen = 0;
-		rLoc = 5017;
+		rLoc = 4885;
 		rType = 0;
 		vrLen = 1798;
 		vrLoc = 3354;
@@ -4651,7 +4768,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 40";
 		rLen = 0;
-		rLoc = 1024;
+		rLoc = 925;
 		rType = 0;
 		vrLen = 1754;
 		vrLoc = 3354;
@@ -4671,7 +4788,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 162";
 		rLen = 20;
-		rLoc = 4951;
+		rLoc = 4819;
 		rType = 0;
 		vrLen = 1754;
 		vrLoc = 3354;
@@ -4691,7 +4808,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 163";
 		rLen = 0;
-		rLoc = 5017;
+		rLoc = 4885;
 		rType = 0;
 		vrLen = 1798;
 		vrLoc = 3354;
@@ -4711,7 +4828,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 163";
 		rLen = 0;
-		rLoc = 5017;
+		rLoc = 4885;
 		rType = 0;
 		vrLen = 1798;
 		vrLoc = 3354;
@@ -4731,7 +4848,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 163";
 		rLen = 0;
-		rLoc = 5017;
+		rLoc = 4885;
 		rType = 0;
 		vrLen = 1079;
 		vrLoc = 0;
@@ -4751,7 +4868,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1740;
 		vrLoc = 3694;
@@ -4761,7 +4878,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 163";
 		rLen = 0;
-		rLoc = 5017;
+		rLoc = 4885;
 		rType = 0;
 		vrLen = 1079;
 		vrLoc = 0;
@@ -4781,7 +4898,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 183";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 29;
@@ -4791,7 +4908,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 355";
 		rLen = 0;
-		rLoc = 8327;
+		rLoc = 8414;
 		rType = 0;
 		vrLen = 1781;
 		vrLoc = 7560;
@@ -4801,7 +4918,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1740;
 		vrLoc = 3694;
@@ -4821,7 +4938,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 155";
 		rLen = 0;
-		rLoc = 4627;
+		rLoc = 4495;
 		rType = 0;
 		vrLen = 1803;
 		vrLoc = 3354;
@@ -4831,7 +4948,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 164";
 		rLen = 0;
-		rLoc = 5017;
+		rLoc = 4885;
 		rType = 0;
 		vrLen = 1800;
 		vrLoc = 3362;
@@ -4841,7 +4958,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 2135;
 		vrLoc = 2719;
@@ -4858,7 +4975,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 164";
 		rLen = 0;
-		rLoc = 5017;
+		rLoc = 4885;
 		rType = 0;
 		vrLen = 1800;
 		vrLoc = 3362;
@@ -4878,7 +4995,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 183";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1100;
 		vrLoc = 29;
@@ -4888,7 +5005,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 355";
 		rLen = 0;
-		rLoc = 8327;
+		rLoc = 8414;
 		rType = 0;
 		vrLen = 1781;
 		vrLoc = 7560;
@@ -4898,7 +5015,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 2135;
 		vrLoc = 2719;
@@ -4908,7 +5025,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 162";
 		rLen = 0;
-		rLoc = 3782;
+		rLoc = 3868;
 		rType = 0;
 		vrLen = 1030;
 		vrLoc = 3470;
@@ -4918,7 +5035,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1799;
 		vrLoc = 3622;
@@ -4927,7 +5044,7 @@
 		isa = PBXTextBookmark;
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		rLen = 0;
-		rLoc = 385;
+		rLoc = 378;
 		rType = 1;
 	};
 	8E89441210405F2100D285B8 /* PBXTextBookmark */ = {
@@ -4935,7 +5052,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 162";
 		rLen = 0;
-		rLoc = 3782;
+		rLoc = 3868;
 		rType = 0;
 		vrLen = 1263;
 		vrLoc = 1879;
@@ -4945,7 +5062,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 183";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1100;
 		vrLoc = 29;
@@ -4955,7 +5072,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 355";
 		rLen = 0;
-		rLoc = 8327;
+		rLoc = 8414;
 		rType = 0;
 		vrLen = 1781;
 		vrLoc = 7560;
@@ -4965,7 +5082,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1799;
 		vrLoc = 3622;
@@ -4975,7 +5092,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 193";
 		rLen = 0;
-		rLoc = 4333;
+		rLoc = 4419;
 		rType = 0;
 		vrLen = 1053;
 		vrLoc = 3470;
@@ -4985,7 +5102,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 193";
 		rLen = 0;
-		rLoc = 4333;
+		rLoc = 4419;
 		rType = 0;
 		vrLen = 1030;
 		vrLoc = 3470;
@@ -4995,7 +5112,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 40";
 		rLen = 0;
-		rLoc = 1024;
+		rLoc = 925;
 		rType = 0;
 		vrLen = 1184;
 		vrLoc = 247;
@@ -5012,7 +5129,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 193";
 		rLen = 0;
-		rLoc = 4333;
+		rLoc = 4419;
 		rType = 0;
 		vrLen = 1607;
 		vrLoc = 165;
@@ -5022,7 +5139,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 40";
 		rLen = 0;
-		rLoc = 1024;
+		rLoc = 925;
 		rType = 0;
 		vrLen = 1184;
 		vrLoc = 247;
@@ -5062,7 +5179,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 142";
 		rLen = 0;
-		rLoc = 4099;
+		rLoc = 3967;
 		rType = 0;
 		vrLen = 2189;
 		vrLoc = 2158;
@@ -5072,7 +5189,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 355";
 		rLen = 0;
-		rLoc = 8327;
+		rLoc = 8414;
 		rType = 0;
 		vrLen = 1781;
 		vrLoc = 7560;
@@ -5081,7 +5198,7 @@
 		isa = PBXTextBookmark;
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		rLen = 0;
-		rLoc = 65;
+		rLoc = 56;
 		rType = 1;
 	};
 	8E89443B10406EA700D285B8 /* PBXTextBookmark */ = {
@@ -5089,7 +5206,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 142";
 		rLen = 0;
-		rLoc = 4099;
+		rLoc = 3967;
 		rType = 0;
 		vrLen = 2189;
 		vrLoc = 2158;
@@ -5109,7 +5226,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 186";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 882;
 		vrLoc = 29;
@@ -5119,7 +5236,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 355";
 		rLen = 0;
-		rLoc = 8327;
+		rLoc = 8414;
 		rType = 0;
 		vrLen = 1781;
 		vrLoc = 7560;
@@ -5129,7 +5246,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 49";
 		rLen = 0;
-		rLoc = 1246;
+		rLoc = 1114;
 		rType = 0;
 		vrLen = 1855;
 		vrLoc = 3427;
@@ -5139,7 +5256,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 33";
 		rLen = 330;
-		rLoc = 688;
+		rLoc = 589;
 		rType = 0;
 		vrLen = 1100;
 		vrLoc = 174;
@@ -5159,7 +5276,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 33";
 		rLen = 17;
-		rLoc = 713;
+		rLoc = 614;
 		rType = 0;
 		vrLen = 1238;
 		vrLoc = 247;
@@ -5169,7 +5286,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 33";
 		rLen = 330;
-		rLoc = 688;
+		rLoc = 589;
 		rType = 0;
 		vrLen = 1100;
 		vrLoc = 174;
@@ -5189,7 +5306,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 29";
 		rLen = 0;
-		rLoc = 614;
+		rLoc = 536;
 		rType = 0;
 		vrLen = 1112;
 		vrLoc = 0;
@@ -5208,7 +5325,7 @@
 		ignoreCount = 0;
 		lineNumber = 100;
 		location = xwaxMac;
-		modificationTime = 272742531.939873;
+		modificationTime = 273007946.139136;
 		state = 2;
 	};
 	8E89445A1040704C00D285B8 /* PBXTextBookmark */ = {
@@ -5216,7 +5333,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 182";
 		rLen = 7;
-		rLoc = 5369;
+		rLoc = 5237;
 		rType = 0;
 		vrLen = 1682;
 		vrLoc = 3788;
@@ -5235,7 +5352,7 @@
 		isa = PBXTextBookmark;
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		rLen = 0;
-		rLoc = 38;
+		rLoc = 34;
 		rType = 1;
 	};
 	8E8944621040711000D285B8 /* PBXTextBookmark */ = {
@@ -5243,7 +5360,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 182";
 		rLen = 7;
-		rLoc = 5369;
+		rLoc = 5237;
 		rType = 0;
 		vrLen = 1682;
 		vrLoc = 3788;
@@ -5263,7 +5380,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 194";
 		rLen = 0;
-		rLoc = 5644;
+		rLoc = 5500;
 		rType = 0;
 		vrLen = 1550;
 		vrLoc = 3936;
@@ -5282,7 +5399,7 @@
 		isa = PBXTextBookmark;
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		rLen = 0;
-		rLoc = 65;
+		rLoc = 56;
 		rType = 1;
 	};
 	8E89446B1040714800D285B8 /* PBXTextBookmark */ = {
@@ -5290,7 +5407,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 194";
 		rLen = 0;
-		rLoc = 5644;
+		rLoc = 5500;
 		rType = 0;
 		vrLen = 1550;
 		vrLoc = 3936;
@@ -5310,7 +5427,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 184";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1522;
 		vrLoc = 3966;
@@ -5330,7 +5447,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 193";
 		rLen = 0;
-		rLoc = 5643;
+		rLoc = 5499;
 		rType = 0;
 		vrLen = 1518;
 		vrLoc = 3966;
@@ -5349,7 +5466,7 @@
 		isa = PBXTextBookmark;
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		rLen = 0;
-		rLoc = 194;
+		rLoc = 185;
 		rType = 1;
 	};
 	8E894479104071A600D285B8 /* PBXTextBookmark */ = {
@@ -5357,7 +5474,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 193";
 		rLen = 0;
-		rLoc = 5643;
+		rLoc = 5499;
 		rType = 0;
 		vrLen = 1548;
 		vrLoc = 3936;
@@ -5377,12 +5494,12 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 184";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1113;
 		vrLoc = 29;
 	};
-	8E894485104072B100D285B8 /* AUWindowController.mm:16 */ = {
+	8E894485104072B100D285B8 /* AUWindowController.mm:15 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -5394,9 +5511,9 @@
 		functionName = "-init";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 16;
+		lineNumber = 15;
 		location = xwaxMac;
-		modificationTime = 272742531.939981;
+		modificationTime = 273007946.139209;
 		state = 1;
 	};
 	8E89448B104072BD00D285B8 /* PBXTextBookmark */ = {
@@ -5414,7 +5531,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 184";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1518;
 		vrLoc = 3966;
@@ -5424,7 +5541,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 184";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1113;
 		vrLoc = 29;
@@ -5444,7 +5561,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 184";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 1518;
 		vrLoc = 3966;
@@ -5464,7 +5581,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 15";
 		rLen = 0;
-		rLoc = 293;
+		rLoc = 248;
 		rType = 0;
 		vrLen = 1048;
 		vrLoc = 143;
@@ -5510,7 +5627,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 192";
 		rLen = 0;
-		rLoc = 5471;
+		rLoc = 5339;
 		rType = 0;
 		vrLen = 1654;
 		vrLoc = 3840;
@@ -5520,7 +5637,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 15";
 		rLen = 0;
-		rLoc = 293;
+		rLoc = 248;
 		rType = 0;
 		vrLen = 1048;
 		vrLoc = 143;
@@ -5540,7 +5657,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 192";
 		rLen = 0;
-		rLoc = 5471;
+		rLoc = 5339;
 		rType = 0;
 		vrLen = 1518;
 		vrLoc = 4018;
@@ -5566,7 +5683,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 192";
 		rLen = 0;
-		rLoc = 5471;
+		rLoc = 5339;
 		rType = 0;
 		vrLen = 1654;
 		vrLoc = 3840;
@@ -5602,7 +5719,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 192";
 		rLen = 0;
-		rLoc = 5497;
+		rLoc = 5365;
 		rType = 0;
 		vrLen = 1705;
 		vrLoc = 3840;
@@ -5621,7 +5738,7 @@
 		isa = PBXTextBookmark;
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		rLen = 0;
-		rLoc = 194;
+		rLoc = 185;
 		rType = 1;
 	};
 	8E8944B31040740400D285B8 /* PBXTextBookmark */ = {
@@ -5629,7 +5746,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 192";
 		rLen = 0;
-		rLoc = 5497;
+		rLoc = 5365;
 		rType = 0;
 		vrLen = 1705;
 		vrLoc = 3840;
@@ -5649,7 +5766,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 192";
 		rLen = 0;
-		rLoc = 5471;
+		rLoc = 5339;
 		rType = 0;
 		vrLen = 1605;
 		vrLoc = 3930;
@@ -5668,7 +5785,7 @@
 		isa = PBXTextBookmark;
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		rLen = 0;
-		rLoc = 194;
+		rLoc = 185;
 		rType = 1;
 	};
 	8E8944BF1040743A00D285B8 /* PBXTextBookmark */ = {
@@ -5676,7 +5793,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 192";
 		rLen = 0;
-		rLoc = 5471;
+		rLoc = 5339;
 		rType = 0;
 		vrLen = 1605;
 		vrLoc = 3930;
@@ -5696,7 +5813,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 187";
 		rLen = 0;
-		rLoc = 5348;
+		rLoc = 5216;
 		rType = 0;
 		vrLen = 1598;
 		vrLoc = 3930;
@@ -5706,7 +5823,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 282";
 		rLen = 0;
-		rLoc = 6320;
+		rLoc = 6406;
 		rType = 0;
 		vrLen = 1222;
 		vrLoc = 20782;
@@ -5716,7 +5833,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 190";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 2135;
 		vrLoc = 2802;
@@ -5726,7 +5843,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 187";
 		rLen = 0;
-		rLoc = 5348;
+		rLoc = 5216;
 		rType = 0;
 		vrLen = 1598;
 		vrLoc = 3930;
@@ -5746,7 +5863,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 190";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 2135;
 		vrLoc = 2802;
@@ -5756,7 +5873,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 282";
 		rLen = 0;
-		rLoc = 6320;
+		rLoc = 6406;
 		rType = 0;
 		vrLen = 1222;
 		vrLoc = 20782;
@@ -5766,7 +5883,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 192";
 		rLen = 0;
-		rLoc = 5493;
+		rLoc = 5361;
 		rType = 0;
 		vrLen = 1604;
 		vrLoc = 3930;
@@ -5776,7 +5893,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 190";
 		rLen = 0;
-		rLoc = 5441;
+		rLoc = 5309;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 3988;
@@ -5795,7 +5912,7 @@
 		isa = PBXTextBookmark;
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		rLen = 0;
-		rLoc = 194;
+		rLoc = 185;
 		rType = 1;
 	};
 	8E8944E31040757000D285B8 /* PBXTextBookmark */ = {
@@ -5803,7 +5920,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 190";
 		rLen = 0;
-		rLoc = 5441;
+		rLoc = 5309;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 3988;
@@ -5823,7 +5940,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 199";
 		rLen = 0;
-		rLoc = 5643;
+		rLoc = 5499;
 		rType = 0;
 		vrLen = 1575;
 		vrLoc = 3988;
@@ -5833,12 +5950,12 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 199";
 		rLen = 0;
-		rLoc = 5643;
+		rLoc = 5499;
 		rType = 0;
 		vrLen = 1553;
 		vrLoc = 4012;
 	};
-	8E8944F01040762200D285B8 /* AUWindowController.mm:202 */ = {
+	8E8944F01040762200D285B8 /* AUWindowController.mm:192 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -5850,9 +5967,9 @@
 		functionName = "loadNib()";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 202;
+		lineNumber = 192;
 		location = xwaxMac;
-		modificationTime = 272742531.940024;
+		modificationTime = 273007946.139282;
 		state = 1;
 	};
 	8E8944F41040762900D285B8 /* PBXTextBookmark */ = {
@@ -5860,7 +5977,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 198";
 		rLen = 0;
-		rLoc = 5621;
+		rLoc = 5483;
 		rType = 0;
 		vrLen = 1554;
 		vrLoc = 4012;
@@ -5870,7 +5987,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 198";
 		rLen = 0;
-		rLoc = 5621;
+		rLoc = 5483;
 		rType = 0;
 		vrLen = 1554;
 		vrLoc = 4012;
@@ -5880,7 +5997,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 198";
 		rLen = 0;
-		rLoc = 5621;
+		rLoc = 5483;
 		rType = 0;
 		vrLen = 1554;
 		vrLoc = 4012;
@@ -5890,7 +6007,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 16";
 		rLen = 0;
-		rLoc = 294;
+		rLoc = 249;
 		rType = 0;
 		vrLen = 1082;
 		vrLoc = 0;
@@ -5910,7 +6027,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 14";
 		rLen = 0;
-		rLoc = 250;
+		rLoc = 224;
 		rType = 0;
 		vrLen = 1080;
 		vrLoc = 0;
@@ -5920,7 +6037,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 14";
 		rLen = 0;
-		rLoc = 250;
+		rLoc = 224;
 		rType = 0;
 		vrLen = 1080;
 		vrLoc = 0;
@@ -5940,7 +6057,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 187";
 		rLen = 0;
-		rLoc = 5322;
+		rLoc = 5190;
 		rType = 0;
 		vrLen = 1580;
 		vrLoc = 4065;
@@ -5950,7 +6067,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 187";
 		rLen = 0;
-		rLoc = 5322;
+		rLoc = 5190;
 		rType = 0;
 		vrLen = 1054;
 		vrLoc = 0;
@@ -5960,7 +6077,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 187";
 		rLen = 0;
-		rLoc = 5322;
+		rLoc = 5190;
 		rType = 0;
 		vrLen = 1054;
 		vrLoc = 0;
@@ -5970,7 +6087,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 203";
 		rLen = 0;
-		rLoc = 5638;
+		rLoc = 5494;
 		rType = 0;
 		vrLen = 1633;
 		vrLoc = 3978;
@@ -5980,7 +6097,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 203";
 		rLen = 0;
-		rLoc = 5638;
+		rLoc = 5494;
 		rType = 0;
 		vrLen = 1038;
 		vrLoc = 201;
@@ -5990,7 +6107,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 174";
 		rLen = 0;
-		rLoc = 4026;
+		rLoc = 4112;
 		rType = 0;
 		vrLen = 1637;
 		vrLoc = 18137;
@@ -6000,7 +6117,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 203";
 		rLen = 0;
-		rLoc = 5638;
+		rLoc = 5494;
 		rType = 0;
 		vrLen = 2135;
 		vrLoc = 2850;
@@ -6010,7 +6127,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 174";
 		rLen = 0;
-		rLoc = 4026;
+		rLoc = 4112;
 		rType = 0;
 		vrLen = 1637;
 		vrLoc = 18137;
@@ -6020,7 +6137,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 203";
 		rLen = 0;
-		rLoc = 5638;
+		rLoc = 5494;
 		rType = 0;
 		vrLen = 1038;
 		vrLoc = 201;
@@ -6030,7 +6147,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 367";
 		rLen = 0;
-		rLoc = 8871;
+		rLoc = 8956;
 		rType = 0;
 		vrLen = 1815;
 		vrLoc = 7815;
@@ -6040,7 +6157,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 282";
 		rLen = 0;
-		rLoc = 6320;
+		rLoc = 6406;
 		rType = 0;
 		vrLen = 1030;
 		vrLoc = 3470;
@@ -6060,7 +6177,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 195";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2784;
@@ -6070,7 +6187,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 367";
 		rLen = 0;
-		rLoc = 8871;
+		rLoc = 8956;
 		rType = 0;
 		vrLen = 1815;
 		vrLoc = 7815;
@@ -6080,7 +6197,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 195";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 2135;
 		vrLoc = 2850;
@@ -6090,7 +6207,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 282";
 		rLen = 0;
-		rLoc = 6320;
+		rLoc = 6406;
 		rType = 0;
 		vrLen = 1030;
 		vrLoc = 3470;
@@ -6110,7 +6227,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 57";
 		rLen = 0;
-		rLoc = 1090;
+		rLoc = 995;
 		rType = 0;
 		vrLen = 1113;
 		vrLoc = 294;
@@ -6120,7 +6237,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 57";
 		rLen = 0;
-		rLoc = 1090;
+		rLoc = 995;
 		rType = 0;
 		vrLen = 2135;
 		vrLoc = 2854;
@@ -6137,7 +6254,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 57";
 		rLen = 0;
-		rLoc = 1090;
+		rLoc = 995;
 		rType = 0;
 		vrLen = 2135;
 		vrLoc = 2854;
@@ -6147,7 +6264,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 282";
 		rLen = 0;
-		rLoc = 6320;
+		rLoc = 6406;
 		rType = 0;
 		vrLen = 1030;
 		vrLoc = 3470;
@@ -6157,7 +6274,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 171";
 		rLen = 0;
-		rLoc = 3985;
+		rLoc = 4071;
 		rType = 0;
 		vrLen = 1030;
 		vrLoc = 3470;
@@ -6167,7 +6284,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 185";
 		rLen = 0;
-		rLoc = 4169;
+		rLoc = 4255;
 		rType = 0;
 		vrLen = 1030;
 		vrLoc = 3470;
@@ -6177,7 +6294,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 185";
 		rLen = 0;
-		rLoc = 4169;
+		rLoc = 4255;
 		rType = 0;
 		vrLen = 1780;
 		vrLoc = 7312;
@@ -6187,7 +6304,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 185";
 		rLen = 0;
-		rLoc = 4169;
+		rLoc = 4255;
 		rType = 0;
 		vrLen = 1780;
 		vrLoc = 7312;
@@ -6197,7 +6314,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 57";
 		rLen = 0;
-		rLoc = 1090;
+		rLoc = 995;
 		rType = 0;
 		vrLen = 1036;
 		vrLoc = 201;
@@ -6217,7 +6334,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 57";
 		rLen = 0;
-		rLoc = 1090;
+		rLoc = 995;
 		rType = 0;
 		vrLen = 1036;
 		vrLoc = 201;
@@ -6227,7 +6344,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 57";
 		rLen = 0;
-		rLoc = 1090;
+		rLoc = 995;
 		rType = 0;
 		vrLen = 1036;
 		vrLoc = 201;
@@ -6247,12 +6364,12 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 57";
 		rLen = 0;
-		rLoc = 1090;
+		rLoc = 995;
 		rType = 0;
 		vrLen = 1670;
 		vrLoc = 3677;
 	};
-	8E89455B1040A44900D285B8 /* AUWindowController.mm:58 */ = {
+	8E89455B1040A44900D285B8 /* AUWindowController.mm:51 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -6264,9 +6381,9 @@
 		functionName = "-awakeFromNib";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 58;
+		lineNumber = 51;
 		location = xwaxMac;
-		modificationTime = 272742531.940065;
+		modificationTime = 273007946.139339;
 		state = 1;
 	};
 	8E89455F1040A45A00D285B8 /* PBXTextBookmark */ = {
@@ -6300,7 +6417,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 58";
 		rLen = 0;
-		rLoc = 1130;
+		rLoc = 1031;
 		rType = 0;
 		vrLen = 1036;
 		vrLoc = 175;
@@ -6310,7 +6427,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 57";
 		rLen = 0;
-		rLoc = 1090;
+		rLoc = 995;
 		rType = 0;
 		vrLen = 1779;
 		vrLoc = 3827;
@@ -6330,7 +6447,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 58";
 		rLen = 0;
-		rLoc = 1130;
+		rLoc = 1031;
 		rType = 0;
 		vrLen = 1036;
 		vrLoc = 175;
@@ -6356,12 +6473,12 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 58";
 		rLen = 0;
-		rLoc = 1159;
+		rLoc = 1031;
 		rType = 0;
 		vrLen = 1036;
 		vrLoc = 175;
 	};
-	8E8945701041B70E00D285B8 /* AUWindowController.mm:197 */ = {
+	8E8945701041B70E00D285B8 /* AUWindowController.mm:188 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -6373,9 +6490,9 @@
 		functionName = "loadNib()";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 197;
+		lineNumber = 188;
 		location = xwaxMac;
-		modificationTime = 272742531.940104;
+		modificationTime = 273007946.139395;
 		state = 1;
 	};
 	8E8945741041B73A00D285B8 /* PBXTextBookmark */ = {
@@ -6413,7 +6530,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 739";
 		rLen = 0;
-		rLoc = 20595;
+		rLoc = 20505;
 		rType = 0;
 		vrLen = 1694;
 		vrLoc = 19279;
@@ -6423,7 +6540,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 57";
 		rLen = 0;
-		rLoc = 1100;
+		rLoc = 1005;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2816;
@@ -6433,7 +6550,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 57";
 		rLen = 0;
-		rLoc = 1100;
+		rLoc = 1005;
 		rType = 0;
 		vrLen = 2135;
 		vrLoc = 2882;
@@ -6443,7 +6560,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 317";
 		rLen = 0;
-		rLoc = 7308;
+		rLoc = 7395;
 		rType = 0;
 		vrLen = 1887;
 		vrLoc = 7839;
@@ -6493,7 +6610,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 739";
 		rLen = 0;
-		rLoc = 20595;
+		rLoc = 20505;
 		rType = 0;
 		vrLen = 1694;
 		vrLoc = 19279;
@@ -6503,7 +6620,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 199";
 		rLen = 0;
-		rLoc = 5554;
+		rLoc = 5422;
 		rType = 0;
 		vrLen = 1578;
 		vrLoc = 4068;
@@ -6513,7 +6630,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 204";
 		rLen = 0;
-		rLoc = 5642;
+		rLoc = 5498;
 		rType = 0;
 		vrLen = 2135;
 		vrLoc = 2882;
@@ -6530,7 +6647,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 204";
 		rLen = 0;
-		rLoc = 5642;
+		rLoc = 5498;
 		rType = 0;
 		vrLen = 2135;
 		vrLoc = 2882;
@@ -6540,10 +6657,1251 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 282";
 		rLen = 0;
-		rLoc = 6320;
+		rLoc = 6406;
 		rType = 0;
 		vrLen = 1242;
 		vrLoc = 6730;
+	};
+	8E8945961042F39D00D285B8 /* AUWindowController.mm:188 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		functionName = "loadNib()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 188;
+		location = xwaxMac;
+		modificationTime = 273007946.13945;
+		state = 1;
+	};
+	8E8945981042F3AF00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 327";
+		rLen = 1;
+		rLoc = 7580;
+		rType = 0;
+		vrLen = 1238;
+		vrLoc = 6730;
+	};
+	8E8945991042F3AF00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E89459A1042F3AF00D285B8 /* Diff Local vs. HEAD — CAPlayThrough.mm */;
+		name = "Diff Local vs. HEAD — CAPlayThrough.mm: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 535;
+		vrLoc = 0;
+	};
+	8E89459A1042F3AF00D285B8 /* Diff Local vs. HEAD — CAPlayThrough.mm */ = {
+		isa = PBXFileReference;
+		path = "Diff Local vs. HEAD — CAPlayThrough.mm";
+		sourceTree = "<group>";
+	};
+	8E89459B1042F3AF00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 23";
+		rLen = 1;
+		rLoc = 369;
+		rType = 0;
+		vrLen = 870;
+		vrLoc = 21;
+	};
+	8E89459C1042F3AF00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E89459D1042F3AF00D285B8 /* Diff Local vs. HEAD — coreaudio.cpp */;
+		name = "Diff Local vs. HEAD — coreaudio.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1574;
+		vrLoc = 0;
+	};
+	8E89459D1042F3AF00D285B8 /* Diff Local vs. HEAD — coreaudio.cpp */ = {
+		isa = PBXFileReference;
+		path = "Diff Local vs. HEAD — coreaudio.cpp";
+		sourceTree = "<group>";
+	};
+	8E89459E1042F3AF00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 17";
+		rLen = 0;
+		rLoc = 225;
+		rType = 0;
+		vrLen = 1026;
+		vrLoc = 0;
+	};
+	8E89459F1042F3AF00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 282";
+		rLen = 0;
+		rLoc = 6406;
+		rType = 0;
+		vrLen = 1242;
+		vrLoc = 6730;
+	};
+	8E8945A01042F3AF00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 17";
+		rLen = 0;
+		rLoc = 225;
+		rType = 0;
+		vrLen = 1026;
+		vrLoc = 0;
+	};
+	8E8945A11042F3AF00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 327";
+		rLen = 1;
+		rLoc = 7580;
+		rType = 0;
+		vrLen = 1238;
+		vrLoc = 6730;
+	};
+	8E8945A21042F3AF00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E8945A31042F3AF00D285B8 /* Diff Local vs. HEAD — CAPlayThrough.mm */;
+		name = "Diff Local vs. HEAD — CAPlayThrough.mm: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 535;
+		vrLoc = 0;
+	};
+	8E8945A31042F3AF00D285B8 /* Diff Local vs. HEAD — CAPlayThrough.mm */ = {
+		isa = PBXFileReference;
+		path = "Diff Local vs. HEAD — CAPlayThrough.mm";
+		sourceTree = "<group>";
+	};
+	8E8945A41042F3AF00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 23";
+		rLen = 1;
+		rLoc = 369;
+		rType = 0;
+		vrLen = 870;
+		vrLoc = 21;
+	};
+	8E8945A51042F3AF00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E8945A61042F3AF00D285B8 /* Diff Local vs. HEAD — coreaudio.cpp */;
+		name = "Diff Local vs. HEAD — coreaudio.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1574;
+		vrLoc = 0;
+	};
+	8E8945A61042F3AF00D285B8 /* Diff Local vs. HEAD — coreaudio.cpp */ = {
+		isa = PBXFileReference;
+		path = "Diff Local vs. HEAD — coreaudio.cpp";
+		sourceTree = "<group>";
+	};
+	8E8945A71042F3AF00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 197";
+		rLen = 0;
+		rLoc = 5311;
+		rType = 0;
+		vrLen = 1589;
+		vrLoc = 4117;
+	};
+	8E8945AC1042F40100D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 12";
+		rLen = 0;
+		rLoc = 197;
+		rType = 0;
+		vrLen = 870;
+		vrLoc = 21;
+	};
+	8E8945AD1042F40100D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 382";
+		rLen = 0;
+		rLoc = 9155;
+		rType = 0;
+		vrLen = 1669;
+		vrLoc = 8404;
+	};
+	8E8945AE1042F40100D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 193";
+		rLen = 7;
+		rLoc = 5237;
+		rType = 0;
+		vrLen = 1606;
+		vrLoc = 4100;
+	};
+	8E8945AF1042F40100D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 193";
+		rLen = 7;
+		rLoc = 5237;
+		rType = 0;
+		vrLen = 1589;
+		vrLoc = 4117;
+	};
+	8E8945B01042F40100D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 12";
+		rLen = 0;
+		rLoc = 197;
+		rType = 0;
+		vrLen = 870;
+		vrLoc = 21;
+	};
+	8E8945B11042F40100D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 382";
+		rLen = 0;
+		rLoc = 9155;
+		rType = 0;
+		vrLen = 1669;
+		vrLoc = 8404;
+	};
+	8E8945B21042F40100D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 193";
+		rLen = 7;
+		rLoc = 5237;
+		rType = 0;
+		vrLen = 1608;
+		vrLoc = 4098;
+	};
+	8E8945BA1042F49C00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA73579103DBC20004580FB /* ETEyeTunes.h */;
+		name = "ETEyeTunes.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2084;
+		vrLoc = 0;
+	};
+	8E8945BB1042F49C00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 193";
+		rLen = 7;
+		rLoc = 5237;
+		rType = 0;
+		vrLen = 1026;
+		vrLoc = 0;
+	};
+	8E8945BC1042F49C00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 193";
+		rLen = 7;
+		rLoc = 5237;
+		rType = 0;
+		vrLen = 1026;
+		vrLoc = 0;
+	};
+	8E8945BD1042F49C00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA73579103DBC20004580FB /* ETEyeTunes.h */;
+		name = "ETEyeTunes.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2084;
+		vrLoc = 0;
+	};
+	8E8945BE1042F49C00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 56";
+		rLen = 0;
+		rLoc = 966;
+		rType = 0;
+		vrLen = 1050;
+		vrLoc = 273;
+	};
+	8E8945C41042F74400D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 315";
+		rLen = 0;
+		rLoc = 7375;
+		rType = 0;
+		vrLen = 1389;
+		vrLoc = 6775;
+	};
+	8E8945C51042F74400D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 187";
+		rLen = 0;
+		rLoc = 5207;
+		rType = 0;
+		vrLen = 2135;
+		vrLoc = 2852;
+	};
+	8E8945C61042F74400D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 187";
+		rLen = 0;
+		rLoc = 5207;
+		rType = 0;
+		vrLen = 2135;
+		vrLoc = 2852;
+	};
+	8E8945C71042F74400D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 315";
+		rLen = 0;
+		rLoc = 7375;
+		rType = 0;
+		vrLen = 1389;
+		vrLoc = 6775;
+	};
+	8E8945C81042F74400D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 187";
+		rLen = 0;
+		rLoc = 5207;
+		rType = 0;
+		vrLen = 1604;
+		vrLoc = 4068;
+	};
+	8E8945CD1042F93C00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 755";
+		rLen = 0;
+		rLoc = 20893;
+		rType = 0;
+		vrLen = 1303;
+		vrLoc = 20596;
+	};
+	8E8945CE1042F93C00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 187";
+		rLen = 0;
+		rLoc = 5207;
+		rType = 0;
+		vrLen = 1585;
+		vrLoc = 4087;
+	};
+	8E8945CF1042F93C00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 187";
+		rLen = 0;
+		rLoc = 5207;
+		rType = 0;
+		vrLen = 1585;
+		vrLoc = 4087;
+	};
+	8E8945D01042F93C00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 755";
+		rLen = 0;
+		rLoc = 20893;
+		rType = 0;
+		vrLen = 1303;
+		vrLoc = 20596;
+	};
+	8E8945D11042F93C00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 187";
+		rLen = 0;
+		rLoc = 5207;
+		rType = 0;
+		vrLen = 1604;
+		vrLoc = 4068;
+	};
+	8E8945D71042F99200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 181";
+		rLen = 0;
+		rLoc = 5079;
+		rType = 0;
+		vrLen = 1610;
+		vrLoc = 4068;
+	};
+	8E8945DE1042FF8B00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 192";
+		rLen = 0;
+		rLoc = 5242;
+		rType = 0;
+		vrLen = 1610;
+		vrLoc = 4068;
+	};
+	8E8945E11042FFC900D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)";
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		rLen = 1;
+		rLoc = 21;
+		rType = 1;
+	};
+	8E8945E21042FFC900D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 25";
+		rLen = 40;
+		rLoc = 302;
+		rType = 0;
+		vrLen = 1063;
+		vrLoc = 0;
+	};
+	8E8945E91043001E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 28";
+		rLen = 0;
+		rLoc = 400;
+		rType = 0;
+		vrLen = 2131;
+		vrLoc = 1412;
+	};
+	8E8945ED104301A200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 28";
+		rLen = 0;
+		rLoc = 400;
+		rType = 0;
+		vrLen = 2131;
+		vrLoc = 1412;
+	};
+	8E8945EE104301A200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 28";
+		rLen = 0;
+		rLoc = 400;
+		rType = 0;
+		vrLen = 2131;
+		vrLoc = 1412;
+	};
+	8E8945EF104301A200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D010401C2A002AF97C /* AUWindowController.h */;
+		name = "AUWindowController.h: 15";
+		rLen = 17;
+		rLoc = 345;
+		rType = 0;
+		vrLen = 565;
+		vrLoc = 0;
+	};
+	8E8945F61043039700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D010401C2A002AF97C /* AUWindowController.h */;
+		name = "AUWindowController.h: 15";
+		rLen = 17;
+		rLoc = 345;
+		rType = 0;
+		vrLen = 565;
+		vrLoc = 0;
+	};
+	8E8945F71043039700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 77";
+		rLen = 0;
+		rLoc = 1423;
+		rType = 0;
+		vrLen = 2135;
+		vrLoc = 2852;
+	};
+	8E8945F81043039700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		rLen = 0;
+		rLoc = 281;
+		rType = 1;
+	};
+	8E8945F91043039700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D010401C2A002AF97C /* AUWindowController.h */;
+		name = "AUWindowController.h: 15";
+		rLen = 17;
+		rLoc = 345;
+		rType = 0;
+		vrLen = 565;
+		vrLoc = 0;
+	};
+	8E8945FA1043039700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 77";
+		rLen = 0;
+		rLoc = 1423;
+		rType = 0;
+		vrLen = 2135;
+		vrLoc = 2852;
+	};
+	8E8945FB1043039700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 327";
+		rLen = 0;
+		rLoc = 7580;
+		rType = 0;
+		vrLen = 1340;
+		vrLoc = 6627;
+	};
+	8E8945FF1044645F00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 17";
+		rLen = 0;
+		rLoc = 225;
+		rType = 0;
+		vrLen = 2135;
+		vrLoc = 2852;
+	};
+	8E8946001044645F00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		rLen = 0;
+		rLoc = 281;
+		rType = 1;
+	};
+	8E8946011044645F00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 327";
+		rLen = 0;
+		rLoc = 7580;
+		rType = 0;
+		vrLen = 1340;
+		vrLoc = 6627;
+	};
+	8E8946021044645F00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 17";
+		rLen = 0;
+		rLoc = 225;
+		rType = 0;
+		vrLen = 2135;
+		vrLoc = 2852;
+	};
+	8E8946031044645F00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 367";
+		rLen = 0;
+		rLoc = 8956;
+		rType = 0;
+		vrLen = 1824;
+		vrLoc = 7968;
+	};
+	8E89460C1045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA73508103C8AEB004580FB /* Listing.m */;
+		name = "Listing.m: 37";
+		rLen = 0;
+		rLoc = 1058;
+		rType = 0;
+		vrLen = 1061;
+		vrLoc = 0;
+	};
+	8E89460D1045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 108";
+		rLen = 0;
+		rLoc = 2351;
+		rType = 0;
+		vrLen = 1634;
+		vrLoc = 1262;
+	};
+	8E89460E1045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA3C5A91016527400FAD50F /* xwax.c */;
+		name = "xwax.c: 232";
+		rLen = 0;
+		rLoc = 6751;
+		rType = 0;
+		vrLen = 1782;
+		vrLoc = 5427;
+	};
+	8E89460F1045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA734681039D4E4004580FB /* AUComponent.h */;
+		name = "AUComponent.h: 200";
+		rLen = 39;
+		rLoc = 6777;
+		rType = 0;
+		vrLen = 1325;
+		vrLoc = 7202;
+	};
+	8E8946101045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D010401C2A002AF97C /* AUWindowController.h */;
+		name = "AUWindowController.h: 15";
+		rLen = 17;
+		rLoc = 345;
+		rType = 0;
+		vrLen = 565;
+		vrLoc = 0;
+	};
+	8E8946111045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 17";
+		rLen = 0;
+		rLoc = 225;
+		rType = 0;
+		vrLen = 2203;
+		vrLoc = 2786;
+	};
+	8E8946121045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 545";
+		rLen = 0;
+		rLoc = 15056;
+		rType = 0;
+		vrLen = 2531;
+		vrLoc = 13736;
+	};
+	8E8946131045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 367";
+		rLen = 0;
+		rLoc = 8956;
+		rType = 0;
+		vrLen = 1339;
+		vrLoc = 10350;
+	};
+	8E8946141045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 123";
+		rLen = 2;
+		rLoc = 2783;
+		rType = 0;
+		vrLen = 1564;
+		vrLoc = 754;
+	};
+	8E8946151045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA73508103C8AEB004580FB /* Listing.m */;
+		name = "Listing.m: 37";
+		rLen = 0;
+		rLoc = 1058;
+		rType = 0;
+		vrLen = 1061;
+		vrLoc = 0;
+	};
+	8E8946161045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 667";
+		rLen = 0;
+		rLoc = 18498;
+		rType = 0;
+		vrLen = 1347;
+		vrLoc = 16463;
+	};
+	8E8946171045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 123";
+		rLen = 2;
+		rLoc = 2783;
+		rType = 0;
+		vrLen = 1634;
+		vrLoc = 1262;
+	};
+	8E8946181045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA3C5A91016527400FAD50F /* xwax.c */;
+		name = "xwax.c: 301";
+		rLen = 0;
+		rLoc = 8804;
+		rType = 0;
+		vrLen = 1647;
+		vrLoc = 7951;
+	};
+	8E8946191045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 108";
+		rLen = 0;
+		rLoc = 2351;
+		rType = 0;
+		vrLen = 1634;
+		vrLoc = 1262;
+	};
+	8E89461A1045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA3C5A91016527400FAD50F /* xwax.c */;
+		name = "xwax.c: 232";
+		rLen = 0;
+		rLoc = 6751;
+		rType = 0;
+		vrLen = 1782;
+		vrLoc = 5427;
+	};
+	8E89461B1045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 545";
+		rLen = 20;
+		rLoc = 14970;
+		rType = 0;
+		vrLen = 2531;
+		vrLoc = 13736;
+	};
+	8E89461C1045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA734681039D4E4004580FB /* AUComponent.h */;
+		name = "AUComponent.h: 200";
+		rLen = 39;
+		rLoc = 6777;
+		rType = 0;
+		vrLen = 1325;
+		vrLoc = 7202;
+	};
+	8E89461D1045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 545";
+		rLen = 0;
+		rLoc = 15056;
+		rType = 0;
+		vrLen = 2531;
+		vrLoc = 13736;
+	};
+	8E89461E1045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D010401C2A002AF97C /* AUWindowController.h */;
+		name = "AUWindowController.h: 15";
+		rLen = 17;
+		rLoc = 345;
+		rType = 0;
+		vrLen = 565;
+		vrLoc = 0;
+	};
+	8E89461F1045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 17";
+		rLen = 0;
+		rLoc = 225;
+		rType = 0;
+		vrLen = 2203;
+		vrLoc = 2786;
+	};
+	8E8946201045C17E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 548";
+		rLen = 0;
+		rLoc = 15056;
+		rType = 0;
+		vrLen = 1823;
+		vrLoc = 11429;
+	};
+	8E8946211045C1E700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E967F0D100FAC300074DEEE /* CAPlayThroughController.h */;
+		name = "CAPlayThroughController.h: 57";
+		rLen = 32;
+		rLoc = 2879;
+		rType = 0;
+		vrLen = 2697;
+		vrLoc = 453;
+	};
+	8E8946221045C1E700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 548";
+		rLen = 0;
+		rLoc = 15056;
+		rType = 0;
+		vrLen = 1823;
+		vrLoc = 11429;
+	};
+	8E8946231045C1E700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 548";
+		rLen = 0;
+		rLoc = 15056;
+		rType = 0;
+		vrLen = 1823;
+		vrLoc = 11429;
+	};
+	8E8946241045C1E700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E967F0D100FAC300074DEEE /* CAPlayThroughController.h */;
+		name = "CAPlayThroughController.h: 57";
+		rLen = 32;
+		rLoc = 2879;
+		rType = 0;
+		vrLen = 2697;
+		vrLoc = 453;
+	};
+	8E8946251045C1E700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 371";
+		rLen = 0;
+		rLoc = 9302;
+		rType = 0;
+		vrLen = 2005;
+		vrLoc = 8260;
+	};
+	8E8946291045C27200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 380";
+		rLen = 0;
+		rLoc = 9585;
+		rType = 0;
+		vrLen = 1667;
+		vrLoc = 19700;
+	};
+	8E89462A1045C27200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E89462B1045C27200D285B8 /* Diff Local vs. HEAD — AUWindow.xib */;
+		name = "Diff Local vs. HEAD — AUWindow.xib: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2610;
+		vrLoc = 0;
+	};
+	8E89462B1045C27200D285B8 /* Diff Local vs. HEAD — AUWindow.xib */ = {
+		isa = PBXFileReference;
+		path = "Diff Local vs. HEAD — AUWindow.xib";
+		sourceTree = "<group>";
+	};
+	8E89462C1045C27200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E89462D1045C27200D285B8 /* Diff Local vs. HEAD — AUWindowController.mm */;
+		name = "Diff Local vs. HEAD — AUWindowController.mm: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 771;
+		vrLoc = 0;
+	};
+	8E89462D1045C27200D285B8 /* Diff Local vs. HEAD — AUWindowController.mm */ = {
+		isa = PBXFileReference;
+		path = "Diff Local vs. HEAD — AUWindowController.mm";
+		sourceTree = "<group>";
+	};
+	8E89462E1045C27200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 208";
+		rLen = 0;
+		rLoc = 5502;
+		rType = 0;
+		vrLen = 1610;
+		vrLoc = 4068;
+	};
+	8E89462F1045C27200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 105";
+		rLen = 0;
+		rLoc = 2351;
+		rType = 0;
+		vrLen = 1751;
+		vrLoc = 1189;
+	};
+	8E8946301045C27200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 380";
+		rLen = 0;
+		rLoc = 9585;
+		rType = 0;
+		vrLen = 1667;
+		vrLoc = 19700;
+	};
+	8E8946311045C27200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E8946321045C27200D285B8 /* Diff Local vs. HEAD — AUWindow.xib */;
+		name = "Diff Local vs. HEAD — AUWindow.xib: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2610;
+		vrLoc = 0;
+	};
+	8E8946321045C27200D285B8 /* Diff Local vs. HEAD — AUWindow.xib */ = {
+		isa = PBXFileReference;
+		path = "Diff Local vs. HEAD — AUWindow.xib";
+		sourceTree = "<group>";
+	};
+	8E8946331045C27200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 17";
+		rLen = 0;
+		rLoc = 225;
+		rType = 0;
+		vrLen = 2137;
+		vrLoc = 2852;
+	};
+	8E8946341045C27200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E8946351045C27200D285B8 /* Diff Local vs. HEAD — AUWindowController.mm */;
+		name = "Diff Local vs. HEAD — AUWindowController.mm: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 771;
+		vrLoc = 0;
+	};
+	8E8946351045C27200D285B8 /* Diff Local vs. HEAD — AUWindowController.mm */ = {
+		isa = PBXFileReference;
+		path = "Diff Local vs. HEAD — AUWindowController.mm";
+		sourceTree = "<group>";
+	};
+	8E8946361045C27200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 208";
+		rLen = 0;
+		rLoc = 5502;
+		rType = 0;
+		vrLen = 1610;
+		vrLoc = 4068;
+	};
+	8E8946371045C27200D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 105";
+		rLen = 0;
+		rLoc = 2351;
+		rType = 0;
+		vrLen = 1930;
+		vrLoc = 1694;
+	};
+	8E89463F1045C3D700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 105";
+		rLen = 0;
+		rLoc = 2346;
+		rType = 0;
+		vrLen = 1930;
+		vrLoc = 1694;
+	};
+	8E8946401045C3D700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E8946411045C3D700D285B8 /* Diff Local vs. HEAD — AUWindow.xib */;
+		name = "Diff Local vs. HEAD — AUWindow.xib: 5";
+		rLen = 0;
+		rLoc = 256;
+		rType = 0;
+		vrLen = 2610;
+		vrLoc = 0;
+	};
+	8E8946411045C3D700D285B8 /* Diff Local vs. HEAD — AUWindow.xib */ = {
+		isa = PBXFileReference;
+		path = "Diff Local vs. HEAD — AUWindow.xib";
+		sourceTree = "<group>";
+	};
+	8E8946421045C3D700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E8946431045C3D700D285B8 /* Annotations for revision HEAD — AUWindow.xib */;
+		name = "Annotations for revision HEAD — AUWindow.xib: 26";
+		rLen = 0;
+		rLoc = 2172;
+		rType = 0;
+		vrLen = 4922;
+		vrLoc = 0;
+	};
+	8E8946431045C3D700D285B8 /* Annotations for revision HEAD — AUWindow.xib */ = {
+		isa = PBXFileReference;
+		path = "Annotations for revision HEAD — AUWindow.xib";
+		sourceTree = "<group>";
+	};
+	8E8946441045C3D700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 194";
+		rLen = 0;
+		rLoc = 5494;
+		rType = 0;
+		vrLen = 1624;
+		vrLoc = 3878;
+	};
+	8E8946451045C3D700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E968026100FBE5C0074DEEE /* coreaudio.cpp */;
+		name = "coreaudio.cpp: 105";
+		rLen = 0;
+		rLoc = 2346;
+		rType = 0;
+		vrLen = 1930;
+		vrLoc = 1694;
+	};
+	8E8946461045C3D700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E8946471045C3D700D285B8 /* Diff Local vs. HEAD — AUWindow.xib */;
+		name = "Diff Local vs. HEAD — AUWindow.xib: 5";
+		rLen = 0;
+		rLoc = 256;
+		rType = 0;
+		vrLen = 2610;
+		vrLoc = 0;
+	};
+	8E8946471045C3D700D285B8 /* Diff Local vs. HEAD — AUWindow.xib */ = {
+		isa = PBXFileReference;
+		path = "Diff Local vs. HEAD — AUWindow.xib";
+		sourceTree = "<group>";
+	};
+	8E8946481045C3D700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E8946491045C3D700D285B8 /* Annotations for revision HEAD — AUWindow.xib */;
+		name = "Annotations for revision HEAD — AUWindow.xib: 26";
+		rLen = 0;
+		rLoc = 2172;
+		rType = 0;
+		vrLen = 4922;
+		vrLoc = 0;
+	};
+	8E8946491045C3D700D285B8 /* Annotations for revision HEAD — AUWindow.xib */ = {
+		isa = PBXFileReference;
+		path = "Annotations for revision HEAD — AUWindow.xib";
+		sourceTree = "<group>";
+	};
+	8E89464A1045C3D700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 194";
+		rLen = 0;
+		rLoc = 5494;
+		rType = 0;
+		vrLen = 1624;
+		vrLoc = 3878;
+	};
+	8E89464B1045C3D700D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 135";
+		rLen = 5;
+		rLoc = 3469;
+		rType = 0;
+		vrLen = 1090;
+		vrLoc = 2917;
+	};
+	8E8946511045C44E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E8946521045C44E00D285B8 /* Annotations for revision HEAD — CAPlayThrough.mm */;
+		name = "Annotations for revision HEAD — CAPlayThrough.mm: 23";
+		rLen = 0;
+		rLoc = 1608;
+		rType = 0;
+		vrLen = 3892;
+		vrLoc = 2698;
+	};
+	8E8946521045C44E00D285B8 /* Annotations for revision HEAD — CAPlayThrough.mm */ = {
+		isa = PBXFileReference;
+		path = "Annotations for revision HEAD — CAPlayThrough.mm";
+		sourceTree = "<group>";
+	};
+	8E8946531045C44E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 116";
+		rLen = 0;
+		rLoc = 3118;
+		rType = 0;
+		vrLen = 1090;
+		vrLoc = 2917;
+	};
+	8E8946541045C44E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 116";
+		rLen = 0;
+		rLoc = 3118;
+		rType = 0;
+		vrLen = 1090;
+		vrLoc = 2917;
+	};
+	8E8946551045C44E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E8946561045C44E00D285B8 /* Annotations for revision HEAD — CAPlayThrough.mm */;
+		name = "Annotations for revision HEAD — CAPlayThrough.mm: 23";
+		rLen = 0;
+		rLoc = 1608;
+		rType = 0;
+		vrLen = 3892;
+		vrLoc = 2698;
+	};
+	8E8946561045C44E00D285B8 /* Annotations for revision HEAD — CAPlayThrough.mm */ = {
+		isa = PBXFileReference;
+		path = "Annotations for revision HEAD — CAPlayThrough.mm";
+		sourceTree = "<group>";
+	};
+	8E8946571045C44E00D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 25";
+		rLen = 0;
+		rLoc = 745;
+		rType = 0;
+		vrLen = 1367;
+		vrLoc = 2055;
+	};
+	8E89465D1045C55000D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 16";
+		rLen = 0;
+		rLoc = 225;
+		rType = 0;
+		vrLen = 2135;
+		vrLoc = 2750;
+	};
+	8E89465E1045C55000D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA3C5B01016527400FAD50F /* player.c */;
+		name = "player.c: 100";
+		rLen = 0;
+		rLoc = 3038;
+		rType = 0;
+		vrLen = 1243;
+		vrLoc = 2371;
+	};
+	8E89465F1045C55000D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E8946601045C55000D285B8 /* AUGraph.h */;
+		name = "AUGraph.h: 356";
+		rLen = 44;
+		rLoc = 11989;
+		rType = 0;
+		vrLen = 1926;
+		vrLoc = 10999;
+	};
+	8E8946601045C55000D285B8 /* AUGraph.h */ = {
+		isa = PBXFileReference;
+		name = AUGraph.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/AudioToolbox.framework/Versions/A/Headers/AUGraph.h;
+		sourceTree = "<absolute>";
+	};
+	8E8946611045C55000D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 136";
+		rLen = 23;
+		rLoc = 3588;
+		rType = 0;
+		vrLen = 1138;
+		vrLoc = 2917;
+	};
+	8E8946621045C55000D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 136";
+		rLen = 5;
+		rLoc = 3595;
+		rType = 0;
+		vrLen = 1096;
+		vrLoc = 2934;
+	};
+	8E8946631045C55000D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
+		name = "AUWindowController.mm: 16";
+		rLen = 0;
+		rLoc = 225;
+		rType = 0;
+		vrLen = 2135;
+		vrLoc = 2750;
+	};
+	8E8946641045C55000D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 283";
+		rLen = 0;
+		rLoc = 6646;
+		rType = 0;
+		vrLen = 1455;
+		vrLoc = 6863;
+	};
+	8E8946651045C55000D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA3C5B01016527400FAD50F /* player.c */;
+		name = "player.c: 100";
+		rLen = 0;
+		rLoc = 3038;
+		rType = 0;
+		vrLen = 1243;
+		vrLoc = 2371;
+	};
+	8E8946661045C55000D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 136";
+		rLen = 23;
+		rLoc = 3588;
+		rType = 0;
+		vrLen = 1138;
+		vrLoc = 2917;
+	};
+	8E8946671045C55000D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8E8946681045C55000D285B8 /* AUGraph.h */;
+		name = "AUGraph.h: 356";
+		rLen = 44;
+		rLoc = 11989;
+		rType = 0;
+		vrLen = 1926;
+		vrLoc = 10999;
+	};
+	8E8946681045C55000D285B8 /* AUGraph.h */ = {
+		isa = PBXFileReference;
+		name = AUGraph.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/AudioToolbox.framework/Versions/A/Headers/AUGraph.h;
+		sourceTree = "<absolute>";
+	};
+	8E8946691045C55000D285B8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
+		name = "CAPlayThrough.mm: 135";
+		rLen = 0;
+		rLoc = 3581;
+		rType = 0;
+		vrLen = 1144;
+		vrLoc = 2917;
 	};
 	8E8DA89F103343D100C07ECE /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -6619,7 +7977,7 @@
 		vrLen = 974;
 		vrLoc = 0;
 	};
-	8E949C591038736A0050ECE6 /* CAPlayThrough.mm:750 */ = {
+	8E949C591038736A0050ECE6 /* CAPlayThrough.mm:743 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -6631,12 +7989,12 @@
 		functionName = "CAPlayThrough::OutputProc(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *TimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList * ioData)";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 750;
+		lineNumber = 743;
 		location = xwaxMac;
-		modificationTime = 272742531.938462;
+		modificationTime = 273007946.137756;
 		state = 2;
 	};
-	8E949C5B103873980050ECE6 /* CAPlayThrough.mm:690 */ = {
+	8E949C5B103873980050ECE6 /* CAPlayThrough.mm:683 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -6648,12 +8006,12 @@
 		functionName = "CAPlayThrough::InputProc(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList * ioData)";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 690;
+		lineNumber = 683;
 		location = xwaxMac;
-		modificationTime = 272742531.938562;
+		modificationTime = 273007946.137831;
 		state = 2;
 	};
-	8E949C5E103874240050ECE6 /* CAPlayThrough.mm:658 */ = {
+	8E949C5E103874240050ECE6 /* CAPlayThrough.mm:651 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -6665,9 +8023,9 @@
 		functionName = "CAPlayThrough::InputProc(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList * ioData)";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 658;
+		lineNumber = 651;
 		location = xwaxMac;
-		modificationTime = 272742531.938657;
+		modificationTime = 273007946.137903;
 		state = 2;
 	};
 	8E949C79103875F90050ECE6 /* PBXTextBookmark */ = {
@@ -6680,7 +8038,7 @@
 		vrLen = 1076;
 		vrLoc = 4203;
 	};
-	8E949C85103876140050ECE6 /* CAPlayThrough.mm:735 */ = {
+	8E949C85103876140050ECE6 /* CAPlayThrough.mm:728 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -6692,9 +8050,9 @@
 		functionName = "CAPlayThrough::OutputProc(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *TimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList * ioData)";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 735;
+		lineNumber = 728;
 		location = xwaxMac;
-		modificationTime = 272742531.938771;
+		modificationTime = 273007946.137975;
 		state = 2;
 	};
 	8E949CF5103895030050ECE6 /* track.c:41 */ = {
@@ -6710,7 +8068,7 @@
 		ignoreCount = 0;
 		lineNumber = 41;
 		location = xwaxMac;
-		modificationTime = 272742531.938871;
+		modificationTime = 273007946.138046;
 		state = 2;
 	};
 	8E949D08103895EF0050ECE6 /* PBXTextBookmark */ = {
@@ -6771,7 +8129,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1136, 966}}";
 			sepNavSelRange = "{2879, 32}";
-			sepNavVisRange = "{528, 2596}";
+			sepNavVisRange = "{453, 2697}";
 		};
 	};
 	8E967F0E100FAC300074DEEE /* AudioDeviceList.h */ = {
@@ -6894,9 +8252,9 @@
 	};
 	8E968026100FBE5C0074DEEE /* coreaudio.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1136, 1848}}";
-			sepNavSelRange = "{914, 0}";
-			sepNavVisRange = "{0, 910}";
+			sepNavIntBoundsRect = "{{0, 0}, {1136, 2156}}";
+			sepNavSelRange = "{2346, 0}";
+			sepNavVisRange = "{1821, 1817}";
 			sepNavWindowFrame = "{{15, 215}, {750, 558}}";
 		};
 	};
@@ -7061,7 +8419,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 24;
-		modificationTime = 272742531.938257;
+		modificationTime = 273007946.137565;
 		state = 2;
 	};
 	8E9682E010151BE00074DEEE /* PBXTextBookmark */ = {
@@ -7132,7 +8490,7 @@
 		path = /Developer/SDKs/MacOSX10.5.sdk/usr/include/i386/_types.h;
 		sourceTree = "<absolute>";
 	};
-	8E9683CE101624200074DEEE /* CAPlayThrough.mm:619 */ = {
+	8E9683CE101624200074DEEE /* CAPlayThrough.mm:612 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -7144,9 +8502,9 @@
 		functionName = "uninterleave(AudioBufferList *cabuf, signed short *buf, UInt32 nframes)";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 619;
+		lineNumber = 612;
 		location = xwaxMac;
-		modificationTime = 272742531.9383;
+		modificationTime = 273007946.137626;
 		state = 2;
 	};
 	8EA3C5A61016527400FAD50F /* xwax.h */ = {
@@ -7172,9 +8530,10 @@
 	};
 	8EA3C5A91016527400FAD50F /* xwax.c */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {922, 6062}}";
-			sepNavSelRange = "{11037, 4}";
-			sepNavVisRange = "{7748, 1034}";
+			sepNavIntBoundsRect = "{{0, 0}, {1025, 6174}}";
+			sepNavSelRange = "{11796, 8}";
+			sepNavVisRange = "{10904, 1428}";
+			sepNavWindowFrame = "{{15, 249}, {1084, 924}}";
 		};
 	};
 	8EA3C5AA1016527400FAD50F /* timecoder.h */ = {
@@ -7221,8 +8580,8 @@
 	};
 	8EA3C5B01016527400FAD50F /* player.c */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1136, 3962}}";
-			sepNavSelRange = "{3042, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1136, 3948}}";
+			sepNavSelRange = "{3038, 0}";
 			sepNavVisRange = "{2371, 1243}";
 		};
 	};
@@ -7573,9 +8932,9 @@
 		path = coreaudio/CAPlayThrough.mm;
 		sourceTree = SOURCE_ROOT;
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1136, 11956}}";
-			sepNavSelRange = "{6320, 0}";
-			sepNavVisRange = "{6730, 1242}";
+			sepNavIntBoundsRect = "{{0, 0}, {1136, 12474}}";
+			sepNavSelRange = "{3581, 0}";
+			sepNavVisRange = "{2917, 1144}";
 		};
 	};
 	8EA733C01039B811004580FB /* PBXTextBookmark */ = {
@@ -7616,7 +8975,7 @@
 		ignoreCount = 0;
 		lineNumber = 297;
 		location = xwaxMac;
-		modificationTime = 272742531.938889;
+		modificationTime = 273007946.138064;
 		state = 2;
 	};
 	8EA7343F1039D308004580FB /* CAPlayThrough.cpp:282 */ = {
@@ -7633,7 +8992,7 @@
 		ignoreCount = 0;
 		lineNumber = 282;
 		location = xwaxMac;
-		modificationTime = 272742534.329053;
+		modificationTime = 273007948.507622;
 		state = 1;
 	};
 	8EA734411039D30D004580FB /* PBXTextBookmark */ = {
@@ -7660,7 +9019,7 @@
 		ignoreCount = 0;
 		lineNumber = 92;
 		location = xwaxMac;
-		modificationTime = 272742531.938923;
+		modificationTime = 273007946.138097;
 		state = 2;
 	};
 	8EA734531039D3CD004580FB /* coreaudio.cpp:123 */ = {
@@ -7677,7 +9036,7 @@
 		ignoreCount = 0;
 		lineNumber = 123;
 		location = xwaxMac;
-		modificationTime = 272742531.938941;
+		modificationTime = 273007946.138114;
 		state = 2;
 	};
 	8EA734671039D4E4004580FB /* PBXTextBookmark */ = {
@@ -7697,9 +9056,9 @@
 		path = /Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/AudioUnit.framework/Versions/A/Headers/AUComponent.h;
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1136, 7028}}";
-			sepNavSelRange = "{10329, 42}";
-			sepNavVisRange = "{9418, 2297}";
+			sepNavIntBoundsRect = "{{0, 0}, {1136, 6874}}";
+			sepNavSelRange = "{6777, 39}";
+			sepNavVisRange = "{7202, 1325}";
 		};
 	};
 	8EA7346A1039D4E4004580FB /* PBXTextBookmark */ = {
@@ -7733,7 +9092,7 @@
 		ignoreCount = 0;
 		lineNumber = 293;
 		location = xwaxMac;
-		modificationTime = 272742534.372706;
+		modificationTime = 273007948.55257;
 		state = 1;
 	};
 	8EA7348A1039D6FD004580FB /* PBXTextBookmark */ = {
@@ -7769,7 +9128,7 @@
 		ignoreCount = 0;
 		lineNumber = 152;
 		location = xwaxMac;
-		modificationTime = 272742531.938974;
+		modificationTime = 273007946.138147;
 		state = 1;
 	};
 	8EA734F5103C89DA004580FB /* PBXTextBookmark */ = {
@@ -7841,7 +9200,7 @@
 		ignoreCount = 0;
 		lineNumber = 149;
 		location = xwaxMac;
-		modificationTime = 272742531.938991;
+		modificationTime = 273007946.138163;
 		state = 2;
 	};
 	8EA73543103C8E0C004580FB /* PBXTextBookmark */ = {
@@ -7866,9 +9225,9 @@
 	};
 	8EA73579103DBC20004580FB /* ETEyeTunes.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {922, 1274}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1136, 1358}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1655}";
+			sepNavVisRange = "{0, 2084}";
 		};
 	};
 	8EA7357A103DBC20004580FB /* ETEyeTunes.m */ = {
@@ -7913,7 +9272,7 @@
 		ignoreCount = 0;
 		lineNumber = 19;
 		location = xwaxMac;
-		modificationTime = 272742531.939013;
+		modificationTime = 273007946.13818;
 		state = 2;
 	};
 	8EA735AE103DC1E5004580FB /* PBXTextBookmark */ = {
@@ -8028,7 +9387,7 @@
 			"-i /Users/tomblench/code/xwaxMac/xwax-0.5/xwax_import",
 			"-l /Volumes/tomblench/Music/iTunes/iTunes\\ Music/Way\\ Out\\ West",
 			"-t serato_2a",
-			"-c 'Built-in Microphone' 'Built-in Output'",
+			"-c 'Built-in Microphone:1:2' 'Built-in Output:1:2'",
 		);
 		autoAttachOnCrash = 1;
 		breakpointsEnabled = 1;
@@ -8224,7 +9583,7 @@
 		ignoreCount = 0;
 		lineNumber = 36;
 		location = xwaxMac;
-		modificationTime = 272742531.939033;
+		modificationTime = 273007946.138197;
 		state = 2;
 	};
 	8ED0B387103DDDA1002AF97C /* PBXTextBookmark */ = {
@@ -8269,20 +9628,20 @@
 	};
 	8ED0B3D010401C2A002AF97C /* AUWindowController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1136, 778}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1136, 801}}";
 			sepNavSelRange = "{345, 17}";
 			sepNavVisRange = "{0, 565}";
 		};
 	};
 	8ED0B3D110401C2A002AF97C /* AUWindowController.mm */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {720, 3092}}";
-			sepNavSelRange = "{651, 7}";
-			sepNavVisRange = "{500, 252}";
+			sepNavIntBoundsRect = "{{0, 0}, {1136, 2812}}";
+			sepNavSelRange = "{225, 0}";
+			sepNavVisRange = "{2843, 2045}";
 			sepNavWindowFrame = "{{84, 186}, {1084, 924}}";
 		};
 	};
-	8ED0B3E510401F99002AF97C /* AUWindowController.mm:37 */ = {
+	8ED0B3E510401F99002AF97C /* AUWindowController.mm:34 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -8294,9 +9653,9 @@
 		functionName = "-awakeFromNib";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 37;
+		lineNumber = 34;
 		location = xwaxMac;
-		modificationTime = 272742531.939049;
+		modificationTime = 273007946.138213;
 		state = 1;
 	};
 	8ED0B3E710401FA4002AF97C /* PBXTextBookmark */ = {
@@ -8370,7 +9729,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 39";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 926;
 		rType = 0;
 		vrLen = 684;
 		vrLoc = 248;
@@ -8400,7 +9759,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.cpp: 284";
 		rLen = 0;
-		rLoc = 6854;
+		rLoc = 6940;
 		rType = 0;
 		vrLen = 808;
 		vrLoc = 6226;
@@ -8410,7 +9769,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 39";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 926;
 		rType = 0;
 		vrLen = 644;
 		vrLoc = 288;
@@ -8430,7 +9789,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 39";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 926;
 		rType = 0;
 		vrLen = 644;
 		vrLoc = 288;
@@ -8445,7 +9804,7 @@
 		vrLen = 1075;
 		vrLoc = 3886;
 	};
-	8ED0B40F1040371F002AF97C /* AUWindowController.mm:195 */ = {
+	8ED0B40F1040371F002AF97C /* AUWindowController.mm:186 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -8457,9 +9816,9 @@
 		functionName = "loadNib()";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 195;
+		lineNumber = 186;
 		location = xwaxMac;
-		modificationTime = 272742531.93911;
+		modificationTime = 273007946.138299;
 		state = 2;
 	};
 	8ED0B4131040378C002AF97C /* PBXTextBookmark */ = {
@@ -8477,7 +9836,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 55";
 		rLen = 0;
-		rLoc = 5442;
+		rLoc = 5311;
 		rType = 0;
 		vrLen = 697;
 		vrLoc = 451;
@@ -8507,7 +9866,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 55";
 		rLen = 0;
-		rLoc = 5442;
+		rLoc = 5311;
 		rType = 0;
 		vrLen = 699;
 		vrLoc = 449;
@@ -8537,7 +9896,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 52";
 		rLen = 29;
-		rLoc = 5349;
+		rLoc = 5217;
 		rType = 0;
 		vrLen = 699;
 		vrLoc = 449;
@@ -8567,7 +9926,7 @@
 		comments = "error: ‘HostingWindowController’ was not declared in this scope";
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		rLen = 1;
-		rLoc = 121;
+		rLoc = 112;
 		rType = 1;
 	};
 	8ED0B46210403C8D002AF97C /* PBXTextBookmark */ = {
@@ -8615,7 +9974,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 56";
 		rLen = 0;
-		rLoc = 5493;
+		rLoc = 5361;
 		rType = 0;
 		vrLen = 697;
 		vrLoc = 451;
@@ -8635,7 +9994,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 54";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 691;
 		vrLoc = 457;
@@ -8655,7 +10014,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.cpp: 296";
 		rLen = 0;
-		rLoc = 7292;
+		rLoc = 7379;
 		rType = 0;
 		vrLen = 807;
 		vrLoc = 9128;
@@ -8665,7 +10024,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 47";
 		rLen = 42;
-		rLoc = 1166;
+		rLoc = 1034;
 		rType = 0;
 		vrLen = 989;
 		vrLoc = 524;
@@ -8685,7 +10044,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 155";
 		rLen = 46;
-		rLoc = 5021;
+		rLoc = 4889;
 		rType = 0;
 		vrLen = 988;
 		vrLoc = 4105;
@@ -8705,7 +10064,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 10";
 		rLen = 0;
-		rLoc = 201;
+		rLoc = 175;
 		rType = 0;
 		vrLen = 546;
 		vrLoc = 0;
@@ -8725,7 +10084,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 14";
 		rLen = 40;
-		rLoc = 347;
+		rLoc = 302;
 		rType = 0;
 		vrLen = 546;
 		vrLoc = 0;
@@ -8735,7 +10094,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.cpp: 393";
 		rLen = 0;
-		rLoc = 11150;
+		rLoc = 11060;
 		rType = 0;
 		vrLen = 794;
 		vrLoc = 8677;
@@ -8755,7 +10114,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 177";
 		rLen = 0;
-		rLoc = 5639;
+		rLoc = 5495;
 		rType = 0;
 		vrLen = 894;
 		vrLoc = 4243;
@@ -8785,7 +10144,7 @@
 		fRef = 8EA733BF1039B811004580FB /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.cpp: 393";
 		rLen = 0;
-		rLoc = 11150;
+		rLoc = 11060;
 		rType = 0;
 		vrLen = 645;
 		vrLoc = 3340;
@@ -8805,7 +10164,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 166";
 		rLen = 0;
-		rLoc = 5347;
+		rLoc = 5215;
 		rType = 0;
 		vrLen = 827;
 		vrLoc = 4312;
@@ -8935,7 +10294,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 179";
 		rLen = 0;
-		rLoc = 5645;
+		rLoc = 5501;
 		rType = 0;
 		vrLen = 827;
 		vrLoc = 4312;
@@ -8955,7 +10314,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 168";
 		rLen = 29;
-		rLoc = 5349;
+		rLoc = 5217;
 		rType = 0;
 		vrLen = 894;
 		vrLoc = 4245;
@@ -9075,7 +10434,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 721;
 		vrLoc = 247;
@@ -9112,7 +10471,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 721;
 		vrLoc = 247;
@@ -9142,7 +10501,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 170";
 		rLen = 0;
-		rLoc = 5381;
+		rLoc = 5249;
 		rType = 0;
 		vrLen = 721;
 		vrLoc = 247;
@@ -9152,7 +10511,7 @@
 		fRef = 8E967F0C100FAC300074DEEE /* CAPlayThrough.mm */;
 		name = "CAPlayThrough.mm: 283";
 		rLen = 0;
-		rLoc = 6563;
+		rLoc = 6649;
 		rType = 0;
 		vrLen = 1019;
 		vrLoc = 5997;
@@ -9162,7 +10521,7 @@
 		fRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */;
 		name = "AUWindowController.mm: 99";
 		rLen = 0;
-		rLoc = 3043;
+		rLoc = 2911;
 		rType = 0;
 		vrLen = 1900;
 		vrLoc = 1942;
