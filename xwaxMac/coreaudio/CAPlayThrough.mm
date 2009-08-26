@@ -353,7 +353,6 @@ OSStatus CAPlayThrough::MakeGraph()
 	 */
 
 
-	UInt32 dontcare;void *dontcare2;
 
 // Switching off effects unit whilst looking into multichannel
 
@@ -365,11 +364,18 @@ OSStatus CAPlayThrough::MakeGraph()
 	effectsDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
 	effectsDesc.componentFlags = 0;
 	effectsDesc.componentFlagsMask = 0;
-//	err = AUGraphAddNode(mGraph, &effectsDesc, &mEffectsNode);
+#if __MAC_OS_X_VERSION_MIN_REQUIRED < 1050
+	UInt32 dontcare;void *dontcare2;
 	err = AUGraphNewNode(mGraph, &effectsDesc, 0, NULL, &mEffectsNode);
+#else
+	err = AUGraphAddNode(mGraph, &effectsDesc, &mEffectsNode);
+#endif
 	checkErr(err);
-//	err = AUGraphNodeInfo(mGraph, mEffectsNode, NULL, &mEffectsUnit);   
+#if __MAC_OS_X_VERSION_MIN_REQUIRED < 1050
 	err = AUGraphGetNodeInfo(mGraph, mEffectsNode, &effectsDesc, &dontcare, &dontcare2, &mEffectsUnit);
+#else
+	err = AUGraphNodeInfo(mGraph, mEffectsNode, NULL, &mEffectsUnit);
+#endif
 	checkErr(err);
 	err = (AUGraphUpdate (mGraph, NULL));
 	checkErr(err);
@@ -389,12 +395,20 @@ OSStatus CAPlayThrough::MakeGraph()
 	outDesc.componentSubType = kAudioUnitSubType_DefaultOutput;
 	outDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
 	outDesc.componentFlags = 0;
-	outDesc.componentFlagsMask = 0;	
-//	err = AUGraphAddNode(mGraph, &outDesc, &mOutputNode);
+	outDesc.componentFlagsMask = 0;
+	
+#if __MAC_OS_X_VERSION_MIN_REQUIRED < 1050
 	err = AUGraphNewNode(mGraph, &outDesc, 0, NULL, &mOutputNode);
+#else
+	err = AUGraphAddNode(mGraph, &outDesc, &mOutputNode);
+#endif
+	
 	checkErr(err);	
-//	err = AUGraphNodeInfo(mGraph, mOutputNode, NULL, &mOutputUnit);   
+#if __MAC_OS_X_VERSION_MIN_REQUIRED < 1050
 	err = AUGraphGetNodeInfo(mGraph, mOutputNode, &outDesc, &dontcare, &dontcare2, &mOutputUnit);
+#else
+	err = AUGraphNodeInfo(mGraph, mOutputNode, NULL, &mOutputUnit);   
+#endif
 	checkErr(err);
 	
 	// don't connect nodes until the varispeed unit has input and output formats set
