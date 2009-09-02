@@ -29,11 +29,12 @@
 #include <sys/wait.h>
 
 #include "track.h"
+#include "AudioFile.h"
 
 #define SAMPLE 4 /* bytes per sample (all channels) */
 
-#define LOCK(tr) pthread_mutex_lock(&(tr)->mx)
-#define UNLOCK(tr) pthread_mutex_unlock(&(tr)->mx)
+#define LOCK(tr) printf("Locking\n"); pthread_mutex_lock(&(tr)->mx)
+#define UNLOCK(tr) printf("Unlocking\n"); pthread_mutex_unlock(&(tr)->mx)
 
 
 /* Start the importer process. On completion, pid and fd are set */
@@ -105,6 +106,111 @@ static int stop_import(struct track_t *tr)
     return 0;
 }
 
+/* Read from buffer, osx.  Buffer size in bytes */
+
+static int read_from_buffer(struct track_t *tr)
+{
+    int ls;
+    size_t m;
+    unsigned short v;
+    unsigned int s, w;
+    struct track_block_t *block;
+		
+	
+	
+	unsigned int b;
+	size_t offset=0; //offset into buffer
+	
+	// free any previous blocks
+	
+	
+	for(b=0;;b++)
+	{       
+		if (tr->blocks >= tr->oldblocks)
+		{
+			printf("Block %u, offset %ld\n", b, offset);
+			if(tr->blocks >= TRACK_MAX_BLOCKS) {
+				fprintf(stderr, "Maximum track length reached; aborting...\n");
+				return -1;
+			}
+			block = malloc(sizeof(struct track_block_t));
+			if(!block) {
+				perror("malloc");
+				return -1;
+			}		
+			tr->block[tr->blocks++] = block;
+		}
+		else
+		{
+			block = tr->block[tr->blocks++];
+		}
+		// Fill block
+		size_t nbytes = TRACK_BLOCK_SAMPLES * SAMPLE;
+		size_t left = tr->bufsiz - offset;
+		if (nbytes > left)
+		{
+			nbytes = left;
+		}		
+		printf("left %ld, nbytes %ld\n", left, nbytes);
+		memcpy((char*)block->pcm, ((char*)tr->buf)+offset, nbytes);
+		offset+=nbytes;
+		if (offset == tr->bufsiz)
+		{
+			break;
+		}		
+	}
+	
+	// If there are less blocks than last time, free them
+	for (int i=tr->blocks;i<tr->oldblocks;i++)
+	{
+		free(tr->block[i]);
+	}
+	
+	tr->bytes = tr->bufsiz;
+	
+        m = TRACK_BLOCK_SAMPLES * SAMPLE * tr->blocks / 1024;
+        fprintf(stderr, "Track memory %zuKb PCM, %zuKb PPM, %zuKb overview.\n",
+                m, m / TRACK_PPM_RES, m / TRACK_OVERVIEW_RES);
+		
+    
+	
+    /* Meter the audio which has just been read */
+    
+    for(s = 0; s < tr->bytes / SAMPLE; s++) {
+        
+		block = tr->block[s / (TRACK_BLOCK_SAMPLES * SAMPLE)];
+		
+		ls = s % TRACK_BLOCK_SAMPLES;
+        
+        v = (abs(block->pcm[ls * TRACK_CHANNELS])
+             + abs(block->pcm[ls * TRACK_CHANNELS]));
+		
+        /* PPM-style fast meter approximation */
+		
+        if(v > tr->ppm)
+            tr->ppm += (v - tr->ppm) >> 3;
+        else
+            tr->ppm -= (tr->ppm - v) >> 9;
+        
+        block->ppm[ls / TRACK_PPM_RES] = tr->ppm >> 8;
+        
+        /* Update the slow-metering overview. Fixed point arithmetic
+         * going on here */
+		
+        w = v << 16;
+        
+        if(w > tr->overview)
+            tr->overview += (w - tr->overview) >> 8;
+        else
+            tr->overview -= (tr->overview - w) >> 17;
+		
+        block->overview[ls / TRACK_OVERVIEW_RES] = tr->overview >> 24;
+    }
+    
+    tr->length = s;
+	
+    return 0;
+}
 
 /* Read the next block of data from the file. Return -1 when an error
  * occurs and requires our attention, 1 if there is no more data to be
@@ -301,6 +407,35 @@ int track_handle(struct track_t *tr)
     return 0;
 }
 
+void *track_import_osx_thread(void *args)
+{
+	struct track_t *tr = (struct track_t*)args;
+	tr->status = TRACK_STATUS_IMPORTING;
+	signed short* buf = loadAudioFile(tr->path, &tr->bufsiz);	
+	tr->bytes = 0;
+    tr->length = 0;
+    tr->ppm = 0;
+    tr->overview = 0;
+    tr->eof = 0;
+    tr->rate = TRACK_RATE;	
+	tr->buf = buf;
+	tr->oldblocks = tr->blocks;
+	tr->blocks = 0;
+	read_from_buffer(tr);
+	free(buf);
+	tr->status == TRACK_STATUS_VALID;
+	rig_awaken(tr->rig);
+	UNLOCK(tr);
+	return 0;
+}
+int track_import_osx(struct track_t *tr, const char *path)
+{
+	tr->path = path;
+	pthread_t thread;
+	pthread_create(&thread, NULL, &track_import_osx_thread, tr);
+    return 0;
+
+}
 
 /* A request to begin importing a new track. Can be called when the
  * track is in any state */

@@ -65,7 +65,7 @@ private:
 	//Effect on output
 	//TODO effect switching and 0..4 effect slots like Logic
 	AUNode mEffectsNode;
-	AudioUnit mEffectsUnit;
+	AudioUnit mEffectsUnit;	
 	
 	//Output unit for selected output device
 	AUNode mOutputNode;
@@ -351,17 +351,11 @@ OSStatus CAPlayThrough::MakeGraph()
 	NSLog(@"Looking at effect %@",(NSString *)(mAUList[index].GetAUName()));
 	 
 	 */
-
-
-
-// Switching off effects unit whilst looking into multichannel
-
-
-	//Setup Effect node and unit.  TODO dynamic Effect selection and display of Effect UI
+	
+	// Setup preamp RIAA effect
 	effectsDesc.componentType = kAudioUnitType_Effect;
-//	effectsDesc.componentSubType = kAudioUnitSubType_LowPassFilter;
-	effectsDesc.componentSubType = kAudioUnitSubType_Delay;
-	effectsDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
+	effectsDesc.componentSubType = 'Riaa';
+	effectsDesc.componentManufacturer = 'Vacs';
 	effectsDesc.componentFlags = 0;
 	effectsDesc.componentFlagsMask = 0;
 #if __MAC_OS_X_VERSION_MIN_REQUIRED < 1050
@@ -380,16 +374,8 @@ OSStatus CAPlayThrough::MakeGraph()
 	err = (AUGraphUpdate (mGraph, NULL));
 	checkErr(err);
 	
-
-	
-	
-	if (mEffectsUnit->data[0] == 0)
-	{
-		NSLog(@"MakeGraph Null");
-	}
 	[wc showCocoaViewForAU:mEffectsUnit];
-	
-	
+		
 	//Setup Output node and unit
 	outDesc.componentType = kAudioUnitType_Output;
 	outDesc.componentSubType = kAudioUnitSubType_DefaultOutput;
@@ -656,7 +642,7 @@ static void interleave(signed short *buf, AudioBufferList *cabuf,
 	*/
 	if (cabuf->mNumberBuffers != 2)
 	{
-		fprintf(stderr, "inBig problem %d %d %d\n", inChanL, inChanR, cabuf->mNumberBuffers);
+		fprintf(stderr, "inBig problem %d %d %lu\n", inChanL, inChanR, cabuf->mNumberBuffers);
 		abort();
 	}
 	l = (AudioSampleType*)cabuf->mBuffers[0].mData;
@@ -697,7 +683,7 @@ static void uninterleave(AudioBufferList *cabuf, signed short *buf,
 
 	if (cabuf->mNumberBuffers != 2)
 	{
-		fprintf(stderr, "outBig problem %d %d %d\n", outChanL, outChanR, cabuf->mNumberBuffers);
+		fprintf(stderr, "outBig problem %d %d %lu\n", outChanL, outChanR, cabuf->mNumberBuffers);
 		abort();
 	}
 	l = (AudioSampleType*)cabuf->mBuffers[0].mData;
@@ -726,8 +712,8 @@ OSStatus CAPlayThrough::InputProc(void *inRefCon,
  	static UInt32 prevNumFrames = 0;
 	static signed short *pcmData = NULL;
     OSStatus err = noErr;
-	bool playThru = kPlayThru;
 	CAPlayThrough *This = (CAPlayThrough *)inRefCon;
+	bool playThru = This->xwax_device->player->passthrough;
 	if (This->mFirstInputTime < 0.)
 		This->mFirstInputTime = inTimeStamp->mSampleTime;
 	
@@ -778,10 +764,11 @@ OSStatus CAPlayThrough::OutputProc(void *inRefCon,
 {
 	static UInt32 prevNumFrames = 0;
 	static signed short *pcmData = NULL;
-	bool playThru = kPlayThru;
 	OSStatus err = noErr;
 
 	CAPlayThrough *This = (CAPlayThrough *)inRefCon;
+	bool playThru = This->xwax_device->player->passthrough;
+
 	if (!playThru)
 	{
 	if (prevNumFrames != inNumberFrames)

@@ -1076,7 +1076,8 @@ static int draw_library(SDL_Surface *surface, const struct rect_t *rect,
 
 static int do_loading(struct track_t *track, struct record_t *record)
 {
-    track_import(track, record->pathname);
+//    track_import(track, record->pathname);
+    track_import_osx(track, record->pathname);
 
     if(strlen(record->artist))
         track->artist = record->artist;

@@ -65,6 +65,12 @@ struct track_t {
     
     unsigned short ppm;
     unsigned int overview;
+	
+	/* osx stuff for reading from a buffer */
+	signed short *buf; //stereo interleaved
+	size_t bufsiz; //bytes
+	char *path;
+	int oldblocks;
 };
 
 void track_init(struct track_t *tr, const char *importer);
