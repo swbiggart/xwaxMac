@@ -1,4 +1,4 @@
-/*	Copyright © 2007 Apple Inc. All Rights Reserved.
+/*	Copyright ï¿½ 2007 Apple Inc. All Rights Reserved.
 	
 	Disclaimer: IMPORTANT:  This Apple software is supplied to you by 
 			Apple Inc. ("Apple") in consideration of your agreement to the
@@ -73,4 +73,18 @@ void	AudioDeviceList::BuildList()
 		}
 	}
 	delete[] devids;
+	// Uniquify names
+	for(int i=0;i<nDevices;i++) {
+		for(int j=i+1;j<nDevices;j++) {
+			// For now we will just do 2
+			if (!strcmp(mDevices[i].mName,mDevices[j].mName)) {
+				int len = strlen(mDevices[j].mName);
+				mDevices[j].mName[len]='2';
+				mDevices[j+1].mName[len+1]='\0';
+				printf("Renamed from %s to %s\n",mDevices[i].mName,mDevices[j].mName);
+			}
+		}
+	}
 }
+
+
