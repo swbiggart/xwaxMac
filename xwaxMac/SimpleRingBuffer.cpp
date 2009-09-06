@@ -22,13 +22,12 @@ void SimpleRingBuffer::reinit()
 	state = -1;
 }
 
-
 int SimpleRingBuffer::fetch(UInt32 samples, AudioSampleType *buf)
 {
 	int i;
 	int distance = (m_store_pos % m_bufsiz - m_fetch_pos % m_bufsiz);
+    
 	if (distance < 0){distance += m_bufsiz;}
-//	printf("Fetching, distance = %d\n", distance);
 
 	if (state == -1)
 	{
@@ -42,36 +41,29 @@ int SimpleRingBuffer::fetch(UInt32 samples, AudioSampleType *buf)
 		return -1;
 	}
 
-
-//	printf("Fetching from %ld ", m_fetch_pos % m_bufsiz);
 	for (i=0;i<samples;i++)
 	{
 		buf[i] = m_buf[m_fetch_pos++ % m_bufsiz];
 	}
 	m_fetch_pos%=m_bufsiz;
-//	printf("to %ld\n ", m_fetch_pos);
-//	pthread_mutex_lock(&mx);
-//	m_stored -= samples;
-//	pthread_mutex_unlock(&mx);
+
 	return 0;
 }
+
 int SimpleRingBuffer::store(UInt32 samples, AudioSampleType *buf)
 {
 	int i;
+    
+    int distance = (m_store_pos %m_bufsiz - m_fetch_pos % m_bufsiz);
 	
 	if (state == -1)
 	{
-		//		m_stored = 0;
 		m_fetch_pos = 0;
 		m_store_pos = 0;
 		state = 0;
 	}
 	
-	int distance = (m_store_pos %m_bufsiz - m_fetch_pos % m_bufsiz);
 	if (distance < 0){distance += m_bufsiz;}
-//	printf("Storing, distance = %d\n", distance);
-	
-
 	
 	if (samples > m_bufsiz - distance)
 	{
@@ -79,17 +71,11 @@ int SimpleRingBuffer::store(UInt32 samples, AudioSampleType *buf)
 		return -1;
 	}
 
-
-//	printf("Storing from %ld ", m_store_pos % m_bufsiz);
 	for (i=0;i<samples;i++)
 	{
 		m_buf[m_store_pos++ % m_bufsiz] = buf[i];
 	}
-//	printf("to %ld\n ", m_store_pos);
 	m_store_pos%=m_bufsiz;
-//	pthread_mutex_lock(&mx);
-//	m_stored += samples;
-//	pthread_mutex_unlock(&mx);
-	return 0;
-	
+
+	return 0;	
 }
