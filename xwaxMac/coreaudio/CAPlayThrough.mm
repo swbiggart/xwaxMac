@@ -84,7 +84,7 @@ private:
 	int inChanL,  inChanR,  outChanL,  outChanR;//channel map on input and output devices
 	bool wasPlayThruLast;
 	signed short *pcmData_submit; // for submitting to timecoder
-	signed short *pcmData_fetch; // for submitting to timecoder
+	signed short *pcmData_fetch; // for fetching from player
 public:
 	Float64 mSampleRate; //only valid after setupbuffers()
 	struct device_t *xwax_device;
@@ -680,23 +680,7 @@ static void interleave(signed short *buf, AudioBufferList *cabuf,
                        register UInt32 nframes, int inChanL, int inChanR)
 {
 	register AudioSampleType *l,*r;
-	/*
-	if (cabuf->mNumberBuffers== 2)
-	{
-		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
-		r = (AudioSampleType*)cabuf->mBuffers[1].mData;
-	}
-	else if (cabuf->mNumberBuffers == 1)
-	{
-		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
-		r = (AudioSampleType*)cabuf->mBuffers[0].mData;
-	}
-	else
-	{
-		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
-		r = (AudioSampleType*)cabuf->mBuffers[1].mData;
-	}
-	*/
+
 	if (cabuf->mNumberBuffers != 2)
 	{
 		fprintf(stderr, "inBig problem %d %d %lu\n", inChanL, inChanR, cabuf->mNumberBuffers);
@@ -719,24 +703,6 @@ static void uninterleave(AudioBufferList *cabuf, signed short *buf,
                        register UInt32 nframes, int outChanL, int outChanR)
 {
 	register AudioSampleType *l,*r;
-
-/*
-	if (cabuf->mNumberBuffers== 2)
-	{
-		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
-		r = (AudioSampleType*)cabuf->mBuffers[1].mData;
-	}
-	else if (cabuf->mNumberBuffers == 1)
-	{
-		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
-		r = (AudioSampleType*)cabuf->mBuffers[0].mData;
-	}
-	else
-	{
-		l = (AudioSampleType*)cabuf->mBuffers[0].mData;
-		r = (AudioSampleType*)cabuf->mBuffers[1].mData;
-	}
-*/
 
 	if (cabuf->mNumberBuffers != 2)
 	{
