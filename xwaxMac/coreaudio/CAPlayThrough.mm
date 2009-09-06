@@ -4,6 +4,8 @@
 #include "CAPlayThrough.h"
 #import "AUWindowController.h"
 #include "CAComponent.h"
+#include "SimpleRingBuffer.h"
+#include <algorithm>
 #pragma mark -- CAPlayThrough
 typedef Float32 AudioSampleType; 
 
@@ -12,7 +14,7 @@ typedef Float32 AudioSampleType;
 class CAPlayThrough 
 {
 public:
-	CAPlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device);
+	CAPlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t * xwax_device);
 	~CAPlayThrough();
 	
 	OSStatus	Init(AudioDeviceID input, AudioDeviceID output);
@@ -57,7 +59,7 @@ private:
 	AudioBufferList *mInputBuffer;
 	AudioDevice mInputDevice, mOutputDevice;
 	//Ringbuffer for piping samples from input to output for "thru" mode
-	CARingBuffer *mBuffer;
+	SimpleRingBuffer *mBufferL, *mBufferR;
 
 	//AudioUnits and Graph
 	AUGraph mGraph;
@@ -80,6 +82,9 @@ private:
 	CAComponent *					mAUList;
 	
 	int inChanL,  inChanR,  outChanL,  outChanR;//channel map on input and output devices
+	bool wasPlayThruLast;
+	signed short *pcmData_submit; // for submitting to timecoder
+	signed short *pcmData_fetch; // for submitting to timecoder
 public:
 	Float64 mSampleRate; //only valid after setupbuffers()
 	struct device_t *xwax_device;
@@ -92,7 +97,8 @@ public:
 
 //Construct PlayThrough object associated with xwax device
 CAPlayThrough::CAPlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device):
-mBuffer(NULL),
+mBufferL(NULL),
+mBufferR(NULL),
 mFirstInputTime(-1),
 mFirstOutputTime(-1),
 mInToOutSampleOffset(0),
@@ -101,7 +107,10 @@ mSampleRate(-1),
 inChanL(inChanL),
 inChanR(inChanR),
 outChanL(outChanL),
-outChanR(outChanR)
+outChanR(outChanR),
+wasPlayThruLast(false),
+pcmData_submit(NULL),
+pcmData_fetch(NULL)
 {
 	wc = loadNib();
 	OSStatus err = noErr;
@@ -133,7 +142,7 @@ OSStatus CAPlayThrough::Init(AudioDeviceID input, AudioDeviceID output)
 	checkErr(err);
 		
 	//Connect Effect Unit(s) - if we're not using effects don't do this as we write the audio directly in the callback
-	err= AUGraphConnectNodeInput (mGraph, mEffectsNode, 0, mOutputNode, 0);
+//	err= AUGraphConnectNodeInput (mGraph, mEffectsNode, 0, mOutputNode, 0);
 	checkErr(err);	
 	
 	err = AUGraphInitialize(mGraph); 
@@ -150,8 +159,10 @@ void CAPlayThrough::Cleanup()
 	//clean up
 	Stop();
 			
-	delete mBuffer;
-	mBuffer = 0;
+	delete mBufferL;
+	delete mBufferR;
+	mBufferL = 0;
+	mBufferR = 0;
 	if(mInputBuffer){
 		for(UInt32 i = 0; i<mInputBuffer->mNumberBuffers; i++)
 			free(mInputBuffer->mBuffers[i].mData);
@@ -235,14 +246,26 @@ OSStatus CAPlayThrough::SetOutputDeviceAsCurrent(AudioDeviceID out)
 							  0, 
 							  &mOutputDevice.mID, 
 							  sizeof(mOutputDevice.mID));
-							
+	checkErr(err);
+
+	// Set desired latency, or minimum, whichever greatest
+	UInt32 latency = 512;//64 samples
+	AudioValueRange range;
+	UInt32 size = sizeof(range);
+	err = AudioDeviceGetProperty(out, 0, false,kAudioDevicePropertyBufferSizeRange, &size, &range);
+	printf("Latency %lf %lf\n", range.mMinimum, range.mMaximum);
+	latency = std::max(latency, (UInt32)range.mMinimum);
+	err = AudioDeviceSetProperty(out, NULL, 0, false, kAudioDevicePropertyBufferSize, sizeof(latency), &latency);
+	checkErr(err);
+	pcmData_fetch = (signed short*)malloc(latency); //bytes
+
 	return err;
 }
 
 OSStatus CAPlayThrough::SetInputDeviceAsCurrent(AudioDeviceID in)
 {
     OSStatus err = noErr;
-		
+	
 	mInputDevice.Init(in, true);
 	checkErr(err);
 	
@@ -254,6 +277,19 @@ OSStatus CAPlayThrough::SetInputDeviceAsCurrent(AudioDeviceID in)
 							  0, 
 							  &mInputDevice.mID, 
 							  sizeof(mInputDevice.mID));
+	checkErr(err);
+
+	// Set desired latency, or minimum, whichever greatest
+	UInt32 latency = 512;//64 samples
+	AudioValueRange range;
+	UInt32 size = sizeof(range);
+	err = AudioDeviceGetProperty(in, 0, false,kAudioDevicePropertyBufferSizeRange, &size, &range);
+	printf("Latency %lf %lf\n", range.mMinimum, range.mMaximum);
+	latency = std::max(latency, (UInt32)range.mMinimum);
+	err = AudioDeviceSetProperty(in, NULL, 0, false, kAudioDevicePropertyBufferSize, sizeof(latency), &latency);
+	checkErr(err);
+	pcmData_submit = (signed short*)malloc(latency); //bytes
+	
 	return err;
 }
 
@@ -294,7 +330,7 @@ OSStatus CAPlayThrough::SetupGraph(AudioDeviceID out)
 	
 	//Now that we are using (an) effect(s), the callback is on the effects unit and not the output unit
 	
-	err = AudioUnitSetProperty(mEffectsUnit, 
+	err = AudioUnitSetProperty(mOutputUnit, 
 							  kAudioUnitProperty_SetRenderCallback, 
 							  kAudioUnitScope_Input,
 							  0,
@@ -353,9 +389,11 @@ OSStatus CAPlayThrough::MakeGraph()
 	 */
 	
 	// Setup preamp RIAA effect
+	
+	/*
 	effectsDesc.componentType = kAudioUnitType_Effect;
-	effectsDesc.componentSubType = 'Riaa';
-	effectsDesc.componentManufacturer = 'Vacs';
+	effectsDesc.componentSubType = 'lpas';
+	effectsDesc.componentManufacturer = 'appl';
 	effectsDesc.componentFlags = 0;
 	effectsDesc.componentFlagsMask = 0;
 #if __MAC_OS_X_VERSION_MIN_REQUIRED < 1050
@@ -375,7 +413,7 @@ OSStatus CAPlayThrough::MakeGraph()
 	checkErr(err);
 	
 	[wc showCocoaViewForAU:mEffectsUnit];
-		
+		*/
 	//Setup Output node and unit
 	outDesc.componentType = kAudioUnitType_Output;
 	outDesc.componentSubType = kAudioUnitSubType_DefaultOutput;
@@ -424,6 +462,18 @@ OSStatus CAPlayThrough::SetupAUHAL(AudioDeviceID in)
 
 	//AUHAL needs to be initialized before anything is done to it
 	err = AudioUnitInitialize(mInputUnit);
+	checkErr(err);
+/*	
+	int latency = 64;
+	
+	//Setup latency. 
+	err = AudioUnitSetProperty(mInputUnit, 
+							   kAudioDevicePropertyBufferSize, 
+							   kAudioUnitScope_Global,
+							   0,
+							   &latency, 
+							   sizeof(latency));
+*/	
 	checkErr(err);
 	
 	err = EnableIO();
@@ -475,10 +525,16 @@ OSStatus CAPlayThrough::EnableIO()
 OSStatus CAPlayThrough::CallbackSetup()
 {
 	OSStatus err = noErr;
+
+
+	
+	
     AURenderCallbackStruct input;
 	
     input.inputProc = InputProc;
     input.inputProcRefCon = this;
+	
+	
 	
 	//Setup the input callback. 
 	err = AudioUnitSetProperty(mInputUnit, 
@@ -604,8 +660,9 @@ OSStatus CAPlayThrough::SetupBuffers()
 		mInputBuffer->mBuffers[i].mData = malloc(bufferSizeBytes);
 	}
 	
-	mBuffer = new CARingBuffer();	
-	mBuffer->Allocate(asbd.mChannelsPerFrame, asbd.mBytesPerFrame, bufferSizeFrames * 20);
+	mBufferL = new SimpleRingBuffer();	
+	mBufferR = new SimpleRingBuffer();	
+//	mBuffer->Allocate(asbd.mChannelsPerFrame, asbd.mBytesPerFrame, bufferSizeFrames * 20);
 	
     return err;
 }
@@ -698,7 +755,6 @@ static void uninterleave(AudioBufferList *cabuf, signed short *buf,
 		buf+=2;
     }
 }
-bool kPlayThru = false;//placeholder until we do playthru switching
 
 #pragma mark -
 #pragma mark -- IO Procs --
@@ -709,8 +765,7 @@ OSStatus CAPlayThrough::InputProc(void *inRefCon,
 									UInt32 inNumberFrames,
 									AudioBufferList * ioData)
 {
- 	static UInt32 prevNumFrames = 0;
-	static signed short *pcmData = NULL;
+	
     OSStatus err = noErr;
 	CAPlayThrough *This = (CAPlayThrough *)inRefCon;
 	bool playThru = This->xwax_device->player->passthrough;
@@ -731,21 +786,35 @@ OSStatus CAPlayThrough::InputProc(void *inRefCon,
 	{		
 		if(This->xwax_device->timecoder)
 		{
-			if (prevNumFrames != inNumberFrames)
-			{
-				pcmData = (signed short*)realloc(pcmData, sizeof(signed short)*inNumberFrames*2); // stereo
-			}
-			prevNumFrames = inNumberFrames;
-			interleave(pcmData, This->mInputBuffer, inNumberFrames, This->inChanL, This->inChanR);
-            timecoder_submit(This->xwax_device->timecoder, pcmData, (size_t)inNumberFrames);
+
+			interleave(This->pcmData_submit, This->mInputBuffer, inNumberFrames, This->inChanL, This->inChanR);
+            timecoder_submit(This->xwax_device->timecoder, This->pcmData_submit, (size_t)inNumberFrames);
 		}
 	}
 	
 	else 
 	{
-		err = This->mBuffer->Store(This->mInputBuffer, Float64(inNumberFrames), SInt64(inTimeStamp->mSampleTime));
+		//printf("Storing at %lld\n", SInt64(inTimeStamp->mSampleTime));
+		if (This->wasPlayThruLast == false)
+		{
+			printf("Initing buffer\n");
+			This->mBufferL->reinit();
+			This->mBufferR->reinit();
+		}
+		err = This->mBufferL->store(inNumberFrames, (AudioSampleType*)This->mInputBuffer->mBuffers[0].mData);
+		if (err != 0)
+		{
+			printf("Problem storing to buffer %ld\n", err);
+		}
+		err = This->mBufferR->store(inNumberFrames, (AudioSampleType*)This->mInputBuffer->mBuffers[1].mData);
+		if (err != 0)
+		{
+			printf("Problem storing to buffer %ld\n", err);
+		}
+		
 	}
 	}
+	This->wasPlayThruLast = playThru;
 	return err;
 }
 
@@ -762,8 +831,6 @@ OSStatus CAPlayThrough::OutputProc(void *inRefCon,
 									 UInt32 inNumberFrames,
 									 AudioBufferList * ioData)
 {
-	static UInt32 prevNumFrames = 0;
-	static signed short *pcmData = NULL;
 	OSStatus err = noErr;
 
 	CAPlayThrough *This = (CAPlayThrough *)inRefCon;
@@ -771,40 +838,32 @@ OSStatus CAPlayThrough::OutputProc(void *inRefCon,
 
 	if (!playThru)
 	{
-	if (prevNumFrames != inNumberFrames)
-	{
-		pcmData = (signed short*)realloc(pcmData, sizeof(signed short)*inNumberFrames*2); // stereo
-	}
-	prevNumFrames = inNumberFrames;
 
-	player_collect(This->xwax_device->player, pcmData, inNumberFrames, This->mSampleRate);//FIXME sample rate
-	uninterleave(ioData, pcmData, inNumberFrames, This->outChanL, This->outChanR);
+
+
+	player_collect(This->xwax_device->player, This->pcmData_fetch, inNumberFrames, This->mSampleRate);//FIXME sample rate
+	uninterleave(ioData, This->pcmData_fetch, inNumberFrames, This->outChanL, This->outChanR);
 	}
 	else
 	{
-		if (This->mFirstInputTime < 0.) {
-			// input hasn't run yet -> silence
-			MakeBufferSilent (ioData);
-			return noErr;
-		}
+
 		
-		//get Delta between the devices and add it to the offset
-		if (This->mFirstOutputTime < 0.) {
-			This->mFirstOutputTime = TimeStamp->mSampleTime;
-			Float64 delta = (This->mFirstInputTime - This->mFirstOutputTime);
-			This->ComputeThruOffset();   
-			//changed: 3865519 11/10/04
-			if (delta < 0.0)
-				This->mInToOutSampleOffset -= delta;
-			else
-				This->mInToOutSampleOffset = -delta + This->mInToOutSampleOffset;
+		//copy the data from the buffers
+		//printf("fetching at %lld\n", SInt64(TimeStamp->mSampleTime - This->mInToOutSampleOffset));
+		err = This->mBufferL->fetch(inNumberFrames, (AudioSampleType*)ioData->mBuffers[0].mData);	
+		if(err != 0)
+		{
+			printf("Buffer empty");
+			MakeBufferSilent (ioData);
 			
-			MakeBufferSilent (ioData);
-			return noErr;
 		}
-		
-		//copy the data from the buffers	
-		err = This->mBuffer->Fetch(ioData, inNumberFrames, SInt64(TimeStamp->mSampleTime - This->mInToOutSampleOffset), false);	
+		err = This->mBufferR->fetch(inNumberFrames, (AudioSampleType*)ioData->mBuffers[1].mData);	
+		if(err != 0)
+		{
+			printf("Buffer empty");
+			MakeBufferSilent (ioData);
+			
+		}
 	}
 	return noErr;
 }

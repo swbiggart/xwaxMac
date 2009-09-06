@@ -14,6 +14,7 @@
 #include "AUBuffer.h"
 #include "AudioFile.h"
 
+
 /* Stereo interleave */
 #define SCALE 32768
 static void interleave(signed short *buf, AudioBufferList *cabuf,
@@ -39,7 +40,7 @@ static void interleave(signed short *buf, AudioBufferList *cabuf,
 }
 
 
-signed short *loadAudioFile(const char* fileName, size_t *outbytes)
+int loadAudioFile(const char* fileName, struct track_t *tr)
 {
 	// ExtAudioFile
 	OSStatus status;
@@ -55,32 +56,51 @@ signed short *loadAudioFile(const char* fileName, size_t *outbytes)
 	FSPathMakeRef((const UInt8*)fileName, &fileRef, false);
 	
 	if (ExtAudioFileOpen == NULL)
-		return NULL;
+		return -1;
 	ExtAudioFileRef audioFileRef = NULL;
 	
 	status = ExtAudioFileOpen(&fileRef, &audioFileRef);
 	if (status != noErr)
-		return NULL;
+		return -1;
 	
 	SInt64 audioFileNumFrames = 0;
 	dataSize = sizeof(audioFileNumFrames);
 	status = ExtAudioFileGetProperty(audioFileRef, kExtAudioFileProperty_FileLengthFrames, &dataSize, &audioFileNumFrames);
 	if (status != noErr)
-		return NULL;
+		return -1;
 	
 	AudioStreamBasicDescription audioFileStreamFormat;
 	dataSize = sizeof(audioFileStreamFormat);
 	status = ExtAudioFileGetProperty(audioFileRef, kExtAudioFileProperty_FileDataFormat, &dataSize, &audioFileStreamFormat);
 	if (status != noErr)
-		return NULL;
+		return -1;
 	
-	CAStreamBasicDescription clientStreamFormat;
-	clientStreamFormat.SetCanonical(audioFileStreamFormat.mChannelsPerFrame, false);
-	clientStreamFormat.mSampleRate = audioFileStreamFormat.mSampleRate;
+	AudioStreamBasicDescription des;
+	
+	FillOutASBDForLPCM(des, audioFileStreamFormat.mSampleRate, audioFileStreamFormat.mChannelsPerFrame, 16, 16, false, false, false);
+
+	/*
+	 des.mSampleRate = audioFileStreamFormat.mSampleRate;
+	
+	des.mBitsPerChannel = 16;
+	des.mBytesPerFrame = 2;
+	des.mBytesPerPacket = 2;
+	des.mFramesPerPacket = 1;
+	des.mChannelsPerFrame = 1;//interleaved
+	
+	des.mFormatID = kAudioFormatLinearPCM;
+	des.mFormatID = kAudioFormatFlagIsSignedInteger;
+	 */
+	CAStreamBasicDescription clientStreamFormat(des);
+	clientStreamFormat.Print(stdout);
+//	clientStreamFormat.SetCanonical(audioFileStreamFormat.mChannelsPerFrame, false);
+//	clientStreamFormat.mSampleRate = audioFileStreamFormat.mSampleRate;
 	status = ExtAudioFileSetProperty(audioFileRef, kExtAudioFileProperty_ClientDataFormat, sizeof(clientStreamFormat), &clientStreamFormat);
 	if (status != noErr)
-		return NULL;
-		
+	{
+		fprintf(stderr,"Problem with conversion %ld!\n", status);
+		return -1;
+	}	
 	m_bAudioFileHasBeenLoaded = false;	// XXX cuz we're about to possibly re-allocate the audio buffer and invalidate what might already be there
 	
 	m_auBufferList.Allocate(clientStreamFormat, (UInt32)audioFileNumFrames);
@@ -90,7 +110,7 @@ signed short *loadAudioFile(const char* fileName, size_t *outbytes)
 	if (status != noErr)
 	{
 		m_auBufferList.Deallocate();
-		return NULL;
+		return -1;
 	}
 	if (audioFileNumFrames_temp != (UInt32)audioFileNumFrames)	// XXX do something?
 	{
@@ -108,10 +128,17 @@ signed short *loadAudioFile(const char* fileName, size_t *outbytes)
 	m_bAudioFileHasBeenLoaded = true;
 	
 	// interleave
+	/*
 	*outbytes = (size_t)(audioFileStreamFormat.mChannelsPerFrame * audioFileNumFrames * sizeof(signed short));
 	signed short *buf = (signed short *)malloc(*outbytes);
 	interleave(buf, &m_auBufferList.GetBufferList(), audioFileNumFrames);
 	m_auBufferList.Deallocate();
 	
 	return buf;
+	 */
+	tr->bufsiz = (size_t)(&m_auBufferList.GetBufferList())->mBuffers[0].mDataByteSize;
+	tr->buf = (short*)(&m_auBufferList.GetBufferList())->mBuffers[0].mData;
+	read_from_buffer(tr);
+	// AU buffers get dealloced here by deconstructor for m_auBufferList
+	return 0;
 }

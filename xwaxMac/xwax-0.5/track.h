@@ -71,6 +71,8 @@ struct track_t {
 	size_t bufsiz; //bytes
 	char *path;
 	int oldblocks;
+	pthread_t thread;
+	pthread_mutex_t import_mx;//only one at a time
 };
 
 void track_init(struct track_t *tr, const char *importer);
@@ -80,6 +82,11 @@ int track_pollfd(struct track_t *tr, struct pollfd *pe);
 int track_handle(struct track_t *tr);
 int track_abort(struct track_t *tr);
 int track_wait(struct track_t *tr);
+
+/* Read from buffer, osx.  Buffer size in bytes */
+
+int read_from_buffer(struct track_t *tr);
+
 
 /* Macro functions, to force the code inline */
 

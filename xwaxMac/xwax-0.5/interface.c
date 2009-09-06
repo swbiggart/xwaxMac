@@ -1076,9 +1076,11 @@ static int draw_library(SDL_Surface *surface, const struct rect_t *rect,
 
 static int do_loading(struct track_t *track, struct record_t *record)
 {
-//    track_import(track, record->pathname);
+#ifdef xwax_opt_external_file_load
+    track_import(track, record->pathname);
+#else
     track_import_osx(track, record->pathname);
-
+#endif
     if(strlen(record->artist))
         track->artist = record->artist;
     else
@@ -1261,7 +1263,7 @@ int interface_run(struct interface_t *in)
             } else if(key >= SDLK_0 && key <= SDLK_9) {
 	      if (mod & KMOD_CTRL) {
 		deck = key - SDLK_1;
-		if (deck > 0 && deck < in->players) {
+		if (deck >= 0 && deck < in->players) {
 		  pl = in->player[deck];
 		  pl->passthrough = (pl->passthrough == 1) ? 0 : 1;
 		}

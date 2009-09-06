@@ -55,7 +55,6 @@ exit(1); \
 #include <CoreAudio/CoreAudio.h>
 #include <AudioToolbox/AudioToolbox.h>
 #include <AudioUnit/AudioUnit.h>
-#include "CARingBuffer.h"
 #include "AudioDevice.h"
 #include "CAStreamBasicDescription.h"
 

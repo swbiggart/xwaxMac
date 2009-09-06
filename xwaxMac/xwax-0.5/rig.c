@@ -97,12 +97,12 @@ int rig_service(struct rig_t *rig)
         /* Do any reading and writing on all tracks */
 
 // don't need to handle as we do the reading elsewhere		
-/*
+
         for(n = 0; n < MAX_TRACKS; n++) {
             if(rig->track[n])
                 track_handle(rig->track[n]);
         }
- */
+ 
     }
     
     return 0;
@@ -160,7 +160,9 @@ int rig_realtime(struct rig_t *rig)
 
 void *service(void *p)
 {
+#ifdef xwax_opt_external_file_load
     rig_service(p);
+#endif
     return p;
 }
 

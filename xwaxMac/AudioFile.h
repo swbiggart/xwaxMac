@@ -12,7 +12,8 @@
 extern "C" 
 {
 #endif
-	signed short *loadAudioFile(const char* fileName, size_t *outbytes);
+	#include "track.h"
+	int loadAudioFile(const char* fileName, struct track_t *tr);
 #ifdef __cplusplus
 }
 #endif

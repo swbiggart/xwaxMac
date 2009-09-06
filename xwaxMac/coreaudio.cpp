@@ -20,8 +20,7 @@
 CAPlayThroughHost *pt[MAX_DECKS];
 struct device_t *device[MAX_DECKS];
 
-static int decks = 0,
-started = 0;
+static int decks = 0;
 
 
 static unsigned int sample_rate(struct device_t *dv)
@@ -45,6 +44,11 @@ static int start(struct device_t *dv)
 static int stop(struct device_t *dv)
 {
 	printf("coreaudio stop\n");
+	int i;
+	for(i=0;i<decks;i++)
+	{
+		pt[i]->Stop();
+	}
 	return 0;
 }
 //FIXME
@@ -141,7 +145,7 @@ int coreaudio_init(struct device_t *dv, const char *inName, const char *outName)
 		}
 		return -1;
 	}
-	printf("Starting up a deck with devices %s %s ins %d %d outs %d %d\n", inDevice, outDevice, inChanL, inChanR, outChanL, outChanR);
+	printf("Starting up a deck with devices %s (%d) %s (%d) ins %d %d outs %d %d\n", inDevice, inId, outDevice, outId, inChanL, inChanR, outChanL, outChanR);
 	pt[decks] = new CAPlayThroughHost(inId, outId, inChanL, inChanR, outChanL, outChanR, dv);
 	dv->type = &coreaudio_type;
 	assert(decks < MAX_DECKS);

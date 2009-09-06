@@ -33,8 +33,8 @@
 
 #define SAMPLE 4 /* bytes per sample (all channels) */
 
-#define LOCK(tr) printf("Locking\n"); pthread_mutex_lock(&(tr)->mx)
-#define UNLOCK(tr) printf("Unlocking\n"); pthread_mutex_unlock(&(tr)->mx)
+#define LOCK(tr)  pthread_mutex_lock(&(tr)->mx)
+#define UNLOCK(tr)  pthread_mutex_unlock(&(tr)->mx)
 
 
 /* Start the importer process. On completion, pid and fd are set */
@@ -108,7 +108,7 @@ static int stop_import(struct track_t *tr)
 
 /* Read from buffer, osx.  Buffer size in bytes */
 
-static int read_from_buffer(struct track_t *tr)
+int read_from_buffer(struct track_t *tr)
 {
     int ls;
     size_t m;
@@ -121,7 +121,8 @@ static int read_from_buffer(struct track_t *tr)
 	unsigned int b;
 	size_t offset=0; //offset into buffer
 	
-	// free any previous blocks
+
+	
 	
 	
 	for(b=0;;b++)
@@ -160,6 +161,8 @@ static int read_from_buffer(struct track_t *tr)
 		}		
 	}
 	
+	printf("Blocks=%d\n",b);
+	
 	// If there are less blocks than last time, free them
 	for (int i=tr->blocks;i<tr->oldblocks;i++)
 	{
@@ -178,7 +181,7 @@ static int read_from_buffer(struct track_t *tr)
     
     for(s = 0; s < tr->bytes / SAMPLE; s++) {
         
-		block = tr->block[s / (TRACK_BLOCK_SAMPLES * SAMPLE)];
+		block = tr->block[s / (TRACK_BLOCK_SAMPLES)];
 		
 		ls = s % TRACK_BLOCK_SAMPLES;
         
@@ -206,8 +209,14 @@ static int read_from_buffer(struct track_t *tr)
 		
         block->overview[ls / TRACK_OVERVIEW_RES] = tr->overview >> 24;
     }
+	printf("Block=%d\n",s / (TRACK_BLOCK_SAMPLES * SAMPLE));
+
     
     tr->length = s;
+	
+	pthread_mutex_unlock(&(tr)->import_mx);
+	printf("Unlock\n");
+
 	
     return 0;
 }
@@ -322,6 +331,7 @@ void track_init(struct track_t *tr, const char *importer)
     tr->rate = TRACK_RATE;
 
     pthread_mutex_init(&tr->mx, 0); /* always returns zero */
+    pthread_mutex_init(&tr->import_mx, 0); /* always returns zero */
 
     tr->status = TRACK_STATUS_VALID;
 }
@@ -411,28 +421,54 @@ void *track_import_osx_thread(void *args)
 {
 	struct track_t *tr = (struct track_t*)args;
 	tr->status = TRACK_STATUS_IMPORTING;
-	signed short* buf = loadAudioFile(tr->path, &tr->bufsiz);	
 	tr->bytes = 0;
     tr->length = 0;
     tr->ppm = 0;
     tr->overview = 0;
     tr->eof = 0;
     tr->rate = TRACK_RATE;	
-	tr->buf = buf;
 	tr->oldblocks = tr->blocks;
 	tr->blocks = 0;
-	read_from_buffer(tr);
-	free(buf);
-	tr->status == TRACK_STATUS_VALID;
-	rig_awaken(tr->rig);
+	int result = loadAudioFile(tr->path, tr);	
+	tr->status = TRACK_STATUS_VALID;
 	UNLOCK(tr);
+	rig_awaken(tr->rig);
+
 	return 0;
 }
 int track_import_osx(struct track_t *tr, const char *path)
 {
+	pthread_attr_t tattr;
+	
+	int ret;
+	
+	struct sched_param param;
+	
+	
+	printf("About to get lock\n");
+	if(pthread_mutex_trylock(&(tr)->import_mx)!=0)
+	{
+		printf("Not importing, as import already in progress\n");
+		return -1;
+	}
+	
 	tr->path = path;
-	pthread_t thread;
-	pthread_create(&thread, NULL, &track_import_osx_thread, tr);
+	
+	/* initialized with default attributes */
+	ret = pthread_attr_init (&tattr);
+	
+	/* safe to get existing scheduling param */
+	ret = pthread_attr_getschedparam (&tattr, &param);
+	
+	/* set the priority; others are unchanged */
+	param.sched_priority = 0;
+	
+	/* setting the new scheduling param */
+	ret = pthread_attr_setschedparam (&tattr, &param);
+	
+
+	pthread_create(&tr->thread, &tattr, &track_import_osx_thread, tr);
+	pthread_detach(tr->thread);
     return 0;
 
 }
