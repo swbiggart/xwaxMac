@@ -112,7 +112,7 @@ wasPlayThruLast(false),
 pcmData_submit(NULL),
 pcmData_fetch(NULL)
 {
-	wc = loadNib();
+//	wc = loadNib();
 	OSStatus err = noErr;
 	err =Init(input,output);
     if(err) {

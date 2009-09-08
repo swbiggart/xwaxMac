@@ -17,7 +17,7 @@
  *
  */
 
-#define WITH_JACK
+//#define WITH_JACK
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -375,7 +375,8 @@ int main(int argc, char *argv[])
 
             argv += 2;
             argc -= 2;
-                        
+            // Doing this thru itunes
+#if 0                        
         } else if(!strcmp(argv[0], "-l")) {
 
             /* Load in a music library */
@@ -384,7 +385,7 @@ int main(int argc, char *argv[])
 
             argv += 2;
             argc -= 2;
-
+#endif
         } else if(!strcmp(argv[0], "-h")) {
             usage(stdout);
             return 0;
@@ -401,6 +402,8 @@ int main(int argc, char *argv[])
         return -1;
     }
 
+    // thru itunes, 2nd arg not used
+    library_import(&library, "");
     iface.players = decks;
     iface.timecoders = decks;
 
