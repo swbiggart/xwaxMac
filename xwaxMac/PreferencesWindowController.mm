@@ -198,6 +198,7 @@ extern "C"
 	[self populateInputChannelList:n];
 	NSString *name = [[sender selectedItem] title];
 	strcpy(currentio->inDeviceName, [name cStringUsingEncoding:NSASCIIStringEncoding]);
+	currentio->inDeviceId = [n intValue];
 }
 - (IBAction) outputChanged:(id)sender
 {
@@ -205,6 +206,7 @@ extern "C"
 	[self populateOutputChannelList:n];
 	NSString *name = [[sender selectedItem] title];
 	strcpy(currentio->outDeviceName, [name cStringUsingEncoding:NSASCIIStringEncoding]);
+	currentio->outDeviceId = [n intValue];
 }
 - (IBAction) deckChanged:(id)sender
 {
