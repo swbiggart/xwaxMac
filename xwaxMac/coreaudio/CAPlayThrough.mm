@@ -259,7 +259,7 @@ OSStatus CAPlayThrough::SetOutputDeviceAsCurrent(AudioDeviceID out)
 	latency = std::max((UInt32)mLatency, (UInt32)range.mMinimum);
 	err = AudioDeviceSetProperty(out, NULL, 0, false, kAudioDevicePropertyBufferFrameSize, sizeof(latency), &latency);
 	checkErr(err);
-	pcmData_fetch = (signed short*)malloc(latency); //bytes
+	pcmData_fetch = (signed short*)malloc(latency*4); //bytes - 2bytes per chan, 2 chans
 
 	return err;
 }
@@ -290,7 +290,7 @@ OSStatus CAPlayThrough::SetInputDeviceAsCurrent(AudioDeviceID in)
 	latency = std::max((UInt32)mLatency, (UInt32)range.mMinimum);
 	err = AudioDeviceSetProperty(in, NULL, 0, false, kAudioDevicePropertyBufferFrameSize, sizeof(latency), &latency);
 	checkErr(err);
-	pcmData_submit = (signed short*)malloc(latency); //bytes
+	pcmData_submit = (signed short*)malloc(latency*4); //bytes - 2bytes per chan, 2 chans
 	
 	return err;
 }

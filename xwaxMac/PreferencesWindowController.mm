@@ -101,6 +101,7 @@ extern "C"
 
 	CFStringRef latencyKey = CFSTR("latency");
 	int l = [[[latency selectedItem] title] intValue];
+    currentLatency = l;
 	CFNumberRef latencyValue = CFNumberCreate(NULL, kCFNumberIntType, &l);
 	CFPreferencesSetAppValue(latencyKey, latencyValue, kCFPreferencesCurrentApplication);
 
@@ -182,6 +183,9 @@ extern "C"
 	CFRelease(timecodeValue);
 	CFRelease(array);
 	
+    // Number of decks for the application to start up
+    nDecks = n;
+    
 	[[NSApplication sharedApplication] stopModal];
 }
 - (IBAction) cancelPressed:(id)sender
@@ -334,5 +338,6 @@ int showPrefsWindow(struct prefs *prefs)
 	}
 	retval.ios = wc->ios;
 	retval.latency = wc->currentLatency;
+    retval.nDecks = wc->nDecks;
 	return 0;
 }

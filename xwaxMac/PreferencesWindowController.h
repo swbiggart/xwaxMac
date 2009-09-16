@@ -34,6 +34,7 @@
 	struct iopair ios[3];//for 3 decks
 	struct iopair *currentio;
 	int currentLatency;
+    int nDecks;
 	
 }
 - (IBAction) okPressed:(id)sender;

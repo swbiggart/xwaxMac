@@ -192,6 +192,8 @@ int main(int argc, char *argv[])
 			return -1;
 		}
 	}
+    timecode = prefs.timecode;
+
 	for (int i=0; i<prefs.nDecks; i++)	
 	{
 		device = &deck[decks].device;
@@ -201,7 +203,6 @@ int main(int argc, char *argv[])
 	if(r == -1)
 	return -1;
 
-		timecode = prefs.timecode;
 	unsigned int sample_rate = device_sample_rate(device);
 
 	if(deck_init(&deck[decks], timecode, importer, sample_rate) == -1)
@@ -439,16 +440,16 @@ int main(int argc, char *argv[])
             return -1;
         }
     }
-
+#endif
     if(decks == 0) {
         fprintf(stderr, "You need to give at least one audio device to use "
                 "as a deck; try -h.\n");
         return -1;
     }
-#endif
+
     // thru itunes, 2nd arg not used
     library_import(&library, "");
-    iface.players = decks;
+40 ,    iface.players = decks;
     iface.timecoders = decks;
 
     /* Connect everything up. Do this after selecting a timecode and
