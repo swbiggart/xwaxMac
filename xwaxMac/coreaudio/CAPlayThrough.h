@@ -72,10 +72,10 @@ class CAPlayThroughHost
 {
 
 public:
-	CAPlayThroughHost(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device);
+	CAPlayThroughHost(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device, int latency);
 	~CAPlayThroughHost();
 	
-	void		CreatePlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device);
+	void		CreatePlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device, int latency);
 	
 	void		DeletePlayThrough();
 	bool		PlayThroughExists();

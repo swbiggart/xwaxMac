@@ -37,6 +37,8 @@
 #include "track.h"
 #include "xwax.h"
 
+#include "ReadPreferences.h"
+
 #include <SDL.h>
 
 #define MAX_DECKS 3
@@ -178,6 +180,48 @@ int main(int argc, char *argv[])
     importer = DEFAULT_IMPORTER;
     timecode = DEFAULT_TIMECODE;
 
+#ifndef command_line
+	struct prefs prefs;
+	// Read preferences, if they exist
+	int result = readPreferences(&prefs);
+	if (result == -1) {
+		// Otherwise show the preferences window
+		int result = showPrefsWindow(&prefs);
+		if (result == -1) {
+			fprintf(stderr, "Error, couldn't read preferences or get your settings from the dialog\n");
+			return -1;
+		}
+	}
+	for (int i=0; i<prefs.nDecks; i++)	
+	{
+		device = &deck[decks].device;
+
+	r = coreaudio_init(device, prefs.ios[i].inDeviceName, prefs.ios[i].inDeviceChanL, prefs.ios[i].inDeviceChanR, 
+							   prefs.ios[i].outDeviceName, prefs.ios[i].outDeviceChanL, prefs.ios[i].outDeviceChanR, prefs.latency);
+	if(r == -1)
+	return -1;
+
+		timecode = prefs.timecode;
+	unsigned int sample_rate = device_sample_rate(device);
+
+	if(deck_init(&deck[decks], timecode, importer, sample_rate) == -1)
+	return -1;
+
+	/* The timecoder and player are driven by requests from
+	 * the audio device */
+
+	device_connect_timecoder(device, &deck[decks].timecoder);
+	device_connect_player(device, &deck[decks].player);
+
+	/* The rig and interface keep track of everything whilst
+	 * the program is running */
+
+	connect_deck_to_interface(&iface, decks, &deck[decks]);
+	connect_deck_to_rig(&rig, decks, &deck[decks]);
+
+	decks++;
+	}
+#else
     /* Skip over command name */
     
     argv++;
@@ -311,7 +355,7 @@ int main(int argc, char *argv[])
 #endif
 			case 'c': //coreaudio
 				
-				r = coreaudio_init(device, argv[1], argv[2]); //input and output
+				r = coreaudio_init_alt(device, argv[1], argv[2]); //input and output
 				argv += 1; //since we take an extra arg
 				argc -= 1;
 			 	break;
@@ -401,7 +445,7 @@ int main(int argc, char *argv[])
                 "as a deck; try -h.\n");
         return -1;
     }
-
+#endif
     // thru itunes, 2nd arg not used
     library_import(&library, "");
     iface.players = decks;

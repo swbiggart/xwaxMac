@@ -75,6 +75,7 @@ void	AudioDeviceList::BuildList()
 		if (dev.CountChannels() > 0) {
 			Device d;
 			d.mID = devids[i];
+			d.mChannels = dev.CountChannels();
 			dev.GetName(d.mName, sizeof(d.mName));
 			bool found = false;
 			int nth;

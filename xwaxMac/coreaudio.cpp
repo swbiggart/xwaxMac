@@ -67,38 +67,14 @@ stop,
 clear
 };
 
-
-int coreaudio_init(struct device_t *dv, const char *inName, const char *outName)
+int coreaudio_init(struct device_t *dv, const char *inDevice, const int inChanL, const int inChanR, 
+										const char *outDevice, const int outChanL, const int outChanR, int latency)
 {
-
 	AudioDeviceList *inputs = new AudioDeviceList(true);
 	AudioDeviceList *outputs = new AudioDeviceList(false);
 	
 	int inId=-1, outId=-1;
-
-
-	// Split out the channel numbers from the name
-	int inChanL, inChanR;
-	char inDevice[512];
-	if (sscanf(inName,"%[^:]:%d:%d",inDevice, &inChanL, &inChanR) != 3)
-	{
-		fprintf(stderr, "Error starting up, couldn't parse input device name \"%s\"\n", inName);
-		return -1;
-	}
-
-	int outChanL, outChanR;
-	char outDevice[512];
-	if (sscanf(outName,"%[^:]:%d:%d",outDevice, &outChanL, &outChanR) != 3)
-	{
-		fprintf(stderr, "Error starting up, couldn't parse output device name \"%s\"\n", outName);
-		return -1;
-	}
-
 	
-	//TODO - take channel numbers in addition to device name and map them to decks - or maybe channel numbers are automatic???
-	//Manage a number of playthroughs depending on number of unique input/output combinations
-	//ie if started with -c in out -c in out then let jack create the decks for both of these
-	//but behind the scenes manage one instance of playthrough, 1st one processing channels 1,2 and 2nd 3,4
 	std::string inputsStr, outputsStr;
 	
 	// Inputs
@@ -146,11 +122,35 @@ int coreaudio_init(struct device_t *dv, const char *inName, const char *outName)
 		return -1;
 	}
 	printf("Starting up a deck with devices %s (%d) %s (%d) ins %d %d outs %d %d\n", inDevice, inId, outDevice, outId, inChanL, inChanR, outChanL, outChanR);
-	pt[decks] = new CAPlayThroughHost(inId, outId, inChanL, inChanR, outChanL, outChanR, dv);
+	pt[decks] = new CAPlayThroughHost(inId, outId, inChanL, inChanR, outChanL, outChanR, dv, latency);
 	dv->type = &coreaudio_type;
 	assert(decks < MAX_DECKS);
     device[decks] = dv;
     decks++;
 	
 	return 0;
+}
+
+int coreaudio_init_alt(struct device_t *dv, const char *inName, const char *outName)
+{
+
+
+
+	// Split out the channel numbers from the name
+	int inChanL, inChanR;
+	char inDevice[512];
+	if (sscanf(inName,"%[^:]:%d:%d",inDevice, &inChanL, &inChanR) != 3)
+	{
+		fprintf(stderr, "Error starting up, couldn't parse input device name \"%s\"\n", inName);
+		return -1;
+	}
+
+	int outChanL, outChanR;
+	char outDevice[512];
+	if (sscanf(outName,"%[^:]:%d:%d",outDevice, &outChanL, &outChanR) != 3)
+	{
+		fprintf(stderr, "Error starting up, couldn't parse output device name \"%s\"\n", outName);
+		return -1;
+	}
+	return coreaudio_init(dv, inName, inChanL, inChanR, outName, outChanL, outChanR, 512);
 }

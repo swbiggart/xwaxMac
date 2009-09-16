@@ -118,4 +118,7 @@ static inline int timecoder_get_resolution(struct timecoder_t *tc)
     return tc->def->resolution;
 }
 
+struct timecode_def_t* get_all_definitions();
+
+
 #endif

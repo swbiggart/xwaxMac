@@ -14,7 +14,7 @@ typedef Float32 AudioSampleType;
 class CAPlayThrough 
 {
 public:
-	CAPlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t * xwax_device);
+	CAPlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t * xwax_device, int latency);
 	~CAPlayThrough();
 	
 	OSStatus	Init(AudioDeviceID input, AudioDeviceID output);
@@ -85,6 +85,7 @@ private:
 	bool wasPlayThruLast;
 	signed short *pcmData_submit; // for submitting to timecoder
 	signed short *pcmData_fetch; // for fetching from player
+	int mLatency;
 public:
 	Float64 mSampleRate; //only valid after setupbuffers()
 	struct device_t *xwax_device;
@@ -96,7 +97,7 @@ public:
 #pragma mark ---CAPlayThrough Methods---
 
 //Construct PlayThrough object associated with xwax device
-CAPlayThrough::CAPlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device):
+CAPlayThrough::CAPlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device, int latency):
 mBufferL(NULL),
 mBufferR(NULL),
 mFirstInputTime(-1),
@@ -110,7 +111,8 @@ outChanL(outChanL),
 outChanR(outChanR),
 wasPlayThruLast(false),
 pcmData_submit(NULL),
-pcmData_fetch(NULL)
+pcmData_fetch(NULL),
+mLatency(latency)
 {
 //	wc = loadNib();
 	OSStatus err = noErr;
@@ -249,13 +251,13 @@ OSStatus CAPlayThrough::SetOutputDeviceAsCurrent(AudioDeviceID out)
 	checkErr(err);
 
 	// Set desired latency, or minimum, whichever greatest
-	UInt32 latency = 512;//64 samples
 	AudioValueRange range;
 	UInt32 size = sizeof(range);
-	err = AudioDeviceGetProperty(out, 0, false,kAudioDevicePropertyBufferSizeRange, &size, &range);
+	UInt32 latency;
+	err = AudioDeviceGetProperty(out, 0, false,kAudioDevicePropertyBufferFrameSizeRange, &size, &range);
 	printf("Latency %lf %lf\n", range.mMinimum, range.mMaximum);
-	latency = std::max(latency, (UInt32)range.mMinimum);
-	err = AudioDeviceSetProperty(out, NULL, 0, false, kAudioDevicePropertyBufferSize, sizeof(latency), &latency);
+	latency = std::max((UInt32)mLatency, (UInt32)range.mMinimum);
+	err = AudioDeviceSetProperty(out, NULL, 0, false, kAudioDevicePropertyBufferFrameSize, sizeof(latency), &latency);
 	checkErr(err);
 	pcmData_fetch = (signed short*)malloc(latency); //bytes
 
@@ -280,13 +282,13 @@ OSStatus CAPlayThrough::SetInputDeviceAsCurrent(AudioDeviceID in)
 	checkErr(err);
 
 	// Set desired latency, or minimum, whichever greatest
-	UInt32 latency = 512;//64 samples
 	AudioValueRange range;
 	UInt32 size = sizeof(range);
-	err = AudioDeviceGetProperty(in, 0, false,kAudioDevicePropertyBufferSizeRange, &size, &range);
+	UInt32 latency;
+	err = AudioDeviceGetProperty(in, 0, false,kAudioDevicePropertyBufferFrameSizeRange, &size, &range);
 	printf("Latency %lf %lf\n", range.mMinimum, range.mMaximum);
-	latency = std::max(latency, (UInt32)range.mMinimum);
-	err = AudioDeviceSetProperty(in, NULL, 0, false, kAudioDevicePropertyBufferSize, sizeof(latency), &latency);
+	latency = std::max((UInt32)mLatency, (UInt32)range.mMinimum);
+	err = AudioDeviceSetProperty(in, NULL, 0, false, kAudioDevicePropertyBufferFrameSize, sizeof(latency), &latency);
 	checkErr(err);
 	pcmData_submit = (signed short*)malloc(latency); //bytes
 	
@@ -836,10 +838,10 @@ OSStatus CAPlayThrough::OutputProc(void *inRefCon,
 
 #pragma mark -- CAPlayThroughHost Methods --
 
-CAPlayThroughHost::CAPlayThroughHost(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device):
+CAPlayThroughHost::CAPlayThroughHost(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device, int latency):
 	mPlayThrough(NULL)
 {
-	CreatePlayThrough(input, output,  inChanL,  inChanR,  outChanL,  outChanR, xwax_device);
+	CreatePlayThrough(input, output,  inChanL,  inChanR,  outChanL,  outChanR, xwax_device, latency);
 }
 
 CAPlayThroughHost::~CAPlayThroughHost()
@@ -847,9 +849,9 @@ CAPlayThroughHost::~CAPlayThroughHost()
 	DeletePlayThrough();
 }
 
-void CAPlayThroughHost::CreatePlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device)
+void CAPlayThroughHost::CreatePlayThrough(AudioDeviceID input, AudioDeviceID output, int inChanL, int inChanR, int outChanL, int outChanR, struct device_t *xwax_device, int latency)
 {
-	mPlayThrough = new CAPlayThrough(input, output,  inChanL,  inChanR,  outChanL,  outChanR,xwax_device);
+	mPlayThrough = new CAPlayThrough(input, output, inChanL, inChanR, outChanL, outChanR, xwax_device, latency);
 }
 
 void CAPlayThroughHost::DeletePlayThrough()

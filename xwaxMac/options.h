@@ -8,3 +8,4 @@
  */
 
 //#define xwax_opt_external_file_load
+//#define command_line

@@ -183,6 +183,10 @@ static struct timecode_def_t* find_definition(const char *name)
     return NULL;
 }
 
+struct timecode_def_t* get_all_definitions()
+{
+	return timecode_def;
+}
 
 /* Where necessary, build the lookup table required for this timecode */
 
