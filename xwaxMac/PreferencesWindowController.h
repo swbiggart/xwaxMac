@@ -35,7 +35,7 @@
 	struct iopair *currentio;
 	int currentLatency;
     int nDecks;
-	
+	char currentTimecode[64];
 }
 - (IBAction) okPressed:(id)sender;
 - (IBAction) inputChanged:(id)sender;
