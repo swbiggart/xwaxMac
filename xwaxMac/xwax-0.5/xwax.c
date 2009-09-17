@@ -370,14 +370,7 @@ int main(int argc, char *argv[])
             case 'j':
                 r = jack_init(device, argv[1]);
                 break;
-#endif
-			case 'c': //coreaudio
-				
-				r = coreaudio_init_alt(device, argv[1], argv[2]); //input and output
-				argv += 1; //since we take an extra arg
-				argc -= 1;
-			 	break;
-					
+#endif					
             default:
                 fprintf(stderr, "Device type is not supported by this "
                         "distribution of xwax.\n");

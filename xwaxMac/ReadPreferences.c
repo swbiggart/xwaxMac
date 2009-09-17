@@ -66,7 +66,29 @@ int readPreferences(struct prefs *prefs)
 			CFStringRef outDeviceChanRKey = CFSTR("outDeviceChanR");
 			CFNumberRef outDeviceChanRValue = (CFNumberRef)CFDictionaryGetValue(dict, outDeviceChanRKey);
 			CFNumberGetValue(outDeviceChanRValue, kCFNumberIntType, &ios[i].outDeviceChanR);
+			
+			CFRelease(inDeviceIdKey);
+			CFRelease(inDeviceIdValue);
+			CFRelease(outDeviceIdKey);
+			CFRelease(outDeviceIdValue);
+			CFRelease(inDeviceChanLKey);
+			CFRelease(inDeviceChanLValue);
+			CFRelease(inDeviceChanRKey);
+			CFRelease(inDeviceChanRValue);
+			CFRelease(outDeviceChanLKey);
+			CFRelease(outDeviceChanLValue);
+			CFRelease(outDeviceChanRKey);
+			CFRelease(outDeviceChanRValue);					
 		}
+
+		CFRelease(decksKey);
+		CFRelease(latencyKey);
+		CFRelease(latencyValue);
+		CFRelease(notFirstTimeKey);
+		CFRelease(notFirstTimeValue);
+		CFRelease(timecodeKey);
+		CFRelease(timecodeValue);
+		CFRelease(array);
 			
 		return 0;
 	} else {
