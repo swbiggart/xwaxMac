@@ -187,6 +187,7 @@ extern "C"
     // Number of decks for the application to start up
     nDecks = n;
     
+	[theWindow orderOut:self];
 	[[NSApplication sharedApplication] stopModal];
 }
 - (IBAction) cancelPressed:(id)sender

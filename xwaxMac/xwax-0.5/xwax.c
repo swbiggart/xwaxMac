@@ -184,6 +184,22 @@ int main(int argc, char *argv[])
 	struct prefs prefs;
 	// Read preferences, if they exist
 	int result = readPreferences(&prefs);
+	if (result == 0)
+	{
+		// Check that the device still exists after reading prefs
+		for (int i=0; i<prefs.nDecks; i++){
+			int inDevId = coreaudio_id_for_device(prefs.ios[i].inDeviceName, 1);
+			int outDevId = coreaudio_id_for_device(prefs.ios[i].outDeviceName, 0);
+			if (inDevId == -1 || outDevId == -1) {
+				// Error
+				fprintf(stderr, "Warning, device %s or %s doesn't exist anymore\n", prefs.ios[i].inDeviceName, prefs.ios[i].outDeviceName);
+				result = -1;
+			} else {
+				prefs.ios[i].inDeviceId = inDevId;
+				prefs.ios[i].outDeviceId = outDevId;
+			}
+		}
+	}
 	if (result == -1) {
 		// Otherwise show the preferences window
 		int result = showPrefsWindow(&prefs);
@@ -192,14 +208,15 @@ int main(int argc, char *argv[])
 			return -1;
 		}
 	}
-    timecode = prefs.timecode;
+    
+	timecode = prefs.timecode;
 
 	for (int i=0; i<prefs.nDecks; i++)	
 	{
 		device = &deck[decks].device;
 
-	r = coreaudio_init(device, prefs.ios[i].inDeviceName, prefs.ios[i].inDeviceChanL, prefs.ios[i].inDeviceChanR, 
-							   prefs.ios[i].outDeviceName, prefs.ios[i].outDeviceChanL, prefs.ios[i].outDeviceChanR, prefs.latency);
+	r = coreaudio_init(device, prefs.ios[i].inDeviceId, prefs.ios[i].inDeviceChanL, prefs.ios[i].inDeviceChanR, 
+							   prefs.ios[i].outDeviceId, prefs.ios[i].outDeviceChanL, prefs.ios[i].outDeviceChanR, prefs.latency);
 	if(r == -1)
 	return -1;
 
@@ -449,7 +466,7 @@ int main(int argc, char *argv[])
 
     // thru itunes, 2nd arg not used
     library_import(&library, "");
-40 ,    iface.players = decks;
+	iface.players = decks;
     iface.timecoders = decks;
 
     /* Connect everything up. Do this after selecting a timecode and
