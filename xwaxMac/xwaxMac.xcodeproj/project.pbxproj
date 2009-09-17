@@ -14,6 +14,7 @@
 		8E30AF911056E3B800F581BD /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E30AF8E1056E3B800F581BD /* Preferences.xib */; };
 		8E30AF921056E3B800F581BD /* PreferencesWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8E30AF901056E3B800F581BD /* PreferencesWindowController.mm */; };
 		8E30C0841060D43B00F581BD /* ReadPreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E30C0831060D43B00F581BD /* ReadPreferences.c */; };
+		8E30C79F1062E46900F581BD /* Vinyl_Red.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8E30C79E1062E46900F581BD /* Vinyl_Red.icns */; };
 		8E3ABCAC104AA34D00F2F441 /* AudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABCAB104AA34D00F2F441 /* AudioFile.cpp */; };
 		8E3ABCD5104AA60700F2F441 /* AUBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABCD3104AA60700F2F441 /* AUBuffer.cpp */; };
 		8E3ABD06104AA6AF00F2F441 /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABD05104AA6AF00F2F441 /* CADebugMacros.cpp */; };
@@ -69,6 +70,7 @@
 		8E30AF901056E3B800F581BD /* PreferencesWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PreferencesWindowController.mm; sourceTree = "<group>"; };
 		8E30C0821060D43B00F581BD /* ReadPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadPreferences.h; sourceTree = "<group>"; };
 		8E30C0831060D43B00F581BD /* ReadPreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ReadPreferences.c; sourceTree = "<group>"; };
+		8E30C79E1062E46900F581BD /* Vinyl_Red.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Vinyl_Red.icns; sourceTree = "<group>"; };
 		8E3ABCAA104AA34D00F2F441 /* AudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFile.h; sourceTree = "<group>"; };
 		8E3ABCAB104AA34D00F2F441 /* AudioFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioFile.cpp; sourceTree = "<group>"; };
 		8E3ABCD3104AA60700F2F441 /* AUBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUBuffer.cpp; path = Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp; sourceTree = DEVELOPER_DIR; };
@@ -224,6 +226,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8E30C79E1062E46900F581BD /* Vinyl_Red.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -410,6 +413,7 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				8ED0B3DB10401D26002AF97C /* AUWindow.xib in Resources */,
 				8E30AF911056E3B800F581BD /* Preferences.xib in Resources */,
+				8E30C79F1062E46900F581BD /* Vinyl_Red.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
