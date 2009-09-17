@@ -111,6 +111,7 @@ extern "C"
 
 	CFStringRef timecodeKey = CFSTR("timecode");
 	CFStringRef timecodeValue = (CFStringRef)[[timecode selectedItem] representedObject]  ;
+    strcpy(currentTimecode, [[[timecode selectedItem] representedObject] cStringUsingEncoding:NSASCIIStringEncoding]);
 	CFPreferencesSetAppValue(timecodeKey, timecodeValue, kCFPreferencesCurrentApplication);	
 	
 	// Create a dictionary for each enabled deck
@@ -333,13 +334,14 @@ PreferencesWindowController* loadPreferencesWindow()
 }
 int showPrefsWindow(struct prefs *prefs)
 {
-	struct prefs retval;
 	PreferencesWindowController *wc = loadPreferencesWindow();
 	if (!wc) {
 		return -1;
 	}
-	retval.ios = wc->ios;
-	retval.latency = wc->currentLatency;
-    retval.nDecks = wc->nDecks;
+	prefs->ios = wc->ios;
+	prefs->latency = wc->currentLatency;
+    prefs->nDecks = wc->nDecks;
+    prefs->timecode = (char*)malloc(64*sizeof(char));
+    strcpy(prefs->timecode, wc->currentTimecode);
 	return 0;
 }
