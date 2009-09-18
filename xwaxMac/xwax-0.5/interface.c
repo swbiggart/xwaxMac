@@ -1208,7 +1208,12 @@ int interface_run(struct interface_t *in)
 
     /* Initialise the screen surface */
 
-    surface = set_size(DEFAULT_WIDTH, DEFAULT_HEIGHT, &rworkspace);
+    int win_width, win_height;
+    const SDL_VideoInfo *vid_info;
+    vid_info = SDL_GetVideoInfo();
+    win_width = vid_info->current_w > DEFAULT_WIDTH ? DEFAULT_WIDTH : vid_info->current_w - 20;
+    win_height = vid_info->current_h > DEFAULT_HEIGHT ? DEFAULT_HEIGHT : vid_info->current_h - 20;
+    surface = set_size(win_width, win_height, &rworkspace);
     if(!surface)
         return -1;
 

@@ -50,6 +50,11 @@
 		8ED0B3D210401C2A002AF97C /* AUWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */; };
 		8ED0B3DB10401D26002AF97C /* AUWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ED0B3DA10401D26002AF97C /* AUWindow.xib */; };
 		8ED0B4481040395F002AF97C /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ED0B4471040395F002AF97C /* CoreAudioKit.framework */; };
+		8EF1B402106398800062954C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF1B401106398800062954C /* IOKit.framework */; };
+		8EF1B408106398CA0062954C /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF1B406106398CA0062954C /* QTKit.framework */; };
+		8EF1B409106398CA0062954C /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF1B407106398CA0062954C /* QuickTime.framework */; };
+		8EF1B477106399F40062954C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF1B476106399F40062954C /* OpenGL.framework */; };
+		8EF1B47C10639A890062954C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF1B47B10639A890062954C /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +146,11 @@
 		8ED0B3D110401C2A002AF97C /* AUWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AUWindowController.mm; sourceTree = "<group>"; };
 		8ED0B3DA10401D26002AF97C /* AUWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AUWindow.xib; sourceTree = "<group>"; };
 		8ED0B4471040395F002AF97C /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = /System/Library/Frameworks/CoreAudioKit.framework; sourceTree = "<absolute>"; };
+		8EF1B401106398800062954C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		8EF1B406106398CA0062954C /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
+		8EF1B407106398CA0062954C /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
+		8EF1B476106399F40062954C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		8EF1B47B10639A890062954C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +163,11 @@
 				8EB5D111100282D200018849 /* AudioToolbox.framework in Frameworks */,
 				8EB5D112100282D200018849 /* AudioUnit.framework in Frameworks */,
 				8ED0B4481040395F002AF97C /* CoreAudioKit.framework in Frameworks */,
+				8EF1B402106398800062954C /* IOKit.framework in Frameworks */,
+				8EF1B408106398CA0062954C /* QTKit.framework in Frameworks */,
+				8EF1B409106398CA0062954C /* QuickTime.framework in Frameworks */,
+				8EF1B477106399F40062954C /* OpenGL.framework in Frameworks */,
+				8EF1B47C10639A890062954C /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +193,11 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8EF1B47B10639A890062954C /* Carbon.framework */,
+				8EF1B476106399F40062954C /* OpenGL.framework */,
+				8EF1B406106398CA0062954C /* QTKit.framework */,
+				8EF1B407106398CA0062954C /* QuickTime.framework */,
+				8EF1B401106398800062954C /* IOKit.framework */,
 				8ED0B4471040395F002AF97C /* CoreAudioKit.framework */,
 				8EB5D10F100282D200018849 /* AudioToolbox.framework */,
 				8EB5D110100282D200018849 /* AudioUnit.framework */,
@@ -539,9 +559,10 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
-					"-lSDLmain",
-					"-lSDL",
-					"-lSDL_ttf",
+					/usr/local/lib/libSDL_ttf.a,
+					/usr/local/lib/libSDLmain.a,
+					/usr/local/lib/libSDL.a,
+					"/Users/tomblench/sdl-static/trunk/lib/Mac/libfreetype.a",
 				);
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
@@ -565,9 +586,10 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
-					"-lSDLmain",
-					"-lSDL",
-					"-lSDL_ttf",
+					/usr/local/lib/libSDL_ttf.a,
+					/usr/local/lib/libSDLmain.a,
+					/usr/local/lib/libSDL.a,
+					"/Users/tomblench/sdl-static/trunk/lib/Mac/libfreetype.a",
 				);
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
