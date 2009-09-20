@@ -9,34 +9,29 @@
 #import <Cocoa/Cocoa.h>
 #include "ReadPreferences.h"
 
-
-
 @interface PreferencesWindowController : NSWindow {
-
-	IBOutlet NSPopUpButton *inputDevices;
-	IBOutlet NSPopUpButton *inputDeviceLChan;
-	IBOutlet NSPopUpButton *inputDeviceRChan;
-	IBOutlet NSPopUpButton *outputDevices;
-	IBOutlet NSPopUpButton *outputDeviceLChan;
-	IBOutlet NSPopUpButton *outputDeviceRChan;
-	IBOutlet NSPopUpButton *latency;
-	IBOutlet NSPopUpButton *decks;
-	IBOutlet NSPopUpButton *timecode;
-	IBOutlet NSButton *cancelButton;
-	IBOutlet NSButton *okButton;
-	IBOutlet NSButton *enabledButton;
-	@public
-	bool wasOKPressed;
-	IBOutlet NSWindow *theWindow;
-
-	
-	
-	struct iopair ios[3];//for 3 decks
-	struct iopair *currentio;
-	int currentLatency;
+    // Pop-up menus and buttons
+    IBOutlet NSPopUpButton *inputDevices;
+    IBOutlet NSPopUpButton *inputDeviceLChan;
+    IBOutlet NSPopUpButton *inputDeviceRChan;
+    IBOutlet NSPopUpButton *outputDevices;
+    IBOutlet NSPopUpButton *outputDeviceLChan;
+    IBOutlet NSPopUpButton *outputDeviceRChan;
+    IBOutlet NSPopUpButton *latency;
+    IBOutlet NSPopUpButton *decks;
+    IBOutlet NSPopUpButton *timecode;
+    IBOutlet NSButton *cancelButton;
+    IBOutlet NSButton *okButton;
+    IBOutlet NSButton *enabledButton;
+    @public
+    IBOutlet NSWindow *theWindow; // Preferences window
+    struct iopair ios[3]; // for 3 decks
+    struct iopair *currentio;
+    int currentLatency;
     int nDecks;
-	char currentTimecode[64];
+    char currentTimecode[64];
 }
+// Callbacks on various UI elements
 - (IBAction) okPressed:(id)sender;
 - (IBAction) inputChanged:(id)sender;
 - (IBAction) outputChanged:(id)sender;
@@ -46,6 +41,7 @@
 - (IBAction) inDeviceChanRChanged:(id)sender;
 - (IBAction) outDeviceChanLChanged:(id)sender;
 - (IBAction) outDeviceChanRChanged:(id)sender;
+// Utility to populate lists
 - (void) populateInputChannelList:(NSNumber*)deviceId;
 - (void) populateOutputChannelList:(NSNumber*)deviceId;
 @end

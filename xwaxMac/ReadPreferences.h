@@ -9,23 +9,23 @@
 
 struct iopair
 {
-	int inDeviceId;
-	char inDeviceName[64];
-	int inDeviceChanL;
-	int inDeviceChanR;
-	int outDeviceId;
-	char outDeviceName[64];
-	int outDeviceChanL;
-	int outDeviceChanR;
-	int enabled;
+    int inDeviceId;
+    char inDeviceName[64];
+    int inDeviceChanL;
+    int inDeviceChanR;
+    int outDeviceId;
+    char outDeviceName[64];
+    int outDeviceChanL;
+    int outDeviceChanR;
+    int enabled;
 };
 
 struct prefs
 {
-	struct iopair *ios;
-	int latency;
-	int nDecks;
-	char *timecode;
+    struct iopair *ios;
+    int latency;
+    int nDecks;
+    char *timecode;
 };
 
 #ifdef __cplusplus
