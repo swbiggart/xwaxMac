@@ -27,7 +27,7 @@
 
 #include "library.h"
 
-#include "Listing.h"
+#include "iTunesListing.h"
 #define BLOCK 256 /* number of library entries */
 
 #define MIN(a, b) (a<b?a:b)
@@ -146,7 +146,8 @@ int library_add(struct library_t *li, struct record_t *lr)
 
 int library_import(struct library_t *li, char *path)
 {
-	test_get_tracks_by_search(li);
+    iTunes_get_all_tracks(li);
+    return 0;
 }
 
 int _library_import(struct library_t *li, char *path)

@@ -65,19 +65,20 @@ struct track_t {
     
     unsigned short ppm;
     unsigned int overview;
-	
-	/* osx stuff for reading from a buffer */
-	signed short *buf; //stereo interleaved
-	size_t bufsiz; //bytes
-	char *path;
-	int oldblocks;
-	pthread_t thread;
-	pthread_mutex_t import_mx;//only one at a time
+    
+    /* osx stuff for reading from a buffer */
+    signed short *buf; //stereo interleaved
+    size_t bufsiz; //bytes
+    char *path;
+    int oldblocks;
+    pthread_t thread;
+    pthread_mutex_t import_mx;//only one at a time
 };
 
 void track_init(struct track_t *tr, const char *importer);
 int track_clear(struct track_t *tr);
 int track_import(struct track_t *tr, const char *path);
+int track_import_osx(struct track_t *tr, const char *path);
 int track_pollfd(struct track_t *tr, struct pollfd *pe);
 int track_handle(struct track_t *tr);
 int track_abort(struct track_t *tr);

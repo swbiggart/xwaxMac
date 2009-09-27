@@ -11,8 +11,8 @@
 extern "C" 
 {
 #endif
-	#include "track.h"
-	int loadAudioFile(const char* fileName, struct track_t *tr);
+    #include "track.h"
+    int loadAudioFile(const char* fileName, struct track_t *tr);
 #ifdef __cplusplus
 }
 #endif

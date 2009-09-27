@@ -13,16 +13,16 @@
 class SimpleRingBuffer
 {
 public:
-	int fetch(UInt32 samples, AudioSampleType *buf);
-	int store(UInt32 samples, AudioSampleType *buf);
-	SimpleRingBuffer();
+    int fetch(UInt32 samples, AudioSampleType *buf);
+    int store(UInt32 samples, AudioSampleType *buf);
+    SimpleRingBuffer();
     ~SimpleRingBuffer();
-	void reinit();
+    void reinit();
 private:
-	AudioSampleType *m_buf;
-	UInt32 m_bufsiz;
-	UInt32 m_fetch_pos;
-	UInt32 m_store_pos;
-	pthread_mutex_t mx;
-	int state; // -1 not init, 0 init
+    AudioSampleType *m_buf;
+    UInt32 m_bufsiz;
+    UInt32 m_fetch_pos;
+    UInt32 m_store_pos;
+    pthread_mutex_t mx;
+    int state; // -1 not init, 0 init
 };

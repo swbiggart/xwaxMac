@@ -30,9 +30,11 @@
     int currentLatency;
     int nDecks;
     char currentTimecode[64];
+    int returnCode;
 }
 // Callbacks on various UI elements
 - (IBAction) okPressed:(id)sender;
+- (IBAction) cancelPressed:(id)sender;
 - (IBAction) inputChanged:(id)sender;
 - (IBAction) outputChanged:(id)sender;
 - (IBAction) deckChanged:(id)sender;

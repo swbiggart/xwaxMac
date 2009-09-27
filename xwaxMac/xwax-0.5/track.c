@@ -433,7 +433,6 @@ void *track_import_osx_thread(void *args)
 	tr->status = TRACK_STATUS_VALID;
 	UNLOCK(tr);
 	rig_awaken(tr->rig);
-
 	return 0;
 }
 int track_import_osx(struct track_t *tr, const char *path)

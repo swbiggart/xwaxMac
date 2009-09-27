@@ -172,12 +172,12 @@ static int sync_to_timecode(struct player_t *pl)
     /* If we can read an absolute time from the timecode, then use it */
     
     if(timecode == -1)
-	pl->target_valid = 0;
+    pl->target_valid = 0;
 
     else {
         tcpos = (double)timecode / timecoder_get_resolution(pl->timecoder);
         pl->target_position = tcpos + pl->pitch * when;
-	pl->target_valid = 1;
+    pl->target_valid = 1;
     }
 
     return 0;
@@ -223,7 +223,7 @@ int player_collect(struct player_t *pl, signed short *pcm,
 
         if(pl->reconnect) {
             pl->offset += pl->target_position - pl->position;
-	    pl->position = pl->target_position;
+        pl->position = pl->target_position;
             pl->reconnect = 0;
         }
 
@@ -261,7 +261,7 @@ int player_collect(struct player_t *pl, signed short *pcm,
     /* Sync pitch is applied post-filtering */
 
     pl->position += build_pcm(pcm, samples, rate,
-			      pl->track,
+                  pl->track,
                               pl->position - pl->offset,
                               pl->pitch * pl->sync_pitch,
                               pl->volume, target_volume);

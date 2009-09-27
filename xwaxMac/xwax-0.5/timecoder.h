@@ -44,7 +44,7 @@ struct timecode_def_t {
 
 struct timecoder_channel_t {
     int positive, /* wave is in positive part of cycle */
-	swapped; /* wave recently swapped polarity */
+    swapped; /* wave recently swapped polarity */
     signed int zero;
     unsigned int crossing_ticker; /* samples since we last crossed zero */
 };
@@ -81,7 +81,7 @@ struct timecoder_t {
 void timecoder_free_lookup(void);
 
 int timecoder_init(struct timecoder_t *tc, const char *def_name,
-		   unsigned int sample_rate);
+           unsigned int sample_rate);
 void timecoder_clear(struct timecoder_t *tc);
 
 int timecoder_monitor_init(struct timecoder_t *tc, int size);

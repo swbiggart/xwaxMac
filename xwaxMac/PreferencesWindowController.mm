@@ -187,6 +187,7 @@ extern "C"
     nDecks = n;
     
     // Close dialog and return to normal event loop
+    returnCode = 0;
     [theWindow orderOut:self];
     [[NSApplication sharedApplication] stopModal];
 }
@@ -195,6 +196,7 @@ extern "C"
 - (IBAction) cancelPressed:(id)sender
 {
     // Close dialog and return to normal event loop
+    returnCode = -2;
     [theWindow orderOut:self];
     [[NSApplication sharedApplication] stopModal];
 }
@@ -339,11 +341,13 @@ int showPrefsWindow(struct prefs *prefs)
     if (!wc) {
         return -1;
     }
-    // Read off settings once dialog has been dismissed
-    prefs->ios = wc->ios;
-    prefs->latency = wc->currentLatency;
-    prefs->nDecks = wc->nDecks;
-    prefs->timecode = (char*)malloc(64*sizeof(char));
-    strcpy(prefs->timecode, wc->currentTimecode);
-    return 0;
+    if (wc->returnCode == 0) {
+        // Read off settings once dialog has been dismissed
+        prefs->ios = wc->ios;
+        prefs->latency = wc->currentLatency;
+        prefs->nDecks = wc->nDecks;
+        prefs->timecode = (char*)malloc(64*sizeof(char));
+        strcpy(prefs->timecode, wc->currentTimecode);
+    }
+    return wc->returnCode;
 }

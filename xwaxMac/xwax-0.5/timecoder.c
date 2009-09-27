@@ -185,7 +185,7 @@ static struct timecode_def_t* find_definition(const char *name)
 
 struct timecode_def_t* get_all_definitions()
 {
-	return timecode_def;
+    return timecode_def;
 }
 
 /* Where necessary, build the lookup table required for this timecode */
@@ -249,7 +249,7 @@ static void init_channel(struct timecoder_channel_t *ch)
 /* Initialise a timecode decoder */
 
 int timecoder_init(struct timecoder_t *tc, const char *def_name,
-		   unsigned int sample_rate)
+           unsigned int sample_rate)
 {
     /* A definition contains a lookup table which can be shared
      * across multiple timecoders */
@@ -386,23 +386,23 @@ static void process_bitstream(struct timecoder_t *tc, signed int m)
      * the vinyl, regardless of the direction. */
 
     if(tc->forwards) {
-	tc->timecode = fwd(tc->timecode, tc->def);
-	tc->bitstream = (tc->bitstream >> 1)
-	    + (b << (tc->def->bits - 1));
+    tc->timecode = fwd(tc->timecode, tc->def);
+    tc->bitstream = (tc->bitstream >> 1)
+        + (b << (tc->def->bits - 1));
 
     } else {
-	bits_t mask;
+    bits_t mask;
 
-	mask = ((1 << tc->def->bits) - 1);
-	tc->timecode = rev(tc->timecode, tc->def);
-	tc->bitstream = ((tc->bitstream << 1) & mask) + b;
+    mask = ((1 << tc->def->bits) - 1);
+    tc->timecode = rev(tc->timecode, tc->def);
+    tc->bitstream = ((tc->bitstream << 1) & mask) + b;
     }
 
     if(tc->timecode == tc->bitstream)
-	tc->valid_counter++;
+    tc->valid_counter++;
     else {
-	tc->timecode = tc->bitstream;
-	tc->valid_counter = 0;
+    tc->timecode = tc->bitstream;
+    tc->valid_counter = 0;
     }
 
     /* Take note of the last time we read a valid timecode */
@@ -415,12 +415,12 @@ static void process_bitstream(struct timecoder_t *tc, signed int m)
 
 #ifdef DEBUG_BITSTREAM
     fprintf(stderr, "%+6d zero, %+6d (ref %+6d)\t= %d%c (%5d)\n",
-	    tc->primary.zero,
-	    m,
-	    tc->ref_level,
-	    b,
-	    tc->valid_counter == 0 ? 'x' : ' ',
-	    tc->valid_counter);
+        tc->primary.zero,
+        m,
+        tc->ref_level,
+        b,
+        tc->valid_counter == 0 ? 'x' : ' ',
+        tc->valid_counter);
 #endif
 }
 
@@ -428,7 +428,7 @@ static void process_bitstream(struct timecoder_t *tc, signed int m)
 /* Process a single sample from the incoming audio */
 
 static void process_sample(struct timecoder_t *tc,
-			   signed int primary, signed int secondary)
+               signed int primary, signed int secondary)
 {
     signed int m; /* pcm sample, sum of two shorts */
 
@@ -441,27 +441,27 @@ static void process_sample(struct timecoder_t *tc,
      * to work out the direction of the vinyl */
 
     if(tc->primary.swapped) {
-	tc->forwards = (tc->primary.positive != tc->secondary.positive);
-	if(tc->def->flags & SWITCH_PHASE)
-	    tc->forwards = !tc->forwards;
+    tc->forwards = (tc->primary.positive != tc->secondary.positive);
+    if(tc->def->flags & SWITCH_PHASE)
+        tc->forwards = !tc->forwards;
     } if(tc->secondary.swapped) {
-	tc->forwards = (tc->primary.positive == tc->secondary.positive);
-	if(tc->def->flags & SWITCH_PHASE)
-	    tc->forwards = !tc->forwards;
+    tc->forwards = (tc->primary.positive == tc->secondary.positive);
+    if(tc->def->flags & SWITCH_PHASE)
+        tc->forwards = !tc->forwards;
     }
 
     /* If any axis has been crossed, register movement using the pitch
      * counters */
 
     if(!tc->primary.swapped && !tc->secondary.swapped)
-	pitch_dt_observation(&tc->pitch, 0.0);
+    pitch_dt_observation(&tc->pitch, 0.0);
     else {
-	float dx;
+    float dx;
 
-	dx = 1.0 / tc->def->resolution / 4;
-	if (!tc->forwards)
-	    dx = -dx;
-	pitch_dt_observation(&tc->pitch, dx);
+    dx = 1.0 / tc->def->resolution / 4;
+    if (!tc->forwards)
+        dx = -dx;
+    pitch_dt_observation(&tc->pitch, dx);
     }
 
     /* If we have crossed the primary channel in the right polarity,
@@ -470,7 +470,7 @@ static void process_sample(struct timecoder_t *tc,
     if(tc->secondary.swapped &&
        tc->primary.positive == ((tc->def->flags & SWITCH_POLARITY) == 0))
     {
-	process_bitstream(tc, m);
+    process_bitstream(tc, m);
     }
 
     tc->timecode_ticker++;
@@ -482,7 +482,7 @@ static void process_sample(struct timecoder_t *tc,
 void timecoder_submit(struct timecoder_t *tc, signed short *pcm, size_t npcm)
 {
     while (npcm--) {
-	signed int primary, secondary;
+    signed int primary, secondary;
 
         if (tc->def->flags & SWITCH_PRIMARY) {
             primary = pcm[0];
@@ -492,7 +492,7 @@ void timecoder_submit(struct timecoder_t *tc, signed short *pcm, size_t npcm)
             secondary = pcm[0];
         }
 
-	process_sample(tc, primary, secondary);
+    process_sample(tc, primary, secondary);
 
         update_monitor(tc, pcm[0], pcm[1]);
         pcm += TIMECODER_CHANNELS;
@@ -505,26 +505,26 @@ void timecoder_submit(struct timecoder_t *tc, signed short *pcm, size_t npcm)
 #include <sys/time.h>
 signed int timecoder_get_position(struct timecoder_t *tc, float *when)
 {
-	static int first = 0;
-	static int i=0;
-	static struct timeval firsttime;
-	
-	if (first == 0)
-	{
-		first = 1;
-		gettimeofday(&firsttime, NULL);
-		//printf("***FIRST\n");
-	}
-	struct timeval thetime;
-	gettimeofday(&thetime, NULL);
-	if (when)
-	{
-		*when = (((double)thetime.tv_sec) + (((double)thetime.tv_usec) / 1000000.0f)) - (((double)firsttime.tv_sec) + (((double)firsttime.tv_usec) / 1000000.0f));
-		//printf("Now %f\n",  (((double)thetime.tv_sec) + (((double)thetime.tv_usec) / 1000000.0f)));
-		printf("Returning %f\n", *when);
-		return i++;
-	}
-	return -1;
+    static int first = 0;
+    static int i=0;
+    static struct timeval firsttime;
+    
+    if (first == 0)
+    {
+        first = 1;
+        gettimeofday(&firsttime, NULL);
+        //printf("***FIRST\n");
+    }
+    struct timeval thetime;
+    gettimeofday(&thetime, NULL);
+    if (when)
+    {
+        *when = (((double)thetime.tv_sec) + (((double)thetime.tv_usec) / 1000000.0f)) - (((double)firsttime.tv_sec) + (((double)firsttime.tv_usec) / 1000000.0f));
+        //printf("Now %f\n",  (((double)thetime.tv_sec) + (((double)thetime.tv_usec) / 1000000.0f)));
+        printf("Returning %f\n", *when);
+        return i++;
+    }
+    return -1;
 }
 
 

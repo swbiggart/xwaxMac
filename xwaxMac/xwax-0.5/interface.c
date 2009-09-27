@@ -1182,7 +1182,7 @@ int interface_run(struct interface_t *in)
 
     for(p = 0; p < in->timecoders; p++) {
         if (timecoder_monitor_init(in->timecoder[p], SCOPE_SIZE) == -1)
-	    return -1;
+        return -1;
     }
     
     calculate_spinner_lookup(spinner_angle, NULL, SPINNER_SIZE);
@@ -1266,17 +1266,17 @@ int interface_run(struct interface_t *in)
                 library_update = RESULTS_REFINE;
 
             } else if(key >= SDLK_0 && key <= SDLK_9) {
-	      if (mod & KMOD_CTRL) {
-		deck = key - SDLK_1;
-		if (deck >= 0 && deck < in->players) {
-		  pl = in->player[deck];
-		  pl->passthrough = (pl->passthrough == 1) ? 0 : 1;
-		}
-	      } else {
+          if (mod & KMOD_CTRL) {
+        deck = key - SDLK_1;
+        if (deck >= 0 && deck < in->players) {
+          pl = in->player[deck];
+          pl->passthrough = (pl->passthrough == 1) ? 0 : 1;
+        }
+          } else {
                 search[search_len] = (key - SDLK_0) + '0';
                 search[++search_len] = '\0';
                 library_update = RESULTS_REFINE;
-	      }
+          }
                 
             } else if(key == SDLK_SPACE) {
                 search[search_len] = ' ';

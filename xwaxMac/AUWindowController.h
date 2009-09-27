@@ -11,12 +11,10 @@
 #import <CoreAudioKit/AUGenericView.h>
 
 @interface AUWindowController : NSWindowController {
-	// Container for AU View
-    IBOutlet NSBox *				uiAUViewContainer;
-	// Post-nib view manufacturing
-    NSScrollView *					mScrollView;
-
-
+    // Container for AU View
+    IBOutlet NSBox *uiAUViewContainer;
+    // Post-nib view manufacturing
+    NSScrollView *mScrollView;
 }
 
 - (void)showCocoaViewForAU:(AudioUnit)inAU;

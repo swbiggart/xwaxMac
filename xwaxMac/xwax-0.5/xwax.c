@@ -181,64 +181,68 @@ int main(int argc, char *argv[])
     timecode = DEFAULT_TIMECODE;
 
 #ifndef command_line
-	struct prefs prefs;
-	// Read preferences, if they exist
-	int result = readPreferences(&prefs);
-	if (result == 0)
-	{
-		// Check that the device still exists after reading prefs
-		for (int i=0; i<prefs.nDecks; i++){
-			int inDevId = coreaudio_id_for_device(prefs.ios[i].inDeviceName, 1);
-			int outDevId = coreaudio_id_for_device(prefs.ios[i].outDeviceName, 0);
-			if (inDevId == -1 || outDevId == -1) {
-				// Error
-				fprintf(stderr, "Warning, device %s or %s doesn't exist anymore\n", prefs.ios[i].inDeviceName, prefs.ios[i].outDeviceName);
-				result = -1;
-			} else {
-				prefs.ios[i].inDeviceId = inDevId;
-				prefs.ios[i].outDeviceId = outDevId;
-			}
-		}
-	}
-	if (result == -1) {
-		// Otherwise show the preferences window
-		int result = showPrefsWindow(&prefs);
-		if (result == -1) {
-			fprintf(stderr, "Error, couldn't read preferences or get your settings from the dialog\n");
-			return -1;
-		}
-	}
+    struct prefs prefs;
+    // Read preferences, if they exist
+    int result = readPreferences(&prefs);
+    if (result == 0)
+    {
+        // Check that the device still exists after reading prefs
+        for (int i=0; i<prefs.nDecks; i++){
+            int inDevId = coreaudio_id_for_device(prefs.ios[i].inDeviceName, 1);
+            int outDevId = coreaudio_id_for_device(prefs.ios[i].outDeviceName, 0);
+            if (inDevId == -1 || outDevId == -1) {
+                // Error
+                fprintf(stderr, "Warning, device %s or %s doesn't exist anymore\n", prefs.ios[i].inDeviceName, prefs.ios[i].outDeviceName);
+                result = -1;
+            } else {
+                prefs.ios[i].inDeviceId = inDevId;
+                prefs.ios[i].outDeviceId = outDevId;
+            }
+        }
+    }
+    if (result == -1) {
+        // Otherwise show the preferences window
+        int result = showPrefsWindow(&prefs);
+        if (result == -1) {
+            fprintf(stderr, "Error, couldn't read preferences or get your settings from the dialog\n");
+            return -1;
+        }
+        else if (result == -2) { // cancel
+            fprintf(stderr, "User cancelled\n");
+            return -2;
+        }
+    }
     
-	timecode = prefs.timecode;
+    timecode = prefs.timecode;
 
-	for (int i=0; i<prefs.nDecks; i++)	
-	{
-		device = &deck[decks].device;
+    for (int i=0; i<prefs.nDecks; i++)    
+    {
+        device = &deck[decks].device;
 
-	r = coreaudio_init(device, prefs.ios[i].inDeviceId, prefs.ios[i].inDeviceChanL, prefs.ios[i].inDeviceChanR, 
-							   prefs.ios[i].outDeviceId, prefs.ios[i].outDeviceChanL, prefs.ios[i].outDeviceChanR, prefs.latency);
-	if(r == -1)
-	return -1;
+    r = coreaudio_init(device, prefs.ios[i].inDeviceId, prefs.ios[i].inDeviceChanL, prefs.ios[i].inDeviceChanR, 
+                               prefs.ios[i].outDeviceId, prefs.ios[i].outDeviceChanL, prefs.ios[i].outDeviceChanR, prefs.latency);
+    if(r == -1)
+    return -1;
 
-	unsigned int sample_rate = device_sample_rate(device);
+    unsigned int sample_rate = device_sample_rate(device);
 
-	if(deck_init(&deck[decks], timecode, importer, sample_rate) == -1)
-	return -1;
+    if(deck_init(&deck[decks], timecode, importer, sample_rate) == -1)
+    return -1;
 
-	/* The timecoder and player are driven by requests from
-	 * the audio device */
+    /* The timecoder and player are driven by requests from
+     * the audio device */
 
-	device_connect_timecoder(device, &deck[decks].timecoder);
-	device_connect_player(device, &deck[decks].player);
+    device_connect_timecoder(device, &deck[decks].timecoder);
+    device_connect_player(device, &deck[decks].player);
 
-	/* The rig and interface keep track of everything whilst
-	 * the program is running */
+    /* The rig and interface keep track of everything whilst
+     * the program is running */
 
-	connect_deck_to_interface(&iface, decks, &deck[decks]);
-	connect_deck_to_rig(&rig, decks, &deck[decks]);
+    connect_deck_to_interface(&iface, decks, &deck[decks]);
+    connect_deck_to_rig(&rig, decks, &deck[decks]);
 
-	decks++;
-	}
+    decks++;
+    }
 #else
     /* Skip over command name */
     
@@ -331,9 +335,9 @@ int main(int argc, char *argv[])
 #endif
             
         } else if(!strcmp(argv[0], "-d") || !strcmp(argv[0], "-a") ||
-		  !strcmp(argv[0], "-j") || !strcmp(argv[0], "-c"))
-	{
-	    unsigned int sample_rate;
+          !strcmp(argv[0], "-j") || !strcmp(argv[0], "-c"))
+    {
+        unsigned int sample_rate;
 
             /* Create a deck */
 
@@ -370,7 +374,7 @@ int main(int argc, char *argv[])
             case 'j':
                 r = jack_init(device, argv[1]);
                 break;
-#endif					
+#endif                    
             default:
                 fprintf(stderr, "Device type is not supported by this "
                         "distribution of xwax.\n");
@@ -380,7 +384,7 @@ int main(int argc, char *argv[])
             if(r == -1)
                 return -1;
 
-			sample_rate = device_sample_rate(device);
+            sample_rate = device_sample_rate(device);
 
             if(deck_init(&deck[decks], timecode, importer, sample_rate) == -1)
                 return -1;
@@ -459,7 +463,7 @@ int main(int argc, char *argv[])
 
     // thru itunes, 2nd arg not used
     library_import(&library, "");
-	iface.players = decks;
+    iface.players = decks;
     iface.timecoders = decks;
 
     /* Connect everything up. Do this after selecting a timecode and
