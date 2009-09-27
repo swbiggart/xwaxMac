@@ -35,7 +35,7 @@
 		8EA3C5C31016527400FAD50F /* listing.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B51016527400FAD50F /* listing.c */; };
 		8EA3C5C41016527400FAD50F /* library.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B71016527400FAD50F /* library.c */; };
 		8EA3C5C61016527400FAD50F /* interface.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5BB1016527400FAD50F /* interface.c */; };
-		8EA73509103C8AEB004580FB /* Listing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA73508103C8AEB004580FB /* Listing.m */; };
+		8EA73509103C8AEB004580FB /* iTunesListing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA73508103C8AEB004580FB /* iTunesListing.m */; };
 		8EA73589103DBC20004580FB /* ETEyeTunes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7357A103DBC20004580FB /* ETEyeTunes.m */; };
 		8EA7358A103DBC20004580FB /* ETTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7357C103DBC20004580FB /* ETTrack.m */; };
 		8EA7358B103DBC20004580FB /* ETAppleEventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7357E103DBC20004580FB /* ETAppleEventObject.m */; };
@@ -118,8 +118,8 @@
 		8EA3C5B71016527400FAD50F /* library.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = library.c; path = "xwax-0.5/library.c"; sourceTree = "<group>"; };
 		8EA3C5BA1016527400FAD50F /* device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = device.h; path = "xwax-0.5/device.h"; sourceTree = "<group>"; };
 		8EA3C5BB1016527400FAD50F /* interface.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = interface.c; path = "xwax-0.5/interface.c"; sourceTree = "<group>"; };
-		8EA73507103C8AEB004580FB /* Listing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Listing.h; sourceTree = "<group>"; };
-		8EA73508103C8AEB004580FB /* Listing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Listing.m; sourceTree = "<group>"; };
+		8EA73507103C8AEB004580FB /* iTunesListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesListing.h; sourceTree = "<group>"; };
+		8EA73508103C8AEB004580FB /* iTunesListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesListing.m; sourceTree = "<group>"; };
 		8EA73576103DBC20004580FB /* EyeTunesVersions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EyeTunesVersions.h; sourceTree = "<group>"; };
 		8EA73577103DBC20004580FB /* EyeTunesEventCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EyeTunesEventCodes.h; sourceTree = "<group>"; };
 		8EA73578103DBC20004580FB /* EyeTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EyeTunes.h; sourceTree = "<group>"; };
@@ -314,8 +314,8 @@
 		8EA73504103C8A87004580FB /* iTunesListing */ = {
 			isa = PBXGroup;
 			children = (
-				8EA73507103C8AEB004580FB /* Listing.h */,
-				8EA73508103C8AEB004580FB /* Listing.m */,
+				8EA73507103C8AEB004580FB /* iTunesListing.h */,
+				8EA73508103C8AEB004580FB /* iTunesListing.m */,
 			);
 			name = iTunesListing;
 			sourceTree = "<group>";
@@ -459,7 +459,7 @@
 				8EA3C5C31016527400FAD50F /* listing.c in Sources */,
 				8EA3C5C41016527400FAD50F /* library.c in Sources */,
 				8EA3C5C61016527400FAD50F /* interface.c in Sources */,
-				8EA73509103C8AEB004580FB /* Listing.m in Sources */,
+				8EA73509103C8AEB004580FB /* iTunesListing.m in Sources */,
 				8EA73589103DBC20004580FB /* ETEyeTunes.m in Sources */,
 				8EA7358A103DBC20004580FB /* ETTrack.m in Sources */,
 				8EA7358B103DBC20004580FB /* ETAppleEventObject.m in Sources */,
