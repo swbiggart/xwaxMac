@@ -39,7 +39,7 @@
 
 #include "ReadPreferences.h"
 
-#include <SDL.h>
+#include "SDL.h"
 
 #define MAX_DECKS 3
 

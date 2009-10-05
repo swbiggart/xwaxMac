@@ -64,7 +64,6 @@ extern "C"
     }
     
     //timecode defns
-    
     struct timecode_def_t tc;
     for (i=0;;i++) {
         tc = get_all_definitions()[i];
@@ -192,10 +191,9 @@ extern "C"
     [[NSApplication sharedApplication] stopModal];
 }
 
-// FIXME - do the right thing on cancel pressed (quit the application?)
 - (IBAction) cancelPressed:(id)sender
 {
-    // Close dialog and return to normal event loop
+    // Close dialog and exit
     returnCode = -2;
     [theWindow orderOut:self];
     [[NSApplication sharedApplication] stopModal];
