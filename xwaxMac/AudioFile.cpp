@@ -48,9 +48,11 @@ int loadAudioFile(const char* fileName, struct track_t *tr)
     
     // Setup stream format that we want - unsigned int interleaved suitable for xwax
     AudioStreamBasicDescription des;
-#ifdef LITTLE_ENDIAN
+#if BYTE_ORDER == LITTLE_ENDIAN
+    fprintf(stderr, "I am little\n");
     FillOutASBDForLPCM(des, audioFileStreamFormat.mSampleRate, audioFileStreamFormat.mChannelsPerFrame, 16, 16, false, false, false);
 #else
+    fprintf(stderr, "I am big\n");
     FillOutASBDForLPCM(des, audioFileStreamFormat.mSampleRate, audioFileStreamFormat.mChannelsPerFrame, 16, 16, false, true, false);
 #endif
     CAStreamBasicDescription clientStreamFormat(des);
