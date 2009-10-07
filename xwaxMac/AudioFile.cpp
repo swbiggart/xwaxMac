@@ -13,6 +13,7 @@
 #include "CAStreamBasicDescription.h"
 #include "AUBuffer.h"
 #include "AudioFile.h"
+#include <machine/endian.h>
 
 int loadAudioFile(const char* fileName, struct track_t *tr)
 {
@@ -46,8 +47,12 @@ int loadAudioFile(const char* fileName, struct track_t *tr)
         return -1;
     
     // Setup stream format that we want - unsigned int interleaved suitable for xwax
-    AudioStreamBasicDescription des;    
+    AudioStreamBasicDescription des;
+#ifdef LITTLE_ENDIAN
     FillOutASBDForLPCM(des, audioFileStreamFormat.mSampleRate, audioFileStreamFormat.mChannelsPerFrame, 16, 16, false, false, false);
+#else
+    FillOutASBDForLPCM(des, audioFileStreamFormat.mSampleRate, audioFileStreamFormat.mChannelsPerFrame, 16, 16, false, true, false);
+#endif
     CAStreamBasicDescription clientStreamFormat(des);
     clientStreamFormat.Print(stdout);
 
