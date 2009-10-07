@@ -282,9 +282,8 @@ extern "C"
         [newItem2 setRepresentedObject:[NSNumber numberWithInt:i+1]];
         [[inputDeviceRChan menu] addItem:newItem2];        
     }    
-    // select right channel as 2 for input and output
+    // select right channel as 2 for input
     [inputDeviceRChan selectItemAtIndex:1];
-    [outputDeviceRChan selectItemAtIndex:1];    
 }
 
 - (void) populateOutputChannelList:(NSNumber*)deviceId
@@ -309,8 +308,7 @@ extern "C"
         [newItem2 setRepresentedObject:[NSNumber numberWithInt:i+1]];
         [[outputDeviceRChan menu] addItem:newItem2];        
     }    
-    // select right channel as 2 for input and output
-    [inputDeviceRChan selectItemAtIndex:1];
+    // select right channel as 2 for output
     [outputDeviceRChan selectItemAtIndex:1];    
 }
 @end
