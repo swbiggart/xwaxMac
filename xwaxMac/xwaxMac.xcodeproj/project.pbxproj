@@ -53,6 +53,10 @@
 		8EB5D0F1100282A400018849 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB5D0F0100282A400018849 /* CoreAudio.framework */; };
 		8EB5D111100282D200018849 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB5D10F100282D200018849 /* AudioToolbox.framework */; };
 		8EB5D112100282D200018849 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB5D110100282D200018849 /* AudioUnit.framework */; };
+		8EC9482C107D28A300330A36 /* AppHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9482B107D28A300330A36 /* AppHelpers.m */; };
+		8EC94832107D2BA800330A36 /* Vera.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EC9482F107D2BA800330A36 /* Vera.ttf */; };
+		8EC94833107D2BA800330A36 /* VeraIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EC94830107D2BA800330A36 /* VeraIt.ttf */; };
+		8EC94834107D2BA800330A36 /* VeraMono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EC94831107D2BA800330A36 /* VeraMono.ttf */; };
 		8ED0B3D210401C2A002AF97C /* AUWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */; };
 		8ED0B3DB10401D26002AF97C /* AUWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ED0B3DA10401D26002AF97C /* AUWindow.xib */; };
 		8ED0B4481040395F002AF97C /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ED0B4471040395F002AF97C /* CoreAudioKit.framework */; };
@@ -168,6 +172,11 @@
 		8EB5D0F0100282A400018849 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
 		8EB5D10F100282D200018849 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		8EB5D110100282D200018849 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
+		8EC9482A107D28A300330A36 /* AppHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppHelpers.h; sourceTree = "<group>"; };
+		8EC9482B107D28A300330A36 /* AppHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppHelpers.m; sourceTree = "<group>"; };
+		8EC9482F107D2BA800330A36 /* Vera.ttf */ = {isa = PBXFileReference; explicitFileType = file; name = Vera.ttf; path = /usr/X11/lib/X11/fonts/TTF/Vera.ttf; sourceTree = "<absolute>"; };
+		8EC94830107D2BA800330A36 /* VeraIt.ttf */ = {isa = PBXFileReference; explicitFileType = file; name = VeraIt.ttf; path = /usr/X11/lib/X11/fonts/TTF/VeraIt.ttf; sourceTree = "<absolute>"; };
+		8EC94831107D2BA800330A36 /* VeraMono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = VeraMono.ttf; path = /usr/X11/lib/X11/fonts/TTF/VeraMono.ttf; sourceTree = "<absolute>"; };
 		8ED0B3D010401C2A002AF97C /* AUWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUWindowController.h; sourceTree = "<group>"; };
 		8ED0B3D110401C2A002AF97C /* AUWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AUWindowController.mm; sourceTree = "<group>"; };
 		8ED0B3DA10401D26002AF97C /* AUWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AUWindow.xib; sourceTree = "<group>"; };
@@ -277,6 +286,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8EC9482F107D2BA800330A36 /* Vera.ttf */,
+				8EC94830107D2BA800330A36 /* VeraIt.ttf */,
+				8EC94831107D2BA800330A36 /* VeraMono.ttf */,
 				8E30C79E1062E46900F581BD /* Vinyl_Red.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -297,6 +309,8 @@
 		8E30AF8D1056E3A400F581BD /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				8EC9482A107D28A300330A36 /* AppHelpers.h */,
+				8EC9482B107D28A300330A36 /* AppHelpers.m */,
 				8E30AF8E1056E3B800F581BD /* Preferences.xib */,
 				8E30AF8F1056E3B800F581BD /* PreferencesWindowController.h */,
 				8E30AF901056E3B800F581BD /* PreferencesWindowController.mm */,
@@ -477,6 +491,9 @@
 				8ED0B3DB10401D26002AF97C /* AUWindow.xib in Resources */,
 				8E30AF911056E3B800F581BD /* Preferences.xib in Resources */,
 				8E30C79F1062E46900F581BD /* Vinyl_Red.icns in Resources */,
+				8EC94832107D2BA800330A36 /* Vera.ttf in Resources */,
+				8EC94833107D2BA800330A36 /* VeraIt.ttf in Resources */,
+				8EC94834107D2BA800330A36 /* VeraMono.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +539,7 @@
 				8E30C0841060D43B00F581BD /* ReadPreferences.c in Sources */,
 				8E708C4710790C3700F23E4B /* CARecord.cpp in Sources */,
 				8E708D2D107A64FE00F23E4B /* SDLMain.m in Sources */,
+				8EC9482C107D28A300330A36 /* AppHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

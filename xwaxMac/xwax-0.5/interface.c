@@ -303,47 +303,23 @@ static TTF_Font* open_font(const char *name, int size) {
     const char **dir;
     struct stat st;
     TTF_Font *font;
+        
+    sprintf(buf, "%s/%s/%s", getBundleDirC(), "Contents/Resources", name);
+    r = stat(buf, &st);
 
-    dir = &font_dirs[0];
-
-    while(*dir) {
+    if(r != -1) { /* something exists at this path */
+        fprintf(stderr, "Loading font '%s', %dpt...\n", buf, size);
         
-        sprintf(buf, "%s/%s", *dir, name);
-        
-        r = stat(buf, &st);
-
-        if(r != -1) { /* something exists at this path */
-            fprintf(stderr, "Loading font '%s', %dpt...\n", buf, size);
-            
-            font = TTF_OpenFont(buf, size);
-            if(!font) {
-                fputs("Font error: ", stderr);
-                fputs(TTF_GetError(), stderr);
-                fputc('\n', stderr);
-            }            
-            return font; /* or NULL */
-        }
-        
-        if(errno != ENOENT) {
-            perror("stat");
-            return NULL;
-        }
-        
-        dir++;
-        continue;
+        font = TTF_OpenFont(buf, size);
+        if(!font) {
+            fputs("Font error: ", stderr);
+            fputs(TTF_GetError(), stderr);
+            fputc('\n', stderr);
+        }            
+        return font; /* or NULL */
     }
-
-    fprintf(stderr, "Font '%s' cannot be found in", name);
     
-    dir = &font_dirs[0];
-    while(*dir) {
-        fputc(' ', stderr);
-        fputs(*dir, stderr);
-        dir++;
-    }
-    fputc('.', stderr);
-    fputc('\n', stderr);
-
+    fprintf(stderr, "Can't find the font %s\n", name);
     return NULL;
 }
 
