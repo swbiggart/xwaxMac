@@ -38,6 +38,7 @@
 #include "xwax.h"
 
 #include "ReadPreferences.h"
+#include "InterfaceC.h"
 
 #include "SDL.h"
 
@@ -461,8 +462,10 @@ int main(int argc, char *argv[])
         return -1;
     }
 
+    showLoadingWindow();
     // thru itunes, 2nd arg not used
     library_import(&library, "");
+    hideLoadingWindow();
     iface.players = decks;
     iface.timecoders = decks;
 

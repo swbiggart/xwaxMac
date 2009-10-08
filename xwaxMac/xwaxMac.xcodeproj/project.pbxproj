@@ -18,6 +18,8 @@
 		8E3ABCAC104AA34D00F2F441 /* AudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABCAB104AA34D00F2F441 /* AudioFile.cpp */; };
 		8E3ABCD5104AA60700F2F441 /* AUBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABCD3104AA60700F2F441 /* AUBuffer.cpp */; };
 		8E3ABD06104AA6AF00F2F441 /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABD05104AA6AF00F2F441 /* CADebugMacros.cpp */; };
+		8E6B001C107DD88B005CF92E /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6B001B107DD88B005CF92E /* Loading.xib */; };
+		8E6B0020107DDA0C005CF92E /* LoadingWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B001F107DDA0C005CF92E /* LoadingWindowController.m */; };
 		8E708C4710790C3700F23E4B /* CARecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E708C4510790C3700F23E4B /* CARecord.cpp */; };
 		8E708C9D107A5F6D00F23E4B /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E708C9B107A5F6D00F23E4B /* SDL.framework */; };
 		8E708C9E107A5F6D00F23E4B /* SDL_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E708C9C107A5F6D00F23E4B /* SDL_ttf.framework */; };
@@ -106,6 +108,10 @@
 		8E3ABCD4104AA60700F2F441 /* AUBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUBuffer.h; path = Examples/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.h; sourceTree = DEVELOPER_DIR; };
 		8E3ABD04104AA6AF00F2F441 /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CADebugMacros.h; path = Examples/CoreAudio/PublicUtility/CADebugMacros.h; sourceTree = DEVELOPER_DIR; };
 		8E3ABD05104AA6AF00F2F441 /* CADebugMacros.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CADebugMacros.cpp; path = Examples/CoreAudio/PublicUtility/CADebugMacros.cpp; sourceTree = DEVELOPER_DIR; };
+		8E6B001B107DD88B005CF92E /* Loading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Loading.xib; sourceTree = "<group>"; };
+		8E6B001E107DDA0C005CF92E /* LoadingWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingWindowController.h; sourceTree = "<group>"; };
+		8E6B001F107DDA0C005CF92E /* LoadingWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingWindowController.m; sourceTree = "<group>"; };
+		8E6B00B8107E011B005CF92E /* InterfaceC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceC.h; sourceTree = "<group>"; };
 		8E708C4510790C3700F23E4B /* CARecord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CARecord.cpp; sourceTree = "<group>"; };
 		8E708C4610790C3700F23E4B /* CARecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CARecord.h; sourceTree = "<group>"; };
 		8E708C9B107A5F6D00F23E4B /* SDL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SDL.framework; path = /Library/Frameworks/SDL.framework; sourceTree = "<absolute>"; };
@@ -316,6 +322,10 @@
 				8E30AF901056E3B800F581BD /* PreferencesWindowController.mm */,
 				8E30C0821060D43B00F581BD /* ReadPreferences.h */,
 				8E30C0831060D43B00F581BD /* ReadPreferences.c */,
+				8E6B001B107DD88B005CF92E /* Loading.xib */,
+				8E6B001E107DDA0C005CF92E /* LoadingWindowController.h */,
+				8E6B001F107DDA0C005CF92E /* LoadingWindowController.m */,
+				8E6B00B8107E011B005CF92E /* InterfaceC.h */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -494,6 +504,7 @@
 				8EC94832107D2BA800330A36 /* Vera.ttf in Resources */,
 				8EC94833107D2BA800330A36 /* VeraIt.ttf in Resources */,
 				8EC94834107D2BA800330A36 /* VeraMono.ttf in Resources */,
+				8E6B001C107DD88B005CF92E /* Loading.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +551,7 @@
 				8E708C4710790C3700F23E4B /* CARecord.cpp in Sources */,
 				8E708D2D107A64FE00F23E4B /* SDLMain.m in Sources */,
 				8EC9482C107D28A300330A36 /* AppHelpers.m in Sources */,
+				8E6B0020107DDA0C005CF92E /* LoadingWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

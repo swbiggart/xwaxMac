@@ -37,6 +37,7 @@
 #include "rig.h"
 #include "timecoder.h"
 #include "xwax.h"
+#include "InterfaceC.h"
 
 
 /* Screen refresh time in milliseconds */
