@@ -13,7 +13,6 @@ SimpleRingBuffer::SimpleRingBuffer()
 {
     m_bufsiz = 8192;
     m_buf = (AudioSampleType*)malloc(m_bufsiz * sizeof(AudioSampleType));
-    pthread_mutex_init(&mx, NULL);
     state = -1;
 }
 
