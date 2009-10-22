@@ -49,7 +49,7 @@ public:
     
 
 private:
-    CAPlayThrough* CAPlayThroughHost::GetPlayThrough() { return mPlayThrough; }
+    CAPlayThrough* GetPlayThrough() { return mPlayThrough; }
 private:
     CAPlayThrough *mPlayThrough;
 };

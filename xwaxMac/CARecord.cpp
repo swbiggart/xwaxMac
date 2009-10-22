@@ -9,7 +9,7 @@
  */
 
 #include "CARecord.h"
-
+/*
 OSStatus CARecord::ConfigureOutoutFile(const FSRef inParentDirectory, const CFStringRef inFileName, AudioStreamBasicDescription *inABSD)
 {
     OSStatus err = noErr;
@@ -28,4 +28,4 @@ OSStatus CARecord::ConfigureOutoutFile(const FSRef inParentDirectory, const CFSt
     }
     err = ExtAudioFileWriteAsync(audioFile, 0, NULL);
     return err;
-}
+}*/
