@@ -18,6 +18,7 @@
 		8E3ABCAC104AA34D00F2F441 /* AudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABCAB104AA34D00F2F441 /* AudioFile.cpp */; };
 		8E3ABCD5104AA60700F2F441 /* AUBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABCD3104AA60700F2F441 /* AUBuffer.cpp */; };
 		8E3ABD06104AA6AF00F2F441 /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABD05104AA6AF00F2F441 /* CADebugMacros.cpp */; };
+		8E50557C1088A04A00E34FBD /* TrieMatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E50557B1088A04A00E34FBD /* TrieMatcher.cpp */; };
 		8E6B001C107DD88B005CF92E /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6B001B107DD88B005CF92E /* Loading.xib */; };
 		8E6B0020107DDA0C005CF92E /* LoadingWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B001F107DDA0C005CF92E /* LoadingWindowController.m */; };
 		8E708C4710790C3700F23E4B /* CARecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E708C4510790C3700F23E4B /* CARecord.cpp */; };
@@ -109,6 +110,9 @@
 		8E3ABD04104AA6AF00F2F441 /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CADebugMacros.h; path = Extras/CoreAudio/PublicUtility/CADebugMacros.h; sourceTree = DEVELOPER_DIR; };
 		8E3ABD05104AA6AF00F2F441 /* CADebugMacros.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CADebugMacros.cpp; path = Extras/CoreAudio/PublicUtility/CADebugMacros.cpp; sourceTree = DEVELOPER_DIR; };
 		8E46C78D108B320C00195645 /* CAAutoDisposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAutoDisposer.h; path = Extras/CoreAudio/PublicUtility/CAAutoDisposer.h; sourceTree = DEVELOPER_DIR; };
+		8E50557A1088A04A00E34FBD /* TrieMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrieMatcher.h; sourceTree = "<group>"; };
+		8E50557B1088A04A00E34FBD /* TrieMatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrieMatcher.cpp; sourceTree = "<group>"; };
+		8E50558B1088AA6B00E34FBD /* TrieMatcherC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrieMatcherC.h; sourceTree = "<group>"; };
 		8E6B001B107DD88B005CF92E /* Loading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Loading.xib; sourceTree = "<group>"; };
 		8E6B001E107DDA0C005CF92E /* LoadingWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingWindowController.h; sourceTree = "<group>"; };
 		8E6B001F107DDA0C005CF92E /* LoadingWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingWindowController.m; sourceTree = "<group>"; };
@@ -384,6 +388,9 @@
 			children = (
 				8EA73507103C8AEB004580FB /* iTunesListing.h */,
 				8EA73508103C8AEB004580FB /* iTunesListing.m */,
+				8E50557A1088A04A00E34FBD /* TrieMatcher.h */,
+				8E50557B1088A04A00E34FBD /* TrieMatcher.cpp */,
+				8E50558B1088AA6B00E34FBD /* TrieMatcherC.h */,
 			);
 			name = iTunesListing;
 			sourceTree = "<group>";
@@ -554,6 +561,7 @@
 				8E708D2D107A64FE00F23E4B /* SDLMain.m in Sources */,
 				8EC9482C107D28A300330A36 /* AppHelpers.m in Sources */,
 				8E6B0020107DDA0C005CF92E /* LoadingWindowController.m in Sources */,
+				8E50557C1088A04A00E34FBD /* TrieMatcher.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

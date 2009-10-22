@@ -8,10 +8,11 @@
 
 #include "library.h"
 #include "listing.h"
-#import "Listing.h"
+
 #import "EyeTunes.h"
 #import <Foundation/NSPathUtilities.h>
 #include "InterfaceC.h"
+#include "TrieMatcherC.h"
 
 void iTunes_get_all_tracks(struct library_t *li) {
     
@@ -26,13 +27,23 @@ void iTunes_get_all_tracks(struct library_t *li) {
         ETTrack *t = nil;
         while (t = [e nextObject]) {
             if ( ! [t location] ) continue; // thanks Jacques!
+            
             NSURL *url = [NSURL URLWithString:[t location]];
-            struct record_t record;
-            strcpy(record.pathname, [[url path] UTF8String]);
-            strcpy(record.artist, [[t artist] UTF8String]);
-            strcpy(record.name, [[t name] UTF8String]);
-            strcpy(record.title, [[t name] UTF8String]);
-            library_add(li, &record);
+            
+            struct record_t *record = malloc(sizeof(struct record_t));
+            record->pathname[0] = '\0';
+            record->artist[0] = '\0';
+            record->title[0] = '\0';
+            
+            //TODO ALBUM
+            strcpy(record->pathname, [[url path] UTF8String]);
+            strcpy(record->artist, [[t artist] UTF8String]);
+            strcpy(record->title, [[t name] UTF8String]);
+            
+            // Index by artist and title
+            TrieMatcherAdd(record->artist, record);            
+            TrieMatcherAdd(record->title, record);     
+            
             updateLoadingWindow(++i, nTracks);
         }
     }

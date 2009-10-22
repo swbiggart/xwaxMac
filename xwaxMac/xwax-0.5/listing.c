@@ -24,6 +24,7 @@
 
 #include "library.h"
 #include "listing.h"
+#include "TrieMatcherC.h"
 
 #define BLOCK 256
 
@@ -137,6 +138,7 @@ void listing_sort(struct listing_t *ls)
 
 int listing_match(struct listing_t *src, struct listing_t *dest, char *match)
 {
+    /*
     int n;
     struct record_t *re;
 //
@@ -151,7 +153,16 @@ int listing_match(struct listing_t *src, struct listing_t *dest, char *match)
                 return -1;
         }
     }
-
+     */
+    if (strlen(match)==0)
+    {
+        IndexLookup(match, dest);
+    } 
+    else 
+    {
+        
+        TrieMatcherLookup(match, dest);
+    }
     return 0;
 }
 
