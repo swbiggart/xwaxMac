@@ -23,47 +23,32 @@ root('\0')
 
 void Matcher::Add(char *str, struct record_t *data)
 {
-    // Don't insert if already there
-    //std::list<struct record_t*>::iterator result = std::find(index.data.begin(), index.data.end(), data);
-    //if (result == index.data.end())
-    //{
-        this->index.data.insert(data);
-    //}
+
+    // Insert to main index
+    this->index.data.insert(data);
+
     TrieNode *t = &root;
     do
     {
         TrieNode *newT;
         if (newT = t->childWithTag(tolower(*str)))
         {
-            //printf("Found %c\n",*str);
             t = newT;
         }
         else
         {
-            //printf("Adding %c\n",*str);
             newT = new TrieNode(tolower(*str));
             nodes++;
             t->children.push_back(newT);
             t = newT;
         }
-        // TODO - instead of this, visit all the nodes and sort and unique them as a final pass
-        // (What about order?)
         if (!t->data)
         {
             t->data = new Result();
             resultnodes++;
-            // Micro-optimisation - don't need to check for unique if we are first
-            t->data->data.insert(data);
         }
-        else
-        {
-            // Don't insert if already there
-            //std::list<struct record_t*>::iterator result = std::find(t->data->data.begin(), t->data->data.end(), data);
-            //if (result == t->data->data.end())
-            //{
-                t->data->data.insert(data);
-            //}
-        }
+        // Insert for this Trie path
+        t->data->data.insert(data);
         results++;
         
     } while(*++str);
@@ -77,12 +62,10 @@ Result *Matcher::Lookup(char *str)
         TrieNode *newT;
         if (newT = t->childWithTag(*str))
         {
-            //printf("Found %c\n",*str);
             t = newT;
         }
         else
         {
-            //printf("Didn't find %c\n",*str);
             return 0;
         }
     } while(*++str);
@@ -142,7 +125,6 @@ void TrieMatcherLookup(char *key, struct listing_t *l)
         for (i=0,it = r->data.begin(); it != r->data.end(); i++,it++)
         {
             l->record[i] = *it;
-            //            printf("%s\n",(*it));
         }
     }    
 }
@@ -160,7 +142,6 @@ void IndexLookup(char *key, struct listing_t *l)
         for (i=0,it = r->data.begin(); it != r->data.end(); i++,it++)
         {
             l->record[i] = *it;
-            //            printf("%s\n",(*it));
         }
     }    
 }
