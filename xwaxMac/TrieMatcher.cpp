@@ -24,11 +24,11 @@ root('\0')
 void Matcher::Add(char *str, struct record_t *data)
 {
     // Don't insert if already there
-    std::list<struct record_t*>::iterator result = std::find(index.data.begin(), index.data.end(), data);
-    if (result == index.data.end())
-    {
-        this->index.data.push_back(data);
-    }
+    //std::list<struct record_t*>::iterator result = std::find(index.data.begin(), index.data.end(), data);
+    //if (result == index.data.end())
+    //{
+        this->index.data.insert(data);
+    //}
     TrieNode *t = &root;
     do
     {
@@ -53,16 +53,16 @@ void Matcher::Add(char *str, struct record_t *data)
             t->data = new Result();
             resultnodes++;
             // Micro-optimisation - don't need to check for unique if we are first
-            t->data->data.push_back(data);
+            t->data->data.insert(data);
         }
         else
         {
             // Don't insert if already there
-            std::list<struct record_t*>::iterator result = std::find(t->data->data.begin(), t->data->data.end(), data);
-            if (result == t->data->data.end())
-            {
-                t->data->data.push_back(data);
-            }
+            //std::list<struct record_t*>::iterator result = std::find(t->data->data.begin(), t->data->data.end(), data);
+            //if (result == t->data->data.end())
+            //{
+                t->data->data.insert(data);
+            //}
         }
         results++;
         
@@ -137,7 +137,7 @@ void TrieMatcherLookup(char *key, struct listing_t *l)
         l->entries = r->data.size();
         l->size    = l->entries;
         l->record = (struct record_t**)realloc(l->record,sizeof(struct record_t*)*l->entries);
-        std::list<struct record_t*>::iterator it;
+        std::set<struct record_t*>::iterator it;
         int i;
         for (i=0,it = r->data.begin(); it != r->data.end(); i++,it++)
         {
@@ -155,7 +155,7 @@ void IndexLookup(char *key, struct listing_t *l)
         l->entries = r->data.size();
         l->size    = l->entries;
         l->record = (struct record_t**)realloc(l->record,sizeof(struct record_t*)*l->entries);
-        std::list<struct record_t*>::iterator it;
+        std::set<struct record_t*>::iterator it;
         int i;
         for (i=0,it = r->data.begin(); it != r->data.end(); i++,it++)
         {

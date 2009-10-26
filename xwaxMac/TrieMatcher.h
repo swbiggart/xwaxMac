@@ -8,15 +8,31 @@
  */
 
 #include <list>
+#include <set>
 extern "C" {
 #include "library.h"
 #include "listing.h"   
 
 }
+
+struct recordcompare
+{
+    bool operator()(const struct record_t* s1, const struct record_t* s2) const
+    {
+        int artistcomp = strcmp(s1->artist, s2->artist);
+        if (artistcomp != 0)
+        {
+            return artistcomp < 0;
+        }        
+        bool titlecomp = strcmp(s1->title, s2->title) < 0;
+        return titlecomp;        
+    }
+};
+
 class Result
     {
     public:
-        std::list<struct record_t*> data;
+        std::set<struct record_t*, recordcompare> data;
     };
 
 
