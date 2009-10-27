@@ -11,46 +11,38 @@
 
 #include "AudioDeviceList.h"
 #include "CAPlayThrough.h"
+#include "CARecord.h"
 #include <string>
 #include <iostream>
 
 #define MAX_DECKS 4
 
-
-CAPlayThroughHost *pt[MAX_DECKS];
+//FIXME cleanup globals
 struct device_t *device[MAX_DECKS];
 
 static int decks = 0;
-
+CARecord recorder;
 
 static unsigned int sample_rate(struct device_t *dv)
 {
     printf("coreaudio sample_rate\n");
-    return pt[0]->GetSampleRate(); // FIXME
+    return ((CAPlayThroughHost*)device[0]->local)->GetSampleRate(); // FIXME
 }
 
 static int start(struct device_t *dv)
 {
-    
     printf("coreaudio start\n");
-    int i;
-    for(i=0;i<decks;i++)
-    {
-    pt[i]->Start();
-    }
+    ((CAPlayThroughHost*)dv->local)->Start();
     return 0;
 }
-//FIXME
+
 static int stop(struct device_t *dv)
 {
     printf("coreaudio stop\n");
-    int i;
-    for(i=0;i<decks;i++)
-    {
-        pt[i]->Stop();
-    }
+    ((CAPlayThroughHost*)dv->local)->Stop();
     return 0;
 }
+
 //FIXME
 static void clear(struct device_t *dv)
 {
@@ -86,11 +78,17 @@ int coreaudio_id_for_device(char *deviceName, int isInput)
 int coreaudio_init(struct device_t *dv, const int inId, const int inChanL, const int inChanR, 
                                         const int outId, const int outChanL, const int outChanR, int latency)
 {
-    pt[decks] = new CAPlayThroughHost(inId, outId, inChanL, inChanR, outChanL, outChanR, dv, latency);
+    dv->local = new CAPlayThroughHost(inId, outId, inChanL, inChanR, outChanL, outChanR, dv, latency);
     dv->type = &coreaudio_type;
     assert(decks < MAX_DECKS);
     device[decks] = dv;
-    decks++;
-    
+    decks++;    
+    return 0;
+}
+
+int coreaudio_setup_record(int recordDeviceId)
+{
+    recorder.ConfigureDefault(recordDeviceId);
+    recorder.Start();
     return 0;
 }

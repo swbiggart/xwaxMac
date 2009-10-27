@@ -40,6 +40,10 @@ int readPreferences(struct prefs *prefs)
         prefs->timecode = malloc(64*sizeof(char));
         CFStringGetCString(timecodeValue, prefs->timecode, 64, kCFStringEncodingASCII);
         
+        CFStringRef recordDeviceNameKey = CFSTR("recordDeviceName");
+        CFStringRef recordDeviceNameValue = (CFStringRef)CFPreferencesCopyAppValue(recordDeviceNameKey, kCFPreferencesCurrentApplication);
+        CFStringGetCString(recordDeviceNameValue, prefs->recordDeviceName, 64, kCFStringEncodingASCII);
+        
         for (int i=0; i<decksCount; i++) {
             CFDictionaryRef dict = (CFDictionaryRef)CFArrayGetValueAtIndex(array, i);
             

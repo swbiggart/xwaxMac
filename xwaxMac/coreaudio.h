@@ -14,7 +14,7 @@ extern "C"
 int coreaudio_init(struct device_t *dv, const int inId, const int inChanL, const int inChanR, 
                    const int outId, const int outChanL, const int outChanR, int latency);
 int coreaudio_id_for_device(char *deviceName, int isInput);
-
+    int coreaudio_setup_record(int recordDeviceId);
 #ifdef __cplusplus
 }
 #endif

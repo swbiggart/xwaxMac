@@ -26,6 +26,8 @@ struct prefs
     int latency;
     int nDecks;
     char *timecode;
+    int recordDeviceId;
+    char recordDeviceName[64];
 };
 
 #ifdef __cplusplus

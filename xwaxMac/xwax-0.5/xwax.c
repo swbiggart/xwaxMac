@@ -200,6 +200,8 @@ int main(int argc, char *argv[])
                 prefs.ios[i].outDeviceId = outDevId;
             }
         }
+        // Get record device
+        prefs.recordDeviceId = coreaudio_id_for_device(prefs.recordDeviceName, 1);
     }
     if (result == -1) {
         // Otherwise show the preferences window
@@ -474,6 +476,9 @@ int main(int argc, char *argv[])
 
     for(n = 0; n < decks; n++)
         player_connect_timecoder(&deck[n].player, &deck[n].timecoder);
+    
+    // Start recording
+    coreaudio_setup_record(prefs.recordDeviceId);
     
     fprintf(stderr, "Indexing music library...\n");
     listing_init(&listing);

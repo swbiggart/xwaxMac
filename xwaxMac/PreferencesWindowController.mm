@@ -55,6 +55,14 @@ extern "C"
             first = false;
         }
     }
+    //populate record devs
+    first = true;
+    for(it = inputs.GetList().begin(); it != inputs.GetList().end(); it++) {
+        NSMenuItem *newItem = [[NSMenuItem allocWithZone:[NSMenu menuZone]] initWithTitle:[NSString stringWithCString:(*it).mName] action:NULL keyEquivalent:@""];
+        [newItem setRepresentedObject:[NSNumber numberWithInt:(*it).mID]];
+        [[recordDevices menu] addItem:newItem];        
+
+    }
     // deck numbers
     int n = [decks numberOfItems];
     int i;
@@ -111,6 +119,12 @@ extern "C"
     CFStringRef timecodeValue = (CFStringRef)[[timecode selectedItem] representedObject]  ;
     strcpy(currentTimecode, [[[timecode selectedItem] representedObject] cStringUsingEncoding:NSASCIIStringEncoding]);
     CFPreferencesSetAppValue(timecodeKey, timecodeValue, kCFPreferencesCurrentApplication);    
+    
+    //TODO prefs for this
+    currentRecordDeviceId = [[[recordDevices selectedItem] representedObject] intValue];
+    CFStringRef recordDeviceNameKey = CFSTR("recordDeviceName");
+    CFStringRef recordDeviceNameValue =  (CFStringRef)[[recordDevices selectedItem] title];
+    CFPreferencesSetAppValue(recordDeviceNameKey, recordDeviceNameValue, kCFPreferencesCurrentApplication);
     
     // Create a dictionary for each enabled deck
     for (i=0,n=0;i<3;i++) {
@@ -180,6 +194,8 @@ extern "C"
     CFRelease(notFirstTimeValue);
     CFRelease(timecodeKey);
     CFRelease(timecodeValue);
+    CFRelease(recordDeviceNameKey);
+    CFRelease(recordDeviceNameValue);
     CFRelease(array);
     
     // Number of decks for the application to start up
@@ -344,6 +360,7 @@ int showPrefsWindow(struct prefs *prefs)
         prefs->nDecks = wc->nDecks;
         prefs->timecode = (char*)malloc(64*sizeof(char));
         strcpy(prefs->timecode, wc->currentTimecode);
+        prefs->recordDeviceId = wc->currentRecordDeviceId;
     }
     return wc->returnCode;
 }

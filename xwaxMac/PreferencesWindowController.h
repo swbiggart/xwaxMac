@@ -17,6 +17,7 @@
     IBOutlet NSPopUpButton *outputDevices;
     IBOutlet NSPopUpButton *outputDeviceLChan;
     IBOutlet NSPopUpButton *outputDeviceRChan;
+    IBOutlet NSPopUpButton *recordDevices;
     IBOutlet NSPopUpButton *latency;
     IBOutlet NSPopUpButton *decks;
     IBOutlet NSPopUpButton *timecode;
@@ -31,6 +32,7 @@
     int nDecks;
     char currentTimecode[64];
     int returnCode;
+    int currentRecordDeviceId;
 }
 // Callbacks on various UI elements
 - (IBAction) okPressed:(id)sender;
