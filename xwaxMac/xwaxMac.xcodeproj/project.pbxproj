@@ -11,6 +11,7 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		8E0423BE10527BAB0036B694 /* SimpleRingBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E0423BD10527BAB0036B694 /* SimpleRingBuffer.cpp */; };
+		8E1241C11098D7DE00F394EC /* RecordLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E1241C01098D7DE00F394EC /* RecordLogger.cpp */; };
 		8E30AF911056E3B800F581BD /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E30AF8E1056E3B800F581BD /* Preferences.xib */; };
 		8E30AF921056E3B800F581BD /* PreferencesWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8E30AF901056E3B800F581BD /* PreferencesWindowController.mm */; };
 		8E30C0841060D43B00F581BD /* ReadPreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E30C0831060D43B00F581BD /* ReadPreferences.c */; };
@@ -97,6 +98,8 @@
 		8E042032105051E20036B694 /* options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = options.h; sourceTree = "<group>"; };
 		8E0423BC10527BAB0036B694 /* SimpleRingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleRingBuffer.h; sourceTree = "<group>"; };
 		8E0423BD10527BAB0036B694 /* SimpleRingBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleRingBuffer.cpp; sourceTree = "<group>"; };
+		8E1241BF1098D7DE00F394EC /* RecordLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordLogger.h; sourceTree = "<group>"; };
+		8E1241C01098D7DE00F394EC /* RecordLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecordLogger.cpp; sourceTree = "<group>"; };
 		8E30AF8E1056E3B800F581BD /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		8E30AF8F1056E3B800F581BD /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		8E30AF901056E3B800F581BD /* PreferencesWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PreferencesWindowController.mm; sourceTree = "<group>"; };
@@ -283,6 +286,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8E1241BE1098D7BF00F394EC /* Misc */,
 				8E30AF8D1056E3A400F581BD /* Interface */,
 				8ED0B3CF10401BFA002AF97C /* AU Window */,
 				8EA73575103DBBEB004580FB /* EyeTunes */,
@@ -315,6 +319,15 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E1241BE1098D7BF00F394EC /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				8E1241BF1098D7DE00F394EC /* RecordLogger.h */,
+				8E1241C01098D7DE00F394EC /* RecordLogger.cpp */,
+			);
+			name = Misc;
 			sourceTree = "<group>";
 		};
 		8E30AF8D1056E3A400F581BD /* Interface */ = {
@@ -562,6 +575,7 @@
 				8EC9482C107D28A300330A36 /* AppHelpers.m in Sources */,
 				8E6B0020107DDA0C005CF92E /* LoadingWindowController.m in Sources */,
 				8E50557C1088A04A00E34FBD /* TrieMatcher.cpp in Sources */,
+				8E1241C11098D7DE00F394EC /* RecordLogger.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

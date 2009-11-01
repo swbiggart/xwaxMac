@@ -17,26 +17,39 @@
     IBOutlet NSPopUpButton *outputDevices;
     IBOutlet NSPopUpButton *outputDeviceLChan;
     IBOutlet NSPopUpButton *outputDeviceRChan;
+    IBOutlet NSButton      *recordEnabledButton;
     IBOutlet NSPopUpButton *recordDevices;
+    IBOutlet NSPopUpButton *recordDeviceLChan;
+    IBOutlet NSPopUpButton *recordDeviceRChan;
+    IBOutlet NSButton      *recordPathButton;
+    IBOutlet NSTextField   *recordPath;
+    IBOutlet NSPopUpButton *recordFormat;
+    IBOutlet NSPopUpButton *recordBitrate;    
     IBOutlet NSPopUpButton *latency;
     IBOutlet NSPopUpButton *decks;
     IBOutlet NSPopUpButton *timecode;
-    IBOutlet NSButton *cancelButton;
-    IBOutlet NSButton *okButton;
-    IBOutlet NSButton *enabledButton;
+    IBOutlet NSButton      *cancelButton;
+    IBOutlet NSButton      *okButton;
+    IBOutlet NSButton      *enabledButton;
     @public
     IBOutlet NSWindow *theWindow; // Preferences window
+    
+    struct prefs prefs;
+    struct iopair *currentio;
+    int returnCode;
+    // FIXME this should all be moved into a preferences struct
+    /*
     struct iopair ios[3]; // for 3 decks
     struct iopair *currentio;
     int currentLatency;
     int nDecks;
     char currentTimecode[64];
+    char currentRecordPath[1024];
     int returnCode;
     int currentRecordDeviceId;
+     */
 }
 // Callbacks on various UI elements
-- (IBAction) okPressed:(id)sender;
-- (IBAction) cancelPressed:(id)sender;
 - (IBAction) inputChanged:(id)sender;
 - (IBAction) outputChanged:(id)sender;
 - (IBAction) deckChanged:(id)sender;
@@ -45,7 +58,13 @@
 - (IBAction) inDeviceChanRChanged:(id)sender;
 - (IBAction) outDeviceChanLChanged:(id)sender;
 - (IBAction) outDeviceChanRChanged:(id)sender;
+- (IBAction) recordPathButtonClicked:(id)sender;
+- (IBAction) recordChanged:(id)sender;
+- (IBAction) recordEnabledChanged:(id)sender;
+- (IBAction) okPressed:(id)sender;
+- (IBAction) cancelPressed:(id)sender;
 // Utility to populate lists
 - (void) populateInputChannelList:(NSNumber*)deviceId;
 - (void) populateOutputChannelList:(NSNumber*)deviceId;
+- (void) populateRecordChannelList:(NSNumber*)deviceId;
 @end

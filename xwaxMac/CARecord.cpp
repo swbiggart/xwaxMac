@@ -95,8 +95,20 @@ OSStatus CARecord::ConfigureOutputFile(const FSRef inParentDirectory, const CFSt
 	OSStatus err = noErr;
 	AudioConverterRef conv = NULL;
     
-	// Create new MP4 file (kAudioFileM4AType)
-	err = ExtAudioFileCreateNew(&inParentDirectory, inFileName, kAudioFileM4AType, inASBD, NULL, &fOutputAudioFile);
+	// Create new file according to format type
+    if (inASBD->mFormatID == kAudioFormatMPEG4AAC)
+    {
+        err = ExtAudioFileCreateNew(&inParentDirectory, inFileName, kAudioFileM4AType, inASBD, NULL, &fOutputAudioFile);
+    } 
+    else if (inASBD->mFormatID == kAudioFormatLinearPCM)
+    {
+        err = ExtAudioFileCreateNew(&inParentDirectory, inFileName, kAudioFileAIFFType, inASBD, NULL, &fOutputAudioFile);
+    }
+    else if (inASBD->mFormatID == kAudioFormatAppleLossless)
+    {
+        err = ExtAudioFileCreateNew(&inParentDirectory, inFileName, kAudioFileM4AType, inASBD, NULL, &fOutputAudioFile);
+    }
+
 	if(err != noErr)
 	{
 		char formatID[5];
@@ -127,6 +139,27 @@ OSStatus CARecord::ConfigureOutputFile(const FSRef inParentDirectory, const CFSt
         fprintf(stderr,"Warning: Couldn't get conv\n");
     }
     
+    // Setup input channel map
+    {
+        SInt32 *channelMap = NULL;
+        UInt32 size = sizeof(SInt32)*2;
+        channelMap = (SInt32*)malloc(size);
+        // Map desired input channels (0-based) from device channels (1-based)
+        channelMap[0] = prefs->recordDeviceChanL-1;
+        channelMap[1] = prefs->recordDeviceChanR-1;
+        err = AudioConverterSetProperty(conv, kAudioConverterChannelMap, size, channelMap);
+        if(err != noErr)
+        {
+            char formatID[5];
+            *(UInt32 *)formatID = CFSwapInt32HostToBig(err);
+            formatID[4] = '\0';
+            fprintf(stderr, "Setting channel map FAILED! '%-4.4s'\n", formatID);
+            return err;
+        }
+        free(channelMap);
+    }
+    
+    /*
 	// If we're recording from a mono source, setup a simple channel map to split to stereo
 	if (fDeviceFormat.mChannelsPerFrame == 1 && fOutputFormat.mChannelsPerFrame == 2)
 	{
@@ -138,11 +171,13 @@ OSStatus CARecord::ConfigureOutputFile(const FSRef inParentDirectory, const CFSt
 			err = AudioConverterSetProperty(conv, kAudioConverterChannelMap, 2*sizeof(SInt32), channelMap);
 		}
 	}
+     */
 
-    if (conv)
+    // Set the bitrate if we are recording in aac
+    if (conv && inASBD->mFormatID == kAudioFormatMPEG4AAC)
     {
         //Set the bitrate
-        UInt32 bitrate = 320000;
+        UInt32 bitrate = prefs->recordBitrate * 1024; // 1000 or 1024, what does iTunes do?
         err = AudioConverterSetProperty(conv, kAudioConverterEncodeBitRate, sizeof(UInt32), &bitrate);
         if(err != noErr)
         {
@@ -299,25 +334,48 @@ OSStatus CARecord::Configure(const FSRef inParentDirectory, const CFStringRef in
 }
 
 // Configure and Initialize our AudioUnits, Audio Files, and Audio Buffers
-OSStatus CARecord::ConfigureDefault(int deviceId)
+// FIXME: a better name would be configurefromprefs?
+OSStatus CARecord::ConfigureDefault(struct prefs *p)
 {
 	OSStatus err = noErr;
-	
-    fInputDeviceID = deviceId;
+
+	this->prefs = p;
+    fInputDeviceID = p->recordDeviceId;
 	err = ConfigureAU();
     
     FSRef inParentDirectory;
-    FSPathMakeRef((const UInt8*)"/Users/tomblench", &inParentDirectory, NULL);
+    FSPathMakeRef((const UInt8*)p->recordPath, &inParentDirectory, NULL);
     
     time_t rawtime;
     struct tm * timeinfo;
     char buf [128];
     time ( &rawtime );
     timeinfo = localtime ( &rawtime );
-    strftime (buf,128,"recording%Y%m%d%H%M%S.m4a",timeinfo);
+    strftime (buf,128,"recording%Y%m%d%H%M%S",timeinfo);
     
     CFStringRef inFileName = CFStringCreateWithCString(kCFAllocatorDefault, buf, kCFStringEncodingASCII);
-    AudioStreamBasicDescription	inASBD = {44100.0, kAudioFormatMPEG4AAC, 0, 0, 0, 0, 2, 0, 0};
+    
+    
+    // FIXME hardcoding of sample rate
+    AudioStreamBasicDescription	inASBD;
+    if (strcmp(prefs->recordFormat,"AAC")==0)
+    {
+        AudioStreamBasicDescription asbd = {44100.0, kAudioFormatMPEG4AAC, 0, 0, 0, 0, 2, 0, 0};
+        inASBD = asbd;
+        sprintf(buf,"%s.m4a",buf);
+    }
+    else if (strcmp(prefs->recordFormat,"AIFF")==0)
+    {
+        AudioStreamBasicDescription asbd = {44100.0, kAudioFormatLinearPCM, 0, 0, 0, 4, 2, 16, 0};
+        inASBD = asbd;
+        sprintf(buf,"%s.aiff",buf);
+    }
+    else if (strcmp(prefs->recordFormat,"Apple Lossless")==0)
+    {
+        AudioStreamBasicDescription asbd = {44100.0, kAudioFormatAppleLossless, kAppleLosslessFormatFlag_16BitSourceData, 0, 0, 4, 2, 16, 0};// FIXME - bit depth hardcoded?
+        inASBD = asbd;
+        sprintf(buf,"%s.m4a",buf);
+    }
     
 	if(err == noErr)
 		err = ConfigureOutputFile(inParentDirectory, inFileName, &inASBD);
@@ -348,6 +406,6 @@ OSStatus CARecord::Stop()
 		return err;
 	}
 	
-	fprintf(stderr, "Recording stoped.\n");
+	fprintf(stderr, "Recording stopped.\n");
 	return err;
 }

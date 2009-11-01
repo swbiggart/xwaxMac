@@ -14,6 +14,10 @@
 #include "AUBuffer.h"
 #include "AudioFile.h"
 #include <machine/endian.h>
+#include "RecordLogger.h"
+//FIXME global
+
+RecordLogger r("/Users/tomblench/xwaxlog.txt");
 
 int loadAudioFile(const char* fileName, struct track_t *tr)
 {
@@ -83,6 +87,10 @@ int loadAudioFile(const char* fileName, struct track_t *tr)
 
     tr->bufsiz = (size_t)(&m_auBufferList.GetBufferList())->mBuffers[0].mDataByteSize;
     tr->buf = (short*)(&m_auBufferList.GetBufferList())->mBuffers[0].mData;
+    
+    // Log that we are loading this record
+    r.LogRecord(tr->title,tr->artist,tr->path);
+    
     // copy data into blocks used by track in xwax
     read_from_buffer(tr);
     

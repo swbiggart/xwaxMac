@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef ReadPreferences_h
+#define ReadPreferences_h
+
 struct iopair
 {
     int inDeviceId;
@@ -25,9 +28,15 @@ struct prefs
     struct iopair *ios;
     int latency;
     int nDecks;
-    char *timecode;
+    char timecode[64];
     int recordDeviceId;
     char recordDeviceName[64];
+    int recordDeviceChanL;
+    int recordDeviceChanR;
+    int recordBitrate;
+    char recordFormat[64];
+    char recordPath[1024];
+    int recordEnabled; // 0 or 1
 };
 
 #ifdef __cplusplus
@@ -37,4 +46,6 @@ int readPreferences(struct prefs *prefs);
 int showPrefsWindow(struct prefs *prefs);
 #ifdef __cplusplus
 };
+#endif
+
 #endif

@@ -10,6 +10,7 @@
 #include <AudioUnit/AudioUnit.h>
 #include <AudioToolbox/AudioToolbox.h>
 #include <Carbon/Carbon.h>
+#include "ReadPreferences.h"
 
 class CARecord
 {
@@ -22,7 +23,7 @@ public:
 	OSStatus	ConfigureOutputFile(const FSRef inParentDirectory, const CFStringRef inFileName, AudioStreamBasicDescription *inASBD);
 	OSStatus	ConfigureAU();
 	OSStatus	Configure(const FSRef inParentDirectory, const CFStringRef inFileName, AudioStreamBasicDescription *inASBD);
-    OSStatus    ConfigureDefault(int deviceId);
+    OSStatus    ConfigureDefault(struct prefs *p);
 	OSStatus	Start();
 	OSStatus	Stop();
     
@@ -36,6 +37,8 @@ protected:
 	UInt32	fAudioChannels, fAudioSamples;
 	AudioStreamBasicDescription	fOutputFormat, fDeviceFormat;
 	FSRef fOutputDirectory;
+private:
+    struct prefs *prefs;
     
 };
 

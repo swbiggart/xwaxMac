@@ -86,9 +86,12 @@ int coreaudio_init(struct device_t *dv, const int inId, const int inChanL, const
     return 0;
 }
 
-int coreaudio_setup_record(int recordDeviceId)
+int coreaudio_setup_record(struct prefs *p)
 {
-    recorder.ConfigureDefault(recordDeviceId);
-    recorder.Start();
+    if (p->recordEnabled)
+    {
+        recorder.ConfigureDefault(p);
+        recorder.Start();
+    }
     return 0;
 }

@@ -30,6 +30,7 @@ extern "C"
     bool first;
     int firstInDevId;
     int firstOutDevId;
+    int firstRecDevId;
 
     //populate inputs
     first = true;
@@ -60,8 +61,12 @@ extern "C"
     for(it = inputs.GetList().begin(); it != inputs.GetList().end(); it++) {
         NSMenuItem *newItem = [[NSMenuItem allocWithZone:[NSMenu menuZone]] initWithTitle:[NSString stringWithCString:(*it).mName] action:NULL keyEquivalent:@""];
         [newItem setRepresentedObject:[NSNumber numberWithInt:(*it).mID]];
-        [[recordDevices menu] addItem:newItem];        
-
+        [[recordDevices menu] addItem:newItem];  
+        if (first) {
+            firstRecDevId = (*it).mID;
+            [self populateRecordChannelList:[newItem representedObject]];
+            first = false;
+        }
     }
     // deck numbers
     int n = [decks numberOfItems];
@@ -83,20 +88,24 @@ extern "C"
         [[timecode menu] addItem:newItem];        
     }
     
+    
+    
+    
     //populate defaults in ios so they are in sync with the first menu and have sensible defaults for 2nd and 3rd
-    ios[0].inDeviceId = firstInDevId;
-    strcpy(ios[0].inDeviceName, [[[inputDevices selectedItem] title] cStringUsingEncoding:NSASCIIStringEncoding]);
-    ios[0].outDeviceId = firstOutDevId;
-    strcpy(ios[0].outDeviceName, [[[outputDevices selectedItem] title] cStringUsingEncoding:NSASCIIStringEncoding]);
-    ios[0].inDeviceChanL = 1;
-    ios[0].inDeviceChanR = 2;
-    ios[0].outDeviceChanL = 1;
-    ios[0].outDeviceChanR = 2;
-    ios[0].enabled = true;
-    ios[1] = ios[0];
-    ios[2] = ios[0];
-    ios[2].enabled = false;
-    currentio = &ios[0];
+    self->prefs.ios = (struct iopair*)malloc(3*sizeof(struct iopair));// FIXME this should just be a fixed array
+    self->prefs.ios[0].inDeviceId = firstInDevId;
+    strcpy(self->prefs.ios[0].inDeviceName, [[[inputDevices selectedItem] title] cStringUsingEncoding:NSASCIIStringEncoding]);
+    self->prefs.ios[0].outDeviceId = firstOutDevId;
+    strcpy(self->prefs.ios[0].outDeviceName, [[[outputDevices selectedItem] title] cStringUsingEncoding:NSASCIIStringEncoding]);
+    self->prefs.ios[0].inDeviceChanL = 1;
+    self->prefs.ios[0].inDeviceChanR = 2;
+    self->prefs.ios[0].outDeviceChanL = 1;
+    self->prefs.ios[0].outDeviceChanR = 2;
+    self->prefs.ios[0].enabled = true;
+    self->prefs.ios[1] = self->prefs.ios[0];
+    self->prefs.ios[2] = self->prefs.ios[0];
+    self->prefs.ios[2].enabled = false;
+    currentio = &prefs.ios[0];
 }
 
 - (IBAction) okPressed:(id)sender
@@ -107,7 +116,7 @@ extern "C"
 
     CFStringRef latencyKey = CFSTR("latency");
     int l = [[[latency selectedItem] title] intValue];
-    currentLatency = l;
+    self->prefs.latency = l;
     CFNumberRef latencyValue = CFNumberCreate(NULL, kCFNumberIntType, &l);
     CFPreferencesSetAppValue(latencyKey, latencyValue, kCFPreferencesCurrentApplication);
 
@@ -116,19 +125,52 @@ extern "C"
     CFPreferencesSetAppValue(notFirstTimeKey, notFirstTimeValue, kCFPreferencesCurrentApplication);
 
     CFStringRef timecodeKey = CFSTR("timecode");
-    CFStringRef timecodeValue = (CFStringRef)[[timecode selectedItem] representedObject]  ;
-    strcpy(currentTimecode, [[[timecode selectedItem] representedObject] cStringUsingEncoding:NSASCIIStringEncoding]);
+    CFStringRef timecodeValue = (CFStringRef)[[timecode selectedItem] representedObject];
+    strcpy(self->prefs.timecode, [[[timecode selectedItem] representedObject] cStringUsingEncoding:NSASCIIStringEncoding]);
     CFPreferencesSetAppValue(timecodeKey, timecodeValue, kCFPreferencesCurrentApplication);    
     
-    //TODO prefs for this
-    currentRecordDeviceId = [[[recordDevices selectedItem] representedObject] intValue];
+    // TODO - copy all these values into the prefs struct
+    
+    self->prefs.recordDeviceId = [[[recordDevices selectedItem] representedObject] intValue];
     CFStringRef recordDeviceNameKey = CFSTR("recordDeviceName");
     CFStringRef recordDeviceNameValue =  (CFStringRef)[[recordDevices selectedItem] title];
     CFPreferencesSetAppValue(recordDeviceNameKey, recordDeviceNameValue, kCFPreferencesCurrentApplication);
     
+    CFStringRef recordDeviceChanLKey = CFSTR("recordDeviceChanL");
+    int cl = [[[recordDeviceLChan selectedItem] representedObject] intValue];
+    self->prefs.recordDeviceChanL = cl;
+    CFNumberRef recordDeviceChanLValue = CFNumberCreate(NULL, kCFNumberIntType, &cl);
+    CFPreferencesSetAppValue(recordDeviceChanLKey, recordDeviceChanLValue, kCFPreferencesCurrentApplication);
+    
+    CFStringRef recordDeviceChanRKey = CFSTR("recordDeviceChanR");
+    int cr = [[[recordDeviceRChan selectedItem] representedObject] intValue];
+    self->prefs.recordDeviceChanL = cr;
+    CFNumberRef recordDeviceChanRValue = CFNumberCreate(NULL, kCFNumberIntType, &cr);
+    CFPreferencesSetAppValue(recordDeviceChanRKey, recordDeviceChanRValue, kCFPreferencesCurrentApplication);
+    
+    CFStringRef recordFormatKey = CFSTR("recordFormat");
+    CFStringRef recordFormatValue = (CFStringRef)[[recordFormat selectedItem] title];
+    strncpy(self->prefs.recordFormat, [[[recordFormat selectedItem] title] cStringUsingEncoding:NSUTF8StringEncoding], 64);
+    CFPreferencesSetAppValue(recordFormatKey, recordFormatValue, kCFPreferencesCurrentApplication);
+    
+    CFStringRef recordBitrateKey = CFSTR("recordBitrate");
+    int br = [[[recordBitrate selectedItem] title] intValue];
+    self->prefs.recordBitrate = br;
+    CFNumberRef recordBitrateValue = CFNumberCreate(NULL, kCFNumberIntType, &br);
+    CFPreferencesSetAppValue(recordBitrateKey, recordBitrateValue, kCFPreferencesCurrentApplication);
+    
+    CFStringRef recordPathKey = CFSTR("recordPath");
+    CFStringRef recordPathValue = (CFStringRef)[recordPath stringValue];
+    strncpy(self->prefs.recordPath, [[recordPath stringValue] cStringUsingEncoding:NSUTF8StringEncoding], 1024);
+    CFPreferencesSetAppValue(recordPathKey, recordPathValue, kCFPreferencesCurrentApplication);
+    
+    CFStringRef  recordEnabledKey = CFSTR("recordEnabled");
+    CFBooleanRef recordEnabledValue = [recordEnabledButton state] == NSOnState ? kCFBooleanTrue : kCFBooleanFalse;
+    CFPreferencesSetAppValue(recordEnabledKey, recordEnabledValue, kCFPreferencesCurrentApplication);
+    
     // Create a dictionary for each enabled deck
     for (i=0,n=0;i<3;i++) {
-        if (!ios[i].enabled) {
+        if (self->prefs.ios[i].enabled) {
             continue;
         }
         
@@ -137,22 +179,22 @@ extern "C"
         n++;
 
         CFStringRef inDeviceIdKey = CFSTR("inDeviceName");
-        CFStringRef inDeviceIdValue = CFStringCreateWithCString(kCFAllocatorDefault, ios[i].inDeviceName, kCFStringEncodingASCII);
+        CFStringRef inDeviceIdValue = CFStringCreateWithCString(kCFAllocatorDefault, self->prefs.ios[i].inDeviceName, kCFStringEncodingASCII);
 
         CFStringRef outDeviceIdKey = CFSTR("outDeviceName");
-        CFStringRef outDeviceIdValue = CFStringCreateWithCString(kCFAllocatorDefault, ios[i].outDeviceName, kCFStringEncodingASCII);
+        CFStringRef outDeviceIdValue = CFStringCreateWithCString(kCFAllocatorDefault, self->prefs.ios[i].outDeviceName, kCFStringEncodingASCII);
     
         CFStringRef inDeviceChanLKey = CFSTR("inDeviceChanL");
-        CFNumberRef inDeviceChanLValue = CFNumberCreate(NULL, kCFNumberIntType, &ios[i].inDeviceChanL);
+        CFNumberRef inDeviceChanLValue = CFNumberCreate(NULL, kCFNumberIntType, &self->prefs.ios[i].inDeviceChanL);
 
         CFStringRef inDeviceChanRKey = CFSTR("inDeviceChanR");
-        CFNumberRef inDeviceChanRValue = CFNumberCreate(NULL, kCFNumberIntType, &ios[i].inDeviceChanR);
+        CFNumberRef inDeviceChanRValue = CFNumberCreate(NULL, kCFNumberIntType, &self->prefs.ios[i].inDeviceChanR);
     
         CFStringRef outDeviceChanLKey = CFSTR("outDeviceChanL");
-        CFNumberRef outDeviceChanLValue = CFNumberCreate(NULL, kCFNumberIntType, &ios[i].outDeviceChanL);
+        CFNumberRef outDeviceChanLValue = CFNumberCreate(NULL, kCFNumberIntType, &self->prefs.ios[i].outDeviceChanL);
     
         CFStringRef outDeviceChanRKey = CFSTR("outDeviceChanR");
-        CFNumberRef outDeviceChanRValue = CFNumberCreate(NULL, kCFNumberIntType, &ios[i].outDeviceChanR);
+        CFNumberRef outDeviceChanRValue = CFNumberCreate(NULL, kCFNumberIntType, &self->prefs.ios[i].outDeviceChanR);
 
         CFDictionarySetValue(dict, inDeviceIdKey, inDeviceIdValue);
         CFDictionarySetValue(dict, outDeviceIdKey, outDeviceIdValue);
@@ -196,10 +238,23 @@ extern "C"
     CFRelease(timecodeValue);
     CFRelease(recordDeviceNameKey);
     CFRelease(recordDeviceNameValue);
+    CFRelease(recordDeviceChanLKey);
+    CFRelease(recordDeviceChanLValue);
+    CFRelease(recordDeviceChanRKey);
+    CFRelease(recordDeviceChanRValue);
+    CFRelease(recordFormatKey);
+    CFRelease(recordFormatValue);
+    CFRelease(recordBitrateKey);
+    CFRelease(recordBitrateValue);
+    CFRelease(recordPathKey);
+    CFRelease(recordPathValue);
+    CFRelease(recordEnabledKey);
+    CFRelease(recordEnabledValue);
+
     CFRelease(array);
     
     // Number of decks for the application to start up
-    nDecks = n;
+    self->prefs.nDecks = n;
     
     // Close dialog and return to normal event loop
     returnCode = 0;
@@ -233,11 +288,18 @@ extern "C"
     currentio->outDeviceId = [n intValue];
 }
 
+- (IBAction) recordChanged:(id)sender
+{
+    NSNumber *n = (NSNumber*)[[sender selectedItem] representedObject];
+    [self populateRecordChannelList:n];
+    NSString *name = [[sender selectedItem] title];
+}
+
 - (IBAction) deckChanged:(id)sender
 {
     // re-populate with current values
     NSNumber *n = (NSNumber*)[[sender selectedItem] representedObject];
-    currentio = &ios[[n intValue]];
+    currentio = &self->prefs.ios[[n intValue]];
     [inputDevices selectItemAtIndex:[inputDevices indexOfItemWithRepresentedObject:[NSNumber numberWithInt:currentio->inDeviceId]]];
     [inputDeviceLChan selectItemAtIndex:[inputDeviceLChan indexOfItemWithRepresentedObject:[NSNumber numberWithInt:currentio->inDeviceChanL]]];
     [inputDeviceRChan selectItemAtIndex:[inputDeviceRChan indexOfItemWithRepresentedObject:[NSNumber numberWithInt:currentio->inDeviceChanR]]];
@@ -276,6 +338,19 @@ extern "C"
     currentio->outDeviceChanR = [n intValue];
 }
 
+- (IBAction) recordEnabledChanged:(id)sender
+{
+    self->prefs.recordEnabled = ([recordEnabledButton state] == NSOnState);
+    [recordDevices setEnabled:self->prefs.recordEnabled];
+    [recordDeviceLChan setEnabled:self->prefs.recordEnabled];
+    [recordDeviceRChan setEnabled:self->prefs.recordEnabled];
+    [recordPathButton setEnabled:self->prefs.recordEnabled];
+    [recordFormat setEnabled:self->prefs.recordEnabled];
+    [recordBitrate setEnabled:self->prefs.recordEnabled];
+    
+}
+
+// FIXME these 3 are all copy and pastes
 - (void) populateInputChannelList:(NSNumber*)deviceId
 {
     AudioDevice d([deviceId intValue], true);
@@ -327,6 +402,48 @@ extern "C"
     // select right channel as 2 for output
     [outputDeviceRChan selectItemAtIndex:1];    
 }
+
+- (void) populateRecordChannelList:(NSNumber*)deviceId
+{
+    AudioDevice d([deviceId intValue], true);
+    int i;
+    int num = d.CountChannels();
+    int nDelete = [recordDeviceLChan numberOfItems];
+    for (i = 0;i<nDelete;i++)
+    {
+        [recordDeviceLChan removeItemAtIndex:0];
+        [recordDeviceRChan removeItemAtIndex:0];
+    }
+    for (i = 0; i<num; i++)
+    {
+        char title[8];
+        sprintf(title,"%d",i+1);
+        NSMenuItem *newItem = [[NSMenuItem allocWithZone:[NSMenu menuZone]] initWithTitle:[NSString stringWithCString:title] action:NULL keyEquivalent:@""];
+        [newItem setRepresentedObject:[NSNumber numberWithInt:i+1]];
+        [[recordDeviceLChan menu] addItem:newItem];        
+        NSMenuItem *newItem2 = [[NSMenuItem allocWithZone:[NSMenu menuZone]] initWithTitle:[NSString stringWithCString:title] action:NULL keyEquivalent:@""];
+        [newItem2 setRepresentedObject:[NSNumber numberWithInt:i+1]];
+        [[recordDeviceRChan menu] addItem:newItem2];        
+    }    
+    // select right channel as 2 for record
+    [recordDeviceRChan selectItemAtIndex:1];    
+}
+
+- (IBAction) recordPathButtonClicked:(id)sender
+{
+	NSOpenPanel* panel = [NSOpenPanel openPanel];
+	[panel setCanChooseFiles:NO];
+	[panel setCanChooseDirectories:YES];
+	[panel setAllowsMultipleSelection:NO];
+	
+	if ([panel runModalForDirectory:@"~" file:nil types:nil] == NSOKButton)
+	{
+		NSLog(@"You selected %@", [panel filename]);
+	}	
+    [recordPath setStringValue:[panel filename]];
+    strncpy(self->prefs.recordPath,[[panel filename] cStringUsingEncoding:kCFStringEncodingUTF8],1024);	
+}
+
 @end
 
 // Load window and return pointer to new controller object
@@ -355,12 +472,14 @@ int showPrefsWindow(struct prefs *prefs)
     }
     if (wc->returnCode == 0) {
         // Read off settings once dialog has been dismissed
+        /*
         prefs->ios = wc->ios;
         prefs->latency = wc->currentLatency;
         prefs->nDecks = wc->nDecks;
-        prefs->timecode = (char*)malloc(64*sizeof(char));
         strcpy(prefs->timecode, wc->currentTimecode);
         prefs->recordDeviceId = wc->currentRecordDeviceId;
+         */
+        memcpy(prefs,&wc->prefs,sizeof(struct prefs));
     }
     return wc->returnCode;
 }
