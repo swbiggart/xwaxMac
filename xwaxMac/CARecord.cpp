@@ -353,9 +353,6 @@ OSStatus CARecord::ConfigureDefault(struct prefs *p)
     timeinfo = localtime ( &rawtime );
     strftime (buf,128,"recording%Y%m%d%H%M%S",timeinfo);
     
-    CFStringRef inFileName = CFStringCreateWithCString(kCFAllocatorDefault, buf, kCFStringEncodingASCII);
-    
-    
     // FIXME hardcoding of sample rate
     AudioStreamBasicDescription	inASBD;
     if (strcmp(prefs->recordFormat,"AAC")==0)
@@ -366,7 +363,8 @@ OSStatus CARecord::ConfigureDefault(struct prefs *p)
     }
     else if (strcmp(prefs->recordFormat,"AIFF")==0)
     {
-        AudioStreamBasicDescription asbd = {44100.0, kAudioFormatLinearPCM, 0, 0, 0, 4, 2, 16, 0};
+
+        AudioStreamBasicDescription asbd = {44100.0, kAudioFormatLinearPCM, kAudioFormatFlagIsBigEndian | kAudioFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked, 4, 1, 4, 2, 16, 0};
         inASBD = asbd;
         sprintf(buf,"%s.aiff",buf);
     }
@@ -376,6 +374,8 @@ OSStatus CARecord::ConfigureDefault(struct prefs *p)
         inASBD = asbd;
         sprintf(buf,"%s.m4a",buf);
     }
+    
+    CFStringRef inFileName = CFStringCreateWithCString(kCFAllocatorDefault, buf, kCFStringEncodingASCII);
     
 	if(err == noErr)
 		err = ConfigureOutputFile(inParentDirectory, inFileName, &inASBD);
