@@ -37,17 +37,7 @@
     struct prefs prefs;
     struct iopair *currentio;
     int returnCode;
-    // FIXME this should all be moved into a preferences struct
-    /*
-    struct iopair ios[3]; // for 3 decks
-    struct iopair *currentio;
-    int currentLatency;
-    int nDecks;
-    char currentTimecode[64];
-    char currentRecordPath[1024];
-    int returnCode;
-    int currentRecordDeviceId;
-     */
+
 }
 // Callbacks on various UI elements
 - (IBAction) inputChanged:(id)sender;
@@ -61,6 +51,7 @@
 - (IBAction) recordPathButtonClicked:(id)sender;
 - (IBAction) recordChanged:(id)sender;
 - (IBAction) recordEnabledChanged:(id)sender;
+- (IBAction) recordFormatChanged:(id)sender;
 - (IBAction) okPressed:(id)sender;
 - (IBAction) cancelPressed:(id)sender;
 // Utility to populate lists

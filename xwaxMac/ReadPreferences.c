@@ -60,7 +60,7 @@ int readPreferences(struct prefs *prefs)
         CFNumberGetValue(recordBitRateValue, kCFNumberIntType, &prefs->recordBitrate);
         
         CFStringRef recordPathKey = CFSTR("recordPath");
-        CFStringRef recordPathValue = (CFStringRef)CFPreferencesCopyAppValue(recordFormatKey, kCFPreferencesCurrentApplication);
+        CFStringRef recordPathValue = (CFStringRef)CFPreferencesCopyAppValue(recordPathKey, kCFPreferencesCurrentApplication);
         CFStringGetCString(recordPathValue, prefs->recordPath, 1024, kCFStringEncodingUTF8);
         
         CFStringRef recordEnabledKey = CFSTR("recordEnabled");

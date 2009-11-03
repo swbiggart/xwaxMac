@@ -88,8 +88,11 @@ extern "C"
         [[timecode menu] addItem:newItem];        
     }
     
-    
-    
+    //record path default
+    NSString *path = @"~";
+    NSString *standardizedPath = [path stringByStandardizingPath];
+    [recordPath setStringValue:standardizedPath];
+    strncpy(self->prefs.recordPath,[standardizedPath cStringUsingEncoding:kCFStringEncodingUTF8],1024);	    
     
     //populate defaults in ios so they are in sync with the first menu and have sensible defaults for 2nd and 3rd
     self->prefs.ios = (struct iopair*)malloc(3*sizeof(struct iopair));// FIXME this should just be a fixed array
@@ -170,7 +173,7 @@ extern "C"
     
     // Create a dictionary for each enabled deck
     for (i=0,n=0;i<3;i++) {
-        if (self->prefs.ios[i].enabled) {
+        if (!self->prefs.ios[i].enabled) {
             continue;
         }
         
@@ -429,6 +432,8 @@ extern "C"
     [recordDeviceRChan selectItemAtIndex:1];    
 }
 
+// TODO check path accessibility
+
 - (IBAction) recordPathButtonClicked:(id)sender
 {
 	NSOpenPanel* panel = [NSOpenPanel openPanel];
@@ -443,6 +448,20 @@ extern "C"
     [recordPath setStringValue:[panel filename]];
     strncpy(self->prefs.recordPath,[[panel filename] cStringUsingEncoding:kCFStringEncodingUTF8],1024);	
 }
+
+- (IBAction) recordFormatChanged:(id)sender
+{
+    NSString *t = [[sender selectedItem] title];
+    if ([t isEqualToString:@"AAC"])
+    {
+        [recordBitrate setEnabled:TRUE];
+    }
+    else 
+    {        
+        [recordBitrate setEnabled:FALSE];
+    }
+}
+
 
 @end
 
