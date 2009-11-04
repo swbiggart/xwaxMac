@@ -350,7 +350,23 @@ extern "C"
     [recordDeviceRChan setEnabled:self->prefs.recordEnabled];
     [recordPathButton setEnabled:self->prefs.recordEnabled];
     [recordFormat setEnabled:self->prefs.recordEnabled];
-    [recordBitrate setEnabled:self->prefs.recordEnabled];
+    // Dim bitrate always, but undim depending on format
+    if ([recordEnabledButton state] == NSOffState)
+    {
+        [recordBitrate setEnabled:FALSE];
+    }
+    else 
+    {
+        if ([[[recordFormat selectedItem] title] isEqualToString:@"AAC"])
+        {
+            [recordBitrate setEnabled:TRUE];
+        }
+        else
+        {
+            // It should already be false, but just to make sure
+            [recordBitrate setEnabled:FALSE];
+        }
+    }
     
 }
 
