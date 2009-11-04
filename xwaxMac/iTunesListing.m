@@ -25,6 +25,7 @@ void iTunes_get_all_tracks(struct library_t *li) {
         int nTracks = [tracks count];
         int i=0;
         ETTrack *t = nil;
+        
         while (t = [e nextObject]) {
             if ( ! [t location] ) continue; // thanks Jacques!
             
@@ -46,6 +47,15 @@ void iTunes_get_all_tracks(struct library_t *li) {
             
             updateLoadingWindow(++i, nTracks);
         }
+    }
+    // No music.  The user may wish to continue (?)
+    else 
+    {
+        [[NSAlert alertWithMessageText:nil
+                         defaultButton:nil 
+                       alternateButton:nil 
+                           otherButton:nil 
+             informativeTextWithFormat:@"No music found!\nxWax needs iTunes to be running so that it can access your music library.\n" ] runModal];
     }
 }
 

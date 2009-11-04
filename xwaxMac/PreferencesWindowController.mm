@@ -169,6 +169,7 @@ extern "C"
     
     CFStringRef  recordEnabledKey = CFSTR("recordEnabled");
     CFBooleanRef recordEnabledValue = [recordEnabledButton state] == NSOnState ? kCFBooleanTrue : kCFBooleanFalse;
+    self->prefs.recordEnabled = [recordEnabledButton state] == NSOnState ? 1 : 0;
     CFPreferencesSetAppValue(recordEnabledKey, recordEnabledValue, kCFPreferencesCurrentApplication);
     
     // Create a dictionary for each enabled deck

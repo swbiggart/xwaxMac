@@ -177,7 +177,7 @@ OSStatus CARecord::ConfigureOutputFile(const FSRef inParentDirectory, const CFSt
     if (conv && inASBD->mFormatID == kAudioFormatMPEG4AAC)
     {
         //Set the bitrate
-        UInt32 bitrate = prefs->recordBitrate * 1024; // 1000 or 1024, what does iTunes do?
+        UInt32 bitrate = prefs->recordBitrate * 1000; // 1000 or 1024, what does iTunes do?
         err = AudioConverterSetProperty(conv, kAudioConverterEncodeBitRate, sizeof(UInt32), &bitrate);
         if(err != noErr)
         {
