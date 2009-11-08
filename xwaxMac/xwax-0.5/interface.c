@@ -86,6 +86,7 @@
 #define STATUS_HEIGHT (FONT_SPACE)
 
 #define RESULTS_ARTIST_WIDTH 200
+#define RESULTS_ALBUM_WIDTH 200
 
 #define CLOCKS_WIDTH 160
 
@@ -382,7 +383,7 @@ static int draw_font(SDL_Surface *sf, int x, int y, int w, int h,
         src.h = 0;
 
     } else {
-        rendered = TTF_RenderText_Shaded(font, buf, fg, bg);
+        rendered = TTF_RenderUTF8_Shaded (font, buf, fg, bg);
         
         src.x = 0;
         src.y = 0;
@@ -984,9 +985,20 @@ static int draw_listing(SDL_Surface *surface, const struct rect_t *rect,
             box.h = FONT_SPACE;
             
             SDL_FillRect(surface, &box, palette(surface, &col));
-            
+
             draw_font(surface, x + RESULTS_ARTIST_WIDTH + SPACER, r,
                       w - RESULTS_ARTIST_WIDTH - SPACER, FONT_SPACE,
+                      re->album, em_font, text_col, col);
+            
+            box.x = x + RESULTS_ARTIST_WIDTH + RESULTS_ALBUM_WIDTH ;
+            box.y = r;
+            box.w = SPACER;
+            box.h = FONT_SPACE;
+            
+            SDL_FillRect(surface, &box, palette(surface, &col));
+                        
+            draw_font(surface, x + RESULTS_ARTIST_WIDTH + RESULTS_ALBUM_WIDTH + SPACER, r,
+                      w - RESULTS_ARTIST_WIDTH - RESULTS_ALBUM_WIDTH - SPACER, FONT_SPACE,
                       re->title, em_font, text_col, col);
         }
     }

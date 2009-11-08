@@ -24,12 +24,14 @@
 #define MAX_TITLE 128
 #define MAX_NAME 512
 #define MAX_PATHNAME 1024
+#define MAX_ALBUM 128
 
 struct record_t {
     char artist[MAX_ARTIST],
         title[MAX_TITLE],
-        name[MAX_NAME],
-        pathname[MAX_PATHNAME];
+        name[MAX_NAME],// FIXME should get rid of this
+        pathname[MAX_PATHNAME],
+        album[MAX_ALBUM];
 };
 
 /* Library acts as a storage of the actual strings */
