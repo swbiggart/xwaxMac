@@ -15,6 +15,7 @@
 #include "AudioFile.h"
 #include <machine/endian.h>
 #include "RecordLogger.h"
+#include "device.h" //for getting sample rate
 
 int loadAudioFile(const char* fileName, struct track_t *tr)
 {
@@ -47,14 +48,23 @@ int loadAudioFile(const char* fileName, struct track_t *tr)
     if (status != noErr)
         return -1;
     
-    // Setup stream format that we want - unsigned int interleaved suitable for xwax
+    fprintf(stderr,"Frames %llu\n", audioFileNumFrames);
+    // Get sample rate from 0th deck, all decks guaranteed to have same rate
+    unsigned int fs = tr->rig->device[0]->type->sample_rate(tr->rig->device[0]);
+    // Adjust number of frames due to resampling (there may be a way of getting the API to do this?)
+    audioFileNumFrames *= ((float)fs/(float)audioFileStreamFormat.mSampleRate);
+    fprintf(stderr,"Adjusted frames %llu\n", audioFileNumFrames);
+    
+    // Setup stream format that we want - unsigned int interleaved, 2 channel suitable for xwax
+
+    
     AudioStreamBasicDescription des;
 #if BYTE_ORDER == LITTLE_ENDIAN
     fprintf(stderr, "I am little\n");
-    FillOutASBDForLPCM(des, audioFileStreamFormat.mSampleRate, audioFileStreamFormat.mChannelsPerFrame, 16, 16, false, false, false);
+    FillOutASBDForLPCM(des, fs, 2, 16, 16, false, false, false);
 #else
     fprintf(stderr, "I am big\n");
-    FillOutASBDForLPCM(des, audioFileStreamFormat.mSampleRate, audioFileStreamFormat.mChannelsPerFrame, 16, 16, false, true, false);
+    FillOutASBDForLPCM(des, fs, 2, 16, 16, false, true, false);
 #endif
     CAStreamBasicDescription clientStreamFormat(des);
     clientStreamFormat.Print(stdout);
@@ -64,6 +74,38 @@ int loadAudioFile(const char* fileName, struct track_t *tr)
         fprintf(stderr,"Problem with conversion %ld!\n", status);
         return -1;
     }    
+    
+    // Get underlying converter to setup channel map
+    AudioConverterRef conv = NULL;
+    UInt32 convSize = sizeof(conv);
+    status = ExtAudioFileGetProperty(audioFileRef, kExtAudioFileProperty_AudioConverter, &convSize, &conv);    
+    if (status != noErr) {
+        fprintf(stderr,"Problem with getting converter %ld!\n", status);
+        return -1;
+    }    
+    // Setup channel map in case the source is not stereo
+    SInt32 *channelMap = NULL;
+    UInt32 size = sizeof(SInt32)*2;
+    channelMap = (SInt32*)malloc(size);
+    // Map from file to desired channels
+    // Mono - map to both channels
+    if (audioFileStreamFormat.mChannelsPerFrame == 1)
+    {
+        channelMap[0] = 0;
+        channelMap[1] = 0;
+    }
+    // Stereo or multichannel - pick first two channels
+    else 
+    {
+        channelMap[0] = 0;
+        channelMap[1] = 1;
+    }
+    status = AudioConverterSetProperty(conv, kAudioConverterChannelMap, size, channelMap);
+    if (status != noErr) {
+        fprintf(stderr,"Problem with getting converter %ld!\n", status);
+        return -1;
+    }    
+    free(channelMap);
     
     // Allocate buffer and load file
     m_auBufferList.Allocate(clientStreamFormat, (UInt32)audioFileNumFrames);

@@ -24,8 +24,13 @@ struct recordcompare
         {
             return artistcomp < 0;
         }        
-        bool titlecomp = strcmp(s1->title, s2->title) < 0;
-        return titlecomp;        
+        int titlecomp = strcmp(s1->title, s2->title);
+        if (titlecomp != 0)
+        {
+            return titlecomp < 0;
+        }           
+        bool pathcomp = strcmp(s1->pathname, s2->pathname) < 0;
+        return pathcomp;        
     }
 };
 

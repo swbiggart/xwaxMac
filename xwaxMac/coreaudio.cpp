@@ -26,7 +26,8 @@ CARecord recorder;
 static unsigned int sample_rate(struct device_t *dv)
 {
     printf("coreaudio sample_rate\n");
-    return ((CAPlayThroughHost*)device[0]->local)->GetSampleRate(); // FIXME
+    // All decks run at same rate
+    return ((CAPlayThroughHost*)dv->local)->GetSampleRate();
 }
 
 static int start(struct device_t *dv)

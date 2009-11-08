@@ -40,7 +40,7 @@ void iTunes_get_all_tracks(struct library_t *li) {
             strncpy(record->pathname, [[url path] UTF8String], MAX_PATHNAME);
             strncpy(record->artist, [[t artist] UTF8String], MAX_ARTIST);
             strncpy(record->title, [[t name] UTF8String], MAX_TITLE);
-
+            
             // Index by artist and title
             TrieMatcherAdd(record->artist, record);            
             TrieMatcherAdd(record->title, record);     

@@ -312,7 +312,8 @@
 	}
 	
 	replyEvent = malloc(sizeof(AppleEvent));
-	err = AESendMessage(&getEvent, replyEvent, kAEWaitReply + kAENeverInteract, kAEDefaultTimeout);
+    // Changed this to 100 as default timeout seems to be infinite and I have seen it get stuck here before
+	err = AESendMessage(&getEvent, replyEvent, kAEWaitReply + kAENeverInteract, 100);
 	AEDisposeDesc(&getEvent);	
 	if (err != noErr) {
 		ETLog(@"Error sending Apple Event: %d", err);
