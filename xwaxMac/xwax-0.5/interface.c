@@ -971,36 +971,31 @@ static int draw_listing(SDL_Surface *surface, const struct rect_t *rect,
         else
             col = background_col;
 
-        if(re->artist[0] == '\0') {
-            draw_font(surface, x, r, w, FONT_SPACE, re->name, font,
-                      text_col, col);
-            
-        } else {
-            draw_font(surface, x, r, RESULTS_ARTIST_WIDTH, FONT_SPACE,
-                      re->artist, font, text_col, col);
-            
-            box.x = x + RESULTS_ARTIST_WIDTH;
-            box.y = r;
-            box.w = SPACER;
-            box.h = FONT_SPACE;
-            
-            SDL_FillRect(surface, &box, palette(surface, &col));
+        draw_font(surface, x, r, RESULTS_ARTIST_WIDTH, FONT_SPACE,
+                  re->artist, font, text_col, col);
+        
+        box.x = x + RESULTS_ARTIST_WIDTH;
+        box.y = r;
+        box.w = SPACER;
+        box.h = FONT_SPACE;
+        
+        SDL_FillRect(surface, &box, palette(surface, &col));
 
-            draw_font(surface, x + RESULTS_ARTIST_WIDTH + SPACER, r,
-                      w - RESULTS_ARTIST_WIDTH - SPACER, FONT_SPACE,
-                      re->album, em_font, text_col, col);
-            
-            box.x = x + RESULTS_ARTIST_WIDTH + RESULTS_ALBUM_WIDTH ;
-            box.y = r;
-            box.w = SPACER;
-            box.h = FONT_SPACE;
-            
-            SDL_FillRect(surface, &box, palette(surface, &col));
-                        
-            draw_font(surface, x + RESULTS_ARTIST_WIDTH + RESULTS_ALBUM_WIDTH + SPACER, r,
-                      w - RESULTS_ARTIST_WIDTH - RESULTS_ALBUM_WIDTH - SPACER, FONT_SPACE,
-                      re->title, em_font, text_col, col);
-        }
+        draw_font(surface, x + RESULTS_ARTIST_WIDTH + SPACER, r,
+                  w - RESULTS_ARTIST_WIDTH - SPACER, FONT_SPACE,
+                  re->album, em_font, text_col, col);
+        
+        box.x = x + RESULTS_ARTIST_WIDTH + RESULTS_ALBUM_WIDTH ;
+        box.y = r;
+        box.w = SPACER;
+        box.h = FONT_SPACE;
+        
+        SDL_FillRect(surface, &box, palette(surface, &col));
+                    
+        draw_font(surface, x + RESULTS_ARTIST_WIDTH + RESULTS_ALBUM_WIDTH + SPACER, r,
+                  w - RESULTS_ARTIST_WIDTH - RESULTS_ALBUM_WIDTH - SPACER, FONT_SPACE,
+                  re->title, em_font, text_col, col);
+        
     }
 
     /* Blank any remaining space */

@@ -42,10 +42,14 @@ void iTunes_get_all_tracks(struct library_t *li) {
             strncpy(record->title, [[t name] UTF8String], MAX_TITLE);
             strncpy(record->album, [[t album] UTF8String], MAX_ALBUM);
             
-            // Index by artist and title and album
-            TrieMatcherAdd(record->artist, record);            
-            TrieMatcherAdd(record->title, record);
-            TrieMatcherAdd(record->album, record);
+            // Index by title, and album/artist if present
+            TrieMatcherAdd(record->title, record); // will always have title
+            if (strlen(record->artist) != 0) {TrieMatcherAdd(record->artist, record);}            
+            if (strlen(record->album) != 0) {TrieMatcherAdd(record->album, record);}
+            
+            // Placeholders if album/artist not present
+            if(strlen(record->artist)==0){strcpy(record->artist, "<blank>");}
+            if(strlen(record->album)==0){strcpy(record->album, "<blank>");}
             
             updateLoadingWindow(++i, nTracks);
         }
