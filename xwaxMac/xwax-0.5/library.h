@@ -32,6 +32,7 @@ struct record_t {
         name[MAX_NAME],// FIXME should get rid of this
         pathname[MAX_PATHNAME],
         album[MAX_ALBUM];
+    void *item; // as a stop-gap store the obj-c listingitem here
 };
 
 /* Library acts as a storage of the actual strings */

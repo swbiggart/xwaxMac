@@ -13,6 +13,7 @@
 #import <Foundation/NSPathUtilities.h>
 #include "InterfaceC.h"
 #include "TrieMatcherC.h"
+#include "ListingItem.h"
 
 void iTunes_get_all_tracks(struct library_t *li) {
     
@@ -27,21 +28,36 @@ void iTunes_get_all_tracks(struct library_t *li) {
         ETTrack *t = nil;
         
         while (t = [e nextObject]) {
-            if ( ! [t location] ) continue; // thanks Jacques!
-            
-            NSURL *url = [NSURL URLWithString:[t location]];
+
+            NSString *loc = [t location];
+            if ( ! loc ) continue; // thanks Jacques!
+            NSURL *url = [NSURL URLWithString:loc];
             
             struct record_t *record = malloc(sizeof(struct record_t));
+            
             record->pathname[0] = '\0';
             record->artist[0] = '\0';
             record->title[0] = '\0';
             
-            //TODO ALBUM
-            strncpy(record->pathname, [[url path] UTF8String], MAX_PATHNAME);
-            strncpy(record->artist, [[t artist] UTF8String], MAX_ARTIST);
-            strncpy(record->title, [[t name] UTF8String], MAX_TITLE);
-            strncpy(record->album, [[t album] UTF8String], MAX_ALBUM);
+            NSString *path = [url path];
+            strncpy(record->pathname, [path UTF8String], MAX_PATHNAME);
+            NSString *artist = [t artist];
+            if (artist)
+            strncpy(record->artist, [artist UTF8String], MAX_ARTIST);
+            NSString *title = [t name];
+            if (title)
+            strncpy(record->title, [title UTF8String], MAX_TITLE);
+            NSString *album = [t album];
+            if (album)
+            strncpy(record->album, [album UTF8String], MAX_ALBUM);
             
+
+            ListingItem *li = [[ListingItem alloc] init];
+            [li setArtist:[[t artist] copy]];
+            [li setTitle:[[t name] copy]];
+            [li setAlbum:[[t album] copy]];
+            record->item = li;
+    
             // Index by title, and album/artist if present
             TrieMatcherAdd(record->title, record); // will always have title
             if (strlen(record->artist) != 0) {TrieMatcherAdd(record->artist, record);}            
