@@ -11,16 +11,17 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		8E0423BE10527BAB0036B694 /* SimpleRingBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E0423BD10527BAB0036B694 /* SimpleRingBuffer.cpp */; };
+		8E047913114C19B0007E33AB /* lut.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E047911114C19B0007E33AB /* lut.c */; };
 		8E1241C11098D7DE00F394EC /* RecordLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E1241C01098D7DE00F394EC /* RecordLogger.cpp */; };
 		8E30AF911056E3B800F581BD /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E30AF8E1056E3B800F581BD /* Preferences.xib */; };
 		8E30AF921056E3B800F581BD /* PreferencesWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8E30AF901056E3B800F581BD /* PreferencesWindowController.mm */; };
 		8E30C0841060D43B00F581BD /* ReadPreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E30C0831060D43B00F581BD /* ReadPreferences.c */; };
 		8E30C79F1062E46900F581BD /* Vinyl_Red.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8E30C79E1062E46900F581BD /* Vinyl_Red.icns */; };
+		8E39896310A894EE00D78C7A /* UnicodeUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E39896210A894EE00D78C7A /* UnicodeUtils.c */; };
 		8E3ABCAC104AA34D00F2F441 /* AudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABCAB104AA34D00F2F441 /* AudioFile.cpp */; };
 		8E3ABCD5104AA60700F2F441 /* AUBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABCD3104AA60700F2F441 /* AUBuffer.cpp */; };
 		8E3ABD06104AA6AF00F2F441 /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABD05104AA6AF00F2F441 /* CADebugMacros.cpp */; };
 		8E50557C1088A04A00E34FBD /* TrieMatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E50557B1088A04A00E34FBD /* TrieMatcher.cpp */; };
-		8E63E8A5114C152100795CD9 /* lut.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E63E8A3114C152100795CD9 /* lut.c */; };
 		8E6B001C107DD88B005CF92E /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6B001B107DD88B005CF92E /* Loading.xib */; };
 		8E6B0020107DDA0C005CF92E /* LoadingWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B001F107DDA0C005CF92E /* LoadingWindowController.m */; };
 		8E708C4710790C3700F23E4B /* CARecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E708C4510790C3700F23E4B /* CARecord.cpp */; };
@@ -57,6 +58,8 @@
 		8EB5D0F1100282A400018849 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB5D0F0100282A400018849 /* CoreAudio.framework */; };
 		8EB5D111100282D200018849 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB5D10F100282D200018849 /* AudioToolbox.framework */; };
 		8EB5D112100282D200018849 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB5D110100282D200018849 /* AudioUnit.framework */; };
+		8EC877B010B31DC300ECE85D /* DeckView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC877AF10B31DC300ECE85D /* DeckView.m */; };
+		8EC877B810B31E5D00ECE85D /* Deck.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC877B710B31E5D00ECE85D /* Deck.xib */; };
 		8EC9482C107D28A300330A36 /* AppHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9482B107D28A300330A36 /* AppHelpers.m */; };
 		8EC94832107D2BA800330A36 /* Vera.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EC9482F107D2BA800330A36 /* Vera.ttf */; };
 		8EC94833107D2BA800330A36 /* VeraIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EC94830107D2BA800330A36 /* VeraIt.ttf */; };
@@ -64,6 +67,9 @@
 		8ED0B3D210401C2A002AF97C /* AUWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8ED0B3D110401C2A002AF97C /* AUWindowController.mm */; };
 		8ED0B3DB10401D26002AF97C /* AUWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ED0B3DA10401D26002AF97C /* AUWindow.xib */; };
 		8ED0B4481040395F002AF97C /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ED0B4471040395F002AF97C /* CoreAudioKit.framework */; };
+		8EE6CBD21114A94900108D45 /* ListingWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE6CBD11114A94900108D45 /* ListingWindow.xib */; };
+		8EE6CBD61114AB4B00108D45 /* ListingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6CBD51114AB4B00108D45 /* ListingItem.m */; };
+		8EE6CBD91114AB6A00108D45 /* ListingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6CBD81114AB6A00108D45 /* ListingDataSource.m */; };
 		8EF1B402106398800062954C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF1B401106398800062954C /* IOKit.framework */; };
 		8EF1B408106398CA0062954C /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF1B406106398CA0062954C /* QTKit.framework */; };
 		8EF1B409106398CA0062954C /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF1B407106398CA0062954C /* QuickTime.framework */; };
@@ -98,6 +104,8 @@
 		8E042032105051E20036B694 /* options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = options.h; sourceTree = "<group>"; };
 		8E0423BC10527BAB0036B694 /* SimpleRingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleRingBuffer.h; sourceTree = "<group>"; };
 		8E0423BD10527BAB0036B694 /* SimpleRingBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleRingBuffer.cpp; sourceTree = "<group>"; };
+		8E047911114C19B0007E33AB /* lut.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lut.c; path = "xwax-0.5/lut.c"; sourceTree = "<group>"; };
+		8E047912114C19B0007E33AB /* lut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lut.h; path = "xwax-0.5/lut.h"; sourceTree = "<group>"; };
 		8E1241BF1098D7DE00F394EC /* RecordLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordLogger.h; sourceTree = "<group>"; };
 		8E1241C01098D7DE00F394EC /* RecordLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecordLogger.cpp; sourceTree = "<group>"; };
 		8E30AF8E1056E3B800F581BD /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
@@ -106,6 +114,8 @@
 		8E30C0821060D43B00F581BD /* ReadPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadPreferences.h; sourceTree = "<group>"; };
 		8E30C0831060D43B00F581BD /* ReadPreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ReadPreferences.c; sourceTree = "<group>"; };
 		8E30C79E1062E46900F581BD /* Vinyl_Red.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Vinyl_Red.icns; sourceTree = "<group>"; };
+		8E39896110A894EE00D78C7A /* UnicodeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnicodeUtils.h; sourceTree = "<group>"; };
+		8E39896210A894EE00D78C7A /* UnicodeUtils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = UnicodeUtils.c; sourceTree = "<group>"; };
 		8E3ABCAA104AA34D00F2F441 /* AudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFile.h; sourceTree = "<group>"; };
 		8E3ABCAB104AA34D00F2F441 /* AudioFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioFile.cpp; sourceTree = "<group>"; };
 		8E3ABCD3104AA60700F2F441 /* AUBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUBuffer.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp; sourceTree = DEVELOPER_DIR; };
@@ -116,8 +126,6 @@
 		8E50557A1088A04A00E34FBD /* TrieMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrieMatcher.h; sourceTree = "<group>"; };
 		8E50557B1088A04A00E34FBD /* TrieMatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrieMatcher.cpp; sourceTree = "<group>"; };
 		8E50558B1088AA6B00E34FBD /* TrieMatcherC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrieMatcherC.h; sourceTree = "<group>"; };
-		8E63E8A3114C152100795CD9 /* lut.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lut.c; path = "xwax-0.5/lut.c"; sourceTree = "<group>"; };
-		8E63E8A4114C152100795CD9 /* lut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lut.h; path = "xwax-0.5/lut.h"; sourceTree = "<group>"; };
 		8E6B001B107DD88B005CF92E /* Loading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Loading.xib; sourceTree = "<group>"; };
 		8E6B001E107DDA0C005CF92E /* LoadingWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingWindowController.h; sourceTree = "<group>"; };
 		8E6B001F107DDA0C005CF92E /* LoadingWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingWindowController.m; sourceTree = "<group>"; };
@@ -187,6 +195,9 @@
 		8EB5D0F0100282A400018849 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
 		8EB5D10F100282D200018849 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		8EB5D110100282D200018849 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
+		8EC877AE10B31DC300ECE85D /* DeckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckView.h; sourceTree = "<group>"; };
+		8EC877AF10B31DC300ECE85D /* DeckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeckView.m; sourceTree = "<group>"; };
+		8EC877B710B31E5D00ECE85D /* Deck.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Deck.xib; sourceTree = "<group>"; };
 		8EC9482A107D28A300330A36 /* AppHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppHelpers.h; sourceTree = "<group>"; };
 		8EC9482B107D28A300330A36 /* AppHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppHelpers.m; sourceTree = "<group>"; };
 		8EC9482F107D2BA800330A36 /* Vera.ttf */ = {isa = PBXFileReference; explicitFileType = file; name = Vera.ttf; path = /usr/X11/lib/X11/fonts/TTF/Vera.ttf; sourceTree = "<absolute>"; };
@@ -196,6 +207,11 @@
 		8ED0B3D110401C2A002AF97C /* AUWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AUWindowController.mm; sourceTree = "<group>"; };
 		8ED0B3DA10401D26002AF97C /* AUWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AUWindow.xib; sourceTree = "<group>"; };
 		8ED0B4471040395F002AF97C /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = /System/Library/Frameworks/CoreAudioKit.framework; sourceTree = "<absolute>"; };
+		8EE6CBD11114A94900108D45 /* ListingWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListingWindow.xib; sourceTree = "<group>"; };
+		8EE6CBD41114AB4B00108D45 /* ListingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListingItem.h; sourceTree = "<group>"; };
+		8EE6CBD51114AB4B00108D45 /* ListingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingItem.m; sourceTree = "<group>"; };
+		8EE6CBD71114AB6A00108D45 /* ListingDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListingDataSource.h; sourceTree = "<group>"; };
+		8EE6CBD81114AB6A00108D45 /* ListingDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingDataSource.m; sourceTree = "<group>"; };
 		8EF1B401106398800062954C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		8EF1B406106398CA0062954C /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		8EF1B407106398CA0062954C /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
@@ -327,6 +343,8 @@
 			children = (
 				8E1241BF1098D7DE00F394EC /* RecordLogger.h */,
 				8E1241C01098D7DE00F394EC /* RecordLogger.cpp */,
+				8E39896110A894EE00D78C7A /* UnicodeUtils.h */,
+				8E39896210A894EE00D78C7A /* UnicodeUtils.c */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -345,6 +363,9 @@
 				8E6B001E107DDA0C005CF92E /* LoadingWindowController.h */,
 				8E6B001F107DDA0C005CF92E /* LoadingWindowController.m */,
 				8E6B00B8107E011B005CF92E /* InterfaceC.h */,
+				8EC877AE10B31DC300ECE85D /* DeckView.h */,
+				8EC877AF10B31DC300ECE85D /* DeckView.m */,
+				8EC877B710B31E5D00ECE85D /* Deck.xib */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -405,6 +426,11 @@
 				8E50557A1088A04A00E34FBD /* TrieMatcher.h */,
 				8E50557B1088A04A00E34FBD /* TrieMatcher.cpp */,
 				8E50558B1088AA6B00E34FBD /* TrieMatcherC.h */,
+				8EE6CBD11114A94900108D45 /* ListingWindow.xib */,
+				8EE6CBD41114AB4B00108D45 /* ListingItem.h */,
+				8EE6CBD51114AB4B00108D45 /* ListingItem.m */,
+				8EE6CBD71114AB6A00108D45 /* ListingDataSource.h */,
+				8EE6CBD81114AB6A00108D45 /* ListingDataSource.m */,
 			);
 			name = iTunesListing;
 			sourceTree = "<group>";
@@ -438,8 +464,8 @@
 		8EB5CFC510027E9F00018849 /* xwax */ = {
 			isa = PBXGroup;
 			children = (
-				8E63E8A3114C152100795CD9 /* lut.c */,
-				8E63E8A4114C152100795CD9 /* lut.h */,
+				8E047911114C19B0007E33AB /* lut.c */,
+				8E047912114C19B0007E33AB /* lut.h */,
 				8E968026100FBE5C0074DEEE /* coreaudio.cpp */,
 				8E968025100FBE5C0074DEEE /* coreaudio.h */,
 				8EA3C5AF1016527400FAD50F /* device.c */,
@@ -529,6 +555,8 @@
 				8EC94833107D2BA800330A36 /* VeraIt.ttf in Resources */,
 				8EC94834107D2BA800330A36 /* VeraMono.ttf in Resources */,
 				8E6B001C107DD88B005CF92E /* Loading.xib in Resources */,
+				8EC877B810B31E5D00ECE85D /* Deck.xib in Resources */,
+				8EE6CBD21114A94900108D45 /* ListingWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,7 +605,11 @@
 				8E6B0020107DDA0C005CF92E /* LoadingWindowController.m in Sources */,
 				8E50557C1088A04A00E34FBD /* TrieMatcher.cpp in Sources */,
 				8E1241C11098D7DE00F394EC /* RecordLogger.cpp in Sources */,
-				8E63E8A5114C152100795CD9 /* lut.c in Sources */,
+				8E39896310A894EE00D78C7A /* UnicodeUtils.c in Sources */,
+				8EC877B010B31DC300ECE85D /* DeckView.m in Sources */,
+				8EE6CBD61114AB4B00108D45 /* ListingItem.m in Sources */,
+				8EE6CBD91114AB6A00108D45 /* ListingDataSource.m in Sources */,
+				8E047913114C19B0007E33AB /* lut.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
