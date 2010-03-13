@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 Mark Hills <mark@pogo.org.uk>
+ * Copyright (C) 2010 Mark Hills <mark@pogo.org.uk>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -42,8 +42,8 @@ struct player_t {
 
     struct track_t *track;
     struct timecoder_t *timecoder;
-
-  int passthrough;
+    
+    int passthrough;
 };
 
 void player_init(struct player_t *pl);

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 Mark Hills <mark@pogo.org.uk>
+ * Copyright (C) 2010 Mark Hills <mark@pogo.org.uk>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -43,14 +43,6 @@
 #define SKIP_THRESHOLD (1.0 / 8) /* before dropping audio */
 
 
-/* Smooth the pitch returned from the timecoder. Smooth it too much
- * and we end up having to use sync to bend in line with the
- * timecode. Smooth too little and there will be audible
- * distortion. */
-
-#define PITCH_RC 0.004
-
-
 /* The base volume level. A value of 1.0 leaves no headroom to play
  * louder when the record is going faster than 1.0. */
 
@@ -58,6 +50,20 @@
 
 
 #define SQ(x) ((x)*(x))
+
+
+static inline float cubic_interpolate(float y[4], float mu)
+{
+    float a0, a1, a2, a3, mu2;
+
+    mu2 = SQ(mu);
+    a0 = y[3] - y[2] - y[0] + y[1];
+    a1 = y[0] - y[1] - a0;
+    a2 = y[2] - y[0];
+    a3 = y[1];
+
+    return (a0 * mu * mu2) + (a1 * mu2) + (a2 * mu) + a3;
+}
 
 
 /* Build a block of PCM audio, resampled from the track. Always builds
@@ -69,44 +75,49 @@ static double build_pcm(signed short *pcm, int samples, int rate,
                         struct track_t *tr, double position, float pitch,
                         float start_vol, float end_vol)
 {
-    signed short a, b, *pa, *pb;
-    int s, c, sa, sb;
+    int s;
     double sample, step;
-    float f, vol;
+    float vol, gradient;
 
     sample = position * tr->rate;
     step = (double)pitch * tr->rate / rate;
 
-    for(s = 0; s < samples; s++) {
+    vol = start_vol;
+    gradient = (end_vol - start_vol) / samples;
 
-        /* Calculate the pcm samples which sample falls
-         * inbetween. sample can be positive or negative */
+    for(s = 0; s < samples; s++) {
+        int c, sa, q;
+        float f, i[PLAYER_CHANNELS][4];
+
+        /* 4-sample window for interpolation */
 
         sa = (int)sample;
         if(sample < 0.0)
             sa--;
-        sb = sa + 1;
         f = sample - sa;
+        sa--;
 
-        vol = start_vol + ((end_vol - start_vol) * s / samples);
+        for(q = 0; q < 4; q++, sa++) {
+            if(sa < 0 || sa >= tr->length) {
+                for(c = 0; c < PLAYER_CHANNELS; c++)
+                    i[c][q] = 0.0;
+            } else {
+                signed short *ts;
+                int c;
 
-        if(sa >= 0 && sa < tr->length)
-            pa = track_get_sample(tr, sa);
-        else
-            pa = NULL;
-
-        if(sb >= 0 && sb < tr->length)
-            pb = track_get_sample(tr, sb);
-        else
-            pb = NULL;
+                ts = track_get_sample(tr, sa);
+                for(c = 0; c < PLAYER_CHANNELS; c++)
+                    i[c][q] = (float)ts[c];
+            }
+        }
 
         for(c = 0; c < PLAYER_CHANNELS; c++) {
-            a = pa ? *(pa + c) : 0;
-            b = pb ? *(pb + c) : 0;
-            *pcm++ = vol * ((1.0 - f) * a + f * b);
+            *pcm++ = vol * cubic_interpolate(i[c], f)
+                + (float)(rand() % 32768) / 32768 - 0.5; /* dither */
         }
 
         sample += step;
+        vol += gradient;
     }
 
     return (double)pitch * samples / rate;
@@ -128,8 +139,6 @@ void player_init(struct player_t *pl)
 
     pl->track = NULL;
     pl->timecoder = NULL;
-
-    pl->passthrough = 0;
 }
 
 
@@ -172,12 +181,12 @@ static int sync_to_timecode(struct player_t *pl)
     /* If we can read an absolute time from the timecode, then use it */
     
     if(timecode == -1)
-    pl->target_valid = 0;
+	pl->target_valid = 0;
 
     else {
         tcpos = (double)timecode / timecoder_get_resolution(pl->timecoder);
         pl->target_position = tcpos + pl->pitch * when;
-    pl->target_valid = 1;
+	pl->target_valid = 1;
     }
 
     return 0;
@@ -223,7 +232,7 @@ int player_collect(struct player_t *pl, signed short *pcm,
 
         if(pl->reconnect) {
             pl->offset += pl->target_position - pl->position;
-        pl->position = pl->target_position;
+	    pl->position = pl->target_position;
             pl->reconnect = 0;
         }
 
@@ -261,7 +270,7 @@ int player_collect(struct player_t *pl, signed short *pcm,
     /* Sync pitch is applied post-filtering */
 
     pl->position += build_pcm(pcm, samples, rate,
-                  pl->track,
+			      pl->track,
                               pl->position - pl->offset,
                               pl->pitch * pl->sync_pitch,
                               pl->volume, target_volume);

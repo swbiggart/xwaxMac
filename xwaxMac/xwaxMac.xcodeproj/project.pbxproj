@@ -20,6 +20,7 @@
 		8E3ABCD5104AA60700F2F441 /* AUBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABCD3104AA60700F2F441 /* AUBuffer.cpp */; };
 		8E3ABD06104AA6AF00F2F441 /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3ABD05104AA6AF00F2F441 /* CADebugMacros.cpp */; };
 		8E50557C1088A04A00E34FBD /* TrieMatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E50557B1088A04A00E34FBD /* TrieMatcher.cpp */; };
+		8E63E8A5114C152100795CD9 /* lut.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E63E8A3114C152100795CD9 /* lut.c */; };
 		8E6B001C107DD88B005CF92E /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6B001B107DD88B005CF92E /* Loading.xib */; };
 		8E6B0020107DDA0C005CF92E /* LoadingWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B001F107DDA0C005CF92E /* LoadingWindowController.m */; };
 		8E708C4710790C3700F23E4B /* CARecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E708C4510790C3700F23E4B /* CARecord.cpp */; };
@@ -41,7 +42,6 @@
 		8EA3C5BF1016527400FAD50F /* rig.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5AD1016527400FAD50F /* rig.c */; };
 		8EA3C5C01016527400FAD50F /* device.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5AF1016527400FAD50F /* device.c */; };
 		8EA3C5C11016527400FAD50F /* player.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B01016527400FAD50F /* player.c */; };
-		8EA3C5C21016527400FAD50F /* pitch.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B11016527400FAD50F /* pitch.c */; };
 		8EA3C5C31016527400FAD50F /* listing.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B51016527400FAD50F /* listing.c */; };
 		8EA3C5C41016527400FAD50F /* library.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5B71016527400FAD50F /* library.c */; };
 		8EA3C5C61016527400FAD50F /* interface.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C5BB1016527400FAD50F /* interface.c */; };
@@ -116,6 +116,8 @@
 		8E50557A1088A04A00E34FBD /* TrieMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrieMatcher.h; sourceTree = "<group>"; };
 		8E50557B1088A04A00E34FBD /* TrieMatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrieMatcher.cpp; sourceTree = "<group>"; };
 		8E50558B1088AA6B00E34FBD /* TrieMatcherC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrieMatcherC.h; sourceTree = "<group>"; };
+		8E63E8A3114C152100795CD9 /* lut.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lut.c; path = "xwax-0.5/lut.c"; sourceTree = "<group>"; };
+		8E63E8A4114C152100795CD9 /* lut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lut.h; path = "xwax-0.5/lut.h"; sourceTree = "<group>"; };
 		8E6B001B107DD88B005CF92E /* Loading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Loading.xib; sourceTree = "<group>"; };
 		8E6B001E107DDA0C005CF92E /* LoadingWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingWindowController.h; sourceTree = "<group>"; };
 		8E6B001F107DDA0C005CF92E /* LoadingWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingWindowController.m; sourceTree = "<group>"; };
@@ -153,7 +155,6 @@
 		8EA3C5AE1016527400FAD50F /* player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = player.h; path = "xwax-0.5/player.h"; sourceTree = "<group>"; };
 		8EA3C5AF1016527400FAD50F /* device.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = device.c; path = "xwax-0.5/device.c"; sourceTree = "<group>"; };
 		8EA3C5B01016527400FAD50F /* player.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = player.c; path = "xwax-0.5/player.c"; sourceTree = "<group>"; };
-		8EA3C5B11016527400FAD50F /* pitch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pitch.c; path = "xwax-0.5/pitch.c"; sourceTree = "<group>"; };
 		8EA3C5B21016527400FAD50F /* pitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pitch.h; path = "xwax-0.5/pitch.h"; sourceTree = "<group>"; };
 		8EA3C5B31016527400FAD50F /* listing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = listing.h; path = "xwax-0.5/listing.h"; sourceTree = "<group>"; };
 		8EA3C5B41016527400FAD50F /* interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = interface.h; path = "xwax-0.5/interface.h"; sourceTree = "<group>"; };
@@ -437,6 +438,8 @@
 		8EB5CFC510027E9F00018849 /* xwax */ = {
 			isa = PBXGroup;
 			children = (
+				8E63E8A3114C152100795CD9 /* lut.c */,
+				8E63E8A4114C152100795CD9 /* lut.h */,
 				8E968026100FBE5C0074DEEE /* coreaudio.cpp */,
 				8E968025100FBE5C0074DEEE /* coreaudio.h */,
 				8EA3C5AF1016527400FAD50F /* device.c */,
@@ -447,7 +450,6 @@
 				8EA3C5B61016527400FAD50F /* library.h */,
 				8EA3C5B51016527400FAD50F /* listing.c */,
 				8EA3C5B31016527400FAD50F /* listing.h */,
-				8EA3C5B11016527400FAD50F /* pitch.c */,
 				8EA3C5B21016527400FAD50F /* pitch.h */,
 				8EA3C5B01016527400FAD50F /* player.c */,
 				8EA3C5AE1016527400FAD50F /* player.h */,
@@ -548,7 +550,6 @@
 				8EA3C5BF1016527400FAD50F /* rig.c in Sources */,
 				8EA3C5C01016527400FAD50F /* device.c in Sources */,
 				8EA3C5C11016527400FAD50F /* player.c in Sources */,
-				8EA3C5C21016527400FAD50F /* pitch.c in Sources */,
 				8EA3C5C31016527400FAD50F /* listing.c in Sources */,
 				8EA3C5C41016527400FAD50F /* library.c in Sources */,
 				8EA3C5C61016527400FAD50F /* interface.c in Sources */,
@@ -576,6 +577,7 @@
 				8E6B0020107DDA0C005CF92E /* LoadingWindowController.m in Sources */,
 				8E50557C1088A04A00E34FBD /* TrieMatcher.cpp in Sources */,
 				8E1241C11098D7DE00F394EC /* RecordLogger.cpp in Sources */,
+				8E63E8A5114C152100795CD9 /* lut.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

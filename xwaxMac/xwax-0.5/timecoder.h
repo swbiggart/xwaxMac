@@ -1,5 +1,5 @@
 /* 
- * Copyright (C) 2009 Mark Hills <mark@pogo.org.uk>
+ * Copyright (C) 2010 Mark Hills <mark@pogo.org.uk>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -20,7 +20,10 @@
 #ifndef TIMECODER_H
 #define TIMECODER_H
 
+#include <stdbool.h>
+
 #include "device.h"
+#include "lut.h"
 #include "pitch.h"
 
 #define TIMECODER_CHANNELS DEVICE_CHANNELS
@@ -38,13 +41,14 @@ struct timecode_def_t {
         taps; /* central LFSR taps, excluding end taps */
     unsigned int length, /* in cycles */
         safe; /* last 'safe' timecode number (for auto disconnect) */
-    signed int *lookup; /* pointer to built lookup table */
+    bool lookup; /* true if lut has been generated */
+    struct lut_t lut;
 };
 
 
 struct timecoder_channel_t {
     int positive, /* wave is in positive part of cycle */
-    swapped; /* wave recently swapped polarity */
+	swapped; /* wave recently swapped polarity */
     signed int zero;
     unsigned int crossing_ticker; /* samples since we last crossed zero */
 };
@@ -81,7 +85,7 @@ struct timecoder_t {
 void timecoder_free_lookup(void);
 
 int timecoder_init(struct timecoder_t *tc, const char *def_name,
-           unsigned int sample_rate);
+		   unsigned int sample_rate);
 void timecoder_clear(struct timecoder_t *tc);
 
 int timecoder_monitor_init(struct timecoder_t *tc, int size);
@@ -119,6 +123,5 @@ static inline int timecoder_get_resolution(struct timecoder_t *tc)
 }
 
 struct timecode_def_t* get_all_definitions();
-
 
 #endif
