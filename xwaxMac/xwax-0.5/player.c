@@ -139,6 +139,8 @@ void player_init(struct player_t *pl)
 
     pl->track = NULL;
     pl->timecoder = NULL;
+    
+    pl->passthrough = 0;
 }
 
 
