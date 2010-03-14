@@ -209,15 +209,8 @@ int read_from_buffer(struct track_t *tr)
 		
         block->overview[ls / TRACK_OVERVIEW_RES] = tr->overview >> 24;
     }
-	printf("Block=%d\n",s / (TRACK_BLOCK_SAMPLES * SAMPLE));
-
-    
-    tr->length = s;
-	
-	pthread_mutex_unlock(&(tr)->import_mx);
-	printf("Unlock\n");
-
-	
+	printf("Block=%d\n",s / (TRACK_BLOCK_SAMPLES * SAMPLE));    
+    tr->length = s;	
     return 0;
 }
 
@@ -430,7 +423,17 @@ void *track_import_osx_thread(void *args)
 	tr->oldblocks = tr->blocks;
 	tr->blocks = 0;
 	int result = loadAudioFile(tr->path, tr);	
-	tr->status = TRACK_STATUS_VALID;
+    if (result != 0)
+    {
+        printf("Import failed\n");
+    }
+    else
+    {
+    	tr->status = TRACK_STATUS_VALID;
+    }
+    // Unlock track, whether it succeeded or not
+    pthread_mutex_unlock(&(tr)->import_mx);
+    printf("Unlock import mutex for track\n");
 	UNLOCK(tr);
 	rig_awaken(tr->rig);
 	return 0;

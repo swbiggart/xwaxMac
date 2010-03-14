@@ -83,30 +83,32 @@ int loadAudioFile(const char* fileName, struct track_t *tr)
         fprintf(stderr,"Problem with getting converter %ld!\n", status);
         return -1;
     }    
-    // Setup channel map in case the source is not stereo
-    SInt32 *channelMap = NULL;
-    UInt32 size = sizeof(SInt32)*2;
-    channelMap = (SInt32*)malloc(size);
-    // Map from file to desired channels
-    // Mono - map to both channels
-    if (audioFileStreamFormat.mChannelsPerFrame == 1)
+    if (conv != NULL)
     {
-        channelMap[0] = 0;
-        channelMap[1] = 0;
+        // Setup channel map in case the source is not stereo
+        SInt32 *channelMap = NULL;
+        UInt32 size = sizeof(SInt32)*2;
+        channelMap = (SInt32*)malloc(size);
+        // Map from file to desired channels
+        // Mono - map to both channels
+        if (audioFileStreamFormat.mChannelsPerFrame == 1)
+        {
+            channelMap[0] = 0;
+            channelMap[1] = 0;
+        }
+        // Stereo or multichannel - pick first two channels
+        else 
+        {
+            channelMap[0] = 0;
+            channelMap[1] = 1;
+        }
+        status = AudioConverterSetProperty(conv, kAudioConverterChannelMap, size, channelMap);
+        if (status != noErr) {
+            fprintf(stderr,"Problem with setting channel map %ld!\n", status);
+            return -1;
+        }    
+        free(channelMap);
     }
-    // Stereo or multichannel - pick first two channels
-    else 
-    {
-        channelMap[0] = 0;
-        channelMap[1] = 1;
-    }
-    status = AudioConverterSetProperty(conv, kAudioConverterChannelMap, size, channelMap);
-    if (status != noErr) {
-        fprintf(stderr,"Problem with getting converter %ld!\n", status);
-        return -1;
-    }    
-    free(channelMap);
-    
     // Allocate buffer and load file
     m_auBufferList.Allocate(clientStreamFormat, (UInt32)audioFileNumFrames);
     AudioBufferList & abl = m_auBufferList.PrepareBuffer(clientStreamFormat, (UInt32)audioFileNumFrames);
@@ -129,6 +131,9 @@ int loadAudioFile(const char* fileName, struct track_t *tr)
         
     // copy data into blocks used by track in xwax
     read_from_buffer(tr);
+    
+    // if we got this far then track has been loaded, notify logging service
+    RecordLogger::GetInstance()->LogRecord(tr->title, tr->artist, tr->path);
     
     // AU buffers get dealloced here by deconstructor for m_auBufferList
     return 0;
