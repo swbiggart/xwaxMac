@@ -133,7 +133,7 @@ int loadAudioFile(const char* fileName, struct track_t *tr)
     read_from_buffer(tr);
     
     // if we got this far then track has been loaded, notify logging service
-    RecordLogger::GetInstance()->LogRecord(tr->title, tr->artist, tr->path);
+    //RecordLogger::GetInstance()->LogRecord(tr->title, tr->artist, tr->path);
     
     // AU buffers get dealloced here by deconstructor for m_auBufferList
     return 0;
