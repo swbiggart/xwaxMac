@@ -341,7 +341,7 @@ OSStatus CAPlayThrough::MakeGraph()
 
     //Setup Output node and unit
     outDesc.componentType = kAudioUnitType_Output;
-    outDesc.componentSubType = kAudioUnitSubType_DefaultOutput;
+    outDesc.componentSubType = kAudioUnitSubType_HALOutput;
     outDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
     outDesc.componentFlags = 0;
     outDesc.componentFlagsMask = 0;
