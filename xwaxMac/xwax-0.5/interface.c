@@ -503,7 +503,8 @@ static void draw_scope(SDL_Surface *surface, const struct rect_t *rect,
 
             p[0] = v;
             p[1] = p[0];
-            p[2] = p[1];            
+            p[2] = p[1];
+            p[3] = p[2];
         }
     }    
 }
@@ -549,13 +550,15 @@ static void draw_spinner(SDL_Surface *surface, const struct rect_t *rect,
             p = rp + (x + c) * surface->format->BytesPerPixel;
 
             if((rangle - pangle + 1024) % 1024 < 512) {
-                p[0] = col.b >> 2;
-                p[1] = col.g >> 2;
-                p[2] = col.r >> 2;
+                p[3] = col.b >> 2;
+                p[2] = col.g >> 2;
+                p[1] = col.r >> 2;
+                p[0] = 255 >> 2;
             } else {
-                p[0] = col.b;
-                p[1] = col.g;
-                p[2] = col.r;
+                p[3] = col.b;
+                p[2] = col.g;
+                p[1] = col.r;
+                p[0] = 255;
             }
         }
     }    
@@ -673,16 +676,18 @@ static void draw_overview(SDL_Surface *surface, const struct rect_t *rect,
 
         r = h;
         while(r > height) {
-            p[0] = col.b >> fade;
-            p[1] = col.g >> fade;
-            p[2] = col.r >> fade;
+            p[3] = col.b >> fade;
+            p[2] = col.g >> fade;
+            p[1] = col.r >> fade;
+            p[0] = 255 >> fade;
             p += pitch;
             r--;
         }
         while(r) {
-            p[0] = col.b;
-            p[1] = col.g;
-            p[2] = col.r;
+            p[3] = col.b;
+            p[2] = col.g;
+            p[1] = col.r;
+            p[0] = 255;
             p += pitch;
             r--;
         }
@@ -735,19 +740,21 @@ static void draw_closeup(SDL_Surface *surface, const struct rect_t *rect,
          * it for each row */
 
         p = pixels + y * pitch + (x + c) * bytes_per_pixel;
-
+        
         r = h;
         while(r > height) {
-            p[0] = col.b >> fade;
-            p[1] = col.g >> fade;
-            p[2] = col.r >> fade;
+            p[3] = col.b >> fade;
+            p[2] = col.g >> fade;
+            p[1] = col.r >> fade;
+            p[0] = 255 >> fade;
             p += pitch;
             r--;
         }
         while(r) {
-            p[0] = col.b;
-            p[1] = col.g;
-            p[2] = col.r;
+            p[3] = col.b;
+            p[2] = col.g;
+            p[1] = col.r;
+            p[0] = 255;
             p += pitch;
             r--;
         }
